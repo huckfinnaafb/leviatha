@@ -18,7 +18,7 @@
                 throw new Exception("No Family Members Found.");
             }
         } catch (Exception $e) {
-            echo "<p class='module mod-notify mod-tip'>" . $e->getMessage(), "</p>\n";
+            echo "<p class='module mod-notify mod-warning'>" . $e->getMessage(), "</p>\n";
         }
     ?>
 </div>
