@@ -116,6 +116,7 @@ body {
     .mod-itemlist {
         padding:0;
     }
+    .mod-itemlist .mod-notify { margin: 0 }
 .node {overflow:auto}
 .node-item {
     background-color: #eee;

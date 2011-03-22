@@ -328,8 +328,8 @@
                     JOIN loot
                         ON loot_magic.class = loot.name
                 WHERE (loot_magic.level > '$level') 
-                    NOT IN (loot_magic.name = '$item')
                     AND (loot.division = '$division')
+                    NOT IN (loot_magic.name = '$item')
                 ORDER BY loot_magic.level ASC
                 LIMIT 6
             ";
