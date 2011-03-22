@@ -10,10 +10,14 @@
         <meta name="copyright" content="Copyright 2011 - Samuel Ferrell">
         <link rel="stylesheet" href="/css/style.css" />
         <style>
+            .mod-header { background-color: #f2f2f2; }
             html{background-color:#f2f2f2;}
             .page {text-align: center;margin-top: 100px;background: none;border: 0}
             .nav {margin: 20px 0}
             .mod-footer{border:0;margin:0;}
+            .form-search{text-align:center;margin-top:0;}
+            .input-text{width:390px;}
+            .link-nav:link,.link-nav:visited{color:#333;}
         </style>
         <script>
             var _gaq = _gaq || [];
@@ -41,10 +45,10 @@
                     <a class="link-nav" style="text-decoration: line-through" href="/">Classes</a>
                     <a class="link-nav" style="text-decoration: line-through" href="/">Skills</a>
                 </div>
-                <form action="search" method="get" class="form form-search">
-                    <fieldset class="fieldset field-search">
-                        <input type="text" class="input input-text" name="q" selected="selected"/>
-                        <input type="submit" class="input input-submit" value="Search"/>
+                <form action="search" method="get" class="form-search">
+                    <fieldset class="field-search">
+                        <input type="text" class="input-text" name="q" selected="selected"/>
+                        <input type="submit" class="input-submit" value="Search"/>
                     </fieldset>
                 </form>
             </div>

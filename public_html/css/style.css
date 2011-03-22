@@ -28,18 +28,17 @@ input[type="checkbox"] {vertical-align:bottom; *vertical-align:baseline} input[t
 /* Print and other Device Styles */ 
 @media print { * { background: transparent !important; color: #444 !important; text-shadow: none; } a, a:visited { color: #444 !important; text-decoration: underline; } a:after { content: " (" attr(href) ")"; } abbr:after { content: " (" attr(title) ")"; } .ir a:after { content: ""; } /* Don't show links for images */ pre, blockquote { border: 1px solid #999; page-break-inside: avoid; } img { page-break-inside: avoid; } @page { margin: 0.5cm; } p, h2, h3 { orphans: 3; widows: 3; } h2, h3{ page-break-after: avoid; } } @media all and (orientation:portrait) {} @media all and (orientation:landscape) {} @media screen and (max-device-width: 480px) { html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } } 
 
-
 /* ---------- Defaults */
 html {
-    border-top: 10px solid #303E4B;
-	background-color: #f9f9f9;
+    border-top: 20px solid #303E4B;
+	background-color: #eee;
 }
 body {
 	color: #333;
 	font-family: Arial;
     font-size: 14px;
 }
-.nav {margin: 10px 0}
+.nav {margin-top: 10px}
 
 /* Grid System */
 .line:after,.lastUnit:after{clear:both;display:block;visibility:hidden;overflow:hidden;height:0 !important;line-height:0;font-size:xx-large;content:" x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";}
@@ -59,7 +58,7 @@ body {
 
 /* Structures */
 .page {
-    background-color: #f2f2f2;
+    background-color: #f9f9f9;
     border-bottom: 1px solid #ddd;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
@@ -76,8 +75,9 @@ body {
 	padding: 8px; 
 }
     .mod-header {
-        margin-top: 0;
-        padding-top: 20px;
+        background-color: #303E4B;
+        margin: 0 0 16px 0;
+        padding: 16px 24px 20px 24px;
     }
     .mod-footer {
         border-top: 1px solid #ddd;
@@ -137,6 +137,14 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.5;
 }
 h2 { font-size: 20px }
+    .h-title {
+        font-size: 68px;
+        font-family: "Times New Roman";
+        font-variant: small-caps;
+        text-shadow: 1px 1px 1px #303E4B;
+        line-height: 54px;
+        letter-spacing: 5px;
+    }
     .h-info {
         cursor: default;
         font-size: 16px;
@@ -228,14 +236,14 @@ a:hover {
     
     .link-title:link, 
     .link-title:visited { 
-        color: #333;
+        color: #f2f2f2;
         text-decoration: none; 
     }
     .link-title:hover { color: #D93240; }
     
 	.link-nav:link, 
     .link-nav:visited {
-        color: #555;
+        color: #f2f2f2;
 		margin-right: 22px;
 		font-size: 14px;
         text-decoration: none;
@@ -307,7 +315,7 @@ img{}
         margin-top: 4px;
     }
     .img-header {
-        background-image: url('/img/logosmall.png');
+        background-image: url('/img/logosmall2.png');
         background-repeat: no-repeat;
         width: 324px;
         height: 46px;
@@ -320,6 +328,10 @@ img{}
 form {}
 field {}
 input {}
+    .form-search {
+        margin-top: 50px;
+        text-align: right;
+    }
 	.input-text {
         -moz-border-radius: 6px;
         border-radius: 6px;
@@ -333,7 +345,7 @@ input {}
 		height: 26px;
 		padding-left: 32px;
 		padding-top: 2px;
-		width: 370px;
+		width: 340px;
 	}
 		.input-text:focus { outline: 0 }
 	.input-submit {

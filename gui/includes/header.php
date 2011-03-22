@@ -30,22 +30,28 @@
     <body>
         <div class="page">
             <div class="module mod-header">
-                <div class="hgroup">
-                    <a href="/"><div class="img-header"></div></a>
+                <div class="line">
+                    <div class="unit size1of2">
+                        <div class="hgroup">
+                            <h1 class="h-title"><a class="link-title" href="/">Leviatha</a></h1>
+                        </div>
+                        <div class="nav">
+                            <a class="link-nav" href="/">Home</a>
+                            <a class="link-nav" href="/loot">Loot</a>
+                            <a class="link-nav" style="text-decoration: line-through" href="/">Monsters</a>
+                            <a class="link-nav" style="text-decoration: line-through" href="/">World</a>
+                            <a class="link-nav" style="text-decoration: line-through" href="/">Classes</a>
+                            <a class="link-nav" style="text-decoration: line-through" href="/">Skills</a>
+                        </div>
+                    </div>
+                    <div class="unit size1of2 lastUnit">
+                        <form action="/search" method="get" class="form-search">
+                            <fieldset class="fieldset field-search">
+                                <input type="text" class="input input-text" id="autosuggest" name="q"/>
+                                <input type="submit" class="input input-submit" value="Search"/>
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
-                <div class="nav">
-                    <a class="link-nav" href="/">Home</a>
-                    <a class="link-nav" href="/loot">Loot</a>
-                    <a class="link-nav" style="text-decoration: line-through" href="/">Monsters</a>
-                    <a class="link-nav" style="text-decoration: line-through" href="/">World</a>
-                    <a class="link-nav" style="text-decoration: line-through" href="/">Classes</a>
-                    <a class="link-nav" style="text-decoration: line-through" href="/">Skills</a>
-                </div>
-                <form action="/search" method="get" class="form form-search">
-                    <fieldset class="fieldset field-search">
-                        <input type="text" class="input input-text" id="autosuggest" name="q"/>
-                        <input type="submit" class="input input-submit" value="Search"/>
-                    </fieldset>
-                </form>
             </div>
             <div class="content">
