@@ -68,7 +68,6 @@ body {
     min-height: 100%;
     width: 960px;
 }
-.content {}
 
 /* Modules */
 .module {
@@ -91,8 +90,8 @@ body {
         background-position: 8px center;
         background-repeat: no-repeat;
         border: 1px dashed #ddd;
-        padding-left: 48px;
         margin: 4px 16px;
+        padding-left: 48px;
     }
         .mod-success {
             background-color: #e2efe1;
@@ -196,9 +195,7 @@ p {
         font-size: 12px;
         color: #666;
     }
-    .text-author {
-        
-    }
+    .text-author {}
     .text-subtle {
         color: #999;
         font-size: 11px;
@@ -304,7 +301,7 @@ ul li {}
 
 /* Images */
 img{}
-    .img-itemthumb{
+    .img-itemthumb {
         float: left;
         margin-right: 8px;
         margin-top: 4px;
