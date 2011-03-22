@@ -5,7 +5,7 @@ TODO sorted by descending priority:
 * CONTENT: Add magical properties translations (sql table: loot_translate_magic_properties)
 * CONTENT: Add loot images (big task)
 * CONTENT: Add useful content to /loot
-* SERVER: Rewrite &item= to "/" (SEO friendly URLs)
+* SERVER: Rewrite ?item= to "/" (SEO friendly URLs)
 * STYLE: Restyle loot object pages
 * FEATURE IMPROVE: Improve search by relevancy
 * FEATURE REQUEST: Auto-suggest search
