@@ -5,3 +5,4 @@ TODO sorted by descending priority:
 * Add magical properties translations (sql table: loot_translate_magic_properties)
 * Add useful content to /loot
 * Rewrite &item= to "/" (SEO friendly URLs)
+* Style loot page properties
