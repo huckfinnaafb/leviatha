@@ -116,7 +116,7 @@ body {
     .mod-itemlist {
         padding:0;
     }
-    .mod-itemlist .mod-notify { margin: 0 }
+    .module .mod-notify { margin: 0 }
 .node {overflow:auto}
 .node-item {
     background-color: #eee;
@@ -292,6 +292,12 @@ tbody {}
     
 .list-taxonomy { margin: 12px 4px; }
 .list-taxonomy li { margin-left: 2em; line-height: 2;}
+
+.list-iteminfo {}
+.list-iteminfo li {
+    font-size: 12px;
+    line-height: 2.2;
+}
 
 /* Images */
 img{}
