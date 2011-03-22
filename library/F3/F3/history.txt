@@ -1,0 +1,980 @@
+RELEASE HISTORY
+
+1.4.4
+*	MySQL connection now defaults to UTF8
+*	F3:repeat template directive's "value" tag can now be used as an alias
+	of "index"
+*	Change in behavior: Cache is now disabled by default;
+	F3::set('CACHE',TRUE) enables the cache and auto-detects any suitable
+	back-end
+*	Minor optimizations
+*	Several E_NOTICE and E_STRICT fixes
+*	Bug fix: URL-encoded braces in HTML/XML attributes
+*	Bug fix: Route resolution
+*	Bug fix: Dynamic routing
+*	Bug fix: Suppress errors if F3 is not the only autoloader
+*	Bug fix: F3::clear('SESSION')
+
+1.4.3
+*	F3 templates: {* comment *} can now be used as shorthand substitute for
+	<F3:exclude>comment</F3:exclude>
+*	Better HTTP PUT support: PUT global variable points to file handle
+	associated with stdin stream
+*	Minor performance optimization
+*	Bug fix: onLoad() method
+*	Bug fix: Cache::fetch()
+*	Bug fix: characters allowed by RFC 1738
+*	Bug fix: template expressions contained in HTML/XML attributes
+*	Bug fix: recursive autoloading
+*	Bug fix: Expansion::isAjax()
+
+1.4.2
+*	NEW: Atom/RSS feed reader plugin
+*	NEW: Geo::location()
+*	Change in behavior: All Axon/M2 event listeners: beforeSync(),
+	beforeLoad(), beforeSave(), beforeErase() will now abort execution of
+	the relevant method if the event handler of the child class returns
+	FALSE
+*	Workaround on Apache's VirtualDocumentRoot limitation
+*	Axon's copyTo() method now copies virtual fields to framework variable
+*	Minor tweaks in Auth plugin: LDAP
+*	Code optimizations
+*	Bug fix: onLoad() method
+*	Bug fix: M2::save()
+
+1.4.1
+*	Bug fix: cache/custom log folder write privileges
+*	Bug fix: array to string conversion
+*	Bug fix: APC error when clearing variable that doesn't exist in cache
+*	Bug fix: M2 _id contains @ prefix when rendered
+
+1.4.0
+*	NEW: Network plugin; Input data handlers/validators moved to separate
+	Data plugin
+*	NEW: F3::invert() method inverts colors of specified JPG/GIF/PNG image
+*	NEW: Assigning a function or class/method to the UNLOAD global variable
+	instructs the framework to execute the specified code before the
+	application shuts down
+*	NEW: Better caching; Level-1 and Level-2 cache hits/misses added to
+	F3::profile() method
+*	NEW: Axon->findOne() and M2->findOne() methods for retrieving the first
+	record (or collection object, in the case of M2) that matches the
+	specified criteria
+*	NEW: Auth::HTTP() provides basic HTTP authentication against a user-
+	configurable back-end (LDAP, IMAP, sqlDB, or nosqlDB)
+*	Change in behavior: record offset is now a separate argument in
+	F3::lookup(), F3::find(), F3::findOne()
+*	Transliteration of consecutive non-RFC 1738 characters in F3::slug() now
+	evaluated as a single hyphen
+*	F3::validEmail() now has option to check if DNS MX records exist for the
+	domain associated with the e-mail address
+*	Level-1 cache size limit enforced
+*	Unit test method expect() moved to Expansion pack
+*	Bug fix: F3:include directive
+
+1.3.24
+*	NEW: F3::slug() returns URL-friendly version of string argument (also
+	converts Latin diacritics to 7-bit equivalents); F3::route() now
+	complies with RFC 1738 specifications for characters that need no
+	URL-encoding
+*	NEW: Multiple request methods in F3::route
+		F3::route('GET|POST /whodunnit',
+			function() {
+				echo 'I did';
+			}
+		);
+	In this example, the framework makes no distinction between GET and POST
+	methods and will route the request to the same handler
+*	NEW: validCaptcha() returns TRUE if SESSION.captcha is set and has a
+	value identical to the argument passed to this method
+*	NEW: Framework will reroute attempts to hotlink a resource (a Web page,
+	image, media file, etc.) to the URL (or route) defined in the HOTLINK
+	global variable; If such variable exists, the framework will prohibit
+	access to an F3::route() with FALSE as the fourth argument (see the quick
+	reference for details) - this is particularly useful for preventing
+	bandwidth theft
+*	F3::send() now supports partial downloads
+*	Performance improvements in graphics generators: F3::captcha(),
+	F3::fakeImage(), F3::thumb(), and F3::identicon()
+*	Bug fix: frameset treated by template engine as an empty HTML tag
+*	Bug fix: CLI output
+
+1.3.23
+*	Lots of code optimization and performance improvements
+*	Framework methods dependent on PHP's GD extension, i.e. identicon(),
+	thumb(), captcha(), and fakeImage(), have been removed from the
+	Expansion Pack; these methods have been reclassified and now belong to
+	the Graphics plugin - there should be no effect in existing applications
+	if graphics.php is saved in the autoload/ folder
+*	Results returned by F3::http() are now cached if the framework receives
+	HTTP Cache-Control and Expires headers from remote host
+*	More specific error message when PHP's PCRE fails
+*	Bug fix: XCache auto-detection
+*	Bug fix: Error when PHP intl extension is not installed and i18n plugin
+	is in autoload folder
+*	Bug fix: Spaces removed from some CSS rules by F3::minify() are not
+	accepted/understood by MSIE
+*	Bug fix: Reconstruction of HTTP deflate-encoded data
+*	Bug fix: Signed/unsigned floats with exponents in template expressions
+
+1.3.22
+*	Case-insensitive autoload classes
+*	Bug fix: Cache::prep() fails on file system back-end
+
+1.3.21
+*	NEW: F3::pick() method for retrieving values of a named column from a
+	framework array variable
+*	NEW: F3::sqlBind() method for late binding of values to parameters in
+	SQL statement:-
+		F3::sqlBind(
+			'SELECT * FROM products WHERE quantity>:specified',
+				array(':specified'=>array(28,PDO::PARAM_INT))
+		);
+	or:-
+		F3::sqlBind(
+			'SELECT * FROM users WHERE id=:id AND hash=:md5pwd',
+				array(
+					':id'=>array(2135890,PDO::PARAM_INT),
+					':md5pwd'=>'5d41402abc4b2a76b9719d911017c592'
+				)
+		);
+	If the parameter is not associated with any data type, or the value
+	matching the parameter is a scalar, PDO::PARAM_STR is assumed
+*	F3::qq() deprecated; use the more reliable F3::sqlBind() method
+*	NEW: [maps] section in configuration files for passing URLs and classes
+	(as key-value pairs) to the F3::map() method
+*	Change in behavior: F3::input() now converts special characters to HTML
+	entities automatically as an additional security measure; if you wish to
+	display form input containing HTML in your templates, use:-
+		{htmlspecialchars_decode(@var)} or {html_entity_decode(@var)}
+*	Change in behavior: i18n plugin/template extension usage simplified;
+	instead of searching $_REQUEST['lang'] and $_SESSION['lang'] for the
+	default language, you may now specify the default in F3's LANGUAGE
+	variable - if not specified, the plugin checks the HTTP request for an
+	Accept-Language header; as a last resort, F3 retrieves the value
+	returned by Locale::getDefault(); automatic instantiation of session
+	variable $_SESSION['lang'] is now deprecated
+*	Change in behavior: EXEMPT now defaults to NULL; framework automatically
+	excludes all private IP address ranges from spam checks
+*	copyTo() method (both Axon and M2) now has optional 2nd argument for
+	selecting fields to be copied to target framework variable
+*	Stack trace filter improved and array keys now appear in traces
+*	F3::set(), F3::get(), and F3::clear() now allow mixture of traditional
+	and dot-notation in framework variables
+*	MongoID property, i.e. _id field, now accessible after insertion of M2
+	object in the database
+*	F3::mock() now recognizes additional GET query variables directly
+	specified in URI
+*	Lots of program tweaks, security enhancements, and bug fixes (entire
+	framework test suite reconstructed; now more extensive than before)
+
+1.3.20
+*	NEW: M2->lookup() method with map-reduce capability
+*	MemCache removed from cache engine back-end auto-detection due to
+	additional parameters required to set it up
+*	Added check for aborted connection in F3::send()
+*	More detailed stack traces for uncaught PHP exceptions
+*	More informative message when directory write fails due to incorrect
+	permissions
+*	Methods related to manipulation of framework variables optimized
+*	F3::send() and F3::transpose() methods moved to Expansion pack
+*	Bug fix: F3::checkRoute() is private
+*	Bug fix: Namespaced classes
+
+1.3.19
+*	Cache engine is now a separate class (pre-loaded) and supports XCache
+	as a an additional back-end; To use, simply install and activate the
+	PHP xcache extension, then issue the following command:-
+		F3::set('CACHE','xcache');
+*	Cache back-end auto-detection
+*	Framework's extensions/ folder merged with autoload/ to make
+	non-template public methods available for direct use by applications
+*	Variable identifiers normalized before saving to symbol table
+*	LOADED global variable dropped for performance reasons
+*	F3::sitemap() now fully-integrated with cache engine
+*	QUIET global variable now suppresses error log messages if set to TRUE
+*	Embedded templates now included by code profiler
+*	Template engine optimized
+*	Bug fix: Routes ending with a slash ignored
+*	Bug fix: XML file handling
+
+1.3.18
+*	F3::send() now has 2nd argument for controlling bandwidth usage; just
+	specify transfer rate in terms of kilobytes per second
+*	Use of better randomizer in Expansion pack
+*	Bug fix: F3::identicon() IBLOCKS variable
+*	Bug fix: M2 code profiling
+
+1.3.17
+*	Removed F3::config()'s dependence on PHP's buggy parse_ini_file()
+	function; Also added support for F3's array dot notation and automatic
+	array creation when comma-separated values are present; Use double-
+	quotes if whitespaces and commas are significant
+*	SQL-related methods have been moved to a separate class: the SQLDB
+	pack; if you use the Axon ORM, sqldb.php must also be in the AUTOLOAD
+	folder due to this dependency
+*	Bug fix: F3::clear() does not remove variable from symbol table
+*	Bug fix: DEBUG filtering
+
+1.3.16
+*	Framework-created folders now have 0755 folder permissions
+*	M2 modified to use new cache engine
+*	Added check for incorrect magic_quotes_gpc configuration
+*	Bug fix: F3::call()
+
+1.3.15
+*	NEW: F3::config() method for reading .ini files to separate code from
+	user-configurable application parameters; Fat-Free auto-generates the
+	corresponding PHP code and caches the snippets for optimum performance;
+	download fatfree-ini.zip to see an example
+*	NEW: SERVER and ENV framework variables to mirror PHP's $_SERVER and
+	$_ENV globals for use in templates
+*	Support for PHP validate/sanitize/other filters, flags, and filter
+	options added to the F3::input() method
+*	Bug fix: RFC1738-compliant URI characters in routing tokens
+*	Bug fix: Runtime::call()
+
+1.3.14
+*	NEW: More powerful 2-level cache engine now allows framework variable
+	persistence:
+		F3::set('x',123,TRUE); // persists variable 'x' in RAM and cache
+		echo F3::get('x'); // retrieves variable from cache if found
+		F3::clear(x'); // removes variable from cache and RAM if found
+		F3::cached('x'); // returns array(unixtime,bytes) or FALSE
+	Cache back-end is defined by setting CACHE global variable:
+		F3::set('folder=./cache'); // default (filesystem)
+		F3::set('apc'); // use APC as back-end
+		F3::set('memcache=localhost:11211'); // MemCache as back-end
+*	NEW: F3::mset() method for multi-variable assignment using PHP
+*	NEW: LOADED global variable contains list of loaded PHP extensions
+	associative arrays
+*	Change in behavior: Spam-checking now turned off by default; you
+	should assign a blacklist service to DNSBL global variable manually if
+	your wish to validate user IP addresses against the specified service
+*	Fastest F3 version to-date and now the fastest PHP framework too!
+	Performance tweaks everywhere
+*	Altered stack trace to a more natural sequence
+*	Bug fix: Lowercase HTTP method in F3::map() route
+*	Bug fix: M2::erase() empty check
+
+1.3.13
+*	Axon code cleanup
+*	Mapper constructor simplified
+*	Bug fix: Malformed keys in F3:repeat template directive
+*	Bug fix: Axon::select() and Axon::load() method
+
+1.3.12
+*	Bug fix: handling of multiple whitespaces in F3::minify
+*	Bug fix: array keys with non-word characters not served properly
+*	Bug fix: Axon/M2::erase() doesn't respect prior Axon/M2::load()
+	criteria
+
+1.3.11
+*	NEW: Geo::weather() returns current weather conditions for a specified
+	location defined by latitude and longitude; Hint: use Geo::timezones()
+	to get latitude/longitude data
+*	Bar-separated (|) list of HTML form fields now accepted by F3::input()
+	method; makes it easier to apply a common validation/processing rule
+	to a set of fields
+*	i18n extension and F3::minify() now allow F3 expressions inside custom
+	tags and base folder argument, respectively
+*	Removed Runtime class from stack trace
+*	Bug fix: autoload class reloading
+
+1.3.10
+*	NEW: Yahoo::online() method for checking whether a particular user
+	is logged into Yahoo Messenger
+*	Bug fix: XmlTree::traverse passing closures by value
+
+1.3.9
+*	NEW: Geo plugin for common world-related reference tables (countries
+	and time zones)
+*	F3::expect(), Expansion::http(), and xmlTree::traverse() refactored
+*	Change in behavior: Default IMPORTS, CACHE, AUTOLOAD, EXTENSIONS,
+	FONTS, LOGS, and GUI paths are now relative to location of app's main
+	index.php instead of the previous $_SERVER['DOCUMENT_ROOT'] setting
+*	Bug fix: Import file regex
+
+1.3.8
+*	NEW: Yahoo! Web services plugin
+*	Added check for absence of routes/route handlers
+*	Bug fix: Runtime::call()
+*	Bug fix: Google::feed() doesn't return QUIET global variable to prior
+	state
+
+1.3.7
+*	Faster bootstrap
+*	Automatic log rotation feature added to custom logger plugin
+*	Display of errors suppressed after first one has been displayed; ERROR
+	global variable still contains latest error detected by framework
+*	Bug fix: Class onLoad() inadvertently triggered by is_callable()
+*	Bug fix: Greedy regex in F3::serve()
+*	Bug fix: F3::call() unable to find import file
+*	Bug fix: M2 verification of existing MongoDB collections
+
+1.3.6
+*	NEW: LOGS global variable and custom logger plugin; sample usage:-
+		F3::set('LOGS','logs/');
+		$log=new Log('test.log');
+		$log->write('any string');
+		$z=array(1,2,3);
+		$log->write(var_export($z));
+		unset($log);
+*	NEW: F3::validEmail method
+*	Routing engine now accepts template expressions in route handlers, e.g.
+		F3::route('GET /forum/@thread/@topic','Forum::{@thread(@topic)}');
+*	Tweaked template engine so it doesn't strip tabs, carriage returns and
+	line feeds from template expressions
+*	Class auto-loading is now case-insensitive
+*	Added check for existing MongoDB collection prior to non-save operation
+*	Bug fix: Absence of HTML body tag causes template to be rendered
+	incorrectly
+*	Bug fix: XHTML-invalid input tag
+
+1.3.5
+*	NEW: M2 MongoDB Mapper plugin; for details on syntax and usage, refer
+	to the Axon documentation and the quick reference card - both Axon and
+	M2 behave similarly
+*	Axon ORM is now a plugin
+*	Both M2 mapper and Axon ORM are now derived from the ThinMapper
+	abstract class
+*	Removed cache timeout from Axon found() method
+
+1.3.4
+*	Code cleanup
+*	Axon and F3::resolve refactored
+*	Session is now auto-destroyed when SESSION framework variable is
+	cleared
+*	Bug fix: Sync F3::clear on PHP global and framework variable
+*	Bug fix: Single-line templates
+
+1.3.3
+*	Template engine now removes non-printable characters from output
+*	Bug fix: Entities in HTML attributes
+*	Bug fix: session management fails in some situations
+
+1.3.2
+*	Worked around PHP libxml bug that results in some F3:exclude blocks
+	being invisible and thereby unprocessed by the template engine
+*	Expansion pack thumb() method refactored due to filesystem issues on
+	Windows platforms
+*	Bug fix: Some HTML entities incorrectly rendered by template engine
+
+1.3.1
+*	Better support for AJAX and non-HTML templates; If <html> and <body>
+	tags are absent in template, they won't appear in rendered output
+	anymore
+*	Exception handler activated during bootstrap
+*	F3:check now allows relational operators > and <
+
+1.3.0
+*	NEW: Simplified framework packaging
+*	NEW: Flexible autoload engine for user-defined classes
+*	Framework is now back to its single-file design - everything else is a
+	plugin, including the original Expansion Pack
+*	Additional safety check when assigning objects to framework variables;
+	Now triggers an error when object does not implement __set_state method
+*	Bug fix: Framework variable name conflicts with PHP define()
+*	Bug fix: Akismet plugin
+
+1.2.21
+*	Bug fix: F3:include directive with null/false/empty href expression
+	(derived from a parent F3:check directive) triggers an error
+
+1.2.20
+*	Bug fix: Session handling issue
+
+1.2.19
+*	NEW: HEADERS global variable contains list of HTTP headers received
+	from server queried by F3::http method
+*	More code optimization
+*	Bug fix: Axon NULL handling
+
+1.2.18
+*	NEW: EXEMPT global variable allows you to specify which IP addresses
+	should not be cross-checked against spam blacklists; Default value is
+	127.0.0.1
+*	Bug fix: Routing engine doesn't trigger 404 on extra URI elements
+
+1.2.17
+*	Framework now searches all possible URI matches in routes before
+	giving up and displaying a "no route handler found" message; Fat-Free
+	still prioritizes fixed routes over those containing tokens
+*	Security update: Vulnerability in routing engine
+*	F3::mock and F3::expect are now part of the Core Pack to align
+	dependencies
+
+1.2.16
+*	Bug fix: ternary template expressions using F3::repeat keys not handled
+	properly
+
+1.2.15
+*	More performance tweaks
+*	F3::serve code optimization
+*	User-defined PHP functions are still allowed in templates, but
+	class/object methods in templates have been deprecated to ensure object
+	integrity and prevent indiscriminate use resulting in security leaks
+*	Bug fixes: Expansion pack HTTP headers
+*	Bug fix: Ternary expressions in templates
+
+1.2.14
+*	F3::sql now returns result set; If SQL command is a SELECT, return
+	value is identical to DB.result; Not particularly useful on other
+	SQL statements and batch transactions
+*	F3::copyFrom method now checks if argument value is an array
+*	Template engine performance tweaks
+*	Additional validation in spam detection engine; in cases where the Web
+	server doesn't reliably return correct remote addresses
+*	Bug fix: Objects sent to F3::set method are passed by value
+*	Bug fix: F3::fixQuotes recursion on deeply nested string elements
+
+1.2.13
+*	CAPTCHA generator automatically starts session if no session ID is
+	detected
+*	Bug fix: regular array notation
+
+1.2.12
+*	Various performance tweaks: framework now runs 65-70% faster!
+*	PHP.ini settings display_errors and error_reporting left untouched
+*	Axon load method refactored
+*	Bug fix: CAPTCHA code generator
+
+1.2.11
+*	Passed all security checks using SkipFish
+*	Removed PHP version check
+*	Bug fix: Conflicting HTTP response headers and content mismatch
+*	Bug fix: Document encoding missing in F3::sitemap and F3::minify output
+*	Bug fix: Context not displayed in F3::minify warnings
+
+1.2.10
+*	F3::serve is now more AJAX-friendly
+*	Bug fix: Rendering of RSS templates
+
+1.2.9
+*	Axon reset method is now public to allow dehydration without the need
+	for instantiating a new object - specially useful when doing successive
+	inserts
+*	Bug fix: Axon skip method
+
+1.2.8
+*	Bug fix: code profiler's DB.cache element not indexed properly
+*	Bug fix: Empty tags are not XHTML-valid
+
+1.2.7
+*	CAPTCHA and error handling code refactored
+*	Minor performance tweaks in template engine
+*	Bug fix: Apache-specific function in bootstrap code
+*	Bug fix: spam detection for private IPs
+
+1.2.6
+*	F3::repeat template directive now has a new HTML/XML attribute: "key".
+	Whereas the "index" attribute returns the value of the current element
+	in the iteration, "key" returns the array key of the element. This
+	eliminates the need to use {array_search(@index,@group)} just to get
+	the key; This also solves issues related to the use of array_search
+	function on arrays with duplicate values - see updated online
+	documentation and sample applications in the downloads section of the
+	SourceForge project site
+*	Code refactoring: reverted to direct use of class properties in private
+	stash method due to severe degradation in PHP performance when passing
+	properties by reference (experienced only when using large templates:
+	10,000+ HTML elements)
+
+1.2.5
+*	More informative error messages when index or group attributes in
+	F3::repeat template directive cannot be resolved
+*	Spammer detection engine now generates HTTP 404 message by default
+*	Bug fix: F3::include directive
+
+1.2.4
+*	F3db sync method now uses DB as default database ID
+*	AUTOLOAD now allows class hierarchies to reside in similarly named
+	subfolders; so if you want to autoload a PHP 5.3 namespaced class
+	that's invoked this way:-
+		$obj=new gadgets\ipad; // or gadgets\ipad::start();
+	you should create a folder hierarchy that follows the same structure:
+		autoload/gadgets/ipad.php
+*	PDO extensions now checked if loaded prior to use
+*	DNSBL engine now sniffs real IP address if user is behind a proxy
+*	Corrections in the cheat sheet
+
+1.2.3
+*	NEW: SPAM global variable; Reroutes spammers to the specified URL
+	automatically
+*	NEW: DNSBL variable; Blacklist(s) used by the spammer-blocking engine;
+	Default value is dnsbl.sorbs.net
+*	NEW: AUTOLOAD variable; Points to path where framework autoloads
+	undefined classes (default value is /classes); If class contains a
+	start() method, it is automatically used as a bootstrap
+*	Expansion Pack's identicon method now allows template expression as
+	argument
+*	Bug fix: copyFrom method doesn't set Axon status to hydrated
+
+1.2.2
+*	NEW: Multiple databases (see online documentation for details); As a
+	consequence, Axon constructor and sql method syntax have been modified
+	a bit (may break your existing code if you specified cache timeouts; it's
+	just the order of the arguments that changed - so this should be easy to
+	fix)
+*	NEW: Bandwidth throttling for high-traffic Web sites and protection
+	against DOS attacks; THROTTLE global variable allows you to specify the
+	minimum run-time duration of your application (in milliseconds)
+*	Expansion Pack's http method now accepts an optional 4th argument;
+	if TRUE (default) follows redirection (HTTP Location header) to any
+	page
+*	Bug fix: XML encoding
+
+1.2.1
+*	NEW: transpose method rotates a two-dimensional framework array
+	variable, i.e. rows become columns, and vice versa
+*	Change in behavior: TEST global variable array restructured to match
+	SQL query presentation; rows match each invocation of the expect method,
+	each row having a "result" and "text" column; To emulate previous
+	framework behavior just add an F3::transpose('TEST') before using the
+	variable
+*	expect method now returns text result of assertion, i.e. the "pass" or
+	"fail" message
+*	Unit testing tools mock and expect methods now part of Expansion Pack
+	to reduce overhead on production systems
+*	Change in behavior: profile method now returns cached and executed SQL
+	commands instead of simply counting queries; fonts loaded and
+	corresponding file sizes also added
+*	Cache TTL of Axon sync now set to a default of 60 seconds
+*	Lots of F3db code optimization
+*	PNG images generated by Expansion Pack methods are now compressed
+*	CAPTCHA and router code refactored
+*	Framework exception handler now uses debug_backtrace as fallback if
+	exception's getTrace is empty
+*	Contents of PHP's $_GLOBALS variable now suppressed from stack trace
+	for added security - appears only as array(GLOBALS)
+*	RESTful interface map method now accepts objects and PHP class names as
+	an argument
+*	Template engine does not display *Error* anymore when illegal functions
+	are used; it just appears as plain text for easier debugging
+*	Bug fix: Template rendering of empty F3::repeat blocks
+*	Bug fix: SQL rollback
+*	Bug fix: Aspect ratio of thumbnails
+*	Bug fix: exists method not working properly with multi-dimensional arrays
+*	Bug fix: URL caching
+*	Bug fix: recursive display of GLOBALS in the stack trace when error is
+	triggered by an application exhausts PHP memory
+*	Bug fix: mock method doesn't set REQUEST framework variable when passing
+	simulated GET/POST key-value pairs
+
+1.2.0
+*	NEW: Database Pack now combines Fat-Free's SQL handler and Axon ORM in
+	a single package; Core and Expansion Packs are thinner due to this
+	reorganization - combined package still weighs in at 78KB!
+*	NEW: Variable variables
+*	NEW: F3::send method for handling file download requests
+*	NEW: Axon def, undef and isdef methods for virtual fields (see updated
+	Axon ORM section of online documentation)
+*	Change in behavior: Axon found method now returns number of rows that
+	match specified (instead of a boolean value)
+*	Axon load method now accepts sort sequence as second argument to help in
+	SQL navigation
+*	Axon find and lookup methods now allow query caching
+*	ob_gzhandler now disabled if Apache mod_deflate is active
+*	Double-quotes in strings now handled safely; converted automatically to
+	XML entity &#34; to help protect against SQL injection
+*	Framework now triggers an error if run on <5.3 PHP version
+*	Bug fix: Decoding of HTML entities in F3::check tags during template
+	rendering
+*	Bug fix: Error and exception handling in bootstrap code
+*	Fixed inaccuracies and conflicting statements in online documentation
+
+1.1.3
+*	NEW: skip method for Axon pagination; useful for retrieving the N-th
+	record relative to current following the same criteria used to hydrate
+	the Axon (see updated Axon ORM section of the online documentation)
+*	NEW: Limits on number of records retrieved by Axon lookup and find
+	methods added to argument lists
+*	Forms handler, Axon ORM and SQL handler now provide better support for
+	UTF-8: tested against data from http://www.columbia.edu/kermit/utf8.html
+*	More performance tweaks: HTML/XML templates rendered faster
+*	Framework now supports non-Apache servers
+*	Closures provide no value to stack traces; filtered out
+*	Lots of code refactoring
+
+1.1.2
+*	TEST variable now has two indices: TEST.result returns an array of
+	boolean values, TEST.text returns an array of string values; Elements
+	of both arrays correspond with the results of every F3::expect in
+	your code (see the updated Unit Testing section of the online
+	documentation)
+*	Template tokens in F3::expect pass/fail messages now allowed
+*	F3::resolve code optimization; template rendering speed improved
+*	Bug fix: resurgent error in Javascript/CSS fragments
+*	Bug fix: Axon error messages
+
+1.1.1
+*	Quick bug fix in bootsrap code
+
+1.1.0
+*	NEW: Code profiler! Use the new F3::profile method to get detailed
+	runtime information about your application (see online documentation
+	for more details)
+*	Change in behavior - automatic sanitation of PHP globals, i.e. removal
+	of ALL HTML/PHP tags, has now been deprecated to accommodate Javascript
+	textarea editors like TinyMCE, CKEditor, etc. so these scripts can pass
+	data containing HTML tags; Workarounds: Use F3::scrub to clean variables
+	programmatically (before using PHP globals like $_REQUEST, $_SESSION,
+	etc.) or specify the HTML tags allowed in specific input fields;
+	Details in the online documentation (Forms Handler section)
+*	F3ex is now a totally-separate class but still dependent on the F3 class
+*	Performance improvement in large HTML templates
+*	Due to the number of significant features introduced, we decided to skip
+	the release of version 1.0.1 release (mostly bug fixes mentioned here)
+	and head straight for 1.1.0!
+*	Bug fix: Dynamic sitemap character set encoding
+*	Bug fix: Non-quoted keys and array dot notation work fine but quoted
+	elements inside user-defined framework array variables are not handled
+	properly
+
+1.0.0
+*	NEW: Axon auto-mapping ORM (see online documentation for more details)
+*	Refactoring of bootstrap code and expansion pack loader
+*	Improved CAPTCHA randomizer
+*	Code optimization: 8-12% performance gain in template rendering
+*	Minify code adjusted to accommodate IE's weird behavior when certain
+	whitespaces are removed from CSS
+
+0.9.5
+*	F3::resolve code refactoring
+*	Several minor bug fixes
+
+0.9.4
+*	Bug fix: F3:repeat and F3:check broken in parent HTML tags without
+	attributes
+*	Bug fix: Template directive inside Javascript fragment triggers an error
+
+0.9.3
+*	NEW: F3::identicon generates visual respresentations of MD5 hash values
+	(or any hex-string) - you don't need Gravatar anymore!
+*	NEW: F3::fakeimage method for generating image placeholders in your
+	Web pages
+*	Some refactoring in template engine and CAPTCHA code
+*	Bug fix: Javascript and unbraced F3:repeat index tokens are not
+	rendered properly by template engine
+
+0.9.2
+*	NEW: F3::map method conveniently maps RESTful routes to a PHP class;
+	see example in the documentation
+*	Bug fix: SQL transactions do not rollback properly
+*	Bug fix: F3::set method fails when attempting to assign an array value
+	to either REQUEST or SESSION global variables (a very unusual case)
+*	Bug fix: F3::serve and F3::resolve render XML entities incorrectly
+
+0.9.1
+*	NEW: F3::http method for communicating with other servers via HTTP/S;
+	F3::http sends a request to another host, respects HTTP 30x redirects,
+	forwards headers received and returns content
+*	NEW: F3::uriQuery method for converting an array of key-value pairs to
+	a URI query string that can be used in HTTP requests to another server
+*	F3::encoding method deprecated; Use new global variable ENCODING to set
+	character set used for document encoding: default value is still UTF-8
+
+0.9.0
+*	NEW: F3::sitemap method for generating dynamic sitemaps!
+*	NEW global variables:
+	-	QUIET for toggling display of program output, RESPONSE still
+		contains actual output - useful for unit testing;
+	-	TIME returns time the application started
+	-	TTL returns current page's cache timer (in seconds)
+*	Provision for additional dynamically-loaded expansion packs
+*	PHP extensions take precedence over user-defined classes in F3::allow
+	method
+*	Bug fix: session variables containing arrays not cleared properly
+
+0.8.8
+*	Fat-Free methods and templates now allow array dot-notation; for
+	example - instead of @ERROR[code] and @my[multi][dimensional][array]
+	(which are prone to unbalanced brackets), you can use @ERROR.code and
+	@my.multi.dimensional.array, respectively
+*	Added PHP's isset() and empty() language constructs to functions
+	permitted in templates
+*	Framework now sends different HTTP status codes for page redirects;
+	HTTP 303 if form is being submitted, HTTP 301 (permanent) if none
+*	F3::sql syntax simplified
+*	Bug fix: Apache crashing intermittently when unknown F3 method is called
+*	Bug fix: Removed code fragment related to output suppression after error
+	has occurred due to side effects in unit testing
+
+0.8.7
+*	Framework now dsiables cache and prohibits further output once error
+	page is displayed
+*	Code optimization in SQL handler
+*	Bug fix: Erratic behavior when sending HTTP header expiration date to
+	browser
+
+0.8.6
+*	Fat-Free now has tools for unit testing!
+*	NEW: F3::http404 method
+*	Bug fix: Expansion pack methods with return values now handled properly
+
+0.8.5
+*	NEW: F3::validurl method returns TRUE if string argument is a valid URL
+*	Error message when attempting to connect to a non-existent database is
+	now more informative
+
+0.8.4
+*	Accompanying blog demo now includes an RSS feed/template
+*	Bug fix: import files, unlike static methods and instantiated objects,
+	are not called properly
+
+0.8.3
+*	Static methods and methods of instantiated objects can now be used as
+	arguments to F3::route, F3::call, and F3::input
+
+0.8.2
+*	Speed improvements in the template engine
+*	Better support for hosts that have zlib.output_compression turned on by
+	default and browsers that don't accept GZip-encoded data
+*	GZip output compresion level adjusted to reduce load on shared hosts
+*	Some code optimization and additional controls in arguments passed to
+	class methods
+
+0.8.1
+*	Fat-Free is now distributed in separate but tightly-linked modules: the
+	Core Pack, which provides the base framework functionality, and the
+	optional Expansion Pack, which works seamlessly with the Core and
+	includes the CAPTCHA image generator, Javascript/CSS compressor, and
+	thumbnail image creator; Nothing has changed in terms of framework usage
+	and syntax - if you don't need the functions in the Expansion Pack, just
+	delete the F3ex.php file
+*	Stack trace behavior now consistent among different OS
+
+0.8.0
+*	NEW: database query caching; F3::sql method now provides a cache timeout
+	as a function argument - similar to the F3::route method; speed gains
+	can be significant specially in complex queries involving SQL look-up
+	tables that contain static data
+*	Dropped the generic BASE global variable to allow some flexibility in
+	organizing directory structures and provide additional security
+*	Improved the documentation on the use of IMPORTS, CACHE, GUI, and FONTS
+	global variables; applications using previous versions of the framework
+	could break with this re-definition of Fat-Free globals; it should be
+	easy to restructure though, if all global definitions are in the main
+	controller and master template
+*	Cache engine now locks files before saving to prevent corrupted data
+	from being retrieved by HTTP clients during high-traffic
+*	Bug fix: F3::reroute fails when an application sends additional output
+	after HTTP headers
+
+0.7.5
+*	Additional instructions in the documentation on the proper use of the
+	cache
+*	Fixed HTTP headers to support IE6 browsers
+*	Some code optimization
+
+0.7.4
+*	Improved error/exception stack traces
+*	Use of F3::minify method restricted to .js and .css files
+*	Aside from PHP's $_SERVER and $_REQUEST variables, $_GET is now also
+	auto-populated with values received in command line mode
+*	Blog demo updated to use new Fat-Free mods
+*	Bug fix: Session variables not saved when F3::reroute is followed by
+	additional data sent to browser
+
+0.7.3
+*	More speed improvements: F3::cache now looks at If-Modified-Since HTTP
+	request header and sends 304 Not Modified response instead of full
+	HTML content
+*	F3::minify method now gives better compression levels and supports JS
+	conditional comments
+*	Fat-Free scripts can be run from the command line; Example:-
+		php index.php "/about"
+	This will run index.php at the current directory and pass the /about URL
+	to the framework. Routes are limited to HTTP GET. (POST doesn't make
+	sense when used as an HTTP method on the command line). You can pass GET
+	variables though:-
+		php index.php "/min?base=gui/js&files=lib-core.js,lib-more.js"
+*	Bug fix: setting BASE outside of Web root now works properly
+
+0.7.2
+*	Improved caching; files are now gzipped to save on disk space
+*	More server- and browser-side performance tweaks
+*	F3::minify method now uses a more conservative and safer compression
+	algorithm
+*	Cached documents now delivered properly with correct MIME content type
+
+0.7.1
+*	NEW: F3::minify method for combining/compressing Javascript/CSS files
+*	$_SERVER['REQUEST_URI'] now automatically converted to human-readable
+	string for easier routing/control declaration
+*	Bug fix: URLs containing GET variables
+*	Some code optimization
+
+0.7.0
+*	Changed license to GPLv3.0
+
+0.6.5
+*	NEW: F3::route method now allows you to specify a cache timeout; a
+	previously-rendered Web page will be retrieved from cache if the timer
+	has not expired; otherwise, the framework calls the route handler(s) to
+	refresh the cached page
+*	F3::serve doesn't render strings anymore; Use F3::resolve instead
+
+0.6.4
+*	Bug fix: stack trace levels are not sequential
+
+0.6.3
+*	TRACE global variable dropped in favor of boolean RELEASE variable;
+	when set to TRUE eliminates stack trace from HTTP error page, but still
+	appears completely in Web server's error log; set to FALSE to indicate
+	the application is still in development (stack trace will appear in
+	HTML output)
+
+0.6.2
+*	HTML output now automatically gzip-compressed if browser supports it
+*	Default error page converted to XHTML 1.0 Strict
+*	Passing 'user' as an argument to the F3::allow method now gives
+	template designers access to user-defined functions in PHP scripts
+*	F3::reroute method now allows use of template tokens
+
+0.6.1
+*	Bug fix: F3::serve causes break/continue error
+
+0.6.0
+*	Updated inline documentation
+*	NEW: FILES global variable
+*	NEW: MAXSIZE global variable representing maximum file upload size in
+	bytes; use in the following manner:-
+		<input type="hidden" name="MAX_FILE_SIZE" value="{@MAXSIZE}"/>
+	Of course you still need to set enctype="multipart/form-data" in your
+	HTML <form/> tag
+*	Quick Reference Card updated to reflect the new F3::resolve method
+*	Bug fix: character set encoding interferes with file upload behavior
+
+0.5.1
+*	Private method evaluate() renamed to F3::resolve and made public;
+	Template expressions can now be embedded in string literals, so you can
+	do this:-
+		$x=F3::resolve('{@a}bcd{@e}');
+	instead of:-
+		$x=F3::get('a').'bcd'.F3::get('e'};.
+*	Bug fix: <F3:check> directive behavior
+
+0.5.0
+*	Dropped the name F3::PHP to avoid being associated with another
+	framework; It's now called "PHP Fat-Free Framework", or simply Fat-Free
+*	Fixed inconsistencies in <?php ?> tags in the demo
+*	F3::set and F3::qq methods now allow the use of template tokens inside
+	string literals
+*	Minor corrections in the quick reference card
+
+0.4.7
+*	ZIP archive now contains a quick reference card
+*	Better error/exception handling
+
+0.4.6
+*	Documentation updated
+*	Framework now emits *Error* in template expressions with syntax errors
+
+0.4.5
+*	XML tree traversal now uses post-order sequence to correct some bugs in
+	processing of nested <F3:check> directives and improve performance
+
+0.4.4
+*	Bug fix: evaluation of complex expressions
+
+0.4.3
+*	NEW: F3::qq method encloses string(s) in double-quotes and prepends
+	backslashes to characters that need to be quoted in database queries;
+	Also adds commas if multiple arguments are present
+*	Data retrieved from SQL database now automatically stripped of slashes
+*	Added protection for processing of NULL SQL statement
+*	Added PHP's date/time and PCRE extensions to default allowed template
+	functions
+*	Bug fix: erratic behavior in <F3:check> directive
+
+0.4.2
+*	Framework now automatically starts session when invoked
+*	F3::set and F3::clear methods now synchronizes PHP's $_REQUEST and
+	$_SESSION variables with Fat-Free's REQUEST[] and SESSION[] globals
+*	Multiple TrueType fonts for CAPTCHA images now possible
+*	PHP $_SESSION exempted from scrubbing to allow saving of non-scalar
+	values in session variables
+*	F3::call now allows function and include file chaining
+*	F3::context method access changed to public
+*	FORM[] global variable deprecated
+
+0.4.1
+*	NEW: CAPTCHA image generation via F3::captcha method
+
+0.3.10
+*	Better SQL error reporting
+*	Additional check for empty <F3:true> or <F3:false> directives
+*	Global variable DB['result'] now returns NULL when either an SQL error
+	occurs or an empty SQL set is returned
+*	Bug fix: file upload scrubbing
+
+0.3.9
+*	Code optimized
+*	Bug fix: incorrect route handling of closures
+*	Bug fix: <F3:repeat> groups contained inside <F3:check> directives
+	that evaluate to false result in HTML fragment errors
+*	Bug fix: Successive <F3:check> directives handled incorrectly
+*	Bug fix: <F3:true> and <F3:false> tags incorrectly added to HTML
+	templates
+
+0.3.8
+*	Bug fix: route handling of trailing parts of URI variable
+*	Bug fix: 404 error handling
+
+0.3.7
+*	<F3:check> template directive can now handle TRUE/FALSE (if/else-like
+	construct)
+*	Relational operators && and || now allowed in Fat-Free expressions
+*	Removed automatic session_start() from code; Should now be initiated
+	manually by user
+*	Bug fix: cache ignored when value changes
+*	Lots of code optimizations
+
+0.3.6
+*	Added private method F3::scrub to automatically clean form fields and
+	protect against code injection attacks
+*	Removed global variable CHARSET; Added the F3::encoding command, which
+	is a more convenient way of changing the default character set
+*	Changed F3::error argument sequence so they mimic PHP's Exception()
+*	Import files used as form field handlers now prohibited, due to their
+	inability to pass/receive the values for use in validation, etc.
+*	Changed the asterisk (*) to indicate an import file in URI route and
+	form field handler chains to colon (:). This should make its usage
+	distinct from the asterisk (*) in URI route patterns.
+*	Corrections in the documentation
+*	More code optimizations
+
+0.3.5
+*	Added F3::input convenience method for form field processing/validation
+*	Added F3::exists method for determining if a Fat-Free variable has been
+	created/assigned a value
+*	Added F3::httpStatus for sending HTTP/1.1 status response headers
+*	Bug fix: <F3:check> directive
+*	Error and exception handlers optimized
+
+0.3.4
+*	Simplified Fat-Free expression syntax pattern
+*	Bug fix: program not routing properly after calling multiple functions/
+	import files
+*	More code optimizations
+
+0.3.3
+*	Integrated cache and symbol table for faster template rendering
+*	Optimized code involved in parsing <web:repeat> directives
+*	Removed code segment that performs recursive evaluation of variables
+	containing Fat-Free template tokens due to possible cyclic redundancies
+*	Bug fix: error/exception handling
+
+0.3.2
+*	Added CHARSET to Fat-Free global variables; set to UTF-8 by default
+*	Renamed private method Runtime::external to Runtime::call
+*	Fixed brackets mangled by PHP
+*	Optimized code involved in evaluation of F3 expressions
+*	Message *Error* now displayed when illegal function is used in template
+
+0.3.1
+*	Minor changes in documentation
+
+0.3.0
+*	Released as open-source project

@@ -1,0 +1,1 @@
+<?php include(F3::get('GUI') . "/includes/header.php") ?><div class="module mod-notify mod-error">    <p class="text-error"><?php echo $this->error; ?></p></div><?php include(F3::get('GUI') . "/includes/footer.php") ?>

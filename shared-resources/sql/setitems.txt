@@ -1,0 +1,127 @@
+Civerb's Ward	civerbs-ward	Large Shield	13	9	set
+Civerb's Icon	civerbs-icon	Amulet	13	9	set
+Civerb's Cudgel	civerbs-cudgel	Grand Scepter	13	9	set
+Hsarus' Iron Heel	hsarus-iron-heel	Chain Boots	4	3	set
+Hsarus' Iron Fist	hsarus-iron-fist	Buckler	4	3	set
+Hsarus' Iron Stay	hsarus-iron-stay	Belt	4	3	set
+Cleglaw's Tooth	cleglaws-tooth	Long Sword	6	4	set
+Cleglaw's Claw	cleglaws-claw	Small Shield	6	4	set
+Cleglaw's Pincers	cleglaws-pincers	Chain Gloves	6	4	set
+Iratha's Collar	irathas-collar	Amulet	21	15	set
+Iratha's Cuff	irathas-cuff	Light Gauntlets	21	15	set
+Iratha's Coil	irathas-coil	Crown	21	15	set
+Iratha's Cord	irathas-cord	Heavy Belt	21	15	set
+Isenhart's Lightbrand	isenharts-lightbrand	Broad Sword	11	8	set
+Isenhart's Parry	isenharts-parry	Gothic Shield	11	8	set
+Isenhart's Case	isenharts-case	Breast Plate	11	8	set
+Isenhart's Horns	isenharts-horns	Full Helm	11	8	set
+Vidala's Barb	vidalas-barb	Long Battle Bow	19	14	set
+Vidala's Fetlock	vidalas-fetlock	Light Plated Boots	19	14	set
+Vidala's Ambush	vidalas-ambush	Leather Armor	19	14	set
+Vidala's Snare	vidalas-snare	Amulet	19	14	set
+Milabrega's Orb	milabregas-orb	Kite Shield	23	17	set
+Milabrega's Rod	milabregas-rod	War Scepter	23	17	set
+Milabrega's Diadem	milabregas-diadem	Crown	23	17	set
+Milabrega's Robe	milabregas-robe	Ancient Armor	23	17	set
+Cathan's Rule	cathans-rule	Battle Staff	15	11	set
+Cathan's Mesh	cathans-mesh	Chain Mail	15	11	set
+Cathan's Visage	cathans-visage	Mask	15	11	set
+Cathan's Sigil	cathans-sigil	Amulet	15	11	set
+Cathan's Seal	cathans-seal	Ring	15	11	set
+Tancred's Crowbill	tancreds-crowbill	Military Pick	27	20	set
+Tancred's Spine	tancreds-spine	Full Plate Mail	27	20	set
+Tancred's Hobnails	tancreds-hobnails	Boots	27	20	set
+Tancred's Weird	tancreds-weird	Amulet	27	20	set
+Tancred's Skull	tancreds-skull	Bone Helm	27	20	set
+Sigon's Gage	sigons-gage	Gauntlets	9	6	set
+Sigon's Visor	sigons-visor	Great Helm	9	6	set
+Sigon's Shelter	sigons-shelter	Gothic Plate	9	6	set
+Sigon's Sabot	sigons-sabot	Greaves	9	6	set
+Sigon's Wrap	sigons-wrap	Plated Belt	9	6	set
+Sigon's Guard	sigons-guard	Tower Shield	9	6	set
+Infernal Cranium	infernal-cranium	Cap	7	5	set
+Infernal Torch	infernal-torch	Grim Wand	7	5	set
+Infernal Sign	infernal-sign	Heavy Belt	7	5	set
+Berserker's Headgear	berserkers-headgear	Helm	5	3	set
+Berserker's Hauberk	berserkers-hauberk	Splint Mail	5	3	set
+Berserker's Hatchet	berserkers-hatchet	Double Axe	5	3	set
+Death's Hand	deaths-hand	Leather Gloves	8	6	set
+Death's Guard	deaths-guard	Sash	8	6	set
+Death's Touch	deaths-touch	War Sword	8	6	set
+Angelic Sickle	angelic-sickle	Sabre	17	12	set
+Angelic Mantle	angelic-mantle	Ring Mail	17	12	set
+Angelic Halo	angelic-halo	Ring	17	12	set
+Angelic Wings	angelic-wings	Amulet	17	12	set
+Arctic Horn	arctic-horn	Short War Bow	3	2	set
+Arctic Furs	arctic-furs	Quilted Armor	3	2	set
+Arctic Binding	arctic-binding	Light Belt	3	2	set
+Arctic Mitts	arctic-mitts	Light Gauntlets	3	2	set
+Arcanna's Sign	arcannas-sign	Amulet	20	15	set
+Arcanna's Deathwand	arcannas-deathwand	War Staff	20	15	set
+Arcanna's Head	arcannas-head	Skull Cap	20	15	set
+Arcanna's Flesh	arcannas-flesh	Light Plate	20	15	set
+Natalya's Totem	natalyas-totem	Grim Helm	22	59	set
+Natalya's Mark	natalyas-mark	Scissors Suwayyah	22	79	set
+Natalya's Shadow	natalyas-shadow	Loricated Mail	22	73	set
+Natalya's Soul	natalyas-soul	Mesh Boots	22	25	set
+Aldur's Stony Gaze	aldurs-stony-gaze	Hunter's Guise	29	36	set
+Aldur's Deception	aldurs-deception	Shadow Plate	29	76	set
+Aldur's Gauntlet	aldurs-gauntlet	Jagged Star	29	42	set
+Aldur's Advance	aldurs-advance	Battle Boots	29	45	set
+Immortal King's Will	immortal-kings-will	Avenger Guard	37	47	set
+Immortal King's Soul Cage 	immortal-kings-soul-cage-	Sacred Armor	37	76	set
+Immortal King's Detail	immortal-kings-detail	War Belt	37	29	set
+Immortal King's Forge	immortal-kings-forge	War Gauntlets	37	30	set
+Immortal King's Pillar	immortal-kings-pillar	War Boots	37	31	set
+Immortal King's Stone Crusher	immortal-kings-stone-crusher	Ogre Maul	37	76	set
+Tal Rasha's Fire-Spun Cloth	tal-rashas-fire-spun-cloth	Mesh Belt	26	53	set
+Tal Rasha's Adjudication	tal-rashas-adjudication	Amulet	26	67	set
+Tal Rasha's Lidless Eye	tal-rashas-lidless-eye	Swirling Crystal	26	65	set
+Tal Rasha's Howling Wind	tal-rashas-howling-wind	Lacquered Plate	26	71	set
+Tal Rasha's Horadric Crest	tal-rashas-horadric-crest	Death Mask	26	66	set
+Griswold's Valor	griswolds-valor	Corona	44	69	set
+Griswold's Heart	griswolds-heart	Ornate Plate	44	45	set
+Griswolds's Redemption	griswoldss-redemption	Caduceus	44	53	set
+Griswold's Honor	griswolds-honor	Vortex Shield	44	68	set
+Trang-Oul's Guise	trang-ouls-guise	Bone Visage	32	65	set
+Trang-Oul's Scales	trang-ouls-scales	Chaos Armor	32	49	set
+Trang-Oul's Wing	trang-ouls-wing	Cantor Trophy	32	54	set
+Trang-Oul's Claws	trang-ouls-claws	Heavy Bracers	32	45	set
+Trang-Oul's Girth	trang-ouls-girth	Troll Belt	32	47	set
+M'avina's True Sight	mavinas-true-sight	Diadem	21	59	set
+M'avina's Embrace	mavinas-embrace	Kraken Shell	21	70	set
+M'avina's Icy Clutch	mavinas-icy-clutch	Battle Gauntlets	21	32	set
+M'avina's Tenet	mavinas-tenet	Sharkskin Belt	21	45	set
+M'avina's Caster	mavinas-caster	Grand Matron Bow	21	70	set
+Telling of Beads	telling-of-beads	Amulet	39	30	set
+Laying of Hands	laying-of-hands	Bramble Mitts	39	63	set
+Rite of Passage	rite-of-passage	Demonhide Boots	39	29	set
+Spiritual Custodian	spiritual-custodian	Dusk Shroud	39	43	set
+Credendum	credendum	Mithril Coil	39	65	set
+Dangoon's Teaching	dangoons-teaching	Reinforced Mace	55	68	set
+Heaven's Taebaek	heavens-taebaek	Ward	55	81	set
+Haemosu's Adament	haemosus-adament	Cuirass	55	44	set
+Ondal's Almighty	ondals-almighty	Spired Helm	55	69	set
+Guillaume's Face	guillaumes-face	Winged Helm	41	34	set
+Wilhelm's Pride	wilhelms-pride	Battle Belt	41	42	set
+Magnus' Skin	magnus-skin	Sharkskin Gloves	41	37	set
+Wihtstan's Guard	wihtstans-guard	Round Shield	41	29	set
+Hwanin's Splendor	hwanins-splendor	Grand Crown	28	45	set
+Hwanin's Refuge	hwanins-refuge	Tigulated Mail	28	30	set
+Hwanin's Seal	hwanins-seal	Belt	28	35	set
+Hwanin's Justice	hwanins-justice	Bill	28	28	set
+Sazabi's Cobalt Redeemer	sazabis-cobalt-redeemer	Cryptic Sword	34	73	set
+Sazabi's Ghost Liberator	sazabis-ghost-liberator	Balrog Skin	34	67	set
+Sazabi's Mental Sheath	sazabis-mental-sheath	Basinet	34	43	set
+Bul-Kathos' Sacred Charge	bul-kathos-sacred-charge	Colossus Blade	50	61	set
+Bul-Kathos' Tribal Guardian	bul-kathos-tribal-guardian	Mythical Sword	50	54	set
+Cow King's Horns	cow-kings-horns	War Hat	20	25	set
+Cow King's Hide	cow-kings-hide	Studded Leather	20	18	set
+Cow King's Hoofs	cow-kings-hoofs	Heavy Boots	20	13	set
+Naj's Puzzler	najs-puzzler	Elder Staff	43	78	set
+Naj's Light Plate	najs-light-plate	Hellforge Plate	43	71	set
+Naj's Circlet	najs-circlet	Circlet	43	28	set
+Sander's Paragon	sanders-paragon	Cap	20	25	set
+Sander's Riprap	sanders-riprap	Heavy Boots	20	20	set
+Sander's Taboo	sanders-taboo	Heavy Gloves	20	28	set
+Sander's Superstition	sanders-superstition	Bone Wand	20	25	set

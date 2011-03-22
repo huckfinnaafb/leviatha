@@ -1,0 +1,220 @@
+"Civerb's Vestments"	"res-fire"	""	15	15	2
+"Civerb's Vestments"	"str"	"0"	15	15	1337
+"Civerb's Vestments"	"dmg-undead"	"0"	200	200	1337
+"Civerb's Vestments"	"res-ltng"	"0"	25	25	1337
+"Hsarus' Defense"	"thorns"	""	5	5	2
+"Hsarus' Defense"	"dmg-max"	"0"	5	5	1337
+"Hsarus' Defense"	"nofreeze"	"0"	1	1	1337
+"Hsarus' Defense"	"res-ltng"	"0"	25	25	1337
+"Cleglaw's Brace"	"ac"	""	50	50	2
+"Cleglaw's Brace"	"ac"	"0"	50	50	1337
+"Cleglaw's Brace"	"manasteal"	"0"	6	6	1337
+"Cleglaw's Brace"	"crush"	"0"	35	35	1337
+"Cleglaw's Brace"	"swing2"	""	20	20	1337
+"Iratha's Finery"	"ac"	""	50	50	2
+"Iratha's Finery"	"move2"	""	20	20	3
+"Iratha's Finery"	"res-all"	"0"	20	20	1337
+"Iratha's Finery"	"res-fire-max"	"0"	10	10	1337
+"Iratha's Finery"	"res-cold-max"	"0"	10	10	1337
+"Iratha's Finery"	"res-ltng-max"	"0"	10	10	1337
+"Iratha's Finery"	"res-pois-max"	"0"	10	10	1337
+"Iratha's Finery"	"dex"	"0"	15	15	1337
+"Isenhart's Armory"	"str"	""	10	10	2
+"Isenhart's Armory"	"dex"	""	10	10	3
+"Isenhart's Armory"	"lifesteal"	"0"	5	5	1337
+"Isenhart's Armory"	"res-all"	"0"	10	10	1337
+"Isenhart's Armory"	"att%"	"0"	35	35	1337
+"Isenhart's Armory"	"block"	""	30	30	1337
+"Isenhart's Armory"	"move2"	""	20	20	1337
+"Vidala's Rig"	"att"	""	75	75	2
+"Vidala's Rig"	"dex"	""	15	15	3
+"Vidala's Rig"	"dmg-cold"	"50"	15	20	1337
+"Vidala's Rig"	"freeze"	"0"	1	1	1337
+"Vidala's Rig"	"pierce"	"0"	50	50	1337
+"Vidala's Rig"	"str"	""	10	10	1337
+"Milabrega's Regalia"	"att"	""	75	75	2
+"Milabrega's Regalia"	"att"	""	125	125	3
+"Milabrega's Regalia"	"lifesteal"	"0"	8	8	1337
+"Milabrega's Regalia"	"pal"	"0"	2	2	1337
+"Milabrega's Regalia"	"manasteal"	"0"	10	10	1337
+"Milabrega's Regalia"	"res-pois"	"0"	15	15	1337
+"Cathan's Traps"	"dmg-fire"	""	15	20	2
+"Cathan's Traps"	"res-ltng"	""	25	25	3
+"Cathan's Traps"	"att"	"0"	60	60	1337
+"Cathan's Traps"	"red-mag"	"0"	3	3	1337
+"Cathan's Traps"	"res-all"	"0"	25	25	1337
+"Cathan's Traps"	"cast1"	"0"	10	10	1337
+"Cathan's Traps"	"mana"	"0"	20	20	1337
+"Tancred's Battlegear"	"dmg-ltng"	""	15	15	2
+"Tancred's Battlegear"	"lifesteal"	""	5	5	3
+"Tancred's Battlegear"	"gold%"	"0"	75	75	1337
+"Tancred's Battlegear"	"res-all"	"0"	10	10	1337
+"Tancred's Battlegear"	"slow"	"0"	35	35	1337
+"Tancred's Battlegear"	"manasteal"	"0"	5	5	1337
+"Sigon's Complete Steel"	"lifesteal"	""	10	10	2
+"Sigon's Complete Steel"	"ac"	""	100	100	3
+"Sigon's Complete Steel"	"res-fire"	"0"	12	12	1337
+"Sigon's Complete Steel"	"thorns"	"0"	12	12	1337
+"Sigon's Complete Steel"	"red-dmg"	"0"	7	7	1337
+"Sigon's Complete Steel"	"fire-max"	"0"	24	24	1337
+"Sigon's Complete Steel"	"mana"	""	20	20	1337
+"Infernal Tools"	"dmg-pois"	"80"	25	25	2
+"Infernal Tools"	"mana"	""	10	10	3
+"Infernal Tools"	"att%"	"0"	20	20	1337
+"Infernal Tools"	"nec"	"0"	1	1	1337
+"Infernal Tools"	"openwounds"	"0"	20	20	1337
+"Infernal Tools"	"manasteal"	""	6	6	1337
+"Berserker's Garb"	"hp"	""	50	50	2
+"Berserker's Garb"	"res-pois-len"	"0"	75	75	1337
+"Berserker's Garb"	"pois-min"	"0"	16	16	1337
+"Berserker's Garb"	"pois-max"	"0"	32	32	1337
+"Berserker's Garb"	"pois-len"	"0"	75	75	1337
+"Berserker's Garb"	"ac"	""	75	75	1337
+"Death's Disguise"	"lifesteal"	""	8	8	2
+"Death's Disguise"	"att%"	"0"	40	40	1337
+"Death's Disguise"	"dmg-min"	"0"	10	10	1337
+"Death's Disguise"	"res-all"	"0"	25	25	1337
+"Angelical Raiment"	"dex"	""	10	10	2
+"Angelical Raiment"	"mana"	""	50	50	3
+"Angelical Raiment"	"res-all"	"0"	25	25	1337
+"Angelical Raiment"	"half-freeze"	"0"	1	1	1337
+"Angelical Raiment"	"mag%"	"0"	40	40	1337
+"Angelical Raiment"	"regen-mana"	""	8	8	1337
+"Arctic Gear"	"str"	""	5	5	2
+"Arctic Gear"	"hp"	""	50	50	3
+"Arctic Gear"	"cold-min"	"0"	6	6	1337
+"Arctic Gear"	"cold-max"	"0"	14	14	1337
+"Arctic Gear"	"cold-len"	"0"	100	100	1337
+"Arctic Gear"	"nofreeze"	"0"	1	1	1337
+"Arcanna's Tricks"	"mana"	""	25	25	2
+"Arcanna's Tricks"	"hp"	""	50	50	3
+"Arcanna's Tricks"	"cast3"	"0"	20	20	1337
+"Arcanna's Tricks"	"manasteal"	"0"	5	5	1337
+"Arcanna's Tricks"	"mana"	"0"	25	25	1337
+"Natalya's Odium"	"red-mag"	""	15	15	2
+"Natalya's Odium"	"ac"	""	200	200	3
+"Natalya's Odium"	"res-pois"	""	20	20	4
+"Natalya's Odium"	"res-all"	""	50	50	1337
+"Natalya's Odium"	"ass"	""	3	3	1337
+"Natalya's Odium"	"ac"	""	150	150	1337
+"Natalya's Odium"	"lifesteal"	""	14	14	1337
+"Natalya's Odium"	"manasteal"	""	14	14	1337
+"Natalya's Odium"	"red-dmg%"	""	30	30	1337
+"Natalya's Odium"	"fade"	""	1	1	1337
+"Aldur's Watchtower"	"att%"	""	150	150	2
+"Aldur's Watchtower"	"mag%"	""	50	50	3
+"Aldur's Watchtower"	"lifesteal"	""	10	10	4
+"Aldur's Watchtower"	"res-all"	""	50	50	1337
+"Aldur's Watchtower"	"dru"	""	3	3	1337
+"Aldur's Watchtower"	"ac"	""	150	150	1337
+"Aldur's Watchtower"	"manasteal"	""	10	10	1337
+"Aldur's Watchtower"	"mana"	""	150	150	1337
+"Aldur's Watchtower"	"dmg%"	""	350	350	1337
+"Aldur's Watchtower"	"state"	"fullsetgeneric"	1	1	1337
+"Immortal King"	"att"	""	50	50	2
+"Immortal King"	"att"	""	75	75	3
+"Immortal King"	"att"	""	125	125	4
+"Immortal King"	"att"	""	200	200	5
+"Immortal King"	"res-all"	""	50	50	1337
+"Immortal King"	"bar"	""	3	3	1337
+"Immortal King"	"hp"	""	150	150	1337
+"Immortal King"	"red-mag"	""	10	10	1337
+"Immortal King"	"state"	"fullsetgeneric"	1	1	1337
+"Tal Rasha's Wrappings"	"regen"	""	10	10	2
+"Tal Rasha's Wrappings"	"mag%"	""	65	65	3
+"Tal Rasha's Wrappings"	"balance2"	""	25	25	4
+"Tal Rasha's Wrappings"	"res-all"	""	50	50	1337
+"Tal Rasha's Wrappings"	"sor"	""	3	3	1337
+"Tal Rasha's Wrappings"	"ac"	""	150	150	1337
+"Tal Rasha's Wrappings"	"hp"	""	150	150	1337
+"Tal Rasha's Wrappings"	"ac-miss"	""	50	50	1337
+"Tal Rasha's Wrappings"	"state"	"fullsetgeneric"	1	1	1337
+"Griswold's Legacy"	"str"	""	20	20	2
+"Griswold's Legacy"	"dex"	""	30	30	3
+"Griswold's Legacy"	"res-all"	""	50	50	1337
+"Griswold's Legacy"	"pal"	""	3	3	1337
+"Griswold's Legacy"	"att"	""	200	200	1337
+"Griswold's Legacy"	"hp"	""	150	150	1337
+"Griswold's Legacy"	"state"	"fullsetgeneric"	1	1	1337
+"Griswold's Legacy"	"balance2"	""	30	30	1337
+"Trang-Oul's Avatar"	"regen-mana"	""	15	15	2
+"Trang-Oul's Avatar"	"regen-mana"	""	15	15	3
+"Trang-Oul's Avatar"	"regen-mana"	""	15	15	4
+"Trang-Oul's Avatar"	"oskill"	"Fire Ball"	18	18	2
+"Trang-Oul's Avatar"	"oskill"	"Fire Wall"	13	13	3
+"Trang-Oul's Avatar"	"oskill"	"Meteor"	10	10	4
+"Trang-Oul's Avatar"	"res-all"	""	50	50	1337
+"Trang-Oul's Avatar"	"nec"	""	3	3	1337
+"Trang-Oul's Avatar"	"mana"	""	100	100	1337
+"Trang-Oul's Avatar"	"ac"	""	200	200	1337
+"Trang-Oul's Avatar"	"state"	"monsterset"	1	1	1337
+"Trang-Oul's Avatar"	"regen-mana"	""	15	15	1337
+"Trang-Oul's Avatar"	"oskill"	"Fire Mastery"	3	3	1337
+"Trang-Oul's Avatar"	"lifesteal"	""	20	20	1337
+"M'avina's Battle Hymn"	"str"	""	20	20	2
+"M'avina's Battle Hymn"	"dex"	""	30	30	3
+"M'avina's Battle Hymn"	"res-all"	""	50	50	1337
+"M'avina's Battle Hymn"	"ama"	""	3	3	1337
+"M'avina's Battle Hymn"	"ac"	""	100	100	1337
+"M'avina's Battle Hymn"	"att"	""	100	100	1337
+"M'avina's Battle Hymn"	"mag%"	""	100	100	1337
+"M'avina's Battle Hymn"	"state"	"fullsetgeneric"	1	1	1337
+"The Disciple"	"ac"	""	150	150	2
+"The Disciple"	"dmg-pois"	"75"	75	75	3
+"The Disciple"	"str"	""	10	10	4
+"The Disciple"	"dex"	""	10	10	5
+"The Disciple"	"res-all"	""	50	50	1337
+"The Disciple"	"allskills"	""	2	2	1337
+"The Disciple"	"mana"	""	100	100	1337
+"Heaven's Brethren"	"regen-stam"	""	50	50	2
+"Heaven's Brethren"	"regen"	""	20	20	3
+"Heaven's Brethren"	"dmg-fire"	""	30	30	4
+"Heaven's Brethren"	"res-all"	""	50	50	1337
+"Heaven's Brethren"	"allskills"	""	2	2	1337
+"Heaven's Brethren"	"nofreeze"	""	1	1	1337
+"Heaven's Brethren"	"light"	""	5	5	1337
+"Orphan's Call"	"hp"	""	35	35	2
+"Orphan's Call"	"thorns"	""	5	5	3
+"Orphan's Call"	"ac"	""	100	100	4
+"Orphan's Call"	"hp"	""	50	50	1337
+"Orphan's Call"	"dex"	""	10	10	1337
+"Orphan's Call"	"str"	""	20	20	1337
+"Orphan's Call"	"ac"	""	100	100	1337
+"Orphan's Call"	"res-all"	""	15	15	1337
+"Orphan's Call"	"mag%"	"0"	80	80	1337
+"Hwanin's Majesty"	"ac"	""	100	100	2
+"Hwanin's Majesty"	"ac"	""	200	200	3
+"Hwanin's Majesty"	"allskills"	""	2	2	1337
+"Hwanin's Majesty"	"lifesteal"	""	20	20	1337
+"Hwanin's Majesty"	"move3"	""	30	30	1337
+"Hwanin's Majesty"	"res-all"	""	30	30	1337
+"Sazabi's Grand Tribute"	"move3"	""	40	40	2
+"Sazabi's Grand Tribute"	"res-all"	""	30	30	1337
+"Sazabi's Grand Tribute"	"lifesteal"	""	15	15	1337
+"Sazabi's Grand Tribute"	"hp%"	""	27	27	1337
+"Bul-Kathos' Children"	"dmg-fire"	""	20	20	1337
+"Bul-Kathos' Children"	"allskills"	""	2	2	1337
+"Bul-Kathos' Children"	"att"	""	200	200	1337
+"Bul-Kathos' Children"	"ac"	""	25	25	1337
+"Bul-Kathos' Children"	"dmg-undead"	""	200	200	1337
+"Bul-Kathos' Children"	"dmg-demon"	""	200	200	1337
+"Cow King's Leathers"	"res-pois"	""	25	25	2
+"Cow King's Leathers"	"stam"	""	100	100	1337
+"Cow King's Leathers"	"str"	""	20	20	1337
+"Cow King's Leathers"	"gold%"	""	100	100	1337
+"Cow King's Leathers"	"mag%"	""	100	100	1337
+"Cow King's Leathers"	"gethit-skill"	"42"	25	5	1337
+"Cow King's Leathers"	"swing3"	""	30	30	1337
+"Naj's Ancient Set"	"ac"	""	175	175	2
+"Naj's Ancient Set"	"allskills"	""	1	1	1337
+"Naj's Ancient Set"	"regen"	""	10	10	1337
+"Naj's Ancient Set"	"dex"	""	15	15	1337
+"Naj's Ancient Set"	"res-all"	""	50	50	1337
+"Naj's Ancient Set"	"str"	""	20	20	1337
+"Naj's Ancient Set"	"mana"	""	100	100	1337
+"Sander's Folly"	"ac"	""	50	50	2
+"Sander's Folly"	"att"	""	75	75	3
+"Sander's Folly"	"allskills"	""	1	1	1337
+"Sander's Folly"	"mag%"	""	50	50	1337
+"Sander's Folly"	"mana"	""	50	50	1337
+"Sander's Folly"	"lifesteal"	""	4	4	1337

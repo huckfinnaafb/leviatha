@@ -1,0 +1,895 @@
+Aegis
+Aerin Shield
+Akaran Rondache
+Akaran Targe
+Alpha Helm
+Ancient Armor
+Ancient Axe
+Ancient Shield
+Ancient Sword
+Antlers
+Arbalest
+Archon Plate
+Archon Staff
+Armet
+Ashwood Bow
+Assault Helmet
+Ataghan
+Avenger Guard
+Axe
+Balanced Axe
+Balanced Knife
+Balista
+Balrog Blade
+Balrog Skin
+Balrog Spear
+Barbed Club
+Barbed Shield
+Bardiche
+Basinet
+Bastard Sword
+Battle Axe
+Battle Belt
+Battle Boots
+Battle Cestus
+Battle Dart
+Battle Gauntlets
+Battle Hammer
+Battle Scythe
+Battle Staff
+Battle Sword
+Bearded Axe 
+Bec-de-Corbin
+Belt
+Berserker Axe
+Bill
+Blade
+Blade Barrier
+Blade Bow
+Blade Talons
+Blood Spirt
+Bloodlord Skull
+Bone Helm
+Bone Knife
+Bone Shield
+Bone Visage
+Bone Wand
+Boneweave
+Boneweave Boots
+Bracers
+Bramble Mitts
+Brandistock
+Breast Plate
+Broad Axe 
+Broad Sword
+Buckler
+Burnt Wand
+Caduceus
+Cantor Trophy
+Cap
+Carnage Helm
+Casque
+Cedar Bow
+Cedar Staff
+Ceremonial Bow
+Ceremonial Javelin
+Ceremonial Pike
+Ceremonial Spear
+Cestus
+Chain Boots
+Chain Mail
+Champion Axe
+Champion Sword
+Chaos Armor
+Choking Gas Potion
+Chu-Ko-Nu
+Cinquedeas
+Circlet
+Clasped Orb
+Claws
+Claymore
+Cleaver
+Cloudy Sphere
+Club
+Colossal Sword
+Colossus Blade
+Colossus Crossbow
+Colossus Girdle
+Colossus Voulge
+Composite Bow
+Conquerer Crown
+Conquest Sword
+Corona
+Coronet
+Crossbow
+Crowbill
+Crown
+Crown Shield
+Crusader Bow
+Crusader Gauntlets
+Cryptic Axe
+Cryptic Sword
+Crystal Sword
+Crystalline Globe
+Cudgel
+Cuirass
+Cutlass
+Dacian Falx
+Dagger
+Death Mask
+Decapitator
+decoy dagger
+Defender
+Demon Crossbow
+Demon Head
+Demon Heart
+Demonhead
+Demonhide Armor
+Demonhide Boots
+Demonhide Gloves
+Demonhide Sash
+Destroyer Helm
+Devil Star
+Diadem
+Diamond Bow
+Diamond Mail
+Dimensional Blade
+Dimensional Shard
+Dirk
+Divine Scepter
+Double Axe
+Double Bow
+Dragon Shield
+Dragon Stone
+Dream Spirit
+Dusk Shroud
+Eagle Orb
+Earth Spirit
+Edge Bow
+Elder Staff
+Eldritch Orb
+Elegant Blade
+Embossed Plate
+Espadon
+Ettin Axe
+Executioner Sword
+Exploding Potion
+Falcata
+Falchion
+Falcon Mask
+Fanged Helm
+Fanged Knife
+Fascia
+Feral Axe
+Feral Claws
+Fetish Trophy
+Field Plate
+Flail
+Flamberge
+Flanged Mace
+Flying Axe
+Flying Knife
+Francisca
+Full Helm
+Full Plate Mail
+Fulminating Potion
+Fury Visor
+Fuscina
+Gargoyle Head
+Gaunlets
+Ghost Armor
+Ghost Glaive
+Ghost Spear
+Ghost Wand
+Giant Axe
+Giant Conch
+Giant Sword
+Giant Thresher
+Gidbinn
+Girdle
+Gladius
+Glaive
+Glorious Axe
+Glowing Orb
+Gnarled Staff
+Gorgon Crossbow
+Gothic Axe
+Gothic Bow
+Gothic Plate
+Gothic Shield
+Gothic Staff
+Gothic Sword
+Grand Crown
+Grand Matron Bow
+Grand Scepter
+Grave Wand
+Great Axe
+Great Bow
+Great Hauberk
+Great Helm
+Great Maul
+Great Pilum
+Great Poleaxe
+Great Sword
+Greater Claws
+Greater Talons
+Griffon Headress
+Grim Helm
+Grim Scythe
+Grim Shield
+Grim Wand
+Guardian Crown
+Guilded Shield
+Halberd
+Hand Axe
+Hand Scythe
+Hard Leather Armor
+Harpoon
+Hatchet
+Hatchet Hands
+Hawk Helm
+Heater
+Heavenly Stone
+Heavy Belt
+Heavy Boots
+Heavy Bracers
+Heavy Crossbow
+Heavy Gloves
+Heirophant Trophy
+Hellforge Hammer
+Hellforged Plate
+Hellspawn Skull
+Helm
+Heraldic Shield
+Highland Blade
+Holy Water Sprinkler
+Horadric Malus
+Horadric Staff
+Horned Helm
+Hunter's Bow
+Hunter's Guise
+Hurlbat
+Hydra Bow
+Hydra Edge
+Hydraskull
+Hyperion
+Hyperion Javelin
+Hyperion Spear
+Jagged Star
+Javelin
+Jawbone Cap
+Jawbone Visor
+Jo Staff
+Katar
+Khalims Flail
+Kite Shield
+Knout
+Kraken Shell
+Kriss
+Lacquered Plate
+Lance
+Large Axe
+Large Shield
+Leather Armor
+Leather Boots
+Leather Gloves
+Legend Spike
+Legend Sword
+Legendary Mallet
+Lich Wand
+Light Belt
+Light Crossbow
+Light Gauntlets
+Light Plate
+Light Plate Boots
+Linked Mail
+Lion Helm
+Lochaber Axe
+Long Battle Bow
+Long Bow
+Long Siege Bow
+Long Staff
+Long Sword 
+Long War Bow
+Loricated Mail
+Luna
+Mace
+Mage Plate
+Maiden Javelin
+Maiden Pike
+Maiden Spear
+Mancatcher
+Martel de Fer
+Mask
+Matriarchal Bow
+Matriarchal Javelin
+Matriarchal Pike
+Matriarchal Spear
+Maul
+Mesh Armor
+Mesh Belt
+Mesh Boots
+Mighty Scepter
+Military Axe
+Military Pick
+Minion Skull
+Mirrored Boots
+Mithral Point
+Mithril Coil
+Monarch
+Morning Star
+Mummified Trophy
+Myrmidon Greaves
+Mythical Sword
+Naga
+Ogre Axe
+Ogre Gauntlets
+Ogre Maul
+Oil Potion
+Ornate Armor
+Overseer Skull
+Partizan
+Pavise
+Pellet Bow
+Petrified Wand
+Phase Blade
+Pike
+Pilum
+Plate Boots
+Plate Mail
+Poignard
+Poleaxe
+Polished Wand
+Preserved Head
+Protector Shield
+Quarterstaff
+Quhab
+Quilted Armor
+Rage Mask
+Rancid Gas Potion
+Razor Bow
+Reflex Bow
+Reinforced Mace
+Repeating Crossbow
+Ring Mail
+Rondache
+Rondel
+Round Shield
+Royal Shield
+Rune Bow
+Rune Scepter
+Rune Staff
+Rune Sword
+Runic Talons
+Russet Armor
+Saber
+Sacred Armor
+Sacred Feathers
+Sacred Globe
+Sacred Rondache
+Sacred Targe
+Sallet
+Sash
+Savage Helmet
+Scale Mail
+Scarab Husk
+Scarabshell Boots
+Scepter
+Scimitar
+Scissors Katar
+Scissors Quhab
+Scissors Suwayyah
+Scourge
+Scutum
+Scythe
+Seraph Rod
+Serpentskin Armor
+Sexton Trophy
+Shadow Bow
+Shadow Plate
+Shako
+Shamshir
+Sharkskin Belt
+Sharkskin Boots
+Sharkskin Gloves
+Sharktooth Armor
+Shillelah
+Short Battle Bow
+Short Bow
+Short Siege Bow
+Short Spear
+Short Staff
+Short Sword
+Short War Bow
+Siege Crossbow
+Silver Edged Axe
+Simbilan
+Skull Cap
+Sky Spirit
+Slayer Guard
+Small Crescent
+Small Shield
+Smoked Sphere
+Sparkling Ball
+Spear
+Spetum
+Spiculum
+Spider Bow
+Spiderweb Sash
+Spiked Club
+Spiked Shield
+Spired Helm
+Spirit Mask
+Splint Mail
+Staff of the Kings
+Stag Bow
+Stalagmite
+Stilleto
+Strangling Gas Potion
+Studded Leather 
+Stygian Pike
+Stygian Pilum
+Succubae Skull
+Sun Spirit
+SuperKhalimFlail
+Suwayyah
+Swirling Crystal
+Tabar
+Targe
+Templar Coat
+Thresher
+Throwing Axe
+Throwing Knife
+Throwing Spear
+Thunder Maul
+Tiara
+Tigulated Mail
+Tomahawk
+Tomb Wand
+Totemic Mask
+Tower Shield
+Trellised Armor
+Trident
+Troll Belt
+Troll Nest
+Truncheon
+Tulwar
+Tusk Sword
+Twin Axe
+Two-Handed Sword
+Tyrant Club
+Unearthed Wand
+Unraveller Head
+Vambraces
+Vampirebone Gloves
+Vampirefang Belt
+Vortex Orb
+Vortex Shield
+Voulge
+Walking Stick
+Wand
+War Axe
+War Belt
+War Boots
+War Club
+War Dart
+War Fist
+War Fork
+War Gauntlets
+War Hammer
+War Hat
+War Javelin
+War Pike
+War Scepter
+War Scythe
+War Spear
+War Spike
+War Staff
+War Sword
+Ward
+Ward Bow
+Winged Axe
+Winged Harpoon
+Winged Helm
+Winged Knife
+Wire Fleece
+Wirt's Leg
+Wolf Head
+Wrist Blade
+Wrist Spike
+Wrist Sword
+Wyrmhide
+Wyrmhide Boots
+Yari
+Yew Wand
+Zakarum Shield
+Zombie Head
+Zweihander
+Alma Negra
+Amulet of the Viper
+Andariel's Visage
+Annihilus
+Arachnid Mesh
+Arioc's Needle
+Arkaine's Valor
+Arm of King Leoric
+Arreat's Face
+Athena's Wrath
+Atma's Scarab
+Atma's Wail
+Azurewrath
+Baezil's Vortex
+Bane Ash
+Baranar's Star
+Bing Sz Wang
+Black Hades
+Blackbog's Sharp
+Blackhand Key
+Blackhorn's Face
+Blackleach Blade
+Blackoak Shield
+Blacktongue
+Blade of Ali Baba
+Bladebone
+Bladebuckle
+Blastbark
+Blinkbats Form
+Blood Crescent
+Bloodfist
+Bloodletter
+Bloodmoon
+Bloodraven's Charge
+Bloodrise
+Bloodthief
+Bloodtree Stump
+Boneflame
+Boneflesh
+Bonehew
+Boneshade
+Boneslayer Blade
+Bonesob
+Brainhew
+Bul Katho's Wedding Band
+Buriza-Do Kyanon
+Butcher's Pupil
+Bverrit Keep
+Carin Shard
+Carrion Wind
+Cerebus
+Chance Guards
+Chromatic Ire
+Cliffkiller
+Cloudcrack
+Coif of Glory
+Coldkill
+Coldsteel Eye
+Constricting Ring
+Corpsemourn
+Crainte Vomir
+Cranebeak
+Crescent Moon
+Crow Caw
+Crown of Ages
+Crown of Thieves
+Crushflange
+Culwens Point
+Cutthroat1
+Dark Clan Crusher
+Darkfear
+Darkforge Spawn
+Darkglow
+Darksight Helm
+Deathbit
+Deathcleaver
+Deaths's Web
+Deathspade
+Demon Machine
+Demon's Arch
+Demonhorn's Edge
+Demonlimb
+Dimoaks Hew
+Djinnslayer
+Doombringer
+Doomspittle
+Dracul's Grasp
+Dragonscale
+Duriel's Shell
+Duskdeep
+Dwarf Star
+Eaglehorn
+Earthshaker
+Earthshifter
+Endlesshail
+Eschuta's temper
+Ethereal Edge
+Executioner's Justice
+Fathom
+Fechmars Axe
+Felloak
+Firelizard's Talons
+Flamebellow
+Fleshrender
+Fleshripper
+Frostburn
+Frostwind
+Gargoyle's Bite
+Gheed's Fortune
+Ghostflame
+Ghoulhide
+Giantmaimer
+Giantskull
+Gimmershred
+Ginther's Rift
+Gleamscythe
+Gloomstrap
+Goblin Toe
+Godstrike Arch
+Goldskin
+Goldwrap
+Gore Ripper
+Gorefoot
+Gorerider
+Goreshovel
+Gravenspine
+Gravepalm
+Greyform
+Griffon's Eye
+Grim's Burning Dead
+Griswolds Edge
+Guardian Angel
+Guardian Naga
+Gull
+Gutsiphon
+Halaberd's Reign
+Hand of Blessed Light
+Harlequin Crest
+Hawkmail
+Headhunter's Glory
+Headstriker
+Heart Carver
+Heaven's Light
+Heavenly Garb
+Hell Forge Hammer
+Hellcast
+Hellclap
+Hellfire Torch
+Hellmouth
+Hellplague
+Hellrack
+Hellslayer
+Herald of Zakarum
+Hexfire
+Highlord's Wrath
+Homunculus
+Hone Sundan
+Horadric Staff
+Horizon's Tornado
+Hotspur
+Howltusk
+Husoldal Evo
+Iceblink
+Ichorsting
+Infernostride
+Irices Shard
+Ironpelt
+Ironstone
+Ironward
+Iros Torch
+Islestrike
+Jadetalon
+Jalal's Mane
+Kelpie Snare
+Kerke's Sanctuary
+KhalimFlail
+Kinemils Awl
+Kira's Guardian
+Knell Striker
+Krintizs Skewer
+Kuko Shakaku
+Lacerator
+Lance Guard
+Lance of Yaggai
+Langer Briser
+Larzuk's Champion
+Lavagout
+Lazarus Spire
+Leadcrow
+Lenyms Cord
+Leviathan
+Lidless Wall
+Lightsabre
+Lycander's Aim
+Lycander's Flank
+Maelstromwrath
+Magefist
+Magewrath
+Manald Heal
+Mang Song's Lesson
+Mara's Kaleidoscope
+Marrowwalk
+Medusa's Gaze
+Merman's Speed
+Messerschmidt's Reaver
+Metalgrid
+Mindrend
+Moonfall
+Mosers Blessed Circle
+Nagelring
+Nature's Peace
+Nethercrow
+Nightsmoke
+Nightwing's Veil
+Nokozan Relic
+Nord's Tenderizer
+Nosferatu's Coil
+Odium
+Ondal's Wisdom
+Ormus' Robes
+Peasent Crown
+Pelta Lunata
+Piercerib
+Pierre Tombale Couant
+Plague Bearer
+Pluckeye
+Pompe's Wrath
+Pullspite
+Pus Spiter
+Que-Hegan's Wisdon
+Radimant's Sphere
+Rakescar
+Rattlecage
+Raven Frost
+Ravenlore
+Razoredge
+Razorswitch
+Razortail
+Razortine
+Ribcracker
+Rimeraven
+Riphook
+Ripsaw
+Rixots Keen
+Rockfleece
+Rockstopper
+Runemaster
+Rusthandle
+Sandstorm Trek
+Saracen's Chance
+Schaefer's Hammer
+Seraph's Hymn
+Serpent Lord
+Shadowdancer
+Shadowfang
+Shadowkiller
+Shaftstop
+Sigurd's Staunch
+Silkweave
+Skin of the Flayerd One
+Skin of the Vipermagi
+Skullcollector
+Skullder's Ire
+Skystrike
+Snakecord
+Snowclash
+Soul Harvest
+Souldrain
+Soulfeast Tine
+Soulflay
+Sparking Mail
+Spellsteel
+Spike Thorn
+Spineripper
+Spire of Honor
+Spirit Ward
+Spiritforge
+Spiritkeeper
+Staff of Kings
+Stealskull
+Steel Carapice
+Steelclash
+Steeldriver
+Steelgoad
+Steelpillar
+Steelrend
+Steelshade
+Stone Crusher
+Stoneraven
+Stormchaser
+Stormeye
+Stormguild
+Stormlash
+Stormrider
+Stormshield
+Stormspike
+Stormspire
+Stoutnail
+String of Ears
+Suicide Branch
+SuperKhalimFlail
+Sureshrill Frost
+Swordback Hold
+Swordguard
+Tarnhelm
+Tearhaunch
+Templar's Might
+The Atlantian
+The Battlebranch
+The Cat's Eye
+The Centurion
+The Chieftan
+The Cranium Basher
+The Diggler
+The Dragon Chang
+The Eye of Etlich
+The Face of Horror
+The Fetid Sprinkler
+The Gavel of Pain
+The Generals Tan Do Li Ga
+The Gladiator's Bane
+The Gnasher
+The Grandfather
+The Grim Reaper
+The Hand of Broc
+The Humongous
+The Impaler
+The Iron Jang Bong
+The Jade Tan Do
+The Mahim-Oak Curio
+The Meat Scraper
+The Minataur
+The Oculus
+The Patriarch
+The Reaper's Toll
+The Reedeemer
+The Rising Sun
+The Salamander
+The Scalper
+The Spirit Shroud
+The Stone of Jordan
+The Tannr Gorerod
+The Vile Husk
+The Ward
+Thudergod's Vigor
+Thunderstroke
+Tiamat's Rebuke
+Titan's Revenge
+Todesfaelle Flamme
+Tomb Reaver
+Toothrow
+Treads of Cthon
+Twitchthroe
+Tyrael's Might
+Umbral Disk
+Umes Lament
+Undead Crown
+Valkiry Wing
+Vampiregaze
+Veil of Steel
+Venom Grip
+Venomsward
+Verdugo's Hearty Cord
+Victors Silk
+Viperfork
+Visceratuant
+Wall of the Eyeless
+War Bonnet
+Warlord's Trust
+Warpspear
+Warriv's Warder
+Warshrike
+Wartraveler
+Waterwalk
+Whichwild String
+Widowmaker
+Windforce
+Windhammer
+Wisp
+Witherstring
+Wizardspike
+Wizendraw
+Woestave
+Wolfhowl
+Wormskull
+Wraithflight
+Zakarum's Hand
+Zakarum's Salvation

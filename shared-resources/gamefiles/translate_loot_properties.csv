@@ -1,0 +1,294 @@
+2handmaxdam,Two Handed Maximum Damage,1
+2handmindam,Two Handed Minimum Damage,1
+abs-cold,Absorbs Cold Damage,1
+abs-cold%,Absorbs Cold Damage %,1
+abs-cold/lvl,Absorbs Cold Damage (per level),1
+abs-cold/time,Absorbs Cold Damage (time),1
+abs-crush,Absorbs Crushing Blow,1
+abs-crush%,Absorbs Crushing Blow %,1
+abs-fire,Absorbs Fire Damage,1
+abs-fire%,Fire Absorbtion (%),1
+abs-fire/lvl,Absorbs Fire Damage (per level),1
+abs-fire/time,Absorbs Fire Damage (time),1
+abs-ltng,Absorbs Lightning Damage,1
+abs-ltng%,Absorbs Lightning Damage %,1
+abs-ltng/lvl,Absorbs Lightning Damage (per level),1
+abs-ltng/time,Absorbs Lightning Damage (time),1
+abs-mag,Absorbs Magic Damage,1
+abs-mag%,Absorbs Magic Damage %,1
+abs-pois/lvl,Absorbs Poison Damage (per level),1
+abs-pois/time,Absorbs Poison Damage (time),1
+abs-slash,Absorbs Slashing Damage,1
+abs-slash%,Absorbs Slashing Damage %,1
+abs-thrust,Absorbs Thrusting Damage,1
+abs-thrust%,Absorbs Thrusting Damage %,1
+absorbs,Armor Absorbtion,1
+ac,Increased Defense,1
+ac%,Increased Defense %,1
+ac%-mon,Increased Defense % vs. Monsters,1
+ac%/lvl,Increased Defense % (per level),1
+ac%/time,Increased Defense % (time),1
+ac-hth,Increased Defense vs. Melee,1
+ac-miss,Increased Defense vs. Missiles,1
+ac-mon,Increased Defense vs. Monsters,1
+ac/lvl,Increased Defense (per level),1
+ac/time,Increased Defense (time),1
+addxp,Increased Experience Gain,1
+all-stats,Increases All Stats,1
+allskills,Increases All Skills,1
+ama,Amazon Skills,1
+armorslow,Armor Weight,1
+armorspeed,Armor Weight,1
+ass,Assassin Skills,1
+att,Attack Rating,1
+att%,Attack Rating %,1
+att%-mon,Attack Rating % vs. Monsters,1
+att%/lvl,Attack Rating % (per level),1
+att%/time,Attack Rating % (time),1
+att-dem/lvl,Attack Rating vs. Demons (per level),1
+att-dem/time,Attack Rating vs. Demons (time),1
+att-demon,Attack Rating vs. Demons,1
+att-mon,Attack Rating vs. Monsters,1
+att-mon%,Attack Rating % vs. Monsters,1
+att-skill,Chance to Cast Skill on Attack,1
+att-und/lvl,Attack Rating vs. Undead (per level),1
+att-und/time,Attack Rating vs. Undead (time),1
+att-undead,Attack Rating vs. Undead,1
+att/lvl,Attack Rating (per level),1
+att/time,Attack Rating (time),1
+aura,Aura on Equip,1
+balance1,Quick Hit Recovery,1
+balance2,Quicker Hit Recovery,1
+balance3,Quickest Hit Recovery,1
+bar,Barbarian Skills,1
+block,Block Rating,1
+block1,Block Rating,1
+block2,Block Rating,1
+block3,Block Rating,1
+bloody,Attacker Takes Damage,1
+cast1,Quick Casting Speed,1
+cast2,Quicker Casting Speed,1
+cast3,Quickest Casting Speed,1
+charged,Charged Skill,1
+cheap,Reduces Vendor Prices,1
+cold-len,Cold Length (frames),1
+cold-max,Maximum Cold Damage,1
+cold-min,Minimum Cold Damage,1
+color,Color,1
+cost,Merchant Cost,0
+crush,Chance of Crushing Blow,1
+crush/lvl,Chance of Crushing Blow (per level),1
+crush/time,Chance of Crushing Blow (time),1
+deadly,Chance of Deadly Strike,1
+deadly/lvl,Chance of Deadly Strike (per level),1
+deadly/time,Chance of Deadly Strike (time),1
+death-skill,Chance to Cast Skill on Death,1
+demon-heal,Gain Life after Killing Demon,1
+dex,Dexterity,1
+dex/lvl,Dexterity (per level),1
+dex/time,Dexterity (time),1
+DexBonus,Dexterity Bonus,1
+dmg,Enhanced Damage,1
+dmg%,Enhanced Damage %,1
+dmg%-mon,Enhanced Damage % vs. Monsters,1
+dmg%/lvl,Enhanced Damage % (per level),1
+dmg%/time,Enhanced Damage % (time),1
+dmg-ac,Reduces Enemy Defense,1
+dmg-cold,Cold Damage,1
+dmg-cold/lvl,Cold Damage (per level),1
+dmg-cold/time,Cold Damage (time),1
+dmg-crush,Enhanced Damage on Crushing Blow,1
+dmg-crush%,Enhanced Damage on Crushing Blow %,1
+dmg-dem/lvl,Enhanced Damage vs. Demons (per level),1
+dmg-dem/time,Enhanced Damage vs. Demons (time),1
+dmg-demon,Enhanced Damage vs. Demons,1
+dmg-elem,Elemental Damage,1
+dmg-elem-max,Maximum Elemental Damage,1
+dmg-elem-min,Minimum Elemental Damage,1
+dmg-fire,Fire Damage,1
+dmg-fire/lvl,Fire Damage (per level),1
+dmg-fire/time,Fire Damage (time),1
+dmg-ltng,Lightning Damage,1
+dmg-ltng/lvl,Lightning Damage (per level),1
+dmg-ltng/time,Lightning Damage (time),1
+dmg-mag,Magic Damage,1
+dmg-max,Increases Maximum Damage,1
+dmg-min,Increases Minimum Damage,1
+dmg-mon,Enhanced Damage vs. Monsters,1
+dmg-mon%,Enhanced Damage % vs. Monsters,1
+dmg-norm,Adds Physical Damage,1
+dmg-pois,Poison Damage,1
+dmg-pois/lvl,Poison Damage (per level),1
+dmg-pois/time,Poison Damage (time),1
+dmg-slash,Slashing Damage,1
+dmg-slash%,Slashing Damage %,1
+dmg-throw,Throwing Damage,1
+dmg-thrust,Thrusting Damage,1
+dmg-thrust%,Thrusting Damage %,1
+dmg-to-mana,Damage Replenishes Mana,1
+dmg-und/lvl,Damage vs. Undead (per level),1
+dmg-und/time,Damage vs. Undead (time),1
+dmg-undead,Damage vs. Undead,1
+dmg/lvl,Adds Damage,1
+dmg/time,Adds Damage (time),1
+dru,Druid Skills,1
+dur,Increased Durability,1
+dur%,Increased Durability %,1
+durability,Durability,1
+ease,Reduced Requirements,1
+enr,Energy,1
+enr/lvl,Energy (per level),1
+enr/time,Energy (time),1
+ethereal,Ethereal,1
+Expansion,,1
+explosivearrow,Explosive Arrow,1
+extra-cold,Increased Cold Skill Damage %,1
+extra-fire,Increased Fire Skill Damage %,1
+extra-ltng,Increased Lightning Skill Damage %,1
+extra-pois,Increased Poison Skill Damage %,1
+fade,Fade,1
+fire-fx,,1
+fire-max,Maximum Fire Damage,1
+fire-min,Minimum Fire Damage,1
+fireskill,Fire Skills,1
+freeze,Freezes Monster on Hit,1
+gamblecost,Gamble Cost,0
+gembonus,,1
+gems%/lvl,,1
+gems%/time,,1
+gemsockets,Maximum Sockets,1
+gethit-skill,Chance to Cast Skill when hit by Enemy,1
+gold%,Increased Gold Find %,1
+gold%/lvl,Increased Gold Find % (per level),1
+gold%/time,Increased Gold Find % (time),1
+half-freeze,Half Freeze Duration,1
+heal-kill,Heals Life on Kill,1
+herb,,1
+hit-skill,Chance to Cast Skill on Hit,1
+howl,,1
+hp,Hit Points Increase,1
+hp%,Hit Points Increase (%),1
+hp/lvl,Increased Life (per level),1
+hp/time,Increased Life (time),1
+ignore-ac,Ignores Enemy Armor,1
+indestruct,Indestructable,1
+invheight,Inventory Height,0
+invwidth,Inventory Width,0
+item%,,1
+kick,Kick Damage,1
+kick/lvl,,1
+kick/time,,1
+kill-skill,Chance to Cast Skill on Enemy Kill,1
+knock,Knockback,1
+levelreq,Level Required,1
+levelup-skill,Chance to Cast Skill on Level Up,1
+lifesteal,Steals Life,1
+light,Light Radius,1
+light-thorns,Attacker Takes Lightning Damage,1
+lightradius,Light Radius,1
+ltng-fx,,1
+ltng-max,Maximum Lightning Damage,1
+ltng-min,Minimum Lightning Damage,1
+mag%,Better Chance of Getting Magic Items,1
+mag%/lvl,Better Chance of Getting Magic Items (per level),1
+mag%/time,Better Chance of Getting Magic Items (time),1
+magicarrow,Shoots Magic Arrows,1
+mana,Mana Increase,1
+mana%,Mana Increase (%),1
+mana-kill,Mana Gained on Kill,1
+mana/lvl,Mana (per level),1
+mana/time,Mana (time),1
+manasteal,Mana Steal,1
+maxac,Maximum Defense,1
+maxdam,Maximum Damage,1
+maxmisdam,Maximum Missile Damage,1
+maxstack,Maximum Stack,1
+minac,Minimum Defense,1
+mindam,Minimum Damage,1
+minmisdam,Minimum Missile Damage,1
+minstack,Minimum Stack,0
+move1,Fast Run Speed,1
+move2,Faster Run Speed,1
+move3,Fastest Run Speed,1
+nec,Necromancer Skills,1
+nofreeze,Cannot be Frozen,1
+noheal,Prevents Monster Heal,1
+openwounds,Open Wounds,1
+oskill,Skill +,1
+pal,Paladin Skills,1
+pierce,Piercing Damage,1
+pierce-cold,Pierces Cold Resistance,1
+pierce-fire,Pierces Fire Resistance,1
+pierce-ltng,Pierces Lightning Resistance,1
+pierce-pois,Pierces Poison Resistance,1
+pois-len,Poison Length (frames),1
+pois-max,Maximum Poison Damage,1
+pois-min,Minimum Poison Damage,1
+randclassskill,Random Class Skill,1
+rangeadder,Range,1
+reanimate,Chance to Reanimate Fallen Monsters,1
+red-dmg,Damage Reduced,1
+red-dmg%,Damage Reduced (%),1
+red-mag,Reduced Magic Damage,1
+reduce-ac,Reduces Target Defense,1
+regen,Regenerate Life,1
+regen-dur,Regenerate Durability,1
+regen-mana,Regenerate Mana,1
+regen-stam,Regenerate Stamina,1
+regen-stam/lvl,Regenerate Stamina (per level),1
+regen-stam/time,Regenerate Stamina (time),1
+rep-dur,Replenish Durability,1
+rep-quant,Replenish Quantity,1
+reqstr,Required Strength,1
+res-all,Resist All,1
+res-all-max,Increases All Maximum Resists,1
+res-cold,Resist Cold,1
+res-cold-max,Increases Maximum Cold Resists,1
+res-cold/lvl,Resist Cold (per level),1
+res-cold/time,Resist Cold (time),1
+res-fire,Resist Fire,1
+res-fire-max,Increases Maximum Fire Resists,1
+res-fire/lvl,Resist Fire (per level),1
+res-fire/time,Resist Fire (time),1
+res-ltng,Resist Lightning,1
+res-ltng-max,Increases Maximum Lightning Resists,1
+res-ltng/lvl,Resist Lightning (per level),1
+res-ltng/time,Resist Lightning (time),1
+res-mag,Resist Magic,1
+res-mag-max,Increases Maximum Magic Resists,1
+res-pois,Resist Poison,1
+res-pois-len,Reduced Poison Duration,1
+res-pois-max,Increases Maximum Poison Resists,1
+res-pois/lvl,Resist Poison (per level),1
+res-pois/time,Resist Poison (time),1
+rip,Slain Enemies Rest in Peace,1
+skill,Skill,1
+skill-rand,Random Class Skill,1
+skilltab,Skill Tab,1
+slow,Hit Slows Target,1
+sock,Socketed,1
+sor,Sorceress Skills,1
+speed,Weapon Speed,1
+stack,Increased Stack Size,1
+stam,Increased Stamina,1
+stam/lvl,Increased Stamina (per level),1
+stam/time,Increased Stamina (time),1
+stamdrain,Reduced Stamina Drain,1
+state,State Change,1
+str,Strength,1
+str/lvl,Strength (per level),1
+str/time,Strength (time),1
+StrBonus,Strength Bonus,1
+stupidity,Hit Confuses Target,1
+swing1,Increased Attack Speed,1
+swing2,Increased Attack Speed,1
+swing3,Increased Attack Speed,1
+thorns,Damage Returned to Attacker,1
+thorns/lvl,Damage Returned to Attacker (per level),1
+throw,,1
+time,,1
+vit,Vitality,1
+vit/lvl,Vitality (per level),1
+vit/time,Vitaltiy (time),1
+wounds/lvl,,1
+wounds/time,,1

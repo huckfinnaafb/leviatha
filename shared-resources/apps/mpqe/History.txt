@@ -1,0 +1,42 @@
+* Version 3.0.0.420
+
+ - Fixed problem with adding files with pseudo-names ("File00000001.ext")
+ - Support for MPQs that have both block table and hash table zero size
+ - Better looking toolbar
+ - Added *.SC2Map and *.SC2Mod extensions from Starcraft II
+ - "Open file" and "Save file" dialogs now have "places" bar, but are no longer
+   centered.
+ - Both "ListFile path" and "work directory" now recognize paths relative to the EXE
+   and will be updated appropriately when the EXE is moved to different location
+ - Fixed bug in "Merge Listfiles" dialog regarding to multiple file additions
+ - Added "Delete All" button to "Merge Listfiles" 
+ - Fixed few bugs in "Set File Associations" dialog
+ - Buttons in "Set File Associations" dialog are now enabled or disabled based on items selected
+
+* Version 3.0.0.405
+
+ - Added feature for configuring (attributes) in MPQ
+ - Fixed bug when (attributes) was sometimes saved improperly
+ - Fixed bug recent file list
+ - "Create New MPQ" Wizard now has better-looking bitmap instead of the ugly text
+ - "..." button in "Create New MPQ" wizard now adds an extension,
+   if any is selected in the "Save file" dialog.
+
+* Version 3.0.0.404
+
+ - Fixed repaint problem when resizing main window
+ - When creating new MPQ, the "..." button now has "Save" title
+ - MoPaQ script interpreter also supports Windows command line
+ - The "File Associations" dialog was reworked.
+
+* Version 3.0.0.402
+
+ - "Properties" on root dir item is now allowed and shows archive properties
+ - Improved file mask in toolbar
+
+* Version 3.0.0.401
+
+ - Improved MPQ Table Viewer
+ - MPQ Editor no longer remover W3M protection from W3M Map Utilities
+ - Set minimum tracking size for main window
+ - Fixed minimum window size done by splitters

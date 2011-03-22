@@ -1,0 +1,462 @@
+"Civerb's Ward"	"ac"	""	15	15
+"Civerb's Ward"	"block"	""	15	15
+"Civerb's Icon"	"regen-mana"	""	40	40
+"Civerb's Icon"	"regen"	""	4	4
+"Civerb's Cudgel"	"att"	""	75	75
+"Civerb's Cudgel"	"dmg-max"	""	17	23
+"Hsarus' Iron Heel"	"res-fire"	""	25	25
+"Hsarus' Iron Heel"	"move2"	""	20	20
+"Hsarus' Iron Fist"	"red-dmg"	""	2	2
+"Hsarus' Iron Fist"	"str"	""	10	10
+"Hsarus' Iron Stay"	"res-cold"	""	20	20
+"Hsarus' Iron Stay"	"hp"	""	20	20
+"Cleglaw's Tooth"	"att%"	""	30	30
+"Cleglaw's Tooth"	"deadly"	""	50	50
+"Cleglaw's Claw"	"ac"	""	17	17
+"Cleglaw's Claw"	"res-pois-len"	""	75	75
+"Cleglaw's Pincers"	"knock"	""	1	1
+"Cleglaw's Pincers"	"slow"	""	25	25
+"Iratha's Collar"	"res-pois"	""	30	30
+"Iratha's Collar"	"res-pois-len"	""	75	75
+"Iratha's Cuff"	"res-cold"	""	30	30
+"Iratha's Cuff"	"half-freeze"	""	1	1
+"Iratha's Coil"	"res-fire"	""	30	30
+"Iratha's Coil"	"res-ltng"	""	30	30
+"Iratha's Cord"	"ac"	""	25	25
+"Iratha's Cord"	"dmg-min"	""	5	5
+"Isenhart's Lightbrand"	"dmg-min"	""	10	10
+"Isenhart's Lightbrand"	"swing2"	""	20	20
+"Isenhart's Parry"	"ac"	""	40	40
+"Isenhart's Parry"	"light-thorns"	""	4	4
+"Isenhart's Case"	"ac"	""	40	40
+"Isenhart's Case"	"red-mag"	""	2	2
+"Isenhart's Horns"	"dex"	""	6	6
+"Isenhart's Horns"	"red-dmg"	""	2	2
+"Vidala's Barb"	"ltng-min"	""	1	1
+"Vidala's Barb"	"ltng-max"	""	20	20
+"Vidala's Fetlock"	"stam"	""	150	150
+"Vidala's Fetlock"	"move3"	""	30	30
+"Vidala's Ambush"	"ac"	""	50	50
+"Vidala's Ambush"	"dex"	""	11	11
+"Vidala's Snare"	"hp"	""	15	15
+"Vidala's Snare"	"res-cold"	""	20	20
+"Milabrega's Orb"	"mag%"	""	20	20
+"Milabrega's Orb"	"ac"	""	25	25
+"Milabrega's Rod"	"pal"	""	1	1
+"Milabrega's Rod"	"dmg%"	""	50	50
+"Milabrega's Rod"	"light"	""	2	2
+"Milabrega's Diadem"	"hp"	""	15	15
+"Milabrega's Diadem"	"mana"	""	15	15
+"Milabrega's Robe"	"thorns"	""	3	3
+"Milabrega's Robe"	"red-dmg"	""	2	2
+"Cathan's Rule"	"fireskill"	""	1	1
+"Cathan's Rule"	"fire-max"	""	10	10
+"Cathan's Mesh"	"ac"	""	15	15
+"Cathan's Mesh"	"ease"	""	-50	-50
+"Cathan's Visage"	"mana"	""	20	20
+"Cathan's Visage"	"res-cold"	""	25	25
+"Cathan's Sigil"	"balance1"	""	10	10
+"Cathan's Sigil"	"light-thorns"	""	5	5
+"Cathan's Seal"	"lifesteal"	""	6	6
+"Cathan's Seal"	"red-dmg"	""	2	2
+"Tancred's Crowbill"	"att"	""	75	75
+"Tancred's Crowbill"	"dmg%"	""	80	80
+"Tancred's Spine"	"hp"	""	40	40
+"Tancred's Spine"	"str"	""	15	15
+"Tancred's Hobnails"	"regen-stam"	""	25	25
+"Tancred's Hobnails"	"dex"	""	10	10
+"Tancred's Weird"	"red-dmg"	""	2	2
+"Tancred's Weird"	"red-mag"	""	1	1
+"Tancred's Skull"	"dmg%"	""	10	10
+"Tancred's Skull"	"att"	""	40	40
+"Sigon's Gage"	"str"	""	10	10
+"Sigon's Gage"	"att"	""	20	20
+"Sigon's Visor"	"mana"	""	30	30
+"Sigon's Visor"	"ac"	""	25	25
+"Sigon's Shelter"	"ac%"	""	25	25
+"Sigon's Shelter"	"res-ltng"	""	30	30
+"Sigon's Sabot"	"move2"	""	20	20
+"Sigon's Sabot"	"res-cold"	""	40	40
+"Sigon's Wrap"	"res-fire"	""	20	20
+"Sigon's Wrap"	"hp"	""	20	20
+"Sigon's Guard"	"allskills"	""	1	1
+"Sigon's Guard"	"block"	""	20	20
+"Infernal Cranium"	"res-all"	""	10	10
+"Infernal Cranium"	"dmg-to-mana"	""	20	20
+"Infernal Torch"	"dmg-min"	""	8	8
+"Infernal Torch"	"nec"	""	1	1
+"Infernal Sign"	"ac"	""	25	25
+"Infernal Sign"	"hp"	""	20	20
+"Berserker's Headgear"	"ac"	""	15	15
+"Berserker's Headgear"	"res-fire"	""	25	25
+"Berserker's Hauberk"	"red-mag"	""	2	2
+"Berserker's Hauberk"	"bar"	""	1	1
+"Berserker's Hatchet"	"att%"	""	30	30
+"Berserker's Hatchet"	"manasteal"	""	5	5
+"Death's Hand"	"res-pois"	""	50	50
+"Death's Hand"	"res-pois-len"	""	75	75
+"Death's Guard"	"ac"	""	20	20
+"Death's Guard"	"nofreeze"	""	1	1
+"Death's Touch"	"dmg%"	""	25	25
+"Death's Touch"	"lifesteal"	""	4	4
+"Angelic Sickle"	"att"	""	75	75
+"Angelic Sickle"	"dmg-undead"	""	250	250
+"Angelic Mantle"	"red-dmg"	""	3	3
+"Angelic Mantle"	"ac%"	""	40	40
+"Angelic Halo"	"regen"	""	6	6
+"Angelic Halo"	"hp"	""	20	20
+"Angelic Wings"	"light"	""	3	3
+"Angelic Wings"	"dmg-to-mana"	""	20	20
+"Arctic Horn"	"att%"	""	20	20
+"Arctic Horn"	"dmg%"	""	50	50
+"Arctic Furs"	"ac%"	""	275	325
+"Arctic Furs"	"res-all"	""	10	10
+"Arctic Binding"	"res-cold"	""	40	40
+"Arctic Binding"	"ac"	""	30	30
+"Arctic Mitts"	"hp"	""	20	20
+"Arctic Mitts"	"swing1"	""	10	10
+"Arcanna's Sign"	"mana"	""	15	15
+"Arcanna's Sign"	"regen-mana"	""	20	20
+"Arcanna's Deathwand"	"sor"	""	1	1
+"Arcanna's Deathwand"	"deadly"	""	25	25
+"Arcanna's Head"	"regen"	""	4	4
+"Arcanna's Head"	"thorns"	""	2	2
+"Arcanna's Flesh"	"light"	""	2	2
+"Arcanna's Flesh"	"red-dmg"	""	3	3
+"Natalya's Totem"	"ac"	""	135	175
+"Natalya's Totem"	"dex"	""	20	30
+"Natalya's Totem"	"str"	""	10	20
+"Natalya's Totem"	"res-all"	""	10	20
+"Natalya's Totem"	"red-mag"	""	3	3
+"Natalya's Mark"	"swing3"	""	40	40
+"Natalya's Mark"	"dmg%"	""	200	200
+"Natalya's Mark"	"ignore-ac"	""	1	1
+"Natalya's Mark"	"dmg-cold"	"100"	50	50
+"Natalya's Mark"	"dmg-fire"	""	12	17
+"Natalya's Mark"	"dmg-undead"	""	200	200
+"Natalya's Mark"	"dmg-demon"	""	200	200
+"Natalya's Shadow"	"ac"	""	150	225
+"Natalya's Shadow"	"hp/lvl"	"8"	
+"Natalya's Shadow"	"skilltab"	"19"	2	2
+"Natalya's Shadow"	"res-pois-len"	""	75	75
+"Natalya's Shadow"	"res-pois"	""	25	25
+"Natalya's Shadow"	"sock"	""	1	3
+"Natalya's Soul"	"ac"	""	75	125
+"Natalya's Soul"	"move3"	""	40	40
+"Natalya's Soul"	"regen-stam/lvl"	"2"	
+"Natalya's Soul"	"dur"	""	50	50
+"Natalya's Soul"	"res-cold"	""	15	25
+"Natalya's Soul"	"res-ltng"	""	15	25
+"Aldur's Stony Gaze"	"ac"	""	90	90
+"Aldur's Stony Gaze"	"regen-mana"	""	17	17
+"Aldur's Stony Gaze"	"light"	""	5	5
+"Aldur's Stony Gaze"	"balance3"	""	25	25
+"Aldur's Stony Gaze"	"res-cold"	""	40	50
+"Aldur's Stony Gaze"	"sock"	""	2	2
+"Aldur's Deception"	"ac"	""	300	300
+"Aldur's Deception"	"skilltab"	"16"	1	1
+"Aldur's Deception"	"str"	""	20	20
+"Aldur's Deception"	"dex"	""	15	15
+"Aldur's Deception"	"res-ltng"	""	40	50
+"Aldur's Deception"	"ease"	""	-50	-50
+"Aldur's Deception"	"skilltab"	"17"	1	1
+"Aldur's Gauntlet"	"dmg-norm"	""	40	62
+"Aldur's Gauntlet"	"dmg-ltng"	""	50	75
+"Aldur's Gauntlet"	"lifesteal"	""	10	10
+"Aldur's Gauntlet"	"swing3"	""	30	30
+"Aldur's Gauntlet"	"dmg-demon"	""	200	200
+"Aldur's Gauntlet"	"manasteal"	""	5	5
+"Aldur's Gauntlet"	"sock"	""	2	5
+"Aldur's Advance"	"indestruct"	""	1	1
+"Aldur's Advance"	"regen-stam"	""	32	32
+"Aldur's Advance"	"hp"	""	50	50
+"Aldur's Advance"	"dmg-to-mana"	""	10	10
+"Aldur's Advance"	"move3"	""	40	40
+"Aldur's Advance"	"stam"	""	180	180
+"Aldur's Advance"	"res-fire"	""	40	50
+"Immortal King's Will"	"ac"	""	125	125
+"Immortal King's Will"	"gold%"	""	37	37
+"Immortal King's Will"	"skilltab"	"14"	2	2
+"Immortal King's Will"	"light"	""	4	4
+"Immortal King's Will"	"mag%"	""	25	40
+"Immortal King's Will"	"sock"	""	2	2
+"Immortal King's Soul Cage "	"ac"	""	400	400
+"Immortal King's Soul Cage "	"gethit-skill"	"52"	5	5
+"Immortal King's Soul Cage "	"skilltab"	"12"	2	2
+"Immortal King's Soul Cage "	"res-pois"	""	50	50
+"Immortal King's Detail"	"ac"	""	36	36
+"Immortal King's Detail"	"res-fire"	""	28	28
+"Immortal King's Detail"	"res-ltng"	""	31	31
+"Immortal King's Detail"	"str"	""	25	25
+"Immortal King's Forge"	"ac"	""	65	65
+"Immortal King's Forge"	"str"	""	20	20
+"Immortal King's Forge"	"dex"	""	20	20
+"Immortal King's Forge"	"gethit-skill"	"38"	12	4
+"Immortal King's Pillar"	"ac"	""	75	75
+"Immortal King's Pillar"	"move3"	""	40	40
+"Immortal King's Pillar"	"att"	""	110	110
+"Immortal King's Pillar"	"hp"	""	44	44
+"Immortal King's Stone Crusher"	"indestruct"	""	1	1
+"Immortal King's Stone Crusher"	"swing3"	""	40	40
+"Immortal King's Stone Crusher"	"dmg-demon"	""	200	200
+"Immortal King's Stone Crusher"	"dmg-undead"	""	200	200
+"Immortal King's Stone Crusher"	"crush"	""	35	40
+"Immortal King's Stone Crusher"	"dmg%"	""	200	200
+"Immortal King's Stone Crusher"	"sock"	""	2	2
+"Tal Rasha's Fire-Spun Cloth"	"ease"	""	-20	-20
+"Tal Rasha's Fire-Spun Cloth"	"mana"	""	30	30
+"Tal Rasha's Fire-Spun Cloth"	"dex"	""	20	20
+"Tal Rasha's Fire-Spun Cloth"	"dmg-to-mana"	""	37	37
+"Tal Rasha's Fire-Spun Cloth"	"mag%"	""	10	15
+"Tal Rasha's Adjudication"	"res-ltng"	""	33	33
+"Tal Rasha's Adjudication"	"sor"	""	2	2
+"Tal Rasha's Adjudication"	"hp"	""	50	50
+"Tal Rasha's Adjudication"	"dmg-ltng"	""	3	32
+"Tal Rasha's Adjudication"	"mana"	""	42	42
+"Tal Rasha's Lidless Eye"	"hp"	""	57	57
+"Tal Rasha's Lidless Eye"	"mana"	""	77	77
+"Tal Rasha's Lidless Eye"	"enr"	""	10	10
+"Tal Rasha's Lidless Eye"	"cast3"	""	20	20
+"Tal Rasha's Lidless Eye"	"skill"	"Fire Mastery"	1	2
+"Tal Rasha's Lidless Eye"	"skill"	"Lightning Mastery"	1	2
+"Tal Rasha's Lidless Eye"	"skill"	"Cold Mastery"	1	2
+"Tal Rasha's Howling Wind"	"ease"	""	-60	-60
+"Tal Rasha's Howling Wind"	"red-mag"	""	15	15
+"Tal Rasha's Howling Wind"	"mag%"	""	88	88
+"Tal Rasha's Howling Wind"	"res-cold"	""	40	40
+"Tal Rasha's Howling Wind"	"res-fire"	""	40	40
+"Tal Rasha's Howling Wind"	"res-ltng"	""	40	40
+"Tal Rasha's Howling Wind"	"ac"	""	400	400
+"Tal Rasha's Horadric Crest"	"mana"	""	30	30
+"Tal Rasha's Horadric Crest"	"hp"	""	60	60
+"Tal Rasha's Horadric Crest"	"ac"	""	45	45
+"Tal Rasha's Horadric Crest"	"res-all"	""	15	15
+"Tal Rasha's Horadric Crest"	"lifesteal"	""	10	10
+"Tal Rasha's Horadric Crest"	"manasteal"	""	10	10
+"Griswold's Valor"	"ac%"	""	50	75
+"Griswold's Valor"	"abs-cold/lvl"	""	2	2
+"Griswold's Valor"	"sock"	""	2	2
+"Griswold's Valor"	"ease"	""	-40	-40
+"Griswold's Valor"	"mag%"	""	20	30
+"Griswold's Valor"	"res-all"	""	5	5
+"Griswold's Heart"	"ac"	""	500	500
+"Griswold's Heart"	"skilltab"	"11"	2	2
+"Griswold's Heart"	"sock"	""	3	3
+"Griswold's Heart"	"str"	""	20	20
+"Griswold's Heart"	"ease"	""	-40	-40
+"Griswolds's Redemption"	"dmg%"	""	200	240
+"Griswolds's Redemption"	"swing2"	""	40	40
+"Griswolds's Redemption"	"dmg-undead"	""	200	200
+"Griswolds's Redemption"	"ease"	""	-20	-20
+"Griswolds's Redemption"	"sock"	""	3	4
+"Griswold's Honor"	"ac"	""	108	108
+"Griswold's Honor"	"sock"	"3"	
+"Griswold's Honor"	"block2"	""	65	65
+"Griswold's Honor"	"block"	""	20	20
+"Griswold's Honor"	"res-all"	""	45	45
+"Trang-Oul's Guise"	"ac"	""	80	100
+"Trang-Oul's Guise"	"balance2"	""	25	25
+"Trang-Oul's Guise"	"thorns"	""	20	20
+"Trang-Oul's Guise"	"mana"	""	150	150
+"Trang-Oul's Guise"	"regen"	""	5	5
+"Trang-Oul's Scales"	"ease"	""	-40	-40
+"Trang-Oul's Scales"	"ac-miss"	""	100	100
+"Trang-Oul's Scales"	"res-pois"	""	40	40
+"Trang-Oul's Scales"	"skilltab"	"8"	2	2
+"Trang-Oul's Scales"	"move3"	""	40	40
+"Trang-Oul's Scales"	"ac%"	""	150	150
+"Trang-Oul's Wing"	"ac"	""	125	125
+"Trang-Oul's Wing"	"str"	""	25	25
+"Trang-Oul's Wing"	"dex"	""	15	15
+"Trang-Oul's Wing"	"res-fire"	""	38	45
+"Trang-Oul's Wing"	"block"	""	30	30
+"Trang-Oul's Wing"	"res-pois"	""	40	40
+"Trang-Oul's Wing"	"skilltab"	"7"	2	2
+"Trang-Oul's Claws"	"ac"	""	30	30
+"Trang-Oul's Claws"	"cast3"	""	20	20
+"Trang-Oul's Claws"	"res-cold"	""	30	30
+"Trang-Oul's Claws"	"skilltab"	"6"	2	2
+"Trang-Oul's Girth"	"ac"	""	75	100
+"Trang-Oul's Girth"	"stam"	""	30	30
+"Trang-Oul's Girth"	"regen"	""	5	5
+"Trang-Oul's Girth"	"hp"	""	66	66
+"Trang-Oul's Girth"	"nofreeze"	""	1	1
+"Trang-Oul's Girth"	"ease"	""	-40	-40
+"Trang-Oul's Girth"	"mana"	""	25	50
+"M'avina's True Sight"	"ac"	""	150	150
+"M'avina's True Sight"	"regen"	""	10	10
+"M'avina's True Sight"	"swing2"	""	30	30
+"M'avina's True Sight"	"mana"	""	25	25
+"M'avina's Embrace"	"gethit-skill"	"55"	10	3
+"M'avina's Embrace"	"ease"	""	-30	-30
+"M'avina's Embrace"	"red-mag"	""	5	12
+"M'avina's Embrace"	"skilltab"	"1"	2	2
+"M'avina's Embrace"	"ac/lvl"	"32"	
+"M'avina's Embrace"	"ac"	""	350	350
+"M'avina's Icy Clutch"	"ac"	""	45	50
+"M'avina's Icy Clutch"	"dmg-cold"	"150"	6	18
+"M'avina's Icy Clutch"	"half-freeze"	""	1	1
+"M'avina's Icy Clutch"	"gold%"	""	56	56
+"M'avina's Icy Clutch"	"str"	""	10	10
+"M'avina's Icy Clutch"	"dex"	""	15	15
+"M'avina's Tenet"	"ac"	""	50	50
+"M'avina's Tenet"	"move2"	""	20	20
+"M'avina's Tenet"	"manasteal"	""	5	5
+"M'avina's Tenet"	"light"	""	5	5
+"M'avina's Caster"	"dmg%"	""	188	188
+"M'avina's Caster"	"swing3"	""	40	40
+"M'avina's Caster"	"magicarrow"	""	1	1
+"M'avina's Caster"	"att"	""	50	50
+"Telling of Beads"	"res-pois"	""	35	50
+"Telling of Beads"	"allskills"	""	1	1
+"Telling of Beads"	"res-cold"	""	18	18
+"Telling of Beads"	"thorns"	""	8	10
+"Laying of Hands"	"ac"	""	25	25
+"Laying of Hands"	"swing2"	""	20	20
+"Laying of Hands"	"res-fire"	""	50	50
+"Laying of Hands"	"dmg-demon"	""	350	350
+"Laying of Hands"	"hit-skill"	"101"	10	3
+"Rite of Passage"	"ac"	""	25	25
+"Rite of Passage"	"move3"	""	30	30
+"Rite of Passage"	"half-freeze"	""	1	1
+"Rite of Passage"	"stam"	""	15	25
+"Spiritual Custodian"	"ac"	""	305	415
+"Spiritual Custodian"	"res-fire"	""	24	24
+"Spiritual Custodian"	"gethit-skill"	"48"	25	3
+"Spiritual Custodian"	"dmg-pois"	"50"	125	175
+"Credendum"	"ac"	""	50	50
+"Credendum"	"str"	""	10	10
+"Credendum"	"dex"	""	10	10
+"Credendum"	"res-all"	""	15	15
+"Dangoon's Teaching"	"dmg/lvl"	"12"	
+"Dangoon's Teaching"	"swing3"	""	40	40
+"Dangoon's Teaching"	"hit-skill"	"44"	10	3
+"Dangoon's Teaching"	"dmg-fire"	""	20	30
+"Heaven's Taebaek"	"ac"	""	50	50
+"Heaven's Taebaek"	"mana"	""	100	100
+"Heaven's Taebaek"	"res-ltng"	""	30	30
+"Heaven's Taebaek"	"thorns"	""	30	30
+"Heaven's Taebaek"	"indestruct"	""	1	1
+"Heaven's Taebaek"	"block"	""	25	25
+"Heaven's Taebaek"	"block3"	""	30	30
+"Haemosu's Adament"	"ac"	""	500	500
+"Haemosu's Adament"	"ac-miss"	""	35	35
+"Haemosu's Adament"	"hp"	""	75	75
+"Haemosu's Adament"	"ac-hth"	""	40	40
+"Haemosu's Adament"	"ease"	""	-20	-20
+"Ondal's Almighty"	"ac"	""	50	50
+"Ondal's Almighty"	"ease"	""	-40	-40
+"Ondal's Almighty"	"hit-skill"	"72"	10	3
+"Ondal's Almighty"	"str"	""	10	10
+"Ondal's Almighty"	"dex"	""	15	15
+"Ondal's Almighty"	"balance3"	""	24	24
+"Guillaume's Face"	"ac%"	""	120	120
+"Guillaume's Face"	"balance3"	""	30	30
+"Guillaume's Face"	"crush"	""	35	35
+"Guillaume's Face"	"deadly"	""	15	15
+"Guillaume's Face"	"str"	""	15	15
+"Wilhelm's Pride"	"ac%"	""	75	75
+"Wilhelm's Pride"	"manasteal"	""	5	5
+"Wilhelm's Pride"	"res-cold"	""	10	10
+"Wilhelm's Pride"	"lifesteal"	""	5	5
+"Magnus' Skin"	"ac%"	""	50	50
+"Magnus' Skin"	"res-fire"	""	15	15
+"Magnus' Skin"	"swing2"	""	20	20
+"Magnus' Skin"	"light"	""	3	3
+"Magnus' Skin"	"att"	""	100	100
+"Wihtstan's Guard"	"ac%"	""	175	175
+"Wihtstan's Guard"	"block3"	""	40	40
+"Wihtstan's Guard"	"block"	""	55	55
+"Wihtstan's Guard"	"half-freeze"	""	1	1
+"Wihtstan's Guard"	"light"	""	5	5
+"Hwanin's Splendor"	"regen"	""	20	20
+"Hwanin's Splendor"	"red-mag"	""	10	10
+"Hwanin's Splendor"	"res-cold"	""	37	37
+"Hwanin's Splendor"	"ac%"	""	100	100
+"Hwanin's Refuge"	"ac"	""	200	200
+"Hwanin's Refuge"	"res-pois"	""	27	27
+"Hwanin's Refuge"	"hp"	""	100	100
+"Hwanin's Refuge"	"gethit-skill"	"42"	10	3
+"Hwanin's Seal"	"dmg-ltng"	""	3	33
+"Hwanin's Seal"	"noheal"	""	1	1
+"Hwanin's Seal"	"ac/lvl"	"12"	
+"Hwanin's Seal"	"dmg-to-mana"	""	12	12
+"Hwanin's Justice"	"att"	""	330	330
+"Hwanin's Justice"	"indestruct"	""	1	1
+"Hwanin's Justice"	"hit-skill"	"45"	10	3
+"Hwanin's Justice"	"swing3"	""	40	40
+"Hwanin's Justice"	"dmg%"	""	200	200
+"Hwanin's Justice"	"dmg-ltng"	""	5	25
+"Sazabi's Cobalt Redeemer"	"dmg%"	""	150	150
+"Sazabi's Cobalt Redeemer"	"dmg-cold"	"50"	25	35
+"Sazabi's Cobalt Redeemer"	"swing3"	""	40	40
+"Sazabi's Cobalt Redeemer"	"dmg-demon"	""	318	318
+"Sazabi's Cobalt Redeemer"	"indestruct"	""	1	1
+"Sazabi's Cobalt Redeemer"	"dex"	""	15	15
+"Sazabi's Cobalt Redeemer"	"str"	""	5	5
+"Sazabi's Ghost Liberator"	"ac"	""	400	400
+"Sazabi's Ghost Liberator"	"balance3"	""	30	30
+"Sazabi's Ghost Liberator"	"str"	""	25	25
+"Sazabi's Ghost Liberator"	"att-demon"	""	300	300
+"Sazabi's Ghost Liberator"	"hp"	""	50	75
+"Sazabi's Mental Sheath"	"ac"	""	100	100
+"Sazabi's Mental Sheath"	"allskills"	""	1	1
+"Sazabi's Mental Sheath"	"res-fire"	""	15	20
+"Sazabi's Mental Sheath"	"res-ltng"	""	15	20
+"Bul-Kathos' Sacred Charge"	"crush"	""	35	35
+"Bul-Kathos' Sacred Charge"	"res-all"	""	20	20
+"Bul-Kathos' Sacred Charge"	"swing2"	""	20	20
+"Bul-Kathos' Sacred Charge"	"knock"	""	1	1
+"Bul-Kathos' Sacred Charge"	"dmg%"	""	200	200
+"Bul-Kathos' Tribal Guardian"	"res-fire"	""	50	50
+"Bul-Kathos' Tribal Guardian"	"dmg-pois"	"50"	255	255
+"Bul-Kathos' Tribal Guardian"	"swing2"	""	20	20
+"Bul-Kathos' Tribal Guardian"	"str"	""	20	20
+"Bul-Kathos' Tribal Guardian"	"dmg%"	""	200	200
+"Cow King's Horns"	"ac"	""	75	75
+"Cow King's Horns"	"half-freeze"	""	1	1
+"Cow King's Horns"	"dmg-to-mana"	""	35	35
+"Cow King's Horns"	"thorns"	""	10	10
+"Cow King's Hide"	"res-all"	""	18	18
+"Cow King's Hide"	"ac%"	""	60	60
+"Cow King's Hide"	"hp"	""	30	30
+"Cow King's Hide"	"gethit-skill"	"53"	18	5
+"Cow King's Hoofs"	"ac"	""	25	35
+"Cow King's Hoofs"	"move3"	""	30	30
+"Cow King's Hoofs"	"mag%"	""	25	25
+"Cow King's Hoofs"	"dex"	""	20	20
+"Cow King's Hoofs"	"dmg-fire"	""	25	35
+"Naj's Puzzler"	"enr"	""	35	35
+"Naj's Puzzler"	"dmg%"	""	150	150
+"Naj's Puzzler"	"charged"	"54"	69	11
+"Naj's Puzzler"	"cast3"	""	30	30
+"Naj's Puzzler"	"dmg-ltng"	""	6	45
+"Naj's Puzzler"	"mana"	""	70	70
+"Naj's Puzzler"	"allskills"	""	1	1
+"Naj's Light Plate"	"ease"	""	-60	-60
+"Naj's Light Plate"	"hp"	""	65	65
+"Naj's Light Plate"	"res-all"	""	25	25
+"Naj's Light Plate"	"dmg-to-mana"	""	45	45
+"Naj's Light Plate"	"allskills"	""	1	1
+"Naj's Light Plate"	"ac"	""	300	300
+"Naj's Circlet"	"ac"	""	75	75
+"Naj's Circlet"	"dmg-fire"	""	25	35
+"Naj's Circlet"	"Light"	""	5	5
+"Naj's Circlet"	"str"	""	15	15
+"Naj's Circlet"	"gethit-skill"	"53"	12	5
+"Sander's Paragon"	"mag%"	""	35	35
+"Sander's Paragon"	"thorns"	""	8	8
+"Sander's Paragon"	"ac/lvl"	"8"	
+"Sander's Riprap"	"move3"	""	40	40
+"Sander's Riprap"	"att"	""	100	100
+"Sander's Riprap"	"str"	""	5	5
+"Sander's Riprap"	"dex"	""	10	10
+"Sander's Taboo"	"ac"	""	20	25
+"Sander's Taboo"	"swing2"	""	20	20
+"Sander's Taboo"	"hp"	""	40	40
+"Sander's Taboo"	"dmg-pois"	"75"	30	36
+"Sander's Superstition"	"dmg%"	"2"	75	75
+"Sander's Superstition"	"mana"	""	25	25
+"Sander's Superstition"	"manasteal"	""	8	8
+"Sander's Superstition"	"cast3"	""	20	20
+"Sander's Superstition"	"dmg-cold"	"50"	25	75

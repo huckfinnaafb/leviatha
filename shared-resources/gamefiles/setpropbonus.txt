@@ -1,0 +1,148 @@
+"Civerb's Ward"	"mana"	""	21	22	1
+"Civerb's Ward"	"res-pois"	""	25	26	2
+"Civerb's Icon"	"res-cold"	""	25	25	1
+"Civerb's Icon"	"ac"	""	25	25	2
+"Civerb's Cudgel"	"dmg/lvl"	"8"	 1
+"Hsarus' Iron Heel"	"att/lvl"	"20"	 1
+"Hsarus' Iron Fist"	"ac/lvl"	"20"	 1
+"Hsarus' Iron Stay"	"ac/lvl"	"20"	 1
+"Cleglaw's Tooth"	"dmg/lvl"	"10"	 1
+"Cleglaw's Claw"	"res-all"	""	15	15	1
+"Cleglaw's Pincers"	"att/lvl"	"20"	 1
+"Iratha's Collar"	"res-all"	""	15	15	1
+"Iratha's Cuff"	"swing2"	""	20	20	1
+"Iratha's Coil"	"ac/lvl"	"16"	 1
+"Iratha's Cord"	"dex"	""	10	10	1
+"Isenhart's Lightbrand"	"att/lvl"	"10"	 1
+"Isenhart's Parry"	"res-all"	""	8	8	1
+"Isenhart's Case"	"ac/lvl"	"16"	 1
+"Isenhart's Horns"	"res-all"	""	8	8	1
+"Vidala's Barb"	"att/lvl"	"16"	 1
+"Vidala's Fetlock"	"res-all"	""	8	8	1
+"Vidala's Ambush"	"res-fire"	""	24	24	1
+"Vidala's Ambush"	"ac/lvl"	"20"	 2
+"Vidala's Snare"	"mag%"	""	50	50	1
+"Milabrega's Orb"	"hp"	""	50	50	1
+"Milabrega's Orb"	"ac%"	""	50	50	2
+"Milabrega's Diadem"	"res-cold"	""	40	40	1
+"Milabrega's Robe"	"ac%"	""	100	100	1
+"Cathan's Rule"	"mana"	""	50	50	1
+"Cathan's Rule"	"res-all"	""	10	10	2
+"Cathan's Mesh"	"thorns"	""	5	5	1
+"Cathan's Mesh"	"res-fire"	""	30	30	2
+"Cathan's Visage"	"ac/lvl"	"16"	 1
+"Cathan's Sigil"	"att"	""	50	50	1
+"Cathan's Sigil"	"mag%"	""	25	25	2
+"Cathan's Seal"	"str"	""	10	10	1
+"Tancred's Crowbill"	"mana"	""	20	20	1
+"Tancred's Crowbill"	"swing2"	""	20	20	2
+"Tancred's Spine"	"ac/lvl"	"16"	 1
+"Tancred's Hobnails"	"move3"	""	30	30	1
+"Tancred's Hobnails"	"str"	""	10	10	2
+"Tancred's Weird"	"mag%"	""	78	78	1
+"Tancred's Weird"	"att"	""	60	60	2
+"Tancred's Skull"	"res-all"	""	10	10	1
+"Sigon's Gage"	"swing3"	""	30	30	1
+"Sigon's Visor"	"att/lvl"	"16"	 1
+"Sigon's Shelter"	"thorns"	""	20	20	1
+"Sigon's Sabot"	"att"	""	50	50	1
+"Sigon's Sabot"	"mag%"	""	50	50	2
+"Sigon's Wrap"	"ac/lvl"	"16"	 1
+"Infernal Cranium"	"ac/lvl"	"16"	 1
+"Infernal Torch"	"att/lvl"	"20"	 1
+"Infernal Sign"	"res-pois"	""	25	25	1
+"Infernal Sign"	"half-freeze"	""	1	1	2
+"Berserker's Headgear"	"att/lvl"	"16"	 1
+"Berserker's Hauberk"	"ac/lvl"	"24"	 1
+"Berserker's Hatchet"	"dmg%"	""	50	50	1
+"Death's Hand"	"swing3"	""	30	30	1
+"Death's Guard"	"res-all"	""	15	15	1
+"Death's Touch"	"dmg-cold"	"75"	25	75	1
+"Angelic Sickle"	"dmg%"	""	75	75	1
+"Angelic Sickle"	"swing3"	""	30	30	2
+"Angelic Mantle"	"ac"	""	150	150	1
+"Angelic Mantle"	"res-fire"	""	50	50	2
+"Angelic Halo"	"att/lvl"	"24"	 1
+"Angelic Halo"	"mag%"	""	50	50	2
+"Angelic Wings"	"hp"	""	75	75	1
+"Angelic Wings"	"allskills"	""	1	1	2
+"Arctic Horn"	"att/lvl"	"16"	 1
+"Arctic Horn"	"dmg-cold"	"75"	20	30	2
+"Arctic Furs"	"ac/lvl"	"24"	 1
+"Arctic Furs"	"res-cold"	""	15	15	2
+"Arctic Binding"	"mag%"	""	40	40	1
+"Arctic Binding"	"res-cold"	""	10	10	2
+"Arctic Mitts"	"att"	""	50	50	1
+"Arctic Mitts"	"dex"	""	10	10	2
+"Arcanna's Sign"	"mag%"	""	50	50	1
+"Arcanna's Sign"	"res-fire"	""	20	20	2
+"Arcanna's Deathwand"	"mana"	""	50	50	1
+"Arcanna's Deathwand"	"regen-mana"	""	5	5	2
+"Arcanna's Head"	"ac/lvl"	"24"	 1
+"Arcanna's Head"	"res-ltng"	""	15	15	2
+"Arcanna's Flesh"	"ac"	""	100	100	1
+"Arcanna's Flesh"	"enr"	""	10	10	2
+"Aldur's Stony Gaze"	"enr"	""	15	15	1
+"Aldur's Stony Gaze"	"enr"	""	15	15	2
+"Aldur's Stony Gaze"	"enr"	""	15	15	3
+"Aldur's Deception"	"vit"	""	15	15	1
+"Aldur's Deception"	"vit"	""	15	15	2
+"Aldur's Deception"	"vit"	""	15	15	3
+"Aldur's Gauntlet"	"str"	""	15	15	1
+"Aldur's Gauntlet"	"str"	""	15	15	2
+"Aldur's Gauntlet"	"str"	""	15	15	3
+"Aldur's Advance"	"dex"	""	15	15	1
+"Aldur's Advance"	"dex"	""	15	15	2
+"Aldur's Advance"	"dex"	""	15	15	3
+"Immortal King's Soul Cage "	"balance2"	""	25	25	1
+"Immortal King's Soul Cage "	"res-cold"	""	40	40	2
+"Immortal King's Soul Cage "	"res-fire"	""	40	40	3
+"Immortal King's Soul Cage "	"res-ltng"	""	40	40	4
+"Immortal King's Soul Cage "	"ac%"	""	50	50	5
+"Immortal King's Detail"	"ac"	""	105	105	1
+"Immortal King's Detail"	"balance2"	""	25	25	2
+"Immortal King's Detail"	"ac%"	""	100	100	3
+"Immortal King's Detail"	"red-dmg%"	""	20	20	4
+"Immortal King's Detail"	"skilltab"	"13"	2	2	5
+"Immortal King's Forge"	"swing2"	""	25	25	1
+"Immortal King's Forge"	"ac"	""	120	120	2
+"Immortal King's Forge"	"lifesteal"	""	10	10	3
+"Immortal King's Forge"	"manasteal"	""	10	10	4
+"Immortal King's Forge"	"freeze"	""	2	2	5
+"Immortal King's Pillar"	"mag%"	""	25	25	1
+"Immortal King's Pillar"	"skilltab"	"12"	2	2	2
+"Immortal King's Pillar"	"ac"	""	160	160	3
+"Immortal King's Pillar"	"half-freeze"	""	1	1	4
+"Immortal King's Stone Crusher"	"dmg-fire"	""	211	397	1
+"Immortal King's Stone Crusher"	"dmg-ltng"	""	7	477	2
+"Immortal King's Stone Crusher"	"dmg-cold"	"150"	127	364	3
+"Immortal King's Stone Crusher"	"dmg-pois"	"150"	349	349	4
+"Immortal King's Stone Crusher"	"dmg-mag"	""	250	361	5
+"Tal Rasha's Fire-Spun Cloth"	"ac"	""	60	60	1
+"Tal Rasha's Fire-Spun Cloth"	"cast2"	""	10	10	2
+"Tal Rasha's Adjudication"	"cast2"	""	10	10	3
+"Tal Rasha's Lidless Eye"	"sor"	""	1	1	1
+"Tal Rasha's Lidless Eye"	"pierce-fire"	""	15	15	2
+"Tal Rasha's Lidless Eye"	"pierce-ltng"	""	15	15	3
+"Tal Rasha's Lidless Eye"	"extra-cold"	""	15	15	4
+"Tal Rasha's Howling Wind"	"cast2"	""	10	10	1
+"Griswold's Valor"	"skilltab"	"10"	2	2	1
+"Griswolds's Redemption"	"skilltab"	"9"	2	2	1
+"Griswolds's Redemption"	"dmg-norm"	""	10	20	2
+"Griswolds's Redemption"	"dmg-norm"	""	10	20	3
+"Trang-Oul's Scales"	"res-ltng"	""	50	50	2
+"Trang-Oul's Scales"	"red-dmg%"	""	25	25	4
+"Trang-Oul's Wing"	"pierce-pois"	""	25	25	2
+"Trang-Oul's Wing"	"regen"	""	15	15	3
+"Trang-Oul's Claws"	"extra-pois"	""	25	25	3
+"Trang-Oul's Girth"	"res-cold"	""	40	40	2
+"M'avina's True Sight"	"allskills"	""	1	1	1
+"M'avina's True Sight"	"att%"	""	50	50	2
+"M'avina's True Sight"	"res-all"	""	25	25	3
+"M'avina's Embrace"	"balance2"	""	30	30	2
+"M'avina's Icy Clutch"	"dmg-cold"	"100"	131	252	3
+"M'avina's Icy Clutch"	"extra-cold"	""	20	20	4
+"M'avina's Tenet"	"res-all"	""	25	25	3
+"M'avina's Caster"	"dmg-mag"	""	114	377	1
+"M'avina's Caster"	"hit-skill"	"Nova"	10	15	2
+"M'avina's Caster"	"skilltab"	"0"	2	2	3
