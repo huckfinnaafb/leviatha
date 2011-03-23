@@ -82,8 +82,8 @@ body {
     .mod-footer {
         border-top: 1px solid #ddd;
         margin-top: 50px;
-        padding-bottom: 100px;
-        padding-top: 50px;
+        padding-bottom: 20px;
+        padding-top: 20px;
         text-align: center;
     }
     .mod-notify {
@@ -280,9 +280,6 @@ td {
             padding: 12px;
         }
         .theading-search {
-            background-color: #333;
-            color: #f5f5f5;
-            border: 2px groove #666;
             font-size: 13px;
         }
     .table-info {}
