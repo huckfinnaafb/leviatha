@@ -33,7 +33,7 @@
                 <div class="line">
                     <div class="unit size1of2">
                         <div class="hgroup">
-                            <h1 class="h-title"><a class="link-title" href="/">Leviatha</a></h1>
+                            <h1 class="h-title"><a class="link-title" title="Return Home" href="/">Leviatha</a></h1>
                         </div>
                         <div class="nav">
                             <a class="link-nav" href="/">Home</a>

@@ -250,6 +250,17 @@ a:hover {
 	}
     .link-nav:hover { color: #D93240; }
     
+    .link-homepage:link,
+    .link-homepage:visited {
+        color:#333;
+		margin-right: 22px;
+		font-size: 14px;
+        text-decoration: none;
+    }
+    .link-homepage:hover {
+        color: #D93240;
+    }
+    
 /* Tables */
 table {}
 thead {}
@@ -314,15 +325,6 @@ img{}
         margin-right: 8px;
         margin-top: 4px;
     }
-    .img-header {
-        background-image: url('/img/logosmall2.png');
-        background-repeat: no-repeat;
-        width: 324px;
-        height: 46px;
-    }
-    .img-header:hover {
-        background-position: 0 -52px;
-    }
     
 /* Forms */
 form {}
@@ -340,14 +342,15 @@ input {}
 		background-image: url("/img/searchicon.png");
 		background-position: 3px center;
 		background-repeat: no-repeat;
-		border: 1px solid #ccc;
+		border: 1px solid #fff;
 		font-size: 16px;
-		height: 26px;
+		height: 27px;
 		padding-left: 32px;
 		padding-top: 2px;
 		width: 340px;
 	}
 		.input-text:focus { outline: 0 }
 	.input-submit {
-		height: 30px;
+		height: 33px;
+        width: 70px;
 	}
