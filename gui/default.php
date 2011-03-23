@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
         <title>Leviatha - Diablo Database | Loot, Monsters, and More!</title>
         <meta name="keywords" content="diablo database, diablo 2 database">
         <meta name="description" content="Diablo II Database - Search for items, builds, stats, and more on the most late website to the game.">
@@ -23,7 +24,7 @@
     </head>
     <body>
         <div class="page" style="background:none;border:0;margin-top:100px;text-align:center">
-            <img src="/img/logo.png"><br>
+            <img src="/img/logo.png">
             <div style="margin: 20px 0">
                 <a class="link-homepage" href="/">Home</a>
                 <a class="link-homepage" href="/loot">Loot</a>
