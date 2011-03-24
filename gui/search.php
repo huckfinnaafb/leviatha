@@ -13,7 +13,19 @@
         </div>
     </div>
 </div>
-
+<?php
+    /* Pagination Pseduo 
+        
+        FIRST PAGE STATES
+            Results <= Limit
+            Results > Limit
+        N PAGE STATES
+            Limit * (Page - 1) = Offset
+        
+    */
+?>
+<a href="/search?q=<?php echo $this->input_clean; ?>&page=<?php echo ($this->page + 1); ?>">Next Page</a><br>
+<a href="/search?q=<?php echo $this->input_clean; ?>&page=<?php echo ($this->page - 1); ?>">Previous Page</a>
 <!-- Search Results -->
 <div class="module mod-search">
     <table class="table-search">

@@ -5,6 +5,11 @@
     */
     
     class base {
+        public $title;
+        public $error;
+        public $warning;
+        public $success;
+    
         public function homepage() {
             include (F3::get('GUI') . "default.php");
         }
