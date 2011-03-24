@@ -14,10 +14,13 @@
 class search {
     
     /* Search Config */
-    public $limit = 30;
-    public $order = "level";
-    public $page = 1;
+    public $limit = 10;
+    public $page;
     public $offset;
+    public $distance;
+    public $lastpage;
+    public $total;
+    public $order = "level";
     
     /* User Input */
     public $input_raw;
@@ -51,17 +54,27 @@ class search {
         /* Prepare query for DB use */
         $this->input_clean = $this->url_prep($this->input_clean);
         
-        /* Pagination */
-        if (isset($_GET["page"])) {
-            $this->page = $_GET["page"];
-        } else {
-            $this->page = 2;
-        }
-        $this->offset = ($this->page - 1) * $this->limit;
-        
         /* Query Loot */
         if (!isset($this->error)) {
             $this->db_result = $this->search_loot($this->input_clean, $this->order, $this->limit, $this->offset);
+        }
+        
+        /* Pagination */
+        if (isset($_GET["page"])) {
+            $this->page = $_GET["page"];
+            if ($this->page > (ceil(count($this->db_result) / $this->limit))) {
+                $this->error = "Bad page.";
+            }
+        } else {
+            $this->page = 1;
+        }
+        $this->total = count($this->db_result);
+        $this->offset = ($this->page - 1) * $this->limit;
+        $this->distance = ($this->total - $this->offset);
+        if (($this->total - $this->offset) <= ($this->limit)) {
+            $this->lastpage = true;
+        } else { 
+            $this->lastpage = false;
         }
         
         /* If Nothing Found & No Other Error Thrown */
@@ -104,9 +117,8 @@ class search {
             (SELECT name, urlname, level, class AS parent, levelreq, rarity
             FROM loot_magic
             WHERE urlname
-            LIKE '%term%')
+            LIKE '%$term%')
             ORDER BY `$order` DESC
-            LIMIT $limit OFFSET $offset
         ";
         return F3::sql($query);
     }

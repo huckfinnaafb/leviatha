@@ -13,19 +13,25 @@
         </div>
     </div>
 </div>
-<?php
-    /* Pagination Pseduo 
-        
-        FIRST PAGE STATES
-            Results <= Limit
-            Results > Limit
-        N PAGE STATES
-            Limit * (Page - 1) = Offset
-        
-    */
-?>
-<a href="/search?q=<?php echo $this->input_clean; ?>&page=<?php echo ($this->page + 1); ?>">Next Page</a><br>
-<a href="/search?q=<?php echo $this->input_clean; ?>&page=<?php echo ($this->page - 1); ?>">Previous Page</a>
+
+<?php if (($this->page > 1) || ($this->distance > $this->limit)) { ?>
+<!-- Pagination -->
+<div class="module mod-pagination">
+    <div class="line">
+        <div class="unit size1of2">
+            <?php if ($this->page > 1) { ?>
+                <div style='text-align:left'><a href="/search?q=<?php echo $this->input_clean . "&page=" . ($this->page - 1) ?>">Previous Page</a></div>
+            <?php } ?>
+        </div>
+        <div class="units size1of2 lastUnit">
+            <?php if ($this->distance > $this->limit) { ?>
+                <div style='text-align:right'><a href="/search?q=<?php echo $this->input_clean . "&page=" . ($this->page + 1) ?>">Next Page</a></div>
+            <?php } ?>
+        </div>
+    </div>
+</div>
+<?php } ?>
+
 <!-- Search Results -->
 <div class="module mod-search">
     <table class="table-search">
@@ -39,7 +45,7 @@
             </tr>
         </thead>
         <tbody class="tbody-search"><?php
-            foreach ($this->db_result as $row) {
+            foreach (array_slice($this->db_result, $this->offset, $this->limit) as $row) {
                 echo ("
                 <tr>
                     <td><a href='loot?item={$row['urlname']}'>{$row['name']}</a></td>
@@ -54,5 +60,4 @@
         </tbody>
     </table>
 </div>
-
 <?php include(F3::get('GUI') . "/includes/footer.php") ?>
