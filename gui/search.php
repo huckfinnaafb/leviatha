@@ -1,17 +1,11 @@
 <?php include(F3::get('GUI') . "/includes/header.php") ?>
-
+<?php
+    // Slice this bitch up
+    $this->db_result_slice = array_slice($this->db_result, $this->offset, $this->limit);
+?>
 <!-- Notifications -->
-<div class="line">
-    <div class="unit size1of2">
-        <div class="module mod-notify mod-success">
-            <p><span class="text-data"><?php echo count($this->db_result) ?></span> matches found for "<span class="text-data"><?php echo $this->input_raw ?></span>". Horray!</p>
-        </div>
-    </div>
-    <div class="unit size1of2 lastUnit">
-        <div class="module mod-notify mod-tip">
-            <p>Browse the library of items using the <a href="/loot" class="link">Master Loot Directory</a>.</p>
-        </div>
-    </div>
+<div class="module mod-notify mod-success">
+    <p>Displaying (<span class="text-data"><?php echo $this->offset . " - " . ($this->offset + count($this->db_result_slice)); ?></span>) of a total of <span class="text-data"><?php echo count($this->db_result) ?></span> matches found for "<span class="text-data"><?php echo $this->input_raw ?></span>". Horray!</p>
 </div>
 
 <?php if (($this->page > 1) || ($this->distance > $this->limit)) { ?>
@@ -45,7 +39,7 @@
             </tr>
         </thead>
         <tbody class="tbody-search"><?php
-            foreach (array_slice($this->db_result, $this->offset, $this->limit) as $row) {
+            foreach ($this->db_result_slice as $row) {
                 echo ("
                 <tr>
                     <td><a href='loot?item={$row['urlname']}'>{$row['name']}</a></td>
