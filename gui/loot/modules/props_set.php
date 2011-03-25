@@ -31,7 +31,7 @@
                         throw new Exception("No set bonuses found.");
                     }
                 } catch (Exception $e) {
-                    echo "<p>" . $e->getMessage(), "</p>\n";
+                    echo "<p class='module mod-notify mod-warning'>" . $e->getMessage(), "</p>\n";
                 }
             ?>
         </tbody>
