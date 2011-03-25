@@ -14,7 +14,7 @@
 class search {
     
     /* Search Config */
-    public $limit = 10;
+    public $limit = 50;
     public $page;
     public $offset;
     public $distance;
@@ -61,6 +61,9 @@ class search {
         
         /* Pagination */
         if (isset($_GET["page"])) {
+            if (!is_numeric($_GET["page"])) {
+                $this->error = "Page data is not numeric.";
+            }
             $this->page = $_GET["page"];
             if ($this->page > (ceil(count($this->db_result) / $this->limit))) {
                 $this->error = "Bad page.";
@@ -71,11 +74,6 @@ class search {
         $this->total = count($this->db_result);
         $this->offset = ($this->page - 1) * $this->limit;
         $this->distance = ($this->total - $this->offset);
-        if (($this->total - $this->offset) <= ($this->limit)) {
-            $this->lastpage = true;
-        } else { 
-            $this->lastpage = false;
-        }
         
         /* If Nothing Found & No Other Error Thrown */
         if (!count($this->db_result) && (!isset($this->error))) {

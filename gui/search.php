@@ -5,26 +5,8 @@
 ?>
 <!-- Notifications -->
 <div class="module mod-notify mod-success">
-    <p>Displaying (<span class="text-data"><?php echo $this->offset . " - " . ($this->offset + count($this->db_result_slice)); ?></span>) of a total of <span class="text-data"><?php echo count($this->db_result) ?></span> matches found for "<span class="text-data"><?php echo $this->input_raw ?></span>". Horray!</p>
+    <p><span class="text-data"><?php echo count($this->db_result) ?></span> matches found for "<span class="text-data"><?php echo $this->input_raw ?></span>". Horray!</p>
 </div>
-
-<?php if (($this->page > 1) || ($this->distance > $this->limit)) { ?>
-<!-- Pagination -->
-<div class="module mod-pagination">
-    <div class="line">
-        <div class="unit size1of2">
-            <?php if ($this->page > 1) { ?>
-                <div style='text-align:left'><a href="/search?q=<?php echo $this->input_clean . "&page=" . ($this->page - 1) ?>">Previous Page</a></div>
-            <?php } ?>
-        </div>
-        <div class="units size1of2 lastUnit">
-            <?php if ($this->distance > $this->limit) { ?>
-                <div style='text-align:right'><a href="/search?q=<?php echo $this->input_clean . "&page=" . ($this->page + 1) ?>">Next Page</a></div>
-            <?php } ?>
-        </div>
-    </div>
-</div>
-<?php } ?>
 
 <!-- Search Results -->
 <div class="module mod-search">
@@ -53,5 +35,33 @@
 
         </tbody>
     </table>
+</div>
+<div class="module" style="text-align:right">
+    <?php
+        $numPages = ceil($this->total / $this->limit);
+        $radius = 5;
+        $lowPos = $this->page - $radius;
+        if ($lowPos <= 0) { $lowPos = 1; }
+        $uppPos = $this->page + $radius;
+        if ($uppPos > $numPages) {
+            $uppPos = $numPages;
+        }
+        
+        while ($lowPos < $this->page) {
+            echo "<a href='/search?q={$this->input_clean}&page={$lowPos}' class='link-pagination'>{$lowPos}</a>";
+            $lowPos++;
+        }
+         
+        // Current
+        echo "<span class='link-pagination-selected link-pagination'>{$this->page}</span>";
+        
+        // After
+        $i = $this->page + 1;
+        while ($i <= $uppPos) {
+            echo "<a href='/search?q={$this->input_clean}&page={$i}' class='link-pagination'>{$i}</a>";
+            $i++;
+        }
+        
+    ?>
 </div>
 <?php include(F3::get('GUI') . "/includes/footer.php") ?>

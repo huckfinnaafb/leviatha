@@ -257,6 +257,23 @@ a:hover {
         color: #D93240;
     }
     
+    .link-pagination {
+        display: inline-block;
+        padding: 0 5px;
+        margin: 0 5px;
+    }
+    .link-pagination:link,
+    .link-pagination:visited {
+        
+    }
+    .link-pagination:hover {
+        
+    }
+    
+    .link-pagination-selected {
+        background-color: #ffcfcf;
+    }
+    
 /* Tables */
 table {}
 thead {}
