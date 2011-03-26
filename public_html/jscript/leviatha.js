@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    
     /* Semantic Element Fix for IE */
     document.createElement("article");
     document.createElement("footer");
