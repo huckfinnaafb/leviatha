@@ -5,7 +5,6 @@
         GUI Include(s): /gui/loot.php, /gui/loot_magic_unique.php
     */
     class loot {
-        public $title;
         public $urlname;
         public $range = 10;
         
