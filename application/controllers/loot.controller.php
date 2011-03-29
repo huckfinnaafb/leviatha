@@ -217,7 +217,7 @@
             $results = F3::sql($query);
             $i = 0;
             foreach($results as $row) {
-                if (true) {
+                if (($results[$i]["min"]) == ($results[$i]["max"])) {
                     $results[$i]["translation"] = $this->translate_property($results[$i]["translation"], $results[$i]["parameter"], $results[$i]["min"], $results[$i]["max"]);
                 } else {
                     $results[$i]["translation"] = $this->translate_property($results[$i]["translation_varies"], $results[$i]["parameter"], $results[$i]["min"], $results[$i]["max"]);
@@ -230,7 +230,7 @@
         public function translate_property($string, $parameter = null, $min = null, $max = null) {
             $string = str_replace("@min", $min, $string);
             $string = str_replace("@max", $max, $string);
-            $string = str_replace("@parameter", $parameter, $string);
+            $string = str_replace("@param", $parameter, $string);
             return $string;
         }
         
@@ -269,14 +269,25 @@
                     loot_properties_set_full.min, 
                     loot_properties_set_full.max,
                     loot_properties_set_full.req_equip,
-                    translate_loot_properties.translation
+                    translate_loot_properties.translation,
+                    translate_loot_properties.translation_varies
                 FROM loot_properties_set_full 
                     JOIN translate_loot_properties
                         ON loot_properties_set_full.property = translate_loot_properties.property
                 WHERE (set_family = '$family') AND (translate_loot_properties.display = 1)
                 ORDER BY req_equip ASC
             ";
-            return F3::sql($query);
+            $results = F3::sql($query);
+            $i = 0;
+            foreach($results as $row) {
+                if (($results[$i]["min"]) == ($results[$i]["max"])) {
+                    $results[$i]["translation"] = $this->translate_property($results[$i]["translation"], $results[$i]["parameter"], $results[$i]["min"], $results[$i]["max"]);
+                } else {
+                    $results[$i]["translation"] = $this->translate_property($results[$i]["translation_varies"], $results[$i]["parameter"], $results[$i]["min"], $results[$i]["max"]);
+                }
+                $i++;
+            }
+            return $results;
         }
         
         /* 
@@ -291,14 +302,25 @@
                     loot_properties_set.min, 
                     loot_properties_set.max,
                     loot_properties_set.req_equip,
-                    translate_loot_properties.translation
+                    translate_loot_properties.translation,
+                    translate_loot_properties.translation_varies
                 FROM loot_properties_set 
                     JOIN translate_loot_properties
                         ON loot_properties_set.property = translate_loot_properties.property
                 WHERE (`set_item` = '$item') AND (translate_loot_properties.display = 1)
                 ORDER BY req_equip ASC
             ";
-            return F3::sql($query);
+            $results = F3::sql($query);
+            $i = 0;
+            foreach($results as $row) {
+                if (($results[$i]["min"]) == ($results[$i]["max"])) {
+                    $results[$i]["translation"] = $this->translate_property($results[$i]["translation"], $results[$i]["parameter"], $results[$i]["min"], $results[$i]["max"]);
+                } else {
+                    $results[$i]["translation"] = $this->translate_property($results[$i]["translation_varies"], $results[$i]["parameter"], $results[$i]["min"], $results[$i]["max"]);
+                }
+                $i++;
+            }
+            return $results;
         }
         
         /* 
