@@ -15,7 +15,7 @@
         <meta name="language" content="English">
         <meta name="author" content="Samuel Ferrell">
         <meta name="copyright" content="Copyright 2011 - Samuel Ferrell">
-        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/styleuncompressed.css" />
     </head>
     <body>
         <div class="page">

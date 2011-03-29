@@ -2,14 +2,27 @@
 <div class="line">
     
     <!-- Main Content -->
-    <div class="unit size2of3">
-    
-        <div class="module">
+    <div class="unit size3of4">
+        <div class="module" style="padding-bottom:0">
             <h1 class="h-page">Loot</h1>
-            <p class="text-content">Visit the <a href="/loot/directory">Loot Directory</a> for a complete listing of all Diablo 2 items.</p>
-            <p class="text-content">Leviatha doesn't have everything, yet. In the meantime, check out <a href="http://www.diablowiki.com/Portal:Items_(Diablo_II)">Diablo Wiki</a> <span class="text-info">(External)</span>, a great resource for all things Diablo 2.</p>
         </div>
         
+        <div class="line">
+            <div class="unit size1of2">
+                <div class="module mod-primary">
+                    <h1 class="h-section">Directory</h1>
+                    <p class="text-content">Visit the <a href="/loot/directory">Loot Directory</a> for a complete listing of all Diablo 2 items.</p>
+                </div>
+            </div>
+            <div class="unit size1of2 lastUnit">
+                <div class="module mod-primary">
+                    <h1 class="h-section">Magic Prefixes & Suffixes</h1>
+                    <p class="text-content">Leviatha doesn't have everything, yet. In the meantime, check out <a href="http://www.diablowiki.com/Portal:Items_(Diablo_II)">Diablo Wiki</a> <span class="text-info">(External)</span>, a great resource for all things Diablo 2.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!--
         <div class="module">
             <h1 class="h-section">The Taxonomy of Loot</h1>
             <p class="text-content">Every game uses structures to order and classify data and objects. Diablo 2 is no different. To build the database, a flexible hierarchy was required to, in essence, have a place for everything and everything in its place.</p>
@@ -30,11 +43,12 @@
             <h2>But I have a plan.</h2>
             <p class="text-content">In the database, there's a master table with 293 rows of properties. Various fields tell the application whether to display it, which classes benefits most from this property (if any in particular), and so forth. There's also a field that acts as a 'translation' for the property - turning "dmg" into "Enhanced Damage". But what I haven't done yet is sprinkle the "min", "max", and "parameter" variables inside that string, allowing the application to parse it so it is more readable by users.</p>
         </div>
+        -->
         
     </div>
     
     <!-- Sidebar -->
-    <div class="unit size1of3 lastUnit">
+    <div class="unit size1of4 lastUnit">
     
         <div class="module mod-info">
             <h1 class="h-info">Latest News</h1>
