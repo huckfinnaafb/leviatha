@@ -4,12 +4,21 @@
     $this->db_result_slice = array_slice($this->db_result, $this->offset, $this->limit);
 ?>
 <!-- Notifications -->
-<div class="module mod-notify mod-success">
-    <p><span class="text-data"><?php echo count($this->db_result) ?></span> matches found for "<span class="text-data"><?php echo $this->input_raw ?></span>". Horray!</p>
+<div class="line">
+    <div class="unit size1of2">
+        <div class="mod mod-notify mod-success">
+            <p><span class="text-data"><?php echo count($this->db_result) ?></span> matches found for "<span class="text-data"><?php echo $this->input_raw ?></span>". Horray!</p>
+        </div>
+    </div>
+    <div class="unit size1of2 lastUnit">
+        <div class="mod mod-notify mod-tip">
+            <p>Results sorted by <span class="text-data"><?php echo $this->order; ?></span>, descending.</p>
+        </div>
+    </div>
 </div>
 
 <!-- Search Results -->
-<div class="module mod-search">
+<div class="mod">
     <table class="table-search">
         <thead class="thead-search">
             <tr>
@@ -36,7 +45,7 @@
         </tbody>
     </table>
 </div>
-<div class="module" style="text-align:right">
+<div class="mod" style="text-align:right">
     <?php
         $numPages = ceil($this->total / $this->limit);
         $radius = 5;

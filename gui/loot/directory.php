@@ -1,10 +1,10 @@
 <?php include(F3::get('GUI') . "/includes/header.php") ?>
-<div class="module">
+<div class="mod">
     <h1 class="h-mod h-page">Master Loot Directory</h1>
 </div>
 <div class="line">
     <div class="unit size1of3">
-        <div class="module">
+        <div class="mod">
             <h2 class="h-section">Weapons</h2>
             <ul class="list-directory">
                 <?php
@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="unit size1of3">
-        <div class="module">
+        <div class="mod">
             <h2 class="h-section">Armor</h2>
             <ul class="list-directory">
                 <?php
@@ -88,7 +88,7 @@
         </div>
     </div>
     <div class="unit size1of3 lastUnit">
-        <div class="module">
+        <div class="mod">
             <h2 class="h-section">Accessories</h2>
             <ul class="list-directory" style="border-right: 0;">
                 <?php
