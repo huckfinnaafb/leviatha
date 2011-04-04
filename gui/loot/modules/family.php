@@ -6,10 +6,10 @@
                 foreach($this->db_family["members"] as $row) {
                     echo "
                         <a class='link-block' href='/loot?item={$row['urlname']}'>
-                            <div class='node node-item node-{$row['rarity']}'>
+                            <div class='node node-item'>
                                 <img class='img-itemthumb' src='/img/lena32.png'>
                                 <p>{$row['name']}</p>
-                                <p class='text-info'>Level {$row['level']} {$row['class']}</p>
+                                <p class='text-info'>Level {$row['level']} {$row['relationship']}</p>
                             </div>
                         </a>
                     ";

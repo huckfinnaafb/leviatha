@@ -34,7 +34,7 @@
                 echo ("
                 <tr>
                     <td><a href='loot?item={$row['urlname']}'>{$row['name']}</a></td>
-                    <td>". ucwords($row['parent']) ."</td>
+                    <td>". ucwords($row['relationship']) ."</td>
                     <td>". ucwords($row['rarity']) ."</td>
                     <td>{$row['levelreq']}</td>
                     <td>{$row['level']}</td>

@@ -27,17 +27,17 @@
         public function integrity() {
         
             $query = "
-                SELECT loot_properties.property
-                FROM loot_properties
-                    LEFT JOIN translate_loot_properties
-                        ON translate_loot_properties.property = loot_properties.property
-                WHERE translate_loot_properties.property IS NULL
+                SELECT relate_loot_set.set_item
+                FROM relate_loot_set
+                    LEFT JOIN loot
+                        ON loot.urlname = relate_loot_set.set_item
+                WHERE loot.urlname IS NULL
             ";
             
             F3::sql($query);
             
             foreach(F3::get('DB.result') as $k => $v) {
-                echo $v["property"] . "<br>";
+                echo $v["set_item"] . "<br>";
             }
         }
         
@@ -71,18 +71,5 @@
                     }
                 }
             }
-        }
-        
-        public function translate() {
-            $string = "Reduces damage by (@min - @max)";
-            $min = 5;
-            $max = 9;
-            $parameter = 1;
-            
-            $string = str_replace("@min", $min, $string);
-            $string = str_replace("@max", $max, $string);
-            $string = str_replace("@param", $parameter, $string);
-            
-            echo $string;
         }
     }

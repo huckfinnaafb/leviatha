@@ -107,15 +107,10 @@ class search {
     
     public function search_loot($term, $order = "level", $limit = 30, $offset = 0) {
         $query = "
-            (SELECT name, urlname, level, division AS parent, levelreq, rarity
+            SELECT name, urlname, level, relationship, levelreq, rarity
             FROM loot
             WHERE urlname
-            LIKE '%$this->input_clean%')
-            UNION
-            (SELECT name, urlname, level, class AS parent, levelreq, rarity
-            FROM loot_magic
-            WHERE urlname
-            LIKE '%$term%')
+            LIKE '%$this->input_clean%'
             ORDER BY `$order` DESC
         ";
         return F3::sql($query);

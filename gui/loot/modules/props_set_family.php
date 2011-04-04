@@ -2,8 +2,8 @@
 <ul class="list-iteminfo family">
     <?php
         try {
-            if (isset($this->db_family["props"]) && (!empty($this->db_family["props"]))) {
-                foreach($this->db_family["props"] as $row) {
+            if (isset($this->db_item["props"]["family"]) && (!empty($this->db_item["props"]["family"]))) {
+                foreach($this->db_item["props"]["family"] as $row) {
                     echo "<li>{$row["translation"]} ({$row["req_equip"]} Equipped)</li>\n";
                 }
             } else {
