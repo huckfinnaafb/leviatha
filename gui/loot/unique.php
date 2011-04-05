@@ -2,8 +2,8 @@
 <div class="line">
     <div class="unit size2of3">
         <div class="mod mod-item">
+            <h1 class="h-item family"><?php echo $this->db_item["common"]["name"] ?></h1>
             <div class="node">
-                <h1 class="h-item family"><?php echo $this->db_item["common"]["name"] ?></h1>
                 <p>Level <?php echo $this->db_item["common"]["level"] . " " . ucwords($this->db_item["common"]["rarity"]) . " " . ucwords($this->db_item["common"]["relationship"]) ?></p>
                 <p>Required Level: <?php echo $this->db_item["common"]["levelreq"]; ?></p>
                 <img class="img-item" src="/img/lena64.png">
@@ -23,6 +23,5 @@
         <?php include(F3::get('GUI') . "loot/modules/similar.php") ?>
     </div>
 </div>
-
 <!-- Footer -->
 <?php include(F3::get('GUI') . "/includes/footer.php") ?>

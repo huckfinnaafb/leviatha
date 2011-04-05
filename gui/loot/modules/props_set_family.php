@@ -1,4 +1,4 @@
-<h1>Family Set Bonuses</h1>
+<h3>Family Set Bonuses</h3>
 <ul class="list-iteminfo family">
     <?php
         try {

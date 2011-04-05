@@ -23,21 +23,20 @@
                 }
             }
         }
-        
         public function integrity() {
         
             $query = "
-                SELECT relate_loot_set.set_item
-                FROM relate_loot_set
-                    LEFT JOIN loot
-                        ON loot.urlname = relate_loot_set.set_item
-                WHERE loot.urlname IS NULL
+                SELECT loot_properties_family.name
+                FROM loot_properties_family
+                    LEFT JOIN relate_loot_set
+                        ON relate_loot_set.set_family = loot_properties_family.name
+                WHERE relate_loot_set.set_family IS NULL
             ";
             
             F3::sql($query);
             
             foreach(F3::get('DB.result') as $k => $v) {
-                echo $v["set_item"] . "<br>";
+                echo $v["name"] . "<br>";
             }
         }
         

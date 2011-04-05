@@ -1,4 +1,4 @@
-<h1>Individual Set Bonuses</h1>
+<h3>Individual Set Bonuses</h3>
 <ul class="list-iteminfo set">
     <?php
         try {

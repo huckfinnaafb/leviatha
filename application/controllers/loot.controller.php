@@ -79,12 +79,13 @@
             
             /* Property Collection */
             $this->db_item["common"] = $this->get_common($item);
-            $this->db_similar = $this->get_similar($item, addslashes($this->db_item["common"]["relationship"]), $this->db_item["common"]["level"]);
             
             if ($this->db_item["common"]["rarity"] != "normal") {
                 $parent = strtolower(str_replace(" ", "-", str_replace("'", "", $this->db_item["common"]["relationship"])));
                 $this->db_item["props"]["normal"] = $this->get_normal($parent);
                 $this->db_item["props"]["magic"] = $this->get_magic($item);
+                $this->db_item["common"]["ancestors"] = $this->get_ancestors(addslashes($this->db_item["common"]["relationship"]));
+                $this->db_similar = $this->get_similar($item, addslashes($this->db_item["common"]["ancestors"]["division"]), $this->db_item["common"]["level"]);
                 
                 if ($this->db_item["common"]["rarity"] == "set") {
                     $this->db_item["props"]["set"] = $this->get_set($item);
@@ -95,6 +96,8 @@
                 }
             } else {
                 $this->db_item["props"]["normal"] = $this->get_normal($item);
+                $this->db_item["variants"] = $this->get_variants(addslashes($this->db_item["common"]["name"]));
+                $this->db_item["common"]["ancestors"] = $this->get_ancestors(addslashes($this->db_item["common"]["name"]));
             }
             
             return $this->db_item;
@@ -128,6 +131,24 @@
         }
         
         /* 
+            Function: Get item ancestry
+            Returns: mysql resource
+        */
+        public function get_ancestors($class) {
+            $query = "
+                SELECT 
+                    loot.relationship AS division,
+                    relate_division.kingdom
+                FROM loot
+                    JOIN relate_division
+                        ON loot.relationship = relate_division.division
+                WHERE name = '$class'
+            ";
+            F3::sql($query);
+            return F3::get('DB.result.0');
+        }
+        
+        /* 
             Function: Get ["flags"] properties
             Returns: mysql resource
         */
@@ -141,22 +162,7 @@
             Returns: mysql resource
         */
         public function get_similar($item, $relationship, $level) {
-            $query = "
-                SELECT 
-                    loot.name,
-                    loot.urlname,
-                    loot.level,
-                    loot.levelreq,
-                    loot.relationship,
-                    loot.rarity
-                FROM loot
-                WHERE (loot.level > '$level') 
-                    AND (loot.relationship = '$relationship')
-                    NOT IN (loot.urlname = '$item')
-                ORDER BY loot.level ASC
-                LIMIT 6
-            ";
-            return F3::sql($query);
+            
         }
         
         /*
@@ -164,7 +170,12 @@
             Returns: mysql resource
         */
         public function get_variants($item) {
-            
+            $query = "
+                SELECT loot.name, loot.urlname, loot.level, loot.levelreq, loot.relationship, loot.rarity
+                FROM loot
+                WHERE loot.relationship = '$item'
+            ";
+            return F3::sql($query);
         }
         
         /* 

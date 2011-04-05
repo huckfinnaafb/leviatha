@@ -19,7 +19,7 @@
     </head>
     <body>
         <div class="page">
-            <div class="module mod-header">
+            <div class="mod mod-header">
                 <div class="line">
                     <div class="unit size1of2">
                         <div class="hgroup">
