@@ -1,18 +1,15 @@
-<div class="module mod-info">
-    <h1 class="h-info">Magical Properties</h1>
-    <ul class="list-iteminfo magic">
-        <?php
-            try {
-                if (isset($this->db_item["prop_magic"]) && (!empty($this->db_item["prop_magic"]))) {
-                    foreach($this->db_item["prop_magic"] as $row) {
-                        echo "<li>{$row["translation"]}</li>\n";
-                    }
-                } else {
-                    throw new Exception("No magic properties found.");
+<ul class="magic">
+    <?php
+        try {
+            if (isset($this->db_item["props"]["magic"]) && (!empty($this->db_item["props"]["magic"]))) {
+                foreach($this->db_item["props"]["magic"] as $row) {
+                    echo "<li>{$row["translation"]}</li>\n";
                 }
-            } catch (Exception $e) {
-                echo "<div class='module mod-notify mod-warning'>" . $e->getMessage(), "</div>\n";
+            } else {
+                throw new Exception("No magic properties found.");
             }
-        ?>
-    </ul>
-</div>
+        } catch (Exception $e) {
+            echo "<div class='mod mod-notify mod-warning'>" . $e->getMessage(), "</div>\n";
+        }
+    ?>
+</ul>

@@ -14,9 +14,6 @@
         public $db_family = array();
         public $db_similar = array();
         
-        /* Boolean Properties */
-        public $isMagic;
-        
         /*
             Function: /loot?item= landing page
             Returns: void
@@ -37,30 +34,35 @@
             
             /* Check urlname against integers */
             if (strcspn($this->urlname, '0123456789') != strlen($this->urlname)) {
-                throw new Exception("Item name cannot include integers.");
+                $this->error = "Item name cannot include integers.";
             }
             
             /* Check if query is empty */
             if (!strlen($this->urlname)) {
-                throw new Exception("Item String Empty");
+                $this->error = "Item String Empty";
             }
             
-            /* Collect item info through get_item() and include appropriate template */
-            if ($this->db_item = $this->get_item($this->urlname)) {
-                $this->title = $this->db_item["common"]["name"];
-                if ($this->isMagic) {
-                    /* Open Appropriate File Depending on Rarity of Item */
-                    switch ($this->db_item["common"]["rarity"]) {
-                        case ("unique"): include (F3::get('GUI') . "loot/unique.php"); break;
-                        case ("set"): include (F3::get('GUI') . "loot/set.php"); break;
-                        case ("runeword"): include (F3::get('GUI') . "loot/runeword.php"); break;
-                    }
-                } else {
-                    /* Base Item File */
-                    include (F3::get('GUI') . "loot/normal.php");
-                }
+            /* Grab Item Data */
+            if (!$this->db_item = $this->get_item($this->urlname)) {
+                $this->error = "No item found.";
+            }
+            
+            /* If Error Thrown */
+            if (isset($this->error)) {
+                $this->title = "Error";
+                include (F3::get('GUI') . "warning/error.php");
+                return false;
             } else {
-                throw new Exception("Item data not found.");
+                if ($this->db_item["common"]["rarity"] == "unique") {
+                    include (F3::get('GUI') . "loot/unique.php");
+                    return true;
+                } elseif ($this->db_item["common"]["rarity"] == "set") {
+                    include (F3::get('GUI') . "loot/set.php");
+                    return true;
+                } elseif ($this->db_item["common"]["rarity"] == "normal") {
+                    include (F3::get('GUI') . "loot/normal.php");
+                    return true;
+                }
             }
         }
         
@@ -69,38 +71,35 @@
             Returns: array (see class docs), false on failure
         */
         public function get_item($item) {
-            
+        
             /* Check whether item exists */
             if (!$this->check_isExists($item)) {
                 return false;
             }
             
-            /* Check whether item is magic or not */
-            $this->isMagic = $this->check_isMagic($item);
+            /* Property Collection */
+            $this->db_item["common"] = $this->get_common($item);
             
-            /* Property & Flag Collection */
-            if ($this->isMagic) {
-                $this->db_item["common"] = $this->get_common($item, true);
-                $this->db_item["common"]["classurl"] = strtolower(str_replace(" ", "-", str_replace("'", "", $this->db_item["common"]["class"])));
-                $this->db_item["prop_normal"] = $this->get_normal(str_replace("'", "\'", $this->db_item["common"]["class"]));
-                $this->db_item["prop_magic"] = $this->get_magic(str_replace("'", "\'", $this->db_item["common"]["name"]));
-                $this->db_item["flags"] = $this->get_flags(str_replace("'", "\'", $this->db_item["common"]["name"]));
+            if ($this->db_item["common"]["rarity"] != "normal") {
+                $parent = strtolower(str_replace(" ", "-", str_replace("'", "", $this->db_item["common"]["relationship"])));
+                $this->db_item["props"]["normal"] = $this->get_normal($parent);
+                $this->db_item["props"]["magic"] = $this->get_magic($item);
+                $this->db_item["common"]["ancestors"] = $this->get_ancestors(addslashes($this->db_item["common"]["relationship"]));
+                $this->db_similar = $this->get_similar($item, addslashes($this->db_item["common"]["ancestors"]["division"]), $this->db_item["common"]["level"]);
                 
-                $this->db_similar = $this->get_similar(str_replace("'", "\'", $this->db_item["common"]["name"]), str_replace("'", "\'", $this->db_item["common"]["division"]), $this->db_item["common"]["level"], $this->range);
-                
-                /* Set Item Bonus Collection */
                 if ($this->db_item["common"]["rarity"] == "set") {
-                    $this->db_item["prop_set"] = $this->get_set(str_replace("'", "\'", $this->db_item["common"]["name"]));
-                    $this->db_family["family"] = $this->get_family(str_replace("'", "\'", $this->db_item["common"]["name"]));
-                    $this->db_family["members"] = $this->get_family_members(str_replace("'", "\'", $this->db_family["family"]));
-                    $this->db_family["props"] = $this->get_family_props(str_replace("'", "\'", $this->db_family["family"]));
+                    $this->db_item["props"]["set"] = $this->get_set($item);
+                    $this->db_family["family"] = $this->get_family($item);
+                    $this->db_family["members"] = $this->get_family_members(addslashes($this->db_family["family"]));
+                    $family = strtolower(str_replace(" ", "-", str_replace("'", "", $this->db_family["family"])));
+                    $this->db_item["props"]["family"] = $this->get_family_props($family);
                 }
             } else {
-                $this->db_item["common"] = $this->get_common($item, false);
-                $this->db_item["prop_normal"] = $this->get_normal(str_replace("'", "\'", $this->db_item["common"]["name"]));
-                $this->db_item["flags"] = $this->get_flags(str_replace("'", "\'", $this->db_item["common"]["name"]));
-                $this->db_variants = $this->get_variants(str_replace("'", "\'", $this->db_item["common"]["name"]));
+                $this->db_item["props"]["normal"] = $this->get_normal($item);
+                $this->db_item["variants"] = $this->get_variants(addslashes($this->db_item["common"]["name"]));
+                $this->db_item["common"]["ancestors"] = $this->get_ancestors(addslashes($this->db_item["common"]["name"]));
             }
+            
             return $this->db_item;
         }
         
@@ -109,24 +108,7 @@
             Returns: boolean
         */
         public function check_isExists($item) {
-            $query = "
-                (SELECT urlname FROM loot WHERE urlname = '$item')
-                UNION
-                (SELECT urlname FROM loot_magic WHERE urlname = '$item')
-            ";
-            if (F3::sql($query)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        
-        /* 
-            Function: Check if item is magic
-            Returns: boolean
-        */
-        public function check_isMagic($urlname) {
-            $query = "SELECT urlname FROM loot_magic WHERE loot_magic.urlname = '$urlname'";
+            $query = "SELECT urlname FROM loot WHERE urlname = '$item'";
             if (F3::sql($query)) {
                 return true;
             } else {
@@ -138,46 +120,64 @@
             Function: Get ["common"] properties
             Returns: mysql resource
         */
-        public function get_common($urlname, $isMagic = null) {
-            
-            /* if isMagic is null, attempt to grab class property */
-            if (($isMagic === null) && (isset($this->isMagic))) {
-                $isMagic = $this->isMagic;
-            }
-            
-            if ($isMagic) {
-                $query = "
-                    SELECT loot_magic.name, loot_magic.urlname, loot_magic.level, loot_magic.levelreq, loot_magic.class, loot_magic.rarity, loot.division, relate_division.kingdom, relate_kingdom.domain
-                    FROM loot
-                        JOIN loot_magic 
-                            ON loot_magic.class = loot.name
-                        JOIN relate_division 
-                            ON loot.division = relate_division.division
-                        JOIN relate_kingdom 
-                            ON relate_division.kingdom = relate_kingdom.kingdom
-                        JOIN relate_domain 
-                            ON relate_kingdom.domain = relate_domain.domain
-                    WHERE loot_magic.urlname = '$urlname'
-                ";
-                F3::sql($query);
-                return F3::get('DB.result.0');
-            } else {
-                $query = "
-                    SELECT loot.name, loot.urlname, loot.level, loot.levelreq, loot.division, relate_division.kingdom, relate_kingdom.domain
-                    FROM loot
-                        JOIN relate_division 
-                            ON loot.division = relate_division.division
-                        JOIN relate_kingdom 
-                            ON relate_division.kingdom = relate_kingdom.kingdom
-                        JOIN relate_domain 
-                            ON relate_kingdom.domain = relate_domain.domain
-                    WHERE loot.urlname = '$urlname'
-                ";
-                F3::sql($query);
-                return F3::get('DB.result.0');
-            }
+        public function get_common($urlname) {
+            $query = "
+                SELECT name, urlname, relationship, level, levelreq, rarity
+                FROM loot
+                WHERE `urlname` = '$urlname'
+            ";
+            F3::sql($query);
+            return F3::get("DB.result.0");
         }
-    
+        
+        /* 
+            Function: Get item ancestry
+            Returns: mysql resource
+        */
+        public function get_ancestors($class) {
+            $query = "
+                SELECT 
+                    loot.relationship AS division,
+                    relate_division.kingdom
+                FROM loot
+                    JOIN relate_division
+                        ON loot.relationship = relate_division.division
+                WHERE name = '$class'
+            ";
+            F3::sql($query);
+            return F3::get('DB.result.0');
+        }
+        
+        /* 
+            Function: Get ["flags"] properties
+            Returns: mysql resource
+        */
+        public function get_flags($item) {
+            $query = "SELECT loot, flag, value FROM loot_flags WHERE `loot` = '$item'";
+            return F3::sql($query);
+        }
+        
+        /*
+            Function: Get array of items similar in item level, within range
+            Returns: mysql resource
+        */
+        public function get_similar($item, $relationship, $level) {
+            
+        }
+        
+        /*
+            Function: Get magical equivalents to normal items
+            Returns: mysql resource
+        */
+        public function get_variants($item) {
+            $query = "
+                SELECT loot.name, loot.urlname, loot.level, loot.levelreq, loot.relationship, loot.rarity
+                FROM loot
+                WHERE loot.relationship = '$item'
+            ";
+            return F3::sql($query);
+        }
+        
         /* 
             Function: Get ["prop_norm"] properties
             Returns: mysql resource
@@ -185,14 +185,21 @@
         public function get_normal($item) {
             $query = "
                 SELECT 
-                    translate_loot_properties.translation, 
-                    loot_properties.value
+                    loot_properties.property,
+                    loot_properties.min,
+                    translate_loot_properties.translation
                 FROM loot_properties 
                     JOIN translate_loot_properties
                         ON loot_properties.property = translate_loot_properties.property
-                WHERE (`name` = '$item') AND (translate_loot_properties.display = 1)
+                WHERE (loot_properties.name = '$item') AND (translate_loot_properties.display = 1)
             ";
-            return F3::sql($query);
+            $results = F3::sql($query);
+            $i = 0;
+            foreach($results as $row) {
+                $results[$i]["translation"] = $this->translate_property($results[$i]["translation"]);
+                $i++;
+            }
+            return $results;
         }
         
         /* 
@@ -202,18 +209,18 @@
         public function get_magic($item) {
             $query = "
                 SELECT 
-                    loot_properties_magic.loot, 
-                    loot_properties_magic.property, 
-                    loot_properties_magic.parameter, 
-                    loot_properties_magic.min, 
-                    loot_properties_magic.max,
+                    loot_properties.property, 
+                    loot_properties.parameter, 
+                    loot_properties.min, 
+                    loot_properties.max,
                     translate_loot_properties.translation,
                     translate_loot_properties.translation_varies
-                FROM loot_properties_magic 
+                FROM loot_properties 
                     JOIN translate_loot_properties
-                        ON loot_properties_magic.property = translate_loot_properties.property
-                WHERE (`loot` = '$item') AND (translate_loot_properties.display = 1)
+                        ON loot_properties.property = translate_loot_properties.property
+                WHERE (loot_properties.name = '$item') AND (translate_loot_properties.display = 1) AND (req_equip IS NULL)
             ";
+            
             $results = F3::sql($query);
             $i = 0;
             foreach($results as $row) {
@@ -227,6 +234,43 @@
             return $results;
         }
         
+        /* 
+            Function: Get ["prop_magic_set"] properties
+            Returns: mysql resource
+        */
+        public function get_set($item) {
+            $query = "
+                SELECT 
+                    loot_properties.property, 
+                    loot_properties.parameter, 
+                    loot_properties.min, 
+                    loot_properties.max,
+                    loot_properties.req_equip,
+                    translate_loot_properties.translation,
+                    translate_loot_properties.translation_varies
+                FROM loot_properties 
+                    JOIN translate_loot_properties
+                        ON loot_properties.property = translate_loot_properties.property
+                WHERE (loot_properties.name = '$item') AND (translate_loot_properties.display = 1) AND (req_equip > 0)
+            ";
+            
+            $results = F3::sql($query);
+            $i = 0;
+            foreach($results as $row) {
+                if (($results[$i]["min"]) == ($results[$i]["max"])) {
+                    $results[$i]["translation"] = $this->translate_property($results[$i]["translation"], $results[$i]["parameter"], $results[$i]["min"], $results[$i]["max"]);
+                } else {
+                    $results[$i]["translation"] = $this->translate_property($results[$i]["translation_varies"], $results[$i]["parameter"], $results[$i]["min"], $results[$i]["max"]);
+                }
+                $i++;
+            }
+            return $results;
+        }
+        
+        /*
+            Function: Property translations
+            Returns: string
+        */
         public function translate_property($string, $parameter = null, $min = null, $max = null) {
             $string = str_replace("@min", $min, $string);
             $string = str_replace("@max", $max, $string);
@@ -250,11 +294,12 @@
         */
         public function get_family_members($family) {
             $query = "
-                SELECT loot_magic.name, loot_magic.urlname, loot_magic.class, loot_magic.level, loot_magic.rarity
-                FROM loot_magic
-                    JOIN relate_loot_set
-                        ON loot_magic.name = relate_loot_set.set_item
-                WHERE `set_family` = '$family'";
+                SELECT loot.name, loot.urlname, loot.level, loot.levelreq, loot.relationship
+                FROM loot
+                JOIN relate_loot_set
+                    ON loot.urlname = relate_loot_set.set_item
+                WHERE `set_family` = '$family'
+            ";
             return F3::sql($query);
         }
         
@@ -265,17 +310,17 @@
         public function get_family_props($family) {
             $query = "
                 SELECT 
-                    loot_properties_set_full.parameter, 
-                    loot_properties_set_full.min, 
-                    loot_properties_set_full.max,
-                    loot_properties_set_full.req_equip,
+                    loot_properties_family.property, 
+                    loot_properties_family.parameter, 
+                    loot_properties_family.min, 
+                    loot_properties_family.max,
+                    loot_properties_family.req_equip,
                     translate_loot_properties.translation,
                     translate_loot_properties.translation_varies
-                FROM loot_properties_set_full 
+                FROM loot_properties_family
                     JOIN translate_loot_properties
-                        ON loot_properties_set_full.property = translate_loot_properties.property
-                WHERE (set_family = '$family') AND (translate_loot_properties.display = 1)
-                ORDER BY req_equip ASC
+                        ON loot_properties_family.property = translate_loot_properties.property
+                WHERE (loot_properties_family.name = '$family') AND (translate_loot_properties.display = 1) AND (req_equip > 0)
             ";
             $results = F3::sql($query);
             $i = 0;
@@ -288,85 +333,5 @@
                 $i++;
             }
             return $results;
-        }
-        
-        /* 
-            Function: Get ["prop_magic_set"] properties
-            Returns: mysql resource
-        */
-        public function get_set($item) {
-            $query = "
-                SELECT 
-                    loot_properties_set.set_item, 
-                    loot_properties_set.parameter, 
-                    loot_properties_set.min, 
-                    loot_properties_set.max,
-                    loot_properties_set.req_equip,
-                    translate_loot_properties.translation,
-                    translate_loot_properties.translation_varies
-                FROM loot_properties_set 
-                    JOIN translate_loot_properties
-                        ON loot_properties_set.property = translate_loot_properties.property
-                WHERE (`set_item` = '$item') AND (translate_loot_properties.display = 1)
-                ORDER BY req_equip ASC
-            ";
-            $results = F3::sql($query);
-            $i = 0;
-            foreach($results as $row) {
-                if (($results[$i]["min"]) == ($results[$i]["max"])) {
-                    $results[$i]["translation"] = $this->translate_property($results[$i]["translation"], $results[$i]["parameter"], $results[$i]["min"], $results[$i]["max"]);
-                } else {
-                    $results[$i]["translation"] = $this->translate_property($results[$i]["translation_varies"], $results[$i]["parameter"], $results[$i]["min"], $results[$i]["max"]);
-                }
-                $i++;
-            }
-            return $results;
-        }
-        
-        /* 
-            Function: Get ["flags"] properties
-            Returns: mysql resource
-        */
-        public function get_flags($item) {
-            $query = "SELECT loot, flag, value FROM loot_flags WHERE `loot` = '$item'";
-            return F3::sql($query);
-        }
-        
-        /*
-            Function: Get array of items similar in item level, within range
-            Returns: mysql resource
-        */
-        public function get_similar($item, $division, $level) {
-            $query = "
-                SELECT 
-                    loot_magic.name,
-                    loot_magic.urlname,
-                    loot_magic.level,
-                    loot_magic.levelreq,
-                    loot_magic.rarity,
-                    loot.name AS classname
-                FROM loot_magic
-                    JOIN loot
-                        ON loot_magic.class = loot.name
-                WHERE (loot_magic.level > '$level') 
-                    AND (loot.division = '$division')
-                    NOT IN (loot_magic.name = '$item')
-                ORDER BY loot_magic.level ASC
-                LIMIT 6
-            ";
-            return F3::sql($query);
-        }
-        
-        /*
-            Function: Get magical equivalents to normal items
-            Returns: mysql resource
-        */
-        public function get_variants($item) {
-            $query = "
-                SELECT name, urlname, level, class, rarity
-                FROM loot_magic
-                WHERE `class` = '$item'
-            ";
-            return F3::sql($query);
         }
     }
