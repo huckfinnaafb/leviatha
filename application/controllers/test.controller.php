@@ -1,28 +1,5 @@
 <?php
     class script {
-        public function init() {
-            $query = "
-                SELECT *
-                FROM raw_loot_properties
-            ";
-            F3::sql($query);
-            $result = F3::get('DB.result');
-            
-            
-            foreach($result as $row) {
-            
-                $name = $row["name"];
-                
-                foreach($row as $k => $v) {
-                
-                    if ($k == "name") { continue; }
-                    if ($v == 0) { continue; }
-                    if (!is_numeric($v)) { continue; }
-                    
-                    echo $name . "\t" . strtolower($k) . "\t" . $v . "\n<br>";
-                }
-            }
-        }
         public function integrity() {
         
             $query = "
@@ -39,7 +16,6 @@
                 echo $v["name"] . "<br>";
             }
         }
-        
         public function magic_parse() {
             $query = "
                 SELECT *

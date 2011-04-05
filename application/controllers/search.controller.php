@@ -107,8 +107,18 @@ class search {
     
     public function search_loot($term, $order = "level", $limit = 30, $offset = 0) {
         $query = "
-            SELECT name, urlname, level, relationship, levelreq, rarity
+            SELECT 
+                name, 
+                urlname, 
+                level, 
+                levelreq, 
+                rarity, 
+                COALESCE (relate_loot_magic.class, relate_loot_normal.division) AS relationship
             FROM loot
+                LEFT JOIN relate_loot_magic
+                    ON loot.name = relate_loot_magic.magic
+                LEFT JOIN relate_loot_normal
+                    ON loot.name = relate_loot_normal.class
             WHERE urlname
             LIKE '%$this->input_clean%'
             ORDER BY `$order` DESC

@@ -4,6 +4,16 @@
         Purpose: Query and Collate DB Results for Loot
         GUI Include(s): /gui/loot.php, /gui/loot_magic_unique.php
     */
+    
+    /*
+        Item Array
+        
+        Family Array
+        
+        Similar Array
+        
+        Variants Array
+    */
     class loot {
         public $urlname;
         public $range = 10;
@@ -47,7 +57,7 @@
                 $this->error = "No item found.";
             }
             
-            /* If Error Thrown */
+            /* If Error Thrown, Abort */
             if (isset($this->error)) {
                 $this->title = "Error";
                 include (F3::get('GUI') . "warning/error.php");
@@ -122,8 +132,12 @@
         */
         public function get_common($urlname) {
             $query = "
-                SELECT name, urlname, relationship, level, levelreq, rarity
+                SELECT name, urlname, level, levelreq, rarity, COALESCE(relate_loot_normal.division, relate_loot_magic.class) AS relationship
                 FROM loot
+                    LEFT JOIN relate_loot_magic
+                        ON loot.name = relate_loot_magic.magic
+                    LEFT JOIN relate_loot_normal
+                        ON loot.name = relate_loot_normal.class
                 WHERE `urlname` = '$urlname'
             ";
             F3::sql($query);
@@ -135,17 +149,6 @@
             Returns: mysql resource
         */
         public function get_ancestors($class) {
-            $query = "
-                SELECT 
-                    loot.relationship AS division,
-                    relate_division.kingdom
-                FROM loot
-                    JOIN relate_division
-                        ON loot.relationship = relate_division.division
-                WHERE name = '$class'
-            ";
-            F3::sql($query);
-            return F3::get('DB.result.0');
         }
         
         /* 
@@ -170,11 +173,7 @@
             Returns: mysql resource
         */
         public function get_variants($item) {
-            $query = "
-                SELECT loot.name, loot.urlname, loot.level, loot.levelreq, loot.relationship, loot.rarity
-                FROM loot
-                WHERE loot.relationship = '$item'
-            ";
+            $query = "";
             return F3::sql($query);
         }
         
@@ -294,7 +293,7 @@
         */
         public function get_family_members($family) {
             $query = "
-                SELECT loot.name, loot.urlname, loot.level, loot.levelreq, loot.relationship
+                SELECT loot.name, loot.urlname, loot.level, loot.levelreq
                 FROM loot
                 JOIN relate_loot_set
                     ON loot.urlname = relate_loot_set.set_item
