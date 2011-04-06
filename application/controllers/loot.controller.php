@@ -30,7 +30,7 @@
             ["members"] => array of strings
         );
     */
-    class loot {
+    class loot extends base {
         public $urlname;
         public $range = 10;
         
