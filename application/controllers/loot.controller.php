@@ -15,8 +15,6 @@
                 ["levelreq"] => integer
                 ["class"] => string
                 ["division"] => string
-                ["kingdom"] => string
-                ["domain"] => string
             ),
             ["props"] => array(
                 ["normal"] => array of properties and their translations
@@ -112,6 +110,7 @@
             if ($this->db_item["common"]["rarity"] != "normal") {
                 $this->db_item["props"]["normal"] = $this->get_normal(addslashes($this->db_item["common"]["class"]));
                 $this->db_item["props"]["magic"] = $this->get_magic(addslashes($this->db_item["common"]["name"]));
+                $this->db_similar = $this->get_similar(addslashes($this->db_item["common"]["name"]), addslashes($this->db_item["common"]["division"]), $this->db_item["common"]["level"]);
                 
                 if ($this->db_item["common"]["rarity"] == "set") {
                     $this->db_item["props"]["set"] = $this->get_set(addslashes($this->db_item["common"]["name"]));
@@ -152,24 +151,16 @@
                     loot.level, 
                     loot.levelreq, 
                     loot.rarity, 
-                    relate_loot_normal.division, 
-                    relate_loot_magic.class
+                    relate_loot.magic,
+                    relate_loot.class,
+                    relate_loot.division
                 FROM loot
-                    LEFT JOIN relate_loot_magic
-                        ON loot.name = relate_loot_magic.magic
-                    LEFT JOIN relate_loot_normal
-                        ON loot.name = relate_loot_normal.class
+                    LEFT JOIN relate_loot
+                        ON loot.name = relate_loot.magic
                 WHERE `urlname` = '$urlname'
             ";
             F3::sql($query);
             return F3::get("DB.result.0");
-        }
-        
-        /* 
-            Function: Get item ancestry
-            Returns: mysql resource
-        */
-        public function get_ancestors($class) {
         }
         
         /* 
@@ -186,7 +177,16 @@
             Returns: mysql resource
         */
         public function get_similar($item, $relationship, $level) {
-            
+            $query = "
+                SELECT loot.name, loot.urlname, loot.level, relate_loot.class
+                FROM relate_loot
+                    JOIN loot
+                        ON loot.name = relate_loot.magic
+                WHERE (relate_loot.division = '$relationship') AND (loot.name != '$item') AND (loot.level >= $level)
+                ORDER BY loot.level ASC
+                LIMIT 6
+            ";
+            return F3::sql($query);
         }
         
         /*

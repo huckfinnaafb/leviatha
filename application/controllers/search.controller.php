@@ -14,7 +14,7 @@
 class search {
     
     /* Search Config */
-    public $limit = 50;
+    public $limit = 20;
     public $page;
     public $offset;
     public $distance;
@@ -56,7 +56,7 @@ class search {
         
         /* Query Loot */
         if (!isset($this->error)) {
-            $this->db_result = $this->search_loot($this->input_clean, $this->order, $this->limit, $this->offset);
+            $this->db_result = $this->search_loot($this->input_clean, $this->order, $this->offset);
         }
         
         /* Pagination */
@@ -105,7 +105,7 @@ class search {
         return $string;
     }
     
-    public function search_loot($term, $order = "level", $limit = 30, $offset = 0) {
+    public function search_loot($term, $order = "level", $offset = 0) {
         $query = "
             SELECT 
                 name, 

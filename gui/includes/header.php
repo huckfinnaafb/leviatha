@@ -15,7 +15,7 @@
         <meta name="language" content="English">
         <meta name="author" content="Samuel Ferrell">
         <meta name="copyright" content="Copyright 2011 - Samuel Ferrell">
-        <link rel="stylesheet" href="/css/styleuncompressed.css" />
+        <link rel="stylesheet" href="/css/style.css" />
     </head>
     <body>
         <div class="page">
@@ -23,7 +23,7 @@
                 <div class="line">
                     <div class="unit size1of2">
                         <div class="hgroup">
-                            <h1 class="h-title"><a class="link-title" title="Return Home" href="/">Leviatha</a></h1>
+                            <a class="link-title" title="Return Home" href="/"></a>
                         </div>
                         <div class="nav">
                             <a class="link-nav" href="/">Home</a>

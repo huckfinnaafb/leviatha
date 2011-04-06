@@ -3,16 +3,27 @@
         public function integrity() {
         
             $query = "
-                SELECT relate_loot_normal.division
-                FROM relate_loot_normal
-                    LEFT JOIN relate_division
-                        ON relate_division.division = relate_loot_normal.division
-                WHERE relate_loot_normal.division IS NULL
+                SELECT loot_properties.name
+                FROM loot_properties
+                    LEFT JOIN loot
+                        ON loot_properties.name = loot.name
+                WHERE loot.name IS NULL
             ";
             
             F3::sql($query);
             foreach(F3::get('DB.result') as $k => $v) {
-                echo $v["division"] . "<br>";
+                echo $v["name"] . "<br>";
+            }
+        }
+        public function relate() {
+            $query = "
+                SELECT magic, relate_loot_normal.class, relate_loot_normal.division
+                FROM relate_loot_magic
+                    JOIN relate_loot_normal
+                        ON relate_loot_magic.class = relate_loot_normal.class
+            ";
+            foreach(F3::sql($query) as $row) {
+                echo "\"" . $row["magic"] . "\",\"" . $row["class"] . "\",\"" . $row["division"] . "\"<br>";
             }
         }
         public function magic_parse() {
