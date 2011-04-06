@@ -18,6 +18,7 @@ F3::route('GET /', array(new base, 'homepage'));
 F3::route('GET /search', array(new base, 'search'));
 F3::route('GET /loot', array(new base, 'loot'), 3600);
 F3::route('GET /loot/directory', array(new base, 'loot_directory'), 86400);
+F3::route('GET /test', array(new script, 'integrity'));
 
 // Execute
 F3::run();

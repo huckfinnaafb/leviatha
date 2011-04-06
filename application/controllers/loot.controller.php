@@ -7,12 +7,30 @@
     
     /*
         Item Array
+        $this->db_item = array(
+            ["common"] => array(
+                ["name"] => string
+                ["urlname"] => string
+                ["level"] => integer
+                ["levelreq"] => integer
+                ["class"] => string
+                ["division"] => string
+                ["kingdom"] => string
+                ["domain"] => string
+            ),
+            ["props"] => array(
+                ["normal"] => array of properties and their translations
+                ["magic"] => ...
+                ["set"] => ...
+                ["family"] => ...
+            ),
+            ["flags"] => array of item flags
+        );
         
-        Family Array
-        
-        Similar Array
-        
-        Variants Array
+        $this->db_family = array(
+            ["family"] => string
+            ["members"] => array of strings
+        );
     */
     class loot {
         public $urlname;
@@ -81,7 +99,8 @@
             Returns: array (see class docs), false on failure
         */
         public function get_item($item) {
-        
+            $item = addslashes($item);
+
             /* Check whether item exists */
             if (!$this->check_isExists($item)) {
                 return false;
@@ -91,23 +110,18 @@
             $this->db_item["common"] = $this->get_common($item);
             
             if ($this->db_item["common"]["rarity"] != "normal") {
-                $parent = strtolower(str_replace(" ", "-", str_replace("'", "", $this->db_item["common"]["relationship"])));
-                $this->db_item["props"]["normal"] = $this->get_normal($parent);
-                $this->db_item["props"]["magic"] = $this->get_magic($item);
-                $this->db_item["common"]["ancestors"] = $this->get_ancestors(addslashes($this->db_item["common"]["relationship"]));
-                $this->db_similar = $this->get_similar($item, addslashes($this->db_item["common"]["ancestors"]["division"]), $this->db_item["common"]["level"]);
+                $this->db_item["props"]["normal"] = $this->get_normal(addslashes($this->db_item["common"]["class"]));
+                $this->db_item["props"]["magic"] = $this->get_magic(addslashes($this->db_item["common"]["name"]));
                 
                 if ($this->db_item["common"]["rarity"] == "set") {
-                    $this->db_item["props"]["set"] = $this->get_set($item);
-                    $this->db_family["family"] = $this->get_family($item);
+                    $this->db_item["props"]["set"] = $this->get_set(addslashes($this->db_item["common"]["name"]));
+                    $this->db_family["family"] = $this->get_family(addslashes($this->db_item["common"]["name"]));
                     $this->db_family["members"] = $this->get_family_members(addslashes($this->db_family["family"]));
-                    $family = strtolower(str_replace(" ", "-", str_replace("'", "", $this->db_family["family"])));
-                    $this->db_item["props"]["family"] = $this->get_family_props($family);
+                    $this->db_item["props"]["family"] = $this->get_family_props(addslashes($this->db_family["family"]));
                 }
             } else {
-                $this->db_item["props"]["normal"] = $this->get_normal($item);
-                $this->db_item["variants"] = $this->get_variants(addslashes($this->db_item["common"]["name"]));
-                $this->db_item["common"]["ancestors"] = $this->get_ancestors(addslashes($this->db_item["common"]["name"]));
+                $this->db_item["props"]["normal"] = $this->get_normal(addslashes($this->db_item["common"]["name"]));
+                $this->db_variants = $this->get_variants(addslashes($this->db_item["common"]["name"]));
             }
             
             return $this->db_item;
@@ -132,7 +146,14 @@
         */
         public function get_common($urlname) {
             $query = "
-                SELECT name, urlname, level, levelreq, rarity, COALESCE(relate_loot_normal.division, relate_loot_magic.class) AS relationship
+                SELECT 
+                    loot.name, 
+                    loot.urlname, 
+                    loot.level, 
+                    loot.levelreq, 
+                    loot.rarity, 
+                    relate_loot_normal.division, 
+                    relate_loot_magic.class
                 FROM loot
                     LEFT JOIN relate_loot_magic
                         ON loot.name = relate_loot_magic.magic
@@ -173,7 +194,13 @@
             Returns: mysql resource
         */
         public function get_variants($item) {
-            $query = "";
+            $query = "
+                SELECT relate_loot_magic.magic AS name, loot.level, loot.urlname, relate_loot_magic.class AS parent
+                FROM relate_loot_magic
+                    JOIN loot
+                        ON relate_loot_magic.magic = loot.name
+                WHERE relate_loot_magic.class = '$item'
+            ";
             return F3::sql($query);
         }
         
@@ -217,7 +244,7 @@
                 FROM loot_properties 
                     JOIN translate_loot_properties
                         ON loot_properties.property = translate_loot_properties.property
-                WHERE (loot_properties.name = '$item') AND (translate_loot_properties.display = 1) AND (req_equip IS NULL)
+                WHERE (loot_properties.name = '$item') AND (translate_loot_properties.display = 1) AND (req_equip = 0)
             ";
             
             $results = F3::sql($query);
@@ -293,10 +320,12 @@
         */
         public function get_family_members($family) {
             $query = "
-                SELECT loot.name, loot.urlname, loot.level, loot.levelreq
+                SELECT loot.name, loot.urlname, loot.level, loot.levelreq, relate_loot_magic.class
                 FROM loot
                 JOIN relate_loot_set
-                    ON loot.urlname = relate_loot_set.set_item
+                    ON loot.name = relate_loot_set.set_item
+                LEFT JOIN relate_loot_magic
+                    ON loot.name = relate_loot_magic.magic
                 WHERE `set_family` = '$family'
             ";
             return F3::sql($query);
@@ -319,7 +348,7 @@
                 FROM loot_properties_family
                     JOIN translate_loot_properties
                         ON loot_properties_family.property = translate_loot_properties.property
-                WHERE (loot_properties_family.name = '$family') AND (translate_loot_properties.display = 1) AND (req_equip > 0)
+                WHERE (loot_properties_family.set_family = '$family') AND (translate_loot_properties.display = 1) AND (req_equip > 0)
             ";
             $results = F3::sql($query);
             $i = 0;
