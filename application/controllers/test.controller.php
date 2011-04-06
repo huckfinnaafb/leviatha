@@ -1,45 +1,31 @@
 <?php
     class script {
-        public function init() {
-            $query = "
-                SELECT *
-                FROM raw_loot_properties
-            ";
-            F3::sql($query);
-            $result = F3::get('DB.result');
-            
-            
-            foreach($result as $row) {
-            
-                $name = $row["name"];
-                
-                foreach($row as $k => $v) {
-                
-                    if ($k == "name") { continue; }
-                    if ($v == 0) { continue; }
-                    if (!is_numeric($v)) { continue; }
-                    
-                    echo $name . "\t" . strtolower($k) . "\t" . $v . "\n<br>";
-                }
-            }
-        }
         public function integrity() {
         
             $query = "
-                SELECT loot_properties_family.name
-                FROM loot_properties_family
-                    LEFT JOIN relate_loot_set
-                        ON relate_loot_set.set_family = loot_properties_family.name
-                WHERE relate_loot_set.set_family IS NULL
+                SELECT loot_properties.name
+                FROM loot_properties
+                    LEFT JOIN loot
+                        ON loot_properties.name = loot.name
+                WHERE loot.name IS NULL
             ";
             
             F3::sql($query);
-            
             foreach(F3::get('DB.result') as $k => $v) {
                 echo $v["name"] . "<br>";
             }
         }
-        
+        public function relate() {
+            $query = "
+                SELECT magic, relate_loot_normal.class, relate_loot_normal.division
+                FROM relate_loot_magic
+                    JOIN relate_loot_normal
+                        ON relate_loot_magic.class = relate_loot_normal.class
+            ";
+            foreach(F3::sql($query) as $row) {
+                echo "\"" . $row["magic"] . "\",\"" . $row["class"] . "\",\"" . $row["division"] . "\"<br>";
+            }
+        }
         public function magic_parse() {
             $query = "
                 SELECT *

@@ -4,7 +4,7 @@
         <div class="mod mod-item">
             <div class="node">
                 <h1 class="h-item set"><?php echo $this->db_item["common"]["name"] ?></h1>
-                <p>Level <?php echo $this->db_item["common"]["level"] . " " . ucwords($this->db_item["common"]["rarity"]) . " " . ucwords($this->db_item["common"]["relationship"]) ?></p>
+                <p>Level <?php echo $this->db_item["common"]["level"] . " " . ucwords($this->db_item["common"]["rarity"]) . " " . ucwords($this->db_item["common"]["class"]) ?></p>
                 <p>Required Level: <?php echo $this->db_item["common"]["levelreq"]; ?></p>
                 <img class="img-item" src="/img/lena64.png">
             </div>

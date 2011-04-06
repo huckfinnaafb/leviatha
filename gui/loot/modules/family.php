@@ -9,7 +9,7 @@
                             <div class='node node-item'>
                                 <img class='img-itemthumb' src='/img/lena32.png'>
                                 <p>{$row['name']}</p>
-                                <p class='text-info'>Level {$row['level']} {$row['relationship']}</p>
+                                <p class='text-info'>Level {$row['level']} {$row['class']}</p>
                             </div>
                         </a>
                     ";
