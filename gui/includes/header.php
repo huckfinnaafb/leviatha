@@ -35,10 +35,10 @@
                         </div>
                     </div>
                     <div class="unit size1of2 lastUnit">
-                        <form action="/search" method="get" class="form-search">
+                        <form id="searchform" action="/search" method="get" class="form-search">
                             <fieldset class="fieldset field-search">
-                                <input type="text" class="input input-text" id="autosuggest" name="q"/>
-                                <input type="submit" class="input input-submit" value="Search"/>
+                                <input type="text" class="input input-text" id="search" name="q"/>
+                                <input type="submit" class="input input-submit" id="submit" value="Search"/>
                             </fieldset>
                         </form>
                     </div>
