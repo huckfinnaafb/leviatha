@@ -21,6 +21,8 @@ $(document).ready(function() {
             }
             if (hints.length >= limit) { break; }
         }
+        
+        /* Rebuild List of Suggestions */
         $('.autocomplete').remove();
         for (var i in hints) {
             $('#autocomplete').append("<li class='autocomplete'>" + hints[i].slice(0, currentPos) + "<b>" + hints[i].slice(currentPos, hints[i].length) + "</b>" + "</li>");

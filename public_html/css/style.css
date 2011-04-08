@@ -116,5 +116,5 @@ ul li{list-style-type:none}
 .input-text:focus{outline:0}
 .input-submit{height:30px;width:60px}
 /*JS*/
-.autocomplete{background-image:url('/img/lena16.png'); background-repeat: no-repeat; background-position: 10px center; text-align:left;list-style-type:none;padding:3px 0 3px 35px}
+.autocomplete{background-image:url('/img/lena16.png');background-repeat:no-repeat;background-position:10px center;text-align:left;list-style-type:none;padding:3px 0 3px 35px}
 .autocomplete:hover{cursor:pointer;color:#D93240}
