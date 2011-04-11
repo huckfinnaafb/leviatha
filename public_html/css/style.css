@@ -99,22 +99,25 @@ a:hover{color:#D93240;text-decoration:underline}
 .link-homepage:hover{color:#D93240}
 .link-pagination{display:inline-block;padding:0 5px;margin:0 5px}
 .link-pagination-selected{background-color:#ffcfcf}
+.link-autocomplete{display:block;background-image:url('/img/lena16.png');background-repeat:no-repeat;background-position: 8px center;background-color:#fff;text-align:left;list-style-type:none;padding:3px 0 3px 35px}
+.link-autocomplete:link,
+.link-autocomplete:visited{color:#333}
+.link-autocomplete:hover{color:#333;text-decoration:none;background-color:#d5e2ff}
 th{border-bottom:1px solid #ddd;font-size:14px;font-weight:normal;padding:4px 8px;text-align:left}
 td{border-bottom:1px solid #ddd;font-size:12px;padding:6px;vertical-align:middle}
 .table-search td{padding:12px}
 .theading-search{font-size:12px}
 ul li{list-style-type:none}
-.list-autocomplete{position:relative;left:-32px;width:425px;margin:auto}
+.list-autocomplete{position:relative;left:-32px;width:424px;margin:auto}
 .list-directory{padding-left:1em}
 .list-directory ul{padding-left:2em}
 .list-directory li{list-style-type:none}
 .list-iteminfo li{font-size:12px;line-height:1.5;list-style-type:none}
 .img-itemthumb{float:left;margin-right:8px;margin-top:4px}
-.img-item{margin:12px 12px 12px 0}
-.form-search{margin-top:50px;text-align:right}
-.input-text{-moz-border-radius:6px;border-radius:6px;-webkit-border-radius:6px;background-color:#fafafa;background-image:url("/img/searchicon.png");background-position:3px center;background-repeat:no-repeat;border:1px solid #aaa;font-size:16px;height:24px;padding-left:32px;padding-top:2px;width:240px}
+.img-item{margin:12px 0}
+.form-search{margin-top:60px;text-align:right}
+.input-text{background-color:#fafafa;background-image:url("/img/searchicon.png");background-position:3px center;background-repeat:no-repeat;border:1px solid #aaa;font-size:16px;height:24px;padding-left:32px;padding-top:2px;width:240px}
 .input-text:focus{outline:0}
 .input-submit{height:30px;width:60px}
 /*JS*/
-.autocomplete{background-image:url('/img/lena16.png');background-repeat:no-repeat;background-position:10px center;text-align:left;list-style-type:none;padding:3px 0 3px 35px}
-.autocomplete:hover{cursor:pointer;color:#D93240}
+.js-autocomplete{}

@@ -15,10 +15,10 @@
         <div style="margin: 20px 0">
             <a class="link-homepage" href="/">Home</a>
             <a class="link-homepage" href="/loot">Loot</a>
+            <a class="link-homepage" href="/blog">Development Blog</a>
             <a class="link-homepage" style="text-decoration: line-through" href="/">Monsters</a>
             <a class="link-homepage" style="text-decoration: line-through" href="/">World</a>
             <a class="link-homepage" style="text-decoration: line-through" href="/">Classes</a>
-            <a class="link-homepage" style="text-decoration: line-through" href="/">Skills</a>
         </div>
         <form id="searchform" action="search" method="get">
             <input id="search" type="text" class="input-text" name="q" style="width:390px"/>
@@ -29,7 +29,6 @@
             <p class="text-subtle" style="margin:9px">Leviatha.org | Diablo II Database | <a href="mailto:huckfinnaafb@gmail.com">Samuel Ferrell</a> | 2011 | <a href="https://github.com/huckfinnaafb/Leviatha">GitHub</a></p>
             <img width=300 height=34 src="/img/software8.png">
         </div>
-        <script>document.getElementById("search").focus();</script>
         <script src="/jscript/jquery.js"></script>
         <script src="/jscript/leviatha.js"></script>
     </body>

@@ -79,6 +79,7 @@
                 include (F3::get('GUI') . "warning/error.php");
                 return false;
             } else {
+                $this->title = $this->db_item["common"]["name"];
                 if ($this->db_item["common"]["rarity"] == "unique") {
                     include (F3::get('GUI') . "loot/unique.php");
                     return true;
