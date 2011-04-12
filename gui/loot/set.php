@@ -3,10 +3,10 @@
     <div class="unit size2of3">
         <div class="mod mod-item">
             <div class="node">
-                <h1 class="h-item set"><?php echo $this->db_item["common"]["name"] ?></h1>
+                <h1 class="h-item" style="color:#00c400"><?php echo $this->db_item["common"]["name"] ?></h1>
                 <p>Level <?php echo $this->db_item["common"]["level"] . " " . ucwords($this->db_item["common"]["rarity"]) . " " . ucwords($this->db_item["common"]["class"]) ?></p>
                 <p>Required Level: <?php echo $this->db_item["common"]["levelreq"]; ?></p>
-                <img class="img-item" src="/img/lena64.png">
+                <img class="img-item" src="/img/stormshield.png">
             </div>
             <div class="node node-info">
                 <!-- Normal Properties -->

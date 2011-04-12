@@ -15,7 +15,7 @@
         <div style="margin: 20px 0">
             <a class="link-homepage" href="/">Home</a>
             <a class="link-homepage" href="/loot">Loot</a>
-            <a class="link-homepage" href="/blog">Development Blog</a>
+            <a class="link-homepage" href="/blog">Blog</a>
             <a class="link-homepage" style="text-decoration: line-through" href="/">Monsters</a>
             <a class="link-homepage" style="text-decoration: line-through" href="/">World</a>
             <a class="link-homepage" style="text-decoration: line-through" href="/">Classes</a>
