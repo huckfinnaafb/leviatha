@@ -77,13 +77,13 @@ class search {
         
         /* If Nothing Found & No Other Error Thrown */
         if (!count($this->db_result) && (!isset($this->error))) {
-            $this->error = "Nothing was found. We're sorry!";
+            $this->error = "Nothing was found in the database!";
         }
         
         /* If Error Thrown */
         if (isset($this->error)) {
             $this->title = "Error";
-            include (F3::get('GUI') . "warning/error.php");
+            include (F3::get('GUI') . "warning/nothingfound.php");
             return false;
         }
         

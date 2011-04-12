@@ -75,10 +75,9 @@
             
             /* If Error Thrown, Abort */
             if (isset($this->error)) {
-                $this->title = "Error";
-                include (F3::get('GUI') . "warning/error.php");
-                return false;
+                F3::http404();
             } else {
+                $this->title = $this->db_item["common"]["name"];
                 if ($this->db_item["common"]["rarity"] == "unique") {
                     include (F3::get('GUI') . "loot/unique.php");
                     return true;

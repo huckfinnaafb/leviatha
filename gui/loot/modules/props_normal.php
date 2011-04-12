@@ -1,3 +1,4 @@
+<h3>Normal Properties</h3>
 <ul>
     <?php
         try {
@@ -9,7 +10,7 @@
                 throw new Exception("No normal properties found.");
             }
         } catch (Exception $e) {
-            echo "<div class='mod mod-notify mod-warning'>" . $e->getMessage(), "</div>\n";
+            echo "<div class='mod mod-notify mod-warning' style='width:200px'>" . $e->getMessage(), "</div>\n";
         }
     ?>
 </ul>

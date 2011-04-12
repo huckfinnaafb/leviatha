@@ -1,3 +1,4 @@
+<h3>Magic Properties</h3>
 <ul class="magic">
     <?php
         try {
@@ -9,7 +10,7 @@
                 throw new Exception("No magic properties found.");
             }
         } catch (Exception $e) {
-            echo "<div class='mod mod-notify mod-warning'>" . $e->getMessage(), "</div>\n";
+            echo "<div class='mod mod-notify mod-warning' style='width:200px'>" . $e->getMessage(), "</div>\n";
         }
     ?>
 </ul>
