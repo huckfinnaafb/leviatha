@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color:#eee">
     <head>
         <meta charset="utf-8">
         <title>Leviatha - Diablo Database | Loot, Builds, Monsters, and More!</title>

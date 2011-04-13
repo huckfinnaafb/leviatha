@@ -143,6 +143,7 @@
             Returns: mysql resource
         */
         public function get_common($urlname) {
+            F3::set('urlname', $urlname);
             $query = "
                 SELECT 
                     loot.name, 
@@ -156,7 +157,7 @@
                 FROM loot
                     LEFT JOIN relate_loot
                         ON loot.name = relate_loot.magic
-                WHERE `urlname` = '$urlname'
+                WHERE `urlname` = '{@urlname}'
             ";
             F3::sql($query);
             return F3::get("DB.result.0");
@@ -208,6 +209,7 @@
             Returns: mysql resource
         */
         public function get_normal($item) {
+            F3::set('item', $item);
             $query = "
                 SELECT 
                     loot_properties.property,
@@ -216,7 +218,7 @@
                 FROM loot_properties 
                     JOIN translate_loot_properties
                         ON loot_properties.property = translate_loot_properties.property
-                WHERE (loot_properties.name = '$item') AND (translate_loot_properties.display = 1)
+                WHERE (loot_properties.name = '{@item}') AND (translate_loot_properties.display = 1)
             ";
             $results = F3::sql($query);
             $i = 0;

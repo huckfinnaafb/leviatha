@@ -2,16 +2,17 @@
 <div class="line">
     <div class="unit size2of3">
         <div class="mod mod-item">
-            <div class="node">
-                <h1 class="h-item"><?php echo $this->db_item["common"]["name"] ?></h1>
+            <h1 class="h-item"><?php echo $this->db_item["common"]["name"] ?></h1>
+            <div class="node node-info">
+                <img class="img-item" src="/img/stormshield.png" style="float:left;margin:0 12px 12px 0">
                 <p>Level <?php echo $this->db_item["common"]["level"] . " " . ucwords($this->db_item["common"]["division"]) ?></p>
                 <p>Required Level: <?php echo $this->db_item["common"]["levelreq"]; ?></p>
-                <img class="img-item" src="/img/stormshield.png">
             </div>
-            <div class="node node-info">
+            <div class="node node-info js-itemnode">
                 <!-- Normal Properties -->
                 <?php include(F3::get('GUI') . "loot/modules/props_normal.php") ?>
             </div>
+            <div class="action action-expand"></div>
         </div>
     </div>
     <div class="unit size1of3">
