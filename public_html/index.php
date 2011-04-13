@@ -10,7 +10,7 @@ F3::set('AUTOLOAD',
     __SITE_PATH . "/library/F3/autoload/"
 );
 F3::config(__SITE_PATH . "/application/config/config.cfg");
-F3::set('RELEASE', true);
+F3::set('RELEASE', false);
 F3::set('E404', "warning/e404.html");
 F3::set('GUI', __SITE_PATH . '/gui/');
 F3::set('GET',F3::scrub($_GET));
