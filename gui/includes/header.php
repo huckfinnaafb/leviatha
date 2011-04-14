@@ -2,13 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title><?php
-                if (isset($this->title)) {
-                    echo $this->title . " - Diablo Database";
-                } else {
-                    echo "Leviatha - Diablo Database | Loot, Builds, Monsters, and More!";
-                }
-            ?></title>
+        <title><?php echo $title=(isset($this->title))?$this->title." - Diablo Database":"Leviatha - Diablo Database | Loot, Builds, Monsters, and More!"; ?></title>
         <meta name="keywords" content="diablo database, diablo 2 database">
         <meta name="description" content="Diablo II Database - Search for items, builds, stats, and more on the most late website to the game.">
         <meta name="robots" content="all">
