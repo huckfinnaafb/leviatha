@@ -13,7 +13,7 @@
             ORDER BY name
         ";
         foreach(F3::sql($query) as $row) {
-            echo " <a href='/loot?item={$row['urlname']}'>{$row['name']}</a> -\n";
+            echo " <a href='/loot/{$row['urlname']}'>{$row['name']}</a> -\n";
         }
     ?>
 </div>

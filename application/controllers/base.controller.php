@@ -23,7 +23,9 @@
             $loot = new loot;
             $loot->init();
         }
-        
+        public function loot_central() {
+            include (F3::get('GUI') . "loot.php");
+        }
         public function loot_directory() {
             include (F3::get('GUI') . "loot/directory.php");
         }

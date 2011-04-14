@@ -45,34 +45,21 @@
             Returns: void
         */
         public function init() {
-            
-            /* Check if item url is set. If not set, default to loot.php */
-            if (!isset($_GET["item"])) {
-                $this->title = "Loot Central";
-                include (F3::get('GUI') . "loot.php");
-                return false;
-            } else {
-                $this->urlname = $_GET["item"];
-            }
-            
-            /* Scrub urlname */
-            $this->urlname = F3::scrub($this->urlname);
+        
+            $this->urlname = F3::scrub(F3::get('PARAMS.item'));
             
             /* Check urlname against integers */
             if (strcspn($this->urlname, '0123456789') != strlen($this->urlname)) {
                 $this->error = "Item name cannot include integers.";
             }
-            
             /* Check if query is empty */
             if (!strlen($this->urlname)) {
                 $this->error = "Item String Empty";
             }
-            
             /* Grab Item Data */
             if (!$this->db_item = $this->get_item($this->urlname)) {
                 $this->error = "No item found.";
             }
-            
             /* If Error Thrown, Abort */
             if (isset($this->error)) {
                 F3::http404();

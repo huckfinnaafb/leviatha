@@ -5,7 +5,7 @@
             if (!empty($this->db_family)) {
                 foreach($this->db_family["members"] as $row) {
                     echo "
-                        <a class='link-block' href='/loot?item={$row['urlname']}'>
+                        <a class='link-block' href='/loot/{$row['urlname']}'>
                             <div class='node node-item'>
                                 <img class='img-itemthumb' src='/img/lena32.png'>
                                 <p>{$row['name']}</p>

@@ -33,7 +33,7 @@
             foreach ($this->db_result_slice as $row) {
                 echo ("
                 <tr>
-                    <td><a href='loot?item={$row['urlname']}'>{$row['name']}</a></td>
+                    <td><a href='loot/{$row['urlname']}'>{$row['name']}</a></td>
                     <td>". ucwords($row['relationship']) ."</td>
                     <td>". ucwords($row['rarity']) ."</td>
                     <td>{$row['levelreq']}</td>

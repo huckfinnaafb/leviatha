@@ -74,8 +74,8 @@ h6{font-size:0.75em}
 .h-title{font-size:68px;font-family:"Times New Roman";font-variant:small-caps;text-shadow:1px 1px 1px #303E4B;line-height:54px;letter-spacing:5px}
 .h-page{border-bottom:1px solid #ddd;padding-left:8px}
 .h-item{margin: 0 -12px 12px -12px;color:#f2f2f2;background-color:#333;padding-left:8px;border:2px groove #777;font-family:"Times New Roman";font-size:32px;font-variant:small-caps;letter-spacing:1px;line-height:1.2em}
-.h-side{padding-left:8px;background-color:#ddd;font-size:16px;line-height:1.8}
-.h-box{background-color:#303E4B;color:#f2f2f2}
+.h-side{padding-left:8px;background-color:#303E4B;font-size:16px;line-height:1.8;color:#f2f2f2;}
+.h-box{}
 .text-content{margin-bottom:12px}
 .text-info{color:#666;font-size:12px}
 .text-subtle{color:#999;font-size:11px}
