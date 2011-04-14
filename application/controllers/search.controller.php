@@ -89,7 +89,7 @@ class search {
         
         /* Single Result Redirect */
         if (count($this->db_result) == 1) {
-            F3::reroute("/loot?item=" . $this->db_result[0]["urlname"]);
+            F3::reroute("/loot/" . $this->db_result[0]["urlname"]);
         }
         
         /* If Everything Goes Smoothly */
