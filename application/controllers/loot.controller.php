@@ -202,8 +202,6 @@
                 @public
         **/
         public function check_exists($urlname) {
-        
-            var_dump(F3::get('DB.pdo'));
             
             // Set global var for use in framework query class
             F3::set('urlname', addslashes($urlname));
@@ -329,7 +327,7 @@
                 @public
         **/
         public function get_set($classEx) {
-            
+        
             // Set global var for use in framework query class
             F3::set('classEx', F3::get('DB.pdo')->quote($classEx));
             

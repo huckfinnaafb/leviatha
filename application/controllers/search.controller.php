@@ -27,39 +27,59 @@ class search {
     public $input_clean;
     
     /* Database Results */
+    public $query = array();
     public $db_result;
     
+    public function __construct() {
+        $this->query = array (
+            "search_loot" => "
+                SELECT name, urlname, level, levelreq, rarity, COALESCE (relate_loot_magic.class, relate_loot_normal.division) AS relationship
+                FROM loot
+                    LEFT JOIN relate_loot_magic
+                        ON loot.name = relate_loot_magic.magic
+                    LEFT JOIN relate_loot_normal
+                        ON loot.name = relate_loot_normal.class
+                WHERE urlname
+                LIKE '%{@query}%'
+                ORDER BY `{@order}` DESC
+            "
+        );
+    }
+    
+    /**
+        Search Page Init
+    **/
     public function init() {
         
-        /* Check if query is set */
+        // Check if query is set
         if (!isset($_GET["q"])) {
             $this->error = "Ack, nothing set!";
         } else {
             $this->input_raw = $_GET["q"];
         }
         
-        /* Scrub user input. Assign result to input_clean */
+        // Scrub user input. Assign result to input_clean
         $this->input_clean = F3::scrub($this->input_raw);
         
-        /* Check against integers in input */
+        // Check against integers in input
         if (strcspn($this->input_clean, '0123456789') != strlen($this->input_clean)) {
             $this->error = "No integers allowed. Woops.";
         }
         
-        /* Check if query is empty */
+        // Check if query is empty
         if (!strlen($this->input_clean)) {
             $this->error = "You should type something in.";
         }
         
-        /* Prepare query for DB use */
+        // Prepare query for DB use
         $this->input_clean = $this->url_prep($this->input_clean);
         
-        /* Query Loot */
+        // Query Loot
         if (!isset($this->error)) {
             $this->db_result = $this->search_loot($this->input_clean, $this->order, $this->offset);
         }
         
-        /* Pagination */
+        // Pagination
         if (isset($_GET["page"])) {
             if (!is_numeric($_GET["page"])) {
                 $this->error = "Page data is not numeric.";
@@ -75,54 +95,54 @@ class search {
         $this->offset = ($this->page - 1) * $this->limit;
         $this->distance = ($this->total - $this->offset);
         
-        /* If Nothing Found & No Other Error Thrown */
+        // If Nothing Found & No Other Error Thrown
         if (!count($this->db_result) && (!isset($this->error))) {
             $this->error = "Nothing was found in the database!";
         }
         
-        /* If Error Thrown */
+        // If Error Thrown
         if (isset($this->error)) {
             $this->title = "Error";
             include (F3::get('GUI') . "warning/nothingfound.php");
             return false;
         }
         
-        /* Single Result Redirect */
+        // Single Result Redirect */
         if (count($this->db_result) == 1) {
             F3::reroute("/loot/" . $this->db_result[0]["urlname"]);
         }
         
-        /* If Everything Goes Smoothly */
+        // If Everything Goes Smoothly
         $this->title = "Search: " . $this->input_raw;
         include (F3::get('GUI') . "search.php");
     }
     
+    /**
+        Prepare query for search
+            @return $string string
+            @param $string string
+            @public
+    **/
     public function url_prep($string) {
-        $string = htmlspecialchars($string);        /* Strip html chars */
-        $string = mysql_escape_string($string);     /* Escape mysql chars */
-        $string = str_replace(' ', '-', $string);   /* Replace whitespace with dashes */
-        $string = str_replace("'", '', $string);    /* Remove single quotes */
+        $string = htmlspecialchars($string);        // Strip html chars
+        $string = mysql_escape_string($string);     // Escape mysql chars
+        $string = str_replace(' ', '-', $string);   // Replace whitespace with dashes
+        $string = str_replace("'", '', $string);    // Remove single quotes
         return $string;
     }
     
-    public function search_loot($term, $order = "level", $offset = 0) {
-        $query = "
-            SELECT 
-                name, 
-                urlname, 
-                level, 
-                levelreq, 
-                rarity, 
-                COALESCE (relate_loot_magic.class, relate_loot_normal.division) AS relationship
-            FROM loot
-                LEFT JOIN relate_loot_magic
-                    ON loot.name = relate_loot_magic.magic
-                LEFT JOIN relate_loot_normal
-                    ON loot.name = relate_loot_normal.class
-            WHERE urlname
-            LIKE '%$this->input_clean%'
-            ORDER BY `$order` DESC
-        ";
-        return F3::sql($query);
+    /**
+        Search by Substring Comparison
+            @return mysql array
+            @param $query string, $order string, $offset integer
+            @public
+    **/
+    public function search_loot($query, $order = "level", $offset = 0) {
+        
+        // Set global var for use in framework query class
+        F3::set('query', addslashes($query));
+        F3::set('order', addslashes($order));
+        
+        return F3::sql($this->query["search_loot"]);
     }
 }
