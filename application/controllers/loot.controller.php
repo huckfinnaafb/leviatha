@@ -55,8 +55,9 @@
                     FROM loot
                     LEFT JOIN relate_loot
                     ON loot.name = relate_loot.magic
-                    WHERE (urlname = {@urlname})
+                    WHERE urlname = '{@urlname}'
                 ",
+                "get_flags" => "SELECT loot, flag, value FROM loot_flags WHERE `loot` = {@item}",
                 "get_normal" => "
                     SELECT loot_properties.property, loot_properties.min, translate_loot_properties.translation
                     FROM loot_properties 
@@ -78,7 +79,39 @@
                     ON loot_properties.property = translate_loot_properties.property
                     WHERE (loot_properties.name = {@classEx}) AND (translate_loot_properties.display = 1) AND (req_equip > 0)
                 ",
-                "get_family" => "SELECT `set_family` FROM relate_loot_set WHERE `set_item` = {@classEx}"
+                "get_family" => "SELECT `set_family` FROM relate_loot_set WHERE `set_item` = {@classEx}",
+                "get_family_members" => "
+                    SELECT loot.name, loot.urlname, loot.level, loot.levelreq, relate_loot_magic.class
+                    FROM loot
+                    JOIN relate_loot_set
+                    ON loot.name = relate_loot_set.set_item
+                    LEFT JOIN relate_loot_magic
+                    ON loot.name = relate_loot_magic.magic
+                    WHERE `set_family` = {@family}
+                ",
+                "get_family_props" => "
+                    SELECT loot_properties_family.property, loot_properties_family.parameter, loot_properties_family.min, loot_properties_family.max, loot_properties_family.req_equip, translate_loot_properties.translation, translate_loot_properties.translation_varies 
+                    FROM loot_properties_family
+                    JOIN translate_loot_properties
+                    ON loot_properties_family.property = translate_loot_properties.property
+                    WHERE (loot_properties_family.set_family = {@family}) AND (translate_loot_properties.display = 1) AND (req_equip > 0)
+                ",
+                "get_similar" => "
+                    SELECT loot.name, loot.urlname, loot.level, relate_loot.class
+                    FROM relate_loot
+                    JOIN loot
+                    ON loot.name = relate_loot.magic
+                    WHERE (relate_loot.division = {@relationship}) AND (loot.name != {@item}) AND (loot.level >= {@level})
+                    ORDER BY loot.level ASC
+                    LIMIT 4
+                ",
+                "get_variants" => "
+                    SELECT relate_loot_magic.magic AS name, loot.level, loot.urlname, relate_loot_magic.class AS parent
+                    FROM relate_loot_magic
+                    JOIN loot
+                    ON relate_loot_magic.magic = loot.name
+                    WHERE relate_loot_magic.class = {@item}
+                "
             );
         }
         
@@ -133,32 +166,31 @@
                 @public
         **/
         public function get_item($item, $is_url = true) {
-            
-            // Check if item exists
-            if (!$this->check_exists($item)) {
-                return false;
-            }
-            
+        
             // Property Collection
             $this->db_item["common"] = $this->get_common($item);
             
-            // Magic Properties
+            // Magic Item
             if ($this->db_item["common"]["rarity"] != "normal") {
                 $this->db_item["props"]["normal"] = $this->get_normal($this->db_item["common"]["class"]);
                 $this->db_item["props"]["magic"] = $this->get_magic($this->db_item["common"]["name"]);
-                $this->db_similar = $this->get_similar(addslashes($this->db_item["common"]["name"]), addslashes($this->db_item["common"]["division"]), $this->db_item["common"]["level"]);
                 
-                // Set Properties
+                // Retrieve Similar Items
+                $this->db_similar = $this->get_similar($this->db_item["common"]["name"], $this->db_item["common"]["division"], $this->db_item["common"]["level"]);
+                
+                // Set Item
                 if ($this->db_item["common"]["rarity"] == "set") {
                     $this->db_item["props"]["set"] = $this->get_set($this->db_item["common"]["name"]);
                     $this->db_family["family"] = $this->get_family($this->db_item["common"]["name"]);
-                    $this->db_family["members"] = $this->get_family_members(addslashes($this->db_family["family"]));
-                    $this->db_item["props"]["family"] = $this->get_family_props(addslashes($this->db_family["family"]));
+                    $this->db_family["members"] = $this->get_family_members($this->db_family["family"]);
+                    $this->db_item["props"]["family"] = $this->get_family_props($this->db_family["family"]);
                 }
-            // Normal Properties
+            // Normal Normal
             } else {
                 $this->db_item["props"]["normal"] = $this->get_normal($this->db_item["common"]["name"]);
-                $this->db_variants = $this->get_variants(addslashes($this->db_item["common"]["name"]));
+                
+                // Retrieve Variant Items
+                $this->db_variants = $this->get_variants($this->db_item["common"]["name"]);
             }
             
             return $this->db_item;
@@ -171,8 +203,10 @@
         **/
         public function check_exists($urlname) {
         
+            var_dump(F3::get('DB.pdo'));
+            
             // Set global var for use in framework query class
-            F3::set('urlname', F3::get('DB.pdo')->quote($urlname));
+            F3::set('urlname', addslashes($urlname));
             
             return $i = (F3::sql($this->query["check_exists"])) ? true : false;
         }
@@ -182,10 +216,10 @@
                 @returns array
                 @param @url
         **/
-        public function get_common($urlname = null) {
-        
+        public function get_common($urlname) {
+            
             // Set global var for use in framework query class
-            F3::set('urlname', F3::get('DB.pdo')->quote($urlname));
+            F3::set('urlname', addslashes($urlname));
             
             // Retrieve MySQL resource
             F3::sql($this->query["get_common"]);
@@ -193,45 +227,47 @@
             return F3::get("DB.result.0");
         }
         
-        /* 
-            Function: Get ["flags"] properties
-            Returns: mysql resource
-        */
+        /**
+            Retrieve Item Flags
+                @return mysql array
+                @param $item string
+                @public
+        **/
         public function get_flags($item) {
-            $query = "SELECT loot, flag, value FROM loot_flags WHERE `loot` = '$item'";
-            return F3::sql($query);
+        
+            // Set global var for use in framework query class
+            F3::set('item', addslashes($item));
+            
+            return F3::sql($this->query["get_flags"]);
         }
         
-        /*
-            Function: Get array of items similar in item level, within range
-            Returns: mysql resource
-        */
+        /**
+            Retrieve Similar Items (close in proximity to level)
+                @return mysql array
+                @param $item string, $relationship string, $level integer
+        **/
         public function get_similar($item, $relationship, $level) {
-            $query = "
-                SELECT loot.name, loot.urlname, loot.level, relate_loot.class
-                FROM relate_loot
-                    JOIN loot
-                        ON loot.name = relate_loot.magic
-                WHERE (relate_loot.division = '$relationship') AND (loot.name != '$item') AND (loot.level >= $level)
-                ORDER BY loot.level ASC
-                LIMIT 6
-            ";
-            return F3::sql($query);
+            
+            // Set global var for use in framework query class
+            F3::set('relationship', F3::get('DB.pdo')->quote($relationship));
+            F3::set('item', F3::get('DB.pdo')->quote($item));
+            F3::set('level', F3::get('DB.pdo')->quote($level));
+            
+            return F3::sql($this->query["get_similar"]);
         }
         
-        /*
-            Function: Get magical equivalents to normal items
-            Returns: mysql resource
-        */
+        /**
+            Retrieve Variant Items (items that extend from base, or class, items
+                @return mysql array
+                @param $item string
+                @public
+        **/
         public function get_variants($item) {
-            $query = "
-                SELECT relate_loot_magic.magic AS name, loot.level, loot.urlname, relate_loot_magic.class AS parent
-                FROM relate_loot_magic
-                    JOIN loot
-                        ON relate_loot_magic.magic = loot.name
-                WHERE relate_loot_magic.class = '$item'
-            ";
-            return F3::sql($query);
+            
+            // Set global var for use in framework query class
+            F3::set('item', F3::get('DB.pdo')->quote($item));
+            
+            return F3::sql($this->query["get_variants"]);
         }
         
         /**
@@ -344,43 +380,36 @@
             return (F3::get('DB.result.0.set_family'));
         }
         
-        /*
-            Function: Get all members of family
-            Returns: mysql resource
-        */
+        /**
+            Retrieve Family Members
+                @return mysql array
+                @param $family string
+                @public
+        **/
         public function get_family_members($family) {
-            $query = "
-                SELECT loot.name, loot.urlname, loot.level, loot.levelreq, relate_loot_magic.class
-                FROM loot
-                JOIN relate_loot_set
-                    ON loot.name = relate_loot_set.set_item
-                LEFT JOIN relate_loot_magic
-                    ON loot.name = relate_loot_magic.magic
-                WHERE `set_family` = '$family'
-            ";
-            return F3::sql($query);
+        
+            // Set global var for use in framework query class
+            F3::set('family', F3::get('DB.pdo')->quote($family));
+            
+            // Retrieve MySQL resource
+            return F3::sql($this->query["get_family_members"]);
         }
         
-        /*
-            Function: Get full and partial set bonuses
-            Returns: mysql resource
-        */
+        /**
+            Retrieve Family Properties
+                @return mysql array
+                @param $family string
+                @public
+        **/
         public function get_family_props($family) {
-            $query = "
-                SELECT 
-                    loot_properties_family.property, 
-                    loot_properties_family.parameter, 
-                    loot_properties_family.min, 
-                    loot_properties_family.max,
-                    loot_properties_family.req_equip,
-                    translate_loot_properties.translation,
-                    translate_loot_properties.translation_varies
-                FROM loot_properties_family
-                    JOIN translate_loot_properties
-                        ON loot_properties_family.property = translate_loot_properties.property
-                WHERE (loot_properties_family.set_family = '$family') AND (translate_loot_properties.display = 1) AND (req_equip > 0)
-            ";
-            $results = F3::sql($query);
+        
+            // Set global var for use in framework query class
+            F3::set('family', F3::get('DB.pdo')->quote($family));
+            
+            // Retrieve MySQL resource
+            $results = F3::sql($this->query["get_family_props"]);
+            
+            // Translations
             $i = 0;
             foreach($results as $row) {
                 if (($results[$i]["min"]) == ($results[$i]["max"])) {
@@ -390,6 +419,7 @@
                 }
                 $i++;
             }
+            
             return $results;
         }
     }
