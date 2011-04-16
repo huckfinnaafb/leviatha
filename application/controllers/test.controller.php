@@ -58,6 +58,21 @@
             }
         }
         public function reassign() {
-        
+            $query = "
+                SELECT id, name FROM loot ORDER BY id
+            ";
+            $loot = F3::sql($query);
+            
+            foreach($loot as $row) {
+                $id = $row["id"];
+                $name = addslashes($row["name"]);
+                
+                $update = "
+                    UPDATE relate_loot
+                    SET name = $id
+                    WHERE name = '$name'
+                ";
+                F3::sql($update);
+            }
         }
     }
