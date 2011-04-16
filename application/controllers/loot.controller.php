@@ -49,13 +49,13 @@
         **/
         public function __construct() {
             $this->query = array(
-                "check_exists" => "SELECT urlname FROM loot WHERE urlname = '{@urlname}'",
+                "check_exists" => "SELECT urlname FROM loot WHERE urlname = {@urlname}",
                 "get_common" => "
                     SELECT name, urlname, level, levelreq, rarity, magic, class, division
                     FROM loot
                     LEFT JOIN relate_loot
                     ON loot.name = relate_loot.magic
-                    WHERE urlname = '{@urlname}'
+                    WHERE urlname = {@urlname}
                 ",
                 "get_flags" => "SELECT loot, flag, value FROM loot_flags WHERE `loot` = {@item}",
                 "get_normal" => "
@@ -166,7 +166,15 @@
                 @public
         **/
         public function get_item($item, $is_url = true) {
-        
+            
+            // Initialize Framework PDO with blank query
+            F3::sql('');
+            
+            // Check if Item Exists
+            if (!$this->check_exists($item)) {
+                return false;
+            }
+            
             // Property Collection
             $this->db_item["common"] = $this->get_common($item);
             
@@ -204,7 +212,7 @@
         public function check_exists($urlname) {
             
             // Set global var for use in framework query class
-            F3::set('urlname', addslashes($urlname));
+            F3::set('urlname', F3::get('DB.pdo')->quote($urlname));
             
             return $i = (F3::sql($this->query["check_exists"])) ? true : false;
         }
@@ -215,9 +223,9 @@
                 @param @url
         **/
         public function get_common($urlname) {
-            
+        
             // Set global var for use in framework query class
-            F3::set('urlname', addslashes($urlname));
+            F3::set('urlname', F3::get('DB.pdo')->quote($urlname));
             
             // Retrieve MySQL resource
             F3::sql($this->query["get_common"]);
