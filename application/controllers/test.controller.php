@@ -68,4 +68,13 @@
                 F3::sql($query);
             }
         }
+        public function jsontest(){ 
+            $leviatha = array (
+                "name" => "Samuel Ferrell",
+                "date" => "April 17th, 2009",
+                "place" => "Tampa, FL"
+            );
+            $json = json_encode($leviatha);
+            var_dump($json);
+        }
     }
