@@ -15,17 +15,6 @@
                 echo $v["name"] . "<br>";
             }
         }
-        public function relate() {
-            $query = "
-                SELECT magic, relate_loot_normal.class, relate_loot_normal.division
-                FROM relate_loot_magic
-                    JOIN relate_loot_normal
-                        ON relate_loot_magic.class = relate_loot_normal.class
-            ";
-            foreach(F3::sql($query) as $row) {
-                echo "\"" . $row["magic"] . "\",\"" . $row["class"] . "\",\"" . $row["division"] . "\"<br>";
-            }
-        }
         public function magic_parse() {
             $query = "
                 SELECT *
@@ -55,24 +44,6 @@
                         echo "\"" . $v["index"] . "\"\t\"" . $v['FCode' . $i] . "\"\t\"" . $v['FParam' . $i] . "\"\t" . $v['FMin' . $i] . "\t" . $v['FMax' . $i] . "\t1337<br>";
                     }
                 }
-            }
-        }
-        public function reassign() {
-            $query = "
-                SELECT id, name FROM loot ORDER BY id
-            ";
-            $loot = F3::sql($query);
-            
-            foreach($loot as $row) {
-                $id = $row["id"];
-                $name = addslashes($row["name"]);
-                
-                $update = "
-                    UPDATE relate_loot
-                    SET name = $id
-                    WHERE name = '$name'
-                ";
-                F3::sql($update);
             }
         }
     }

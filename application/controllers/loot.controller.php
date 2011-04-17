@@ -51,10 +51,8 @@
             $this->query = array(
                 "check_exists" => "SELECT urlname FROM loot WHERE urlname = {@urlname}",
                 "get_common" => "
-                    SELECT name, urlname, level, levelreq, rarity, magic, class, division
+                    SELECT name, urlname, level, levelreq, rarity, class, division
                     FROM loot
-                    LEFT JOIN relate_loot
-                    ON loot.name = relate_loot.magic
                     WHERE urlname = {@urlname}
                 ",
                 "get_flags" => "SELECT loot, flag, value FROM loot_flags WHERE `loot` = {@item}",
