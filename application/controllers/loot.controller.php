@@ -95,11 +95,9 @@
                     WHERE (loot_properties_family.set_family = {@family}) AND (translate_loot_properties.display = 1) AND (req_equip > 0)
                 ",
                 "get_similar" => "
-                    SELECT loot.name, loot.urlname, loot.level, relate_loot.class
-                    FROM relate_loot
-                    JOIN loot
-                    ON loot.name = relate_loot.magic
-                    WHERE (relate_loot.division = {@relationship}) AND (loot.name != {@item}) AND (loot.level >= {@level})
+                    SELECT name, urlname, level, class, division
+                    FROM loot
+                    WHERE (division = {@relationship}) AND (name != {@item}) AND (level >= {@level}) AND (rarity != 'normal')
                     ORDER BY loot.level ASC
                     LIMIT 4
                 ",

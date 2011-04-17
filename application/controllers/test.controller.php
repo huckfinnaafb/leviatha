@@ -46,4 +46,26 @@
                 }
             }
         }
+        public function relations() {
+           
+            // Select magic + class + division
+            $division = "
+                SELECT class, division
+                FROM relate_loot_normal
+            ";
+            
+            foreach(F3::sql($division) as $row) { 
+                
+                F3::set('class', F3::get('DB.pdo')->quote($row['class']));
+                F3::set('division', F3::get('DB.pdo')->quote($row['division']));
+                
+                $query = "
+                    UPDATE loot
+                    SET division = {@division}
+                    WHERE class = {@class}
+                ";
+                
+                F3::sql($query);
+            }
+        }
     }

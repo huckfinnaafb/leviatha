@@ -21,8 +21,8 @@
                         </div>
                         <div class="nav">
                             <a class="link-nav" href="/">Home</a>
-                            <a class="link-nav" href="/loot">Loot</a>
-                            <a class="link-nav" href="/blog">Blog</a>
+                            <a class="link-nav" href="/loot/">Loot</a>
+                            <a class="link-nav" href="/blog/">Blog</a>
                             <a class="link-nav" style="text-decoration: line-through" href="/">Monsters</a>
                             <a class="link-nav" style="text-decoration: line-through" href="/">World</a>
                             <a class="link-nav" style="text-decoration: line-through" href="/">Classes</a>

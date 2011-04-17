@@ -3,9 +3,11 @@
     <div class="unit size2of3">
         <div class="mod mod-item">
             <h1 class="h-item"><?php echo $this->db_item["common"]["name"] ?></h1>
-            <div class="node node-info">
+            <div class="node">
                 <img class="img-item" src="/img/stormshield.png" style="float:left;margin:0 12px 12px 0">
-                <p>Level <?php echo $this->db_item["common"]["level"] . " " . ucwords($this->db_item["common"]["division"]) ?></p>
+                <p>Level <?php 
+                    $parent = (is_null($this->db_item["common"]["class"])) ? $this->db_item["common"]["division"] : $this->db_item["common"]["class"];
+                    echo $this->db_item["common"]["level"] . " " . ucwords($parent); ?></p>
                 <p>Required Level: <?php echo $this->db_item["common"]["levelreq"]; ?></p>
             </div>
             <div class="node node-info js-itemnode">
