@@ -1033,7 +1033,7 @@ $(document).ready(function() {
         $('.js-autocomplete').remove();
         for (var i in hints) {
             var urlname = hints[i].replace(/[ ]/g, "-").replace(/'/g, '').toLowerCase();
-            $('#autocomplete').append("<li class='js-autocomplete'><a class='link-autocomplete' href='/loot?item=" + urlname + "'>" + hints[i].slice(0, this.value.length) + "<b>" + hints[i].slice(this.value.length, hints[i].length) + "</b>" + "</a></li>");
+            $('#autocomplete').append("<li class='js-autocomplete'><a class='link-autocomplete' href='/loot/" + urlname + "'>" + hints[i].slice(0, this.value.length) + "<b>" + hints[i].slice(this.value.length, hints[i].length) + "</b>" + "</a></li>");
         }
     });
     

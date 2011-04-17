@@ -20,7 +20,7 @@
                             <a class="link-title" title="Return Home" href="/"></a>
                         </div>
                         <div class="nav">
-                            <a class="link-nav" href="/">Home</a>
+                            <a class="link-nav" style="border-left:1px solid #ddd" href="/">Home</a>
                             <a class="link-nav" href="/loot/">Loot</a>
                             <a class="link-nav" href="/blog/">Blog</a>
                             <a class="link-nav" style="text-decoration: line-through" href="/">Monsters</a>

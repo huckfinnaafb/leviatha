@@ -33,12 +33,8 @@ class search {
     public function __construct() {
         $this->query = array (
             "search_loot" => "
-                SELECT name, urlname, level, levelreq, rarity, COALESCE (relate_loot_magic.class, relate_loot_normal.division) AS relationship
+                SELECT name, urlname, level, levelreq, rarity, COALESCE (class, division) AS relationship
                 FROM loot
-                    LEFT JOIN relate_loot_magic
-                        ON loot.name = relate_loot_magic.magic
-                    LEFT JOIN relate_loot_normal
-                        ON loot.name = relate_loot_normal.class
                 WHERE urlname
                 LIKE '%{@query}%'
                 ORDER BY `{@order}` DESC
