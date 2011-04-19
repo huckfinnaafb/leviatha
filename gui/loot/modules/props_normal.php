@@ -2,8 +2,8 @@
 <ul>
     <?php
         try {
-            if (isset($this->db_item["props"]["normal"]) && (!empty($this->db_item["props"]["normal"]))) {
-                foreach($this->db_item["props"]["normal"] as $row) {
+            if (isset($this->props_normal) && (!empty($this->props_normal))) {
+                foreach($this->props_normal as $row) {
                     echo "<li>{$row['translation']}: {$row['min']}</li>\n";
                 }
             } else {

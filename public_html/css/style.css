@@ -84,17 +84,17 @@ h6{font-size:0.75em}
 .set{color:#0b810b}
 .family{color:#877a29}
 .unique{color:#877a29}
-a:link,a:visited{color:#D93240;text-decoration:none}
-a:hover{color:#D93240;text-decoration:underline}
+a:link,a:visited{color:#4169E1;text-decoration:none}
+a:hover{color:#4169E1;text-decoration:underline}
 .link-title{display:block;background-image:url("/img/logosmall.png");background-repeat:no-repeat;height:46px;width:324px;margin-top:16px}
 .link-title:link,.link-title:visited{color:#f2f2f2;text-decoration:none}
 .link-title:hover{color:#D93240;background-position:0 -52px}
 .link-block:link,.link-block:visited{text-decoration:none}
 .link-block:hover{text-decoration:none}
 .link-nav:link,.link-nav:visited{color:#333;margin-right:22px;font-size:14px;text-decoration:none}
-.link-nav:hover{color:#D93240}
+.link-nav:hover{color:#4169E1}
 .link-homepage:link,.link-homepage:visited{color:#333;margin-right:22px;font-size:14px;text-decoration:none}
-.link-homepage:hover{color:#D93240}
+.link-homepage:hover{color:#4169E1}
 .link-pagination{display:inline-block;padding:0 5px;margin:0 5px}
 .link-pagination-selected{background-color:#ffcfcf}
 .link-autocomplete{display:block;background-image:url('/img/lena16.png');background-repeat:no-repeat;background-position: 8px center;background-color:#fff;text-align:left;list-style-type:none;padding:3px 0 3px 35px}

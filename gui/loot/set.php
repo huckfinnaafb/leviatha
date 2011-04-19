@@ -2,13 +2,13 @@
 <div class="line">
     <div class="unit size2of3">
         <div class="mod mod-item">
-            <h1 class="h-item" style="color:#00c400"><?php echo $this->db_item["common"]["name"] ?></h1>
+            <h1 class="h-item" style="color:#00e10b"><?php echo $this->name ?></h1>
             <div class="node">
                 <img class="img-item" src="/img/stormshield.png" style="float:left;margin:0 12px 12px 0">
                 <p>Level <?php 
-                    $parent = (is_null($this->db_item["common"]["class"])) ? $this->db_item["common"]["division"] : $this->db_item["common"]["class"];
-                    echo $this->db_item["common"]["level"] . " " . ucwords($this->db_item["common"]["rarity"]) . " " . ucwords($parent); ?></p>
-                <p>Required Level: <?php echo $this->db_item["common"]["levelreq"]; ?></p>
+                    $parent = (is_null($this->itemclass)) ? $this->division : $this->itemclass;
+                    echo $this->level . " " . ucwords($this->rarity) . " " . ucwords($parent); ?></p>
+                <p>Required Level: <?php echo $this->levelreq; ?></p>
             </div>
             <div class="node node-info js-itemnode">
                 <!-- Normal Properties -->

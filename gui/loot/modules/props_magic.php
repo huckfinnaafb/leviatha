@@ -2,8 +2,8 @@
 <ul class="magic">
     <?php
         try {
-            if (isset($this->db_item["props"]["magic"]) && (!empty($this->db_item["props"]["magic"]))) {
-                foreach($this->db_item["props"]["magic"] as $row) {
+            if (isset($this->props_magic) && (!empty($this->props_magic))) {
+                foreach($this->props_magic as $row) {
                     echo "<li>{$row["translation"]}</li>\n";
                 }
             } else {
