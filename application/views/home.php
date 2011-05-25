@@ -34,7 +34,6 @@
             <img width=300 height=34 src="/img/software8.png">
         </div>
         <script src="/jscript/jquery.js"></script>
-        <script src="/jscript/leviatha.js"></script>
         <script>
             $('#search').focus();
             

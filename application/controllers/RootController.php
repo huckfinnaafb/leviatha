@@ -3,6 +3,7 @@ class RootController {
     
     // Meta Information
     public $author      = "Samuel Ferrell";
+    public $copyright   = "Copyright Samuel Ferrell 2011. All Rights Reserved.";
     public $description = "It's a database. For Diablo 2! And it does a bunch of other stuff, too.";
     public $direction   = "ltr";
     public $keywords    = "diablo 2 database, diablo 2, diablo 2 builds, diablo 2 classes, diablo 2 loot";

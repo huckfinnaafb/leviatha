@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="<?= $this->language ?>" dir="<?= $this->direction ?>">
+<html lang="<?= $this->language ?>" dir="<?php echo $this->direction ?>">
     <head>
         <meta charset="utf-8">
-        <title><?= $this->title ?></title>
-        <meta name="description" content="<?= $this->description; ?>">
-        <meta name="keywords" content="<?= $this->keywords; ?>">
+        <title><?php echo $this->title ?></title>
+        <meta name="description" content="<?php echo $this->description; ?>">
+        <meta name="keywords" content="<?php echo $this->keywords; ?>">
         <meta name="robots" content="all">
-        <meta name="language" content="<?= $this->language; ?>">
-        <meta name="author" content="<?= $this->author; ?>">
-        <meta name="copyright" content="Copyright 2011 - TodayICooked.com">
+        <meta name="language" content="<?php echo $this->language; ?>">
+        <meta name="author" content="<?php echo $this->author; ?>">
+        <meta name="copyright" content="<?php echo $this->copyright; ?>">
         <script>
             document.createElement("header");
             document.createElement("footer");
