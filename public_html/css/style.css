@@ -12,7 +12,7 @@ a:focus{text-decoration:none;outline:1px dotted #000}
 a:active{outline:none}
 ol li,ul ol li{list-style-type:decimal}
 ul li{list-style-type:disc}
-ul ul li{list-style-type:circle}
+ul ul li{list-style-type:disc}
 ul ul ul li{list-style-type:square}
 ol ol li{list-style-type:lower-alpha}
 ol ol ol li{list-style-type:lower-roman}
@@ -82,11 +82,13 @@ h6{font-size:0.75em}
 .text-info{color:#666;font-size:12px}
 .text-subtle{color:#999;font-size:11px}
 .text-data{color:royalBlue;font-weight:bold}
+
 .normal{color:#555}
 .magic{color:#4db6ff}
 .set{color:#00E10B}
 .family{color:#f6e6b6}
 .unique{color:#FEE25E}
+
 a:link,a:visited{color:#4169E1;text-decoration:none}
 a:hover{color:#4169E1;text-decoration:underline}
 .link-title{display:block;background-image:url("/img/logosmall.png");background-repeat:no-repeat;height:46px;width:324px;margin-top:16px}
@@ -114,7 +116,7 @@ ul li{list-style-type:none}
 .list-autocomplete{position:relative;left:-32px;width:424px;margin:auto}
 .list-directory{padding-left:1em}
 .list-directory ul{padding-left:2em}
-.list-directory li{list-style-type:none}
+.list-directory li{}
 .list-iteminfo li{font-size:12px;line-height:1.5;list-style-type:none}
 .img-itemthumb{float:left;margin-right:8px;margin-top:4px}
 .img-item{margin:12px 0}

@@ -23,7 +23,8 @@ F3::set('RELEASE', false);
 
 // Application Routes
 F3::route('GET /', array(new RootController, 'get'));
-F3::route('GET /loot', array(new LootController, 'get'));
+F3::route('GET /loot', array(new LootDirectoryController, 'get'), 3600);
+F3::route('GET /loot/@item', array(new LootController, 'get'));
 
 // Initialize PDO Hack
 F3::sql('');

@@ -27,7 +27,7 @@
     
             <?php include (F3::get('GUI') . "header.php"); ?>
         
-            <?php // if ($this->flag["exceptions"]) { include (F3::get('GUI') . "notification.php"); } ?>
+            <?php if ($this->flag["exceptions"]) { include (F3::get('GUI') . "notification.php"); } ?>
             
             <?php include (F3::get('GUI') . $file); ?>
             

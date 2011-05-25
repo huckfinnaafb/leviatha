@@ -9,6 +9,6 @@ F3::set('AUTOLOAD',
 F3::config(__SITE_PATH . "/application/config/config.cfg");
 $leviatha = array();
 foreach(F3::sql("SELECT name FROM loot") as $row) {
-    array_push($leviatha, $row["name"]);
+    $leviatha[] = $row["name"];
 }
 echo json_encode($leviatha);

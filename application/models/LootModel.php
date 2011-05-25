@@ -1,31 +1,28 @@
 <?php
+/**
+    Author: Samuel Ferrell (huckfinnaafb@gmail.com)
+    Purpose: Generate a JSON object of any item, including, but not limited to,
+        item properties, related items, and statistical information.
+**/
 class LootModel extends RootModel {
-    
-    public $urltoken;
-    public $exists;
-    
-    public $id;
+
     public $name;
-    public $urlname;
-    public $level;
-    public $levelreq;
-    public $rarity;
-    public $itemclass;
-    public $division;
-    public $kingdom;
-    public $domain = "loot";
+    public $id;
     
-    public $family;
-    public $family_members = array();
+    public $query = array(
+        "all" => "SELECT name, urlname, level, levelreq, rarity, class, division FROM loot ORDER BY rarity DESC",
+        "divisions" => "SELECT division, kingdom FROM relate_division"
+    );
     
-    public $flags = array();
-    public $props_magic = array();
-    public $props_normal = array();
-    public $props_set = array();
-    public $props_set_family = array();
+    public function item($identifier) {
+        
+    }
     
-    public $similar = array();
-    public $children = array();
+    public function all() {
+        return F3::sqlBind($this->query['all']);
+    }
     
-    public $query = array();
+    public function relations() {
+        return F3::sqlBind($this->query['divisions']);
+    }
 }

@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="/css/style.css" />
     </head>
     <body style="text-align:center;padding-top:100px">
-        <!--<img width=668 height=96 src="/img/logo8.png">-->
+        <img width=668 height=96 src="/img/logo8.png">
         <div style="margin: 20px 0">
             <?php
             

@@ -2,7 +2,7 @@
     <div class="line">
         <div class="unit size1of2">
             <div class="hgroup">
-                <!--<a class="link-title" title="Return Home" href="/"></a>-->
+                <a class="link-title" title="Return Home" href="/"></a>
             </div>
             <div class="nav">
                 <?php
