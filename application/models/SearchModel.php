@@ -19,6 +19,9 @@ class SearchModel extends RootModel {
             @param $query string
     **/
     public function items($term) {
+    
+        if ($term == '')
+            return false;
         
         // URL Friendly Item Name
         $term = F3::slug($term);

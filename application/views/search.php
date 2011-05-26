@@ -1,10 +1,17 @@
 <div class="mod">
     <table id="searchresults" class="table-search">
+        <colgroup>
+            <col style="width: 300px">
+            <col style="width: 200px">
+            <col style="width: 150px">
+            <col style="width: 100px">
+            <col style="width: 100px">
+        </colgroup>
         <thead class="thead-search">
             <tr>
-                <th class="theading-search" style="width:350px">Name</th>
-                <th class="theading-search" style="width:150px">Parent</th>
-                <th class="theading-search" style="width:150px">Rarity</th>
+                <th class="theading-search">Name</th>
+                <th class="theading-search">Parent</th>
+                <th class="theading-search">Rarity</th>
                 <th class="theading-search">Level Req.</th>
                 <th class="theading-search">Item Level</th>
             </tr>

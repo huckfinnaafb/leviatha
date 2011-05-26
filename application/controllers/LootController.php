@@ -16,6 +16,6 @@ class LootController extends RootController {
         }
         
         // Determine rarity
-        $this->render('blank.php');
+        $this->render('loot.php');
     }
 }
