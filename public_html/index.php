@@ -18,8 +18,7 @@ F3::config(__SITE_PATH . "/application/config/config.cfg");
 F3::set('E404', "e404.html");
 F3::set('GUI', __SITE_PATH . "/application/views/");
 F3::set('RELEASE', false);
-
-// Framework Caching Engine
+F3::set('CACHE', true);
 
 // Application Routes
 F3::route('GET /', array(new RootController, 'get'));

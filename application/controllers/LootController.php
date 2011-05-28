@@ -11,9 +11,7 @@ class LootController extends RootController {
     
         // Collect Item Data (JSON)
         $loot = new LootModel;
-        if (!$this->item = $loot->item($urlname)) {
-            F3::set('EXCEPTION.error', "This item doesn't seem to exist in our database. Please make sure the URL is correct.");
-        }
+        $this->item = json_decode($loot->item($urlname));
         
         // Determine rarity
         $this->render('loot.php');
