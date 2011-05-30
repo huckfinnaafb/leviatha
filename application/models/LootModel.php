@@ -57,6 +57,10 @@ class LootModel extends RootModel {
         F3::sqlBind($this->query['item'], array("item" => $identifier));
         $shared = F3::get('DB.result.0');
         
+        if (empty($shared)) {
+            return false;
+        }
+        
         // Assign Class Attributes
         foreach($shared as $key => $attribute) {
             $this->$key = $attribute;
@@ -70,6 +74,13 @@ class LootModel extends RootModel {
             $this->properties['normal'] = F3::sqlBind($this->query['properties'], array('item' => $this->class));
             $this->properties['magic'] = F3::sqlBind($this->query['properties'], array('item' => $this->name));
             $this->similar = F3::sqlBind($this->query['similar'], array("level" => $this->level, "division" => $this->division, "item" => $this->name));
+            
+            // If similar items have no class (amulets, rings, charms, etc), use division
+            foreach($this->similar as $key => $similar) {
+                if (is_null($similar['class'])) {
+                    $this->similar[$key]['class'] = $this->similar[$key]['division'];
+                }
+            }
             
             if ($this->rarity == "set") {
                 $this->properties['set'] = F3::sqlBind($this->query['properties_set'], array('item' => $this->name));
@@ -90,19 +101,19 @@ class LootModel extends RootModel {
         }
         
         // Translate Item Properties
-        foreach($this->properties as $k => $property) {
+        foreach($this->properties as $key => $property) {
             
             if (!empty($property)) {
                 foreach($property as $rowKey => $row) {
                 
                     if ($row['min'] == $row['max']) {
-                        $this->properties[$k][$rowKey]['translation'] = $this->translate($row['translation'], $row['parameter'], $row['min'], $row['max']);
+                        $this->properties[$key][$rowKey]['translation'] = $this->translate($row['translation'], $row['parameter'], $row['min'], $row['max']);
                     } else {
-                        $this->properties[$k][$rowKey]['translation'] = $this->translate($row['translation_varies'], $row['parameter'], $row['min'], $row['max']);
+                        $this->properties[$key][$rowKey]['translation'] = $this->translate($row['translation_varies'], $row['parameter'], $row['min'], $row['max']);
                     }
                     
                     // Remove unused translation_varies
-                    unset($this->properties[$k][$rowKey]['translation_varies']);
+                    unset($this->properties[$key][$rowKey]['translation_varies']);
                 }
             }
             

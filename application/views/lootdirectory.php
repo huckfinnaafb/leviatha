@@ -1,3 +1,10 @@
+<div class="mod mod-toc" style="text-align:center">
+    <?php
+        foreach ($this->relations as $relationship) { ?>
+            <a href="#<?php echo strtolower($relationship['division']); ?>"><?php echo $relationship['division']; ?></a> - 
+        <?php }
+    ?>
+</div>
 <div class="mod mod-directory">
     <div class="line">
         <?php
@@ -8,12 +15,12 @@
                         <?php
                             foreach($this->relations as $relationship) { 
                                 if ($relationship['kingdom'] == $kingdom) { ?>
-                                    <li><h3 id="<?php echo $relationship['division']; ?>"><?php echo $relationship['division'] ?></h3>
+                                    <li><h3 id="<?php echo strtolower($relationship['division']); ?>"><?php echo $relationship['division'] ?></h3>
                                         <ul>
                                             <?php
                                                 foreach($this->items as $item) {
                                                     if ($item['division'] == $relationship['division']) { ?>
-                                                        <li class="<?php echo $item['rarity']; ?>"><a href="/loot/<?php echo $item['urlname']; ?>"><?php echo $item['name']; ?></a></li>
+                                                        <li class="<?php echo $item['rarity']; ?>"><a class="<?php echo $item['rarity']; ?>" href="/loot/<?php echo $item['urlname']; ?>"><?php echo $item['name']; ?></a></li>
                                                     <?php } else {
                                                         continue;
                                                     }

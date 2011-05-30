@@ -5,8 +5,8 @@ img{vertical-align:bottom}
 html{-webkit-font-smoothing:antialiased}
 article,aside,figure,footer,header,hgroup,nav,section{display:block}
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,figure,footer,header,hgroup,menu,nav,section,menu,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
-a:link{color:inherit}
-a:visited{text-decoration:none;color:inherit}
+a:link{}
+a:visited{text-decoration:none}
 a:hover{text-decoration:underline}
 a:focus{text-decoration:none;outline:1px dotted #000}
 a:active{outline:none}
@@ -65,6 +65,10 @@ body{color:#333;font-family:sans-serif;font-size:14px;line-height:1.5}
         padding-bottom:20px;
         padding-top:20px;
         text-align:center;
+    }
+    .mod-toc{
+        border:1px dashed #ccc;
+        padding:12px;
     }
     .mod-item{
         background-color:#1d1d1d;
@@ -190,8 +194,8 @@ h6{font-size:0.75em}
 .unique{color:#FEE25E}
 
 /* Links */
-a:link,a:visited{color:#4169E1;text-decoration:none}
-a:hover{color:#4169E1;text-decoration:underline}
+a:link,a:visited{text-decoration:none;color:royalBlue}
+a:hover{text-decoration:underline}
 .link-title{
     background-image:url("/img/logosmall.png");
     background-repeat:no-repeat;
@@ -205,9 +209,9 @@ a:hover{color:#4169E1;text-decoration:underline}
 .link-block:link,.link-block:visited{text-decoration:none}
 .link-block:hover{text-decoration:none}
 .link-nav:link,.link-nav:visited{color:#333;margin-right:22px;font-size:14px;text-decoration:none}
-.link-nav:hover{color:#4169E1}
+.link-nav:hover{color:#dc3141}
 .link-homepage:link,.link-homepage:visited{color:#333;margin-right:22px;font-size:14px;text-decoration:none}
-.link-homepage:hover{color:#4169E1}
+.link-homepage:hover{color:#dc3141}
 .link-autocomplete{
     background-color:#fff;
     background-image:url('/img/lena16.png');
@@ -252,6 +256,12 @@ td{border-bottom:1px solid #ddd;font-size:12px;padding:6px;vertical-align:middle
     background-position: left center;
     background-repeat: no-repeat;
 }
+.odd{background-color:#f2f2f2;}
+.even{background-color:#e9e9e9;}
+.first{}
+.last{}
+.next{}
+.last{}
 
 /* Lists */
 ul li{list-style-type:none}

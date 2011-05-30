@@ -24,11 +24,12 @@ class SearchController extends RootController {
                 
                 $this->render('search.php');
             } else {
-                F3::set('EXCEPTION.warning', "Nothing found in the database. Try the <a href=\"/loot/directory/\">Loot Directory</a>.");
+                F3::set('EXCEPTION.warning', "Nothing found in the database. Try the <a href=/loot/>Loot Directory</a>.");
                 $this->render('blank.php');
             }
         } else {
             F3::set('EXCEPTION.warning', "Search is temporarily disabled. Please try again later.");
+            $this->render('blank.php');
         }
     }
 }

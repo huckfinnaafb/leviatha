@@ -54,8 +54,6 @@ class RootController {
     // Feature Switch
     public $flag = array(
         "exceptions" => true,
-        "login" => true,
-        "register" => true,
         "search" => true
     );
     
@@ -66,8 +64,12 @@ class RootController {
     /**
         Global render method - all visible content goes through hurr
     **/
-    public function render($file) {
-        include (F3::get('GUI') . "layout.php");
+    public function render($file, $layout = true) {
+        if ($layout) {
+            include (F3::get('GUI') . "layout.php");
+        } else {
+            include (F3::get('GUI') . "nolayout.php");
+        }
     }
     
 }
