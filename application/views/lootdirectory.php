@@ -1,10 +1,3 @@
-<div class="mod mod-toc" style="text-align:center">
-    <?php
-        foreach ($this->relations as $relationship) { ?>
-            <a href="#<?php echo strtolower($relationship['division']); ?>"><?php echo $relationship['division']; ?></a> - 
-        <?php }
-    ?>
-</div>
 <div class="mod mod-directory">
     <div class="line">
         <?php
