@@ -8,7 +8,7 @@ class RootController {
     public $direction   = "ltr";
     public $keywords    = "diablo 2 database, diablo 2, diablo 2 builds, diablo 2 classes, diablo 2 loot";
     public $language    = "en";
-    public $title       = "Leviatha - Diablo 2 Database: Loot, Builds, Monsters, and more!";
+    public $title       = "Leviatha - Diablo 2 Database: Loot, Builds, News, Monsters, and more!";
     
     // Page Assets
     public $scripts = array('jquery', 'leviatha');

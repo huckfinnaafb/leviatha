@@ -1,7 +1,7 @@
 <?php
 class LootController extends RootController {
     
-    public $title = "Loot Directory - Leviatha";
+    public $title = "Loot - Diablo 2 Database";
     public $item;
     public $json = false;
     
@@ -24,6 +24,7 @@ class LootController extends RootController {
         
         if ($this->item) {
             if ($this->json) {
+                $this->title = $this->item['name'] . " - Diablo 2 Database";
                 $this->render('lootjson.php', false);
             } else {
                 $this->title = $this->item->name . " - Diablo 2 Database";

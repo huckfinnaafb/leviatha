@@ -1,7 +1,7 @@
 <?php
 class LootDirectoryController extends RootController {
     
-    public $title = "Loot Directory - Leviatha";
+    public $title = "Loot Directory - Diablo 2 Database";
     
     public $items = array();
     public $relations = array();
