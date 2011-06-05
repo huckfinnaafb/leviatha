@@ -19,7 +19,7 @@
                 // Home Navigation
                 foreach($this->navigation as $k => $link) {
                     if ($link['enabled']) {
-                        echo "<a href=\"{$k}\" class=\"link-homepage\">" . $link['text'] . "</a>\n\t";
+                        echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-homepage\">" . $link['text'] . "</a>\n\t";
                     }
                 }
             ?>
