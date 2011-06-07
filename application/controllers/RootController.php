@@ -22,32 +22,38 @@ class RootController {
         "/" => array(
             "enabled" => true,
             "selected" => false,
-            "text" => "Home"
+            "text" => "Home",
+			"title" => "Return Home"
         ),
         "/loot/" => array(
             "enabled" => true,
             "selected" => false,
-            "text" => "Loot"
+            "text" => "Loot",
+			"title" => "Loot Directory"
         ),
         "/monsters/" => array(
             "enabled" => true,
             "selected" => false,
-            "text" => "Monsters"
+            "text" => "Monsters",
+			"title" => "Monsters, oh my!"
         ),
         "/world/" => array(
             "enabled" => true,
             "selected" => false,
-            "text" => "World"
+            "text" => "World",
+			"title" => "The World of Sanctuary"
         ),
         "/builds/" => array(
             "enabled" => true,
             "selected" => false,
-            "text" => "Builds"
+            "text" => "Builds",
+			"title" => "Class Builds and Skills"
         ),
         "/community/" => array(
             "enabled" => true,
             "selected" => false,
-            "text" => "Community"
+            "text" => "Community",
+			"title" => "Forums and Discussion"
         )
     );
     

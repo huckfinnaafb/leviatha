@@ -1,3 +1,4 @@
 logs/
 tmp/
 public_html/cache/
+application/config/
