@@ -12,6 +12,7 @@
         <script>
             document.createElement("header");
             document.createElement("footer");
+            document.createElement("nav");
         </script>
         <?php
         
