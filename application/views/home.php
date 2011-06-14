@@ -21,5 +21,6 @@
         <li>MVC Application Structure</li>
         <li>Extensible CSS</li>
         <li>Semantic HTML</li>
+        <li>Pure SQL, no ORM</li>
     </ul>
 </div>
