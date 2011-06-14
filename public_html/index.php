@@ -1,5 +1,5 @@
 <?php
-define ('__SITE_PATH', "/home/huckfinnaafb/www.leviatha.org");
+include "../config.php";
 
 // PHP Fat Free Framework (http://fatfree.sourceforge.net/)
 require_once (__SITE_PATH . "/library/F3/F3/F3.php");
@@ -12,13 +12,13 @@ F3::set('AUTOLOAD',
 );
 
 // Application Configuration
-F3::config(__SITE_PATH . "/application/config/config.cfg");
+F3::config(__SITE_PATH . "/f3config.cfg");
 
 // Framework Variables
 F3::set('E404', "e404.html");
 F3::set('GUI', __SITE_PATH . "/application/views/");
 F3::set('RELEASE', false);
-F3::set('CACHE', false);
+F3::set('CACHE', true);
 
 // Application Routes
 F3::route('GET /', array(new RootController, 'get'));
