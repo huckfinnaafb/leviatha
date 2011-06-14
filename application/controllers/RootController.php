@@ -64,7 +64,7 @@ class RootController {
     );
     
     public function get() {
-        include (F3::get('GUI') . "home.php");
+        $this->render('home.php');
     }
     
     /**

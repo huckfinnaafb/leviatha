@@ -177,6 +177,11 @@ h6{font-size:0.75em}
 .text-info{color:#666;font-size:12px}
 .text-subtle{color:#999;font-size:11px}
 .text-data{color:royalBlue;font-weight:bold}
+.text-power{
+    font-size:46px;
+    font-family:Georgia;
+    text-shadow:1px 1px 1px #f2f2f2;
+}
 
 /* Rarity Colors */
 .normal{color:#888}
@@ -282,7 +287,19 @@ ul li{list-style-type:none}
 .list-directory{padding-left:1em}
 .list-directory ul{padding-left:2em}
 .list-iteminfo li{font-size:12px;line-height:1.5;list-style-type:none}
-
+.list-stack{
+    margin-top:12px;
+    margin-bottom:12px;
+    margin-left:2em;
+    max-width: 250px;
+}
+.list-stack li {
+    list-style-type:disc;
+    background-color:#eee;
+    border:1px solid #ddd;
+    padding:4px 8px;
+    margin:4px;
+}
 /* Media */
 .img-itemthumb{float:left;margin-right:8px;margin-top:4px}
 .img-item{margin:12px 0}
