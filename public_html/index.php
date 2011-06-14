@@ -1,4 +1,6 @@
 <?php
+
+// Application Configuration
 include "../config.php";
 
 // PHP Fat Free Framework (http://fatfree.sourceforge.net/)
@@ -11,7 +13,7 @@ F3::set('AUTOLOAD',
     __SITE_PATH . "/library/F3/autoload/"
 );
 
-// Application Configuration
+// Framework Configuration
 F3::config(__SITE_PATH . "/f3config.cfg");
 
 // Framework Variables
@@ -26,8 +28,5 @@ F3::route('GET /loot', array(new LootDirectoryController, 'get'));
 F3::route('GET /loot/@item', array(new LootController, 'get'));
 F3::route('GET /search', array(new SearchController, 'get'));
 
-// Initialize PDO Hack
-F3::sql('');
-
-// Runtime Execution
+// Let's Roll Out, Autobots!
 F3::run();

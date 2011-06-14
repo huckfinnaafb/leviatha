@@ -1,7 +1,7 @@
 <div class="line">
     <div class="unit" style="width:70%">
-        <div class="mod mod-item mod-shadow">
-            <h1 class="h-item <?php echo $this->item->rarity; ?>"><?php echo $this->item->name; ?></h1>
+        <div class="mod mod-item style-bg-rough style-shadow">
+            <h1 class="h-item style-gradient <?php echo $this->item->rarity; ?>"><?php echo $this->item->name; ?></h1>
 
             <div class="mod mod-fit">
                 <div class="line">
@@ -81,8 +81,8 @@
         
             // Family Members
             if ($this->item->familyMembers) { ?>
-                <div class="mod mod-side mod-itemlist mod-shadow">
-                    <h1 class="h-side h-box"><?php echo $this->item->family; ?> Family</h1>
+                <div class="mod mod-side style-shadow">
+                    <h1 class="h-side h-box style-gradient"><?php echo $this->item->family; ?> Family</h1>
                     <?php
                         
                         foreach ($this->item->familyMembers as $member) { ?>
@@ -100,8 +100,8 @@
         
             // Variants
             if ($this->item->variants) { ?>
-                <div class="mod mod-side mod-itemlist mod-shadow">
-                    <h1 class="h-side h-box">Variants</h1>
+                <div class="mod mod-side style-shadow">
+                    <h1 class="h-side h-box style-gradient">Variants</h1>
                     
                     <?php
                         foreach($this->item->variants as $variant) { ?>
@@ -119,8 +119,8 @@
             
             // Similar
             if ($this->item->similar) { ?>
-                <div class="mod mod-side mod-itemlist mod-shadow">
-                    <h1 class="h-side h-box">Similar</h1>
+                <div class="mod mod-side style-shadow">
+                    <h1 class="h-side h-box style-gradient">Similar</h1>
                     
                     <?php
                         foreach($this->item->similar as $similar) { ?>

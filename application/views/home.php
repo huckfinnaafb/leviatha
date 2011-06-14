@@ -25,7 +25,7 @@
             ?>
         </div>
         <form id="searchform" action="search" method="get">
-            <input id="search" type="text" class="input-text" name="q" style="width:390px"/>
+            <input id="search" type="text" class="input-text" name="q" style="width:390px;border-color:#aaa"/>
             <input type="submit" class="input-submit" value="Search"/>
             <ul class="list-autocomplete" id="autocomplete"></ul>
         </form>

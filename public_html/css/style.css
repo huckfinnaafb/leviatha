@@ -33,7 +33,6 @@ button,input[type="submit"],input[type="reset"],input[type="button"]{*overflow:v
 /* Styles */
 html{background-image:url('/img/tiles.jpg');background-color:#f9f9f9}
 body{color:#333;font-family:sans-serif;font-size:14px;line-height:1.5}
-.nav{margin-top:10px}
 
 /* Grid */
 .line:after,.lastUnit:after{clear:both;display:block;visibility:hidden;overflow:hidden;height:0 !important;line-height:0;font-size:xx-large;content:" x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x "}
@@ -52,13 +51,27 @@ body{color:#333;font-family:sans-serif;font-size:14px;line-height:1.5}
 .lastUnit{display:table-cell;float:none;width:auto;*display:block;*zoom:1;_position:relative;_left:-3px;_margin-right:-3px}
 
 /* Structures */
-.page{margin-left:auto;margin-right:auto;width:960px}
+.page{min-width:900px;}
+
+/* Styles */
+.style-gradient{
+    background: -webkit-gradient(
+        linear, left top, left bottom, 
+        from(#111),
+        to(#000)
+    );
+}
+.style-shadow{
+    box-shadow:0px 1px 20px #222;
+}
+.style-bg-rough{
+}
 
 /* Modules */
 .mod{margin:12px;overflow:auto}
-    .mod-header{
-        border-bottom:1px solid #ddd;
-        padding-bottom:12px;
+    .mod-nav{
+        background-color:#222;
+        margin:0 0 12px 0;
     }
     .mod-footer{
         margin-top:50px;
@@ -66,22 +79,13 @@ body{color:#333;font-family:sans-serif;font-size:14px;line-height:1.5}
         padding-top:20px;
         text-align:center;
     }
-    .mod-toc{
-        border:1px dashed #ccc;
-        padding:12px;
-    }
     .mod-item{
         background-color:#1d1d1d;
-        border:1px solid #ddd;
-        box-shadow:#ddd 1px 1px 15px;
         color:#f2f2f2;
         padding:0 12px 12px 12px;
     }
     .mod-side{
         border:1px solid #ddd;
-    }
-    .mod-shadow{
-        box-shadow:#ccc 1px 1px 15px;
     }
     .mod-directory{
         background-color:#111;
@@ -196,7 +200,7 @@ h6{font-size:0.75em}
 
 /* Links */
 a:link,a:visited{text-decoration:none;color:royalBlue}
-a:hover{text-decoration:underline}
+a:hover{color:#ff2600;text-decoration:underline}
 .link-title{
     background-image:url("/img/logosmall.png");
     background-repeat:no-repeat;
@@ -209,10 +213,31 @@ a:hover{text-decoration:underline}
 .link-title:hover{color:#D93240;background-position:0 -52px}
 .link-block:link,.link-block:visited{text-decoration:none}
 .link-block:hover{text-decoration:none}
-.link-nav:link,.link-nav:visited{color:#333;margin-right:22px;font-size:14px;text-decoration:none}
-.link-nav:hover{color:#dc3141}
-.link-homepage:link,.link-homepage:visited{color:#333;margin-right:22px;font-size:14px;text-decoration:none}
-.link-homepage:hover{color:#dc3141}
+
+.link-nav{
+    display:block;
+    float:left;
+    font-size:14px;
+    padding: 0 22px;
+    border-right:1px solid #333;
+    border-left: 1px solid #000;
+    line-height:45px;
+}
+.link-nav:link,.link-nav:visited{
+    color:#f2f2f2;
+    text-decoration:none
+}
+.link-nav:hover{color:#ff2600}
+
+.link-homepage{
+    padding:2px 12px;
+    font-size:16px;
+    font-family: sans-serif;
+}
+.link-homepage:link,.link-homepage:visited{
+	color:#333;
+	text-decoration:none;
+}
 .link-autocomplete{
     background-color:#fff;
     background-image:url('/img/lena16.png');
@@ -276,7 +301,7 @@ ul li{list-style-type:none}
 .img-item{margin:12px 0}
 
 /* Forms */
-.form-search{margin-top:60px;text-align:right}
-.input-text{background-color:#fafafa;background-image:url("/img/searchicon.png");background-position:3px center;background-repeat:no-repeat;border:1px solid #aaa;font-size:16px;height:24px;padding-left:32px;padding-top:2px;width:240px}
+.form-search{margin-top:7px;text-align:right;margin-right:12px}
+.input-text{background-color:#fafafa;background-image:url("/img/searchicon.png");background-position:3px center;background-repeat:no-repeat;border:1px solid #111;font-size:16px;height:24px;padding-left:32px;padding-top:2px;width:240px}
 .input-text:focus{outline:0}
 .input-submit{height:30px;width:60px}
