@@ -3,7 +3,7 @@
 </div>
 <div class="mod">
     <h1 class="text-power">The most comprehensive Diablo 2 Database on the web!</h1>
-    <p>Well, we think.</p>
+    <p class="text-quote">Well, we think.</p>
 </div>
 <div class="mod">
     <h2>Leviatha is mostly a learning project.</h2>
@@ -14,9 +14,9 @@
         <li>MySQL + PHPMyAdmin</li>
         <li><a href="http://fatfree.sourceforge.net/">PHP Fat Free Framework</a></li>
         <li>Ubuntu Server 10.04 LTS</li>
-        <li>Git (<a href="https://github.com/huckfinnaafb/Leviatha">Github Repository</a>)</li>
+        <li>Git</li>
     </ul>
-    <h2>And a few design decisions...</h2>
+    <p>And a few design decisions...</p>
     <ul class="list-stack">
         <li>MVC Application Structure</li>
         <li>Extensible CSS</li>
