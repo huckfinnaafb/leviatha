@@ -2,6 +2,7 @@
 class LootController extends RootController {
     
     public $title = "Loot - Diablo 2 Database";
+    
     public $item;
     public $json = false;
     

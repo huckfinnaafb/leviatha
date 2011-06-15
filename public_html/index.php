@@ -27,6 +27,7 @@ F3::route('GET /', array(new RootController, 'get'));
 F3::route('GET /loot', array(new LootDirectoryController, 'get'));
 F3::route('GET /loot/@item', array(new LootController, 'get'));
 F3::route('GET /search', array(new SearchController, 'get'));
+F3::route('GET /admin', array(new AdminController, 'get'));
 
 // Let's Roll Out, Autobots!
 F3::run();

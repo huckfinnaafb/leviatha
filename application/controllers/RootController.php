@@ -9,6 +9,7 @@ class RootController {
     public $keywords    = "diablo 2 database, diablo 2, diablo 2 builds, diablo 2 classes, diablo 2 loot";
     public $language    = "en";
     public $title       = "Leviatha - Diablo 2 Database: Loot, Builds, News, Monsters, and more!";
+    public $heading     = null;
     
     // Page Assets
     public $scripts = array('jquery', 'leviatha');

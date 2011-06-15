@@ -25,10 +25,28 @@
     </head>
     <body>
         <div class="page">
-    
+            
             <?php include (F3::get('GUI') . "header.php"); ?>
-        
-            <?php if ($this->flag["exceptions"]) { include (F3::get('GUI') . "notification.php"); } ?>
+            
+            <?php if (isset($this->heading)) { ?>
+                <div class="mod">
+                    <h1 class="h-page"><?php echo $this->heading; ?></h1>
+                </div>
+            <?php } ?>
+            
+            <?php
+            
+                // Notifications
+                if (F3::get('EXCEPTION.error')) {
+                    echo "<p class=\"mod mod-notify mod-error\">" . F3::get('EXCEPTION.error') . "</p>";
+                } else if (F3::get('EXCEPTION.warning')) {
+                    echo "<p class=\"mod mod-notify mod-warning\">" . F3::get('EXCEPTION.warning') . "</p>";
+                } else if (F3::get('EXCEPTION.tip')) {
+                    echo "<p class=\"mod mod-notify mod-tip\">" . F3::get('EXCEPTION.tip') . "</p>";
+                } else if (F3::get('EXCEPTION.success')) {
+                    echo "<p class=\"mod mod-notify mod-success\">" . F3::get('EXCEPTION.success') . "</p>";
+                }
+            ?>
             
             <?php include (F3::get('GUI') . $file); ?>
             
