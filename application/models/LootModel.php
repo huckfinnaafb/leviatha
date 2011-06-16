@@ -3,6 +3,22 @@
     Author: Samuel Ferrell (huckfinnaafb@gmail.com)
     Purpose: Generate a JSON object of any item, including, but not limited to,
         item properties, related items, and statistical information.
+        
+    Options:
+        Verbose
+            Boolean
+            Default: True
+            Toggles expensive property fetching
+        
+        Spread
+            Integer
+            Default: 25
+            Number of levels above and below item to fetch for similar
+            
+        Count
+            Integer
+            Default: 6
+            Number of items to fetch for similar
 **/
 class LootModel extends RootModel {
     
