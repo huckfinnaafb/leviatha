@@ -4,14 +4,13 @@ class LootController extends RootController {
     public $title = "Loot - Diablo 2 Database";
     
     public $item;
+    public $similar = array();
+    
     public $json = false;
     
     public function get() {
         
         $loot = new LootModel;
-        
-        // Options
-        $loot->options['verbose'] = true;
         
         // Check for JSON
         if (isset($_GET['format'])) {
@@ -23,8 +22,29 @@ class LootController extends RootController {
         // URL Item Token
         $urlname = F3::get('PARAMS.item');
     
-        // Collect Item Data
+        // Fetch Item Data
         $this->item = ($this->json) ? $loot->item($urlname) : json_decode($loot->item($urlname));
+        
+        // Fetch Similar
+        if(!empty($this->item->similar)) {
+            foreach($this->item->similar as $similar) {
+                $this->similar[] = json_decode($loot->item($similar->urlname, array("verbose" => false)));
+            }
+        }
+        
+        // Fetch Variants
+        if(!empty($this->item->variants)) {
+            foreach($this->item->variants as $variant) {
+                $this->variants[] = json_decode($loot->item($variant->urlname, array("verbose" => false)));
+            }
+        }
+        
+        // Fetch Siblings
+        if(!empty($this->item->siblings)) {
+            foreach($this->item->siblings as $sibling) {
+                $this->siblings[] = json_decode($loot->item($sibling->urlname, array("verbose" => false)));
+            }
+        }
         
         if ($this->item) {
             if ($this->json) {

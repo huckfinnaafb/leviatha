@@ -80,17 +80,17 @@
         <?php
         
             // Family Members
-            if ($this->item->siblings) { ?>
+            if (isset($this->siblings)) { ?>
                 <div class="mod mod-side style-shadow">
                     <h1 class="h-side h-box style-gradient"><?php echo $this->item->family; ?> Family</h1>
                     <?php
                         
-                        foreach ($this->item->siblings as $member) { ?>
-                            <a class="link-block" href="/loot/<?php echo $member->urlname; ?>">
+                        foreach ($this->siblings as $sibling) { ?>
+                            <a class="link-block" href="/loot/<?php echo $sibling->urlname; ?>">
                                 <div class="node node-item">
                                     <img class="img-itemthumb" src="/img/lena32.png">
-                                    <p><?php echo $member->name; ?></p>
-                                    <p class="text-info"><?php echo $member->level . " " . $member->class; ?></p>
+                                    <p><?php echo $sibling->name; ?></p>
+                                    <p class="text-info"><?php echo $sibling->level . " " . $sibling->parent; ?></p>
                                 </div>
                             </a>
                         <?php }
@@ -99,17 +99,17 @@
             <?php }
         
             // Variants
-            if ($this->item->variants) { ?>
+            if (isset($this->variants)) { ?>
                 <div class="mod mod-side style-shadow">
                     <h1 class="h-side h-box style-gradient">Variants</h1>
                     
                     <?php
-                        foreach($this->item->variants as $variant) { ?>
+                        foreach($this->variants as $variant) { ?>
                             <a class="link-block" href="/loot/<?php echo $variant->urlname; ?>">
                                 <div class="node node-item">
                                     <img class="img-itemthumb" src="/img/lena32.png">
                                     <p><?php echo $variant->name; ?></p>
-                                    <p class="text-info"><?php echo $variant->level . " " . $variant->class; ?></p>
+                                    <p class="text-info"><?php echo $variant->level . " " . $variant->parent; ?></p>
                                 </div>
                             </a>
                         <?php }
@@ -118,17 +118,17 @@
             <?php }
             
             // Similar
-            if ($this->item->similar) { ?>
+            if (isset($this->similar) && ($this->similar)) { ?>
                 <div class="mod mod-side style-shadow">
                     <h1 class="h-side h-box style-gradient">Similar</h1>
                     
                     <?php
-                        foreach($this->item->similar as $similar) { ?>
+                        foreach($this->similar as $similar) { ?>
                             <a class="link-block" href="/loot/<?php echo $similar->urlname; ?>">
                                 <div class="node node-item">
                                     <img class="img-itemthumb" src="/img/lena32.png">
                                     <p><?php echo $similar->name; ?></p>
-                                    <p class="text-info"><?php echo $similar->level . " " . $similar->class; ?></p>
+                                    <p class="text-info"><?php echo $similar->level . " " . $similar->parent; ?></p>
                                 </div>
                             </a>
                         <?php }
