@@ -43,12 +43,6 @@ class LootModel extends RootModel {
         "divisions"         => "SELECT * FROM relate_division"
     );
     
-    public function __construct($options = array()) {
-    
-        // Set options
-        $this->options = array_merge($this->options, $options);
-    }
-    
     /**
         Fetch All Relevant Item Data
             @return $this JSON Encoded Object
@@ -85,13 +79,19 @@ class LootModel extends RootModel {
             switch ($item->rarity) {
                 case "normal" :
                     $item->properties['normal'] = F3::sqlBind($this->query['properties'], array("item" => $item->name));
+                    
+                    // Variants
                     $item->variants = F3::sqlBind($this->query['variants'], array("item" => $item->name));
+                    
                     break;
                 
                 case "unique" : 
                     $item->properties['normal'] = F3::sqlBind($this->query['properties'], array("item" => $item->class));
                     $item->properties['magic']  = F3::sqlBind($this->query['properties'], array("item" => $item->name));
+                    
+                    // Similar
                     $item->similar = F3::sqlBind($this->query['similar'], array("item" => $item->name, "division" => $item->division, "level" => $item->level));
+                    
                     break;
                 
                 case "set" : 
@@ -99,9 +99,11 @@ class LootModel extends RootModel {
                     $item->properties['magic']  = F3::sqlBind($this->query['properties'], array("item" => $item->name));
                     $item->properties['set']    = F3::sqlBind($this->query['properties_set'], array("item" => $item->name));
                     
+                    // Family
                     F3::sqlBind($this->query['family'], array("item" => $item->name));
                     $item->family = F3::get('DB.result.0.set_family');
                     
+                    // Siblings
                     $item->siblings = F3::sqlBind($this->query['siblings'], array("family" => $item->family));
                     
                     break;
