@@ -55,7 +55,7 @@
                         <ul class="set">
                         <?php 
                             foreach($this->item->properties->set as $key => $value) { ?>
-                                <li><?php echo $this->item->properties->set[$key]->translation . " (" . $this->item->properties->family[$key]->req_equip . " Equipped)"; ?></li>
+                                <li><?php echo $this->item->properties->set[$key]->translation; ?></li>
                             <?php } ?>
                         </ul>
                     </div>

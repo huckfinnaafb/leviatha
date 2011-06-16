@@ -39,10 +39,10 @@ class LootModel extends RootModel {
         "properties_set"    => "SELECT * FROM loot_properties JOIN translate_loot_properties ON translate_loot_properties.property = loot_properties.property WHERE name = :item AND req_equip > 0",
         "properties_family" => "SELECT * FROM loot_properties_family JOIN translate_loot_properties ON translate_loot_properties.property = loot_properties_family.property WHERE set_family = :family",
         "family"            => "SELECT * FROM relate_loot_set WHERE set_item = :item",
-        "members"           => "SELECT * FROM relate_loot_set JOIN loot ON loot.name = relate_loot_set.set_item WHERE set_family = :family",
+        "members"           => "SELECT name FROM relate_loot_set JOIN loot ON loot.name = relate_loot_set.set_item WHERE set_family = :family",
         "all"               => "SELECT * FROM loot ORDER BY rarity DESC",
-        "similar"           => "SELECT * FROM loot WHERE (level > :level) AND (division = :division) AND (rarity != 'normal') NOT IN (name = :item) ORDER BY level DESC LIMIT 7",
-        "variants"          => "SELECT * FROM loot WHERE (class = :item) AND (rarity != 'normal') ORDER BY level DESC LIMIT 7",
+        "similar"           => "SELECT name FROM loot WHERE (level > :level) AND (division = :division) AND (rarity != 'normal') NOT IN (name = :item) ORDER BY level DESC LIMIT 7",
+        "variants"          => "SELECT name FROM loot WHERE (class = :item) AND (rarity != 'normal') ORDER BY level DESC LIMIT 7",
         "divisions"         => "SELECT * FROM relate_division"
     );
     
@@ -73,23 +73,12 @@ class LootModel extends RootModel {
         if ($this->rarity != "normal") {
             $this->properties['normal'] = F3::sqlBind($this->query['properties'], array('item' => $this->class));
             $this->properties['magic'] = F3::sqlBind($this->query['properties'], array('item' => $this->name));
-            $this->similar = F3::sqlBind($this->query['similar'], array("level" => $this->level, "division" => $this->division, "item" => $this->name));
-            
-            // If similar items have no class (amulets, rings, charms, etc), use division
-            foreach($this->similar as $key => $similar) {
-                if (is_null($similar['class'])) {
-                    $this->similar[$key]['class'] = $this->similar[$key]['division'];
-                }
-            }
             
             if ($this->rarity == "set") {
                 $this->properties['set'] = F3::sqlBind($this->query['properties_set'], array('item' => $this->name));
                 
                 F3::sqlBind($this->query['family'], array('item' => $this->name));
                 $this->family = F3::get('DB.result.0.set_family');
-                
-                $this->familyMembers = F3::sqlBind($this->query['members'], array('family' => $this->family));
-                $this->properties['family'] = F3::sqlBind($this->query['properties_family'], array('family' => $this->family));
             }
             
         } else if ($this->rarity == "normal") {
