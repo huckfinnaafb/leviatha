@@ -10,7 +10,10 @@ class LootController extends RootController {
         
         $loot = new LootModel;
         
-        // JSON
+        // Options
+        $loot->options['verbose'] = true;
+        
+        // Check for JSON
         if (isset($_GET['format'])) {
             if ($_GET['format'] == "json") {
                 $this->json = true;

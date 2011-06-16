@@ -80,12 +80,12 @@
         <?php
         
             // Family Members
-            if ($this->item->familyMembers) { ?>
+            if ($this->item->siblings) { ?>
                 <div class="mod mod-side style-shadow">
                     <h1 class="h-side h-box style-gradient"><?php echo $this->item->family; ?> Family</h1>
                     <?php
                         
-                        foreach ($this->item->familyMembers as $member) { ?>
+                        foreach ($this->item->siblings as $member) { ?>
                             <a class="link-block" href="/loot/<?php echo $member->urlname; ?>">
                                 <div class="node node-item">
                                     <img class="img-itemthumb" src="/img/lena32.png">
@@ -135,7 +135,7 @@
                     ?>
                 </div>
             <?php } else if ($this->item->rarity != "normal") { ?>
-                <div class="mod mod-notify mod-warning">
+                <div class="mod mod-notify mod-tip">
                     <p>Highest level of type!</p>
                 </div>
             <?php }
