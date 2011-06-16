@@ -37,7 +37,7 @@ class LootModel extends RootModel {
         "properties_family" => "SELECT * FROM loot_properties_family JOIN translate_loot_properties ON translate_loot_properties.property = loot_properties_family.property WHERE set_family = :family",
         "family"            => "SELECT * FROM relate_loot_set WHERE set_item = :item",
         "siblings"          => "SELECT loot.id, loot.urlname FROM relate_loot_set JOIN loot ON loot.name = relate_loot_set.set_item WHERE set_family = :family",
-        "all"               => "SELECT * FROM loot ORDER BY rarity DESC",
+        "all"               => "SELECT * FROM loot ORDER BY rarity DESC, level DESC",
         "similar"           => "SELECT loot.id, loot.urlname FROM loot WHERE (level > :level) AND (division = :division) AND (rarity != 'normal') NOT IN (name = :item) ORDER BY level DESC LIMIT 7",
         "variants"          => "SELECT loot.id, loot.urlname FROM loot WHERE (class = :item) AND (rarity != 'normal') ORDER BY level DESC LIMIT 7",
         "divisions"         => "SELECT * FROM relate_division"
@@ -98,6 +98,9 @@ class LootModel extends RootModel {
                     $item->properties['normal'] = F3::sqlBind($this->query['properties'], array("item" => $item->class));
                     $item->properties['magic']  = F3::sqlBind($this->query['properties'], array("item" => $item->name));
                     $item->properties['set']    = F3::sqlBind($this->query['properties_set'], array("item" => $item->name));
+                    
+                    // Similar
+                    $item->similar = F3::sqlBind($this->query['similar'], array("item" => $item->name, "division" => $item->division, "level" => $item->level));
                     
                     // Family
                     F3::sqlBind($this->query['family'], array("item" => $item->name));
