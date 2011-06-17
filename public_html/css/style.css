@@ -103,7 +103,7 @@ body{color:#333;font-family:sans-serif;font-size:14px;line-height:1.5}
         border-radius: 4px;
     }
         .mod .mod-notify{margin:0}
-        .mod-success{background-color:#e2efe1;background-image:url('/img/icon-success.png')}
+        .mod-success{color:green;background-color:#e2efe1;background-image:url('/img/icon-success.png')}
         .mod-tip{background-color:#e0edf4;background-image:url('/img/icon-tip.png');}
         .mod-error{background-color:#f4e6e6;background-image:url('/img/icon-error.png')}
         .mod-warning{background-color:#f4f2e0;background-image:url('/img/icon-warning.png')}

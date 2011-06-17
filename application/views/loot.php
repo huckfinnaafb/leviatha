@@ -15,7 +15,7 @@
                         <div class="node node-button"><p>Level Required: <span class="text-data"><?php echo $this->item->levelreq; ?></span></p></div>
                     </div>
                     <div class="unit size1of4 lastUnit">
-                        <div class="node node-button"><p>Rarity: <span class="<?php echo $this->item->rarity; ?>"><?php echo ucwords($this->item->rarity); ?></span></p></div>
+                        <div class="node node-button"><p>Rarity: <span style="font-weight:bold" class="<?php echo $this->item->rarity; ?>"><?php echo ucwords($this->item->rarity); ?></span></p></div>
                     </div>
                 </div>
             </div>
@@ -136,7 +136,7 @@
                 </div>
             <?php } else if ($this->item->rarity != "normal") { ?>
                 <div class="mod mod-notify mod-tip">
-                    <p>Highest level of type!</p>
+                    <p>Highest level item of its type</p>
                 </div>
             <?php }
         ?>
