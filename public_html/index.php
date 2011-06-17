@@ -6,6 +6,9 @@ include "../config.php";
 // PHP Fat Free Framework (http://fatfree.sourceforge.net/)
 require_once (__SITE_PATH . "/library/F3/F3/F3.php");
 
+// Framework Configuration
+F3::config(__SITE_PATH . "/f3config.cfg");
+
 // Autoload Assets
 F3::set('AUTOLOAD',
     __SITE_PATH . "/application/controllers/|" .
@@ -13,11 +16,7 @@ F3::set('AUTOLOAD',
     __SITE_PATH . "/library/F3/autoload/"
 );
 
-// Framework Configuration
-F3::config(__SITE_PATH . "/f3config.cfg");
-
 // Framework Variables
-F3::set('E404', "e404.html");
 F3::set('GUI', __SITE_PATH . "/application/views/");
 
 // Application Routes

@@ -3,22 +3,6 @@
     Author: Samuel Ferrell (huckfinnaafb@gmail.com)
     Purpose: Generate a JSON object of any item, including, but not limited to,
         item properties, related items, and statistical information.
-        
-    Options:
-        Verbose
-            Boolean
-            Default: True
-            Toggles expensive property fetching
-        
-        Spread
-            Integer
-            Default: 25
-            Number of levels above and below item to fetch for similar
-            
-        Count
-            Integer
-            Default: 6
-            Number of items to fetch for similar
 **/
 class LootModel extends RootModel {
     
@@ -26,7 +10,7 @@ class LootModel extends RootModel {
     private $options = array(
         "verbose" => true,
         "spread" => 25,
-        "count" => 7
+        "count" => 6
     );
     
     // SQL Query Array
@@ -47,6 +31,16 @@ class LootModel extends RootModel {
         Fetch All Relevant Item Data
             @return $this JSON Encoded Object
             @param $identifier string
+            @param $options array
+                Verbose (bool)
+                    Default: True
+                    Description: Toggle expensive property fetching
+                Spread (integer)
+                    Default: 25
+                    Description: Level range when finding similar items
+                Count (integer)
+                    Default: 6
+                    Description: Number of similar items to fetch
             @public
     **/
     public function item($identifier, $options = array()) {
