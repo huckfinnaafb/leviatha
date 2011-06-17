@@ -50,7 +50,7 @@ body{color:#333;font-family:sans-serif;font-size:14px;line-height:1.5}
 .lastUnit{display:table-cell;float:none;width:auto;*display:block;*zoom:1;_position:relative;_left:-3px;_margin-right:-3px}
 
 /* Structures */
-.page{min-width:960;}
+.page{min-width:960px;}
 
 /* Styles */
 .style-gradient{
@@ -76,9 +76,9 @@ body{color:#333;font-family:sans-serif;font-size:14px;line-height:1.5}
         margin:0 0 12px 0;
     }
     .mod-footer{
-        margin-top:50;
-        padding-bottom:20;
-        padding-top:20;
+        margin-top:50px;
+        padding-bottom:20px;
+        padding-top:20px;
         text-align:center;
     }
     .mod-item{
@@ -301,7 +301,7 @@ ul li{list-style-type:none}
     margin-top:12px;
     margin-bottom:12px;
     margin-left:2em;
-    max-width: 250;
+    max-width: 250px;
 }
 .list-stack li {
     list-style-type:disc;
@@ -316,6 +316,6 @@ ul li{list-style-type:none}
 
 /* Forms */
 .form-search{margin-top:7px;text-align:right;margin-right:12px}
-.input-text{background-color:#fafafa;background-image:url("/img/searchicon.png");background-position:3px center;background-repeat:no-repeat;border:1px solid #111;font-size:16px;height:24px;padding-left:32px;padding-top:2px;width:240}
+.input-text{background-color:#fafafa;background-image:url("/img/searchicon.png");background-position:3px center;background-repeat:no-repeat;border:1px solid #111;font-size:16px;height:24px;padding-left:32px;padding-top:2px;width:240px}
 .input-text:focus{outline:0}
-.input-submit{height:30;width:60}
+.input-submit{height:30px;width:60px}
