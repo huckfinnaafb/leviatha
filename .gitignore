@@ -2,3 +2,4 @@ logs/
 tmp/
 f3config.cfg
 public_html/webgrind/
+application/controllers/SandboxController.php
