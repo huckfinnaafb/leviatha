@@ -12,7 +12,7 @@ class SearchController extends RootController {
             if (isset($_GET['q']) && ($_GET['q'] != '')) { 
                 
                 // Fetch Search Query
-                $query = $_GET['q'];
+                $query = F3::scrub($_GET['q']);
                 $search = new SearchModel;
                 
                 // Fetch Search Results
