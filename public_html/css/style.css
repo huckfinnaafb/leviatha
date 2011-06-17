@@ -152,6 +152,7 @@ h6{font-size:0.75em}
     border-bottom:1px solid #ccc;
     padding-left:8px;
     margin-bottom:12px;
+    font-variant:small-caps;
 }
 .h-item{
     background-color:#111;
