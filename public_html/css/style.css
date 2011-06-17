@@ -149,9 +149,8 @@ h6{font-size:0.75em}
     text-shadow:1px 1px 1px #303E4B;
 }
 .h-page{
-    border-bottom:1px solid #ccc;
+    border-bottom:1px solid #555;
     padding-left:8px;
-    margin-bottom:12px;
     font-variant:small-caps;
 }
 .h-item{
