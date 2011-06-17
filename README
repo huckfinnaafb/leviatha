@@ -1,1 +1,16 @@
 Leviatha - A Diablo II Database! Items, monsters, character classes, skills, and lots more stuff all at your fingertips!
+
+TODO
+    Monsters
+        Normalize game monster data and make a landing page / directory for it like /loot/
+        
+    World
+        Will probably just hardcode this stuff (and by stuff, zones, quests, NPCs, etc) maybe links to someone's Diablo wiki
+    
+    Classes
+        Builds will be merged into this section. Need to rip out some class data from the game files
+        
+    Loot
+        Statistical information would be cool to visualize / compare. Add runes / gems / runewords / magic prefix/suffic stuff
+        
+        
