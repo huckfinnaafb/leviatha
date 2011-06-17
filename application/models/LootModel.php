@@ -32,7 +32,7 @@ class LootModel extends RootModel {
     // SQL Query Array
     private $query = array(
         "item"              => "SELECT * FROM loot WHERE urlname = :item",
-        "properties"        => "SELECT * FROM loot_properties JOIN translate_loot_properties ON translate_loot_properties.property = loot_properties.property WHERE name = :item AND req_equip = 0",
+        "properties"        => "SELECT * FROM loot_properties JOIN translate_loot_properties ON translate_loot_properties.property = loot_properties.property WHERE name = :item AND req_equip = 0 AND display = 1",
         "properties_set"    => "SELECT * FROM loot_properties JOIN translate_loot_properties ON translate_loot_properties.property = loot_properties.property WHERE name = :item AND req_equip > 0",
         "properties_family" => "SELECT * FROM loot_properties_family JOIN translate_loot_properties ON translate_loot_properties.property = loot_properties_family.property WHERE set_family = :family",
         "family"            => "SELECT * FROM relate_loot_set WHERE set_item = :item",
@@ -51,10 +51,10 @@ class LootModel extends RootModel {
     **/
     public function item($identifier, $options = array()) {
         
-        // Set Options
+        // Configurations
         $this->options = array_merge($this->options, $options);
         
-        // Item Object
+        // Initialize Item Object
         $item = new ItemModel;
         
         // Fetch Shared Item Data
@@ -78,6 +78,8 @@ class LootModel extends RootModel {
         if ($this->options['verbose']) {
             switch ($item->rarity) {
                 case "normal" :
+                
+                    // Properties
                     $item->properties['normal'] = F3::sqlBind($this->query['properties'], array("item" => $item->name));
                     
                     // Variants
@@ -86,6 +88,8 @@ class LootModel extends RootModel {
                     break;
                 
                 case "unique" : 
+                
+                    // Properties
                     $item->properties['normal'] = F3::sqlBind($this->query['properties'], array("item" => $item->class));
                     $item->properties['magic']  = F3::sqlBind($this->query['properties'], array("item" => $item->name));
                     
@@ -100,6 +104,10 @@ class LootModel extends RootModel {
                     F3::sqlBind($this->query['family'], array("item" => $item->name));
                     $item->family = F3::get('DB.result.0.set_family');
                     
+                    // Siblings
+                    $item->siblings = F3::sqlBind($this->query['siblings'], array("family" => $item->family));
+                    
+                    // Properties
                     $item->properties['normal'] = F3::sqlBind($this->query['properties'], array("item" => $item->class));
                     $item->properties['magic']  = F3::sqlBind($this->query['properties'], array("item" => $item->name));
                     $item->properties['set']    = F3::sqlBind($this->query['properties_set'], array("item" => $item->name));
@@ -107,9 +115,6 @@ class LootModel extends RootModel {
                     
                     // Similar
                     $item->similar = F3::sqlBind($this->query['similar'], array("item" => $item->name, "division" => $item->division, "level" => $item->level, "limit" => $this->options['count']));
-                    
-                    // Siblings
-                    $item->siblings = F3::sqlBind($this->query['siblings'], array("family" => $item->family));
                     
                     break;
             }
