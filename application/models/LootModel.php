@@ -94,17 +94,19 @@ class LootModel extends RootModel {
                     
                     break;
                 
-                case "set" : 
-                    $item->properties['normal'] = F3::sqlBind($this->query['properties'], array("item" => $item->class));
-                    $item->properties['magic']  = F3::sqlBind($this->query['properties'], array("item" => $item->name));
-                    $item->properties['set']    = F3::sqlBind($this->query['properties_set'], array("item" => $item->name));
-                    
-                    // Similar
-                    $item->similar = F3::sqlBind($this->query['similar'], array("item" => $item->name, "division" => $item->division, "level" => $item->level));
-                    
+                case "set" :
+
                     // Family
                     F3::sqlBind($this->query['family'], array("item" => $item->name));
                     $item->family = F3::get('DB.result.0.set_family');
+                    
+                    $item->properties['normal'] = F3::sqlBind($this->query['properties'], array("item" => $item->class));
+                    $item->properties['magic']  = F3::sqlBind($this->query['properties'], array("item" => $item->name));
+                    $item->properties['set']    = F3::sqlBind($this->query['properties_set'], array("item" => $item->name));
+                    $item->properties['family'] = F3::sqlBind($this->query['properties_family'], array("family" => $item->family));
+                    
+                    // Similar
+                    $item->similar = F3::sqlBind($this->query['similar'], array("item" => $item->name, "division" => $item->division, "level" => $item->level));
                     
                     // Siblings
                     $item->siblings = F3::sqlBind($this->query['siblings'], array("family" => $item->family));
