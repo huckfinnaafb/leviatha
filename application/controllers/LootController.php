@@ -3,9 +3,13 @@ class LootController extends RootController {
     
     public $title = "Loot - Diablo 2 Database";
     
+    // Item Objects
     public $item;
     public $similar = array();
+    public $variants = array();
+    public $siblings = array();
     
+    // URL Option
     public $json = false;
     
     public function get() {

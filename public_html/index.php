@@ -19,8 +19,6 @@ F3::config(__SITE_PATH . "/f3config.cfg");
 // Framework Variables
 F3::set('E404', "e404.html");
 F3::set('GUI', __SITE_PATH . "/application/views/");
-F3::set('RELEASE', false);
-F3::set('CACHE', true);
 
 // Application Routes
 F3::route('GET /', array(new RootController, 'get'));
@@ -28,6 +26,7 @@ F3::route('GET /loot', array(new LootDirectoryController, 'get'));
 F3::route('GET /loot/@item', array(new LootController, 'get'));
 F3::route('GET /search', array(new SearchController, 'get'));
 F3::route('GET /admin', array(new AdminController, 'get'));
+F3::route('GET /sandbox', array(new SandboxController, 'get'));
 
 // Let's Roll Out, Autobots!
 F3::run();
