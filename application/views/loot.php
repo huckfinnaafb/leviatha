@@ -1,7 +1,7 @@
 <div class="line">
     <div class="unit" style="width:70%">
-        <div class="mod mod-item style-bg-rough style-shadow">
-            <h1 class="h-item style-gradient <?php echo $this->item->rarity; ?>"><?php echo $this->item->name; ?></h1>
+        <div class="mod mod-item style-shadow">
+            <h1 class="h-item mod-fit style-gradient <?php echo $this->item->rarity; ?>"><?php echo $this->item->name; ?></h1>
 
             <div class="mod mod-fit">
                 <div class="line">

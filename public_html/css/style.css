@@ -64,9 +64,9 @@ body{color:#333;font-family:sans-serif;font-size:14px;line-height:1.5}
     background: linear-gradient(top, rgba(22,23,25,1) 0%,rgba(0,0,0,1) 100%); /* W3C */
 }
 .style-shadow{
-    -webkit-box-shadow: 0 0 15px 1px #919191;
-    -moz-box-shadow: 0 0 15px 1px #919191;
-    box-shadow: 0 0 15px 1px #919191;
+    -webkit-box-shadow: 0px 3px 15px 0px #555555;
+    -moz-box-shadow: 0px 3px 15px 0px #555555;
+    box-shadow: 0px 3px 15px 0px #555555;
 }
 
 /* Modules */
@@ -90,7 +90,7 @@ body{color:#333;font-family:sans-serif;font-size:14px;line-height:1.5}
         padding:12px;
     }
     .mod-fit{
-        margin:-12px -12px 12px -12px;
+        margin:0 -12px 0 -12px;
     }
     .mod-notify{
         background-position:8px center;
@@ -162,7 +162,6 @@ h6{font-size:0.75em}
     font-size:32px;
     font-variant:small-caps;
     letter-spacing:2px;
-    margin:0 -12px 12px -12px;
     padding-left:8px;
     text-shadow:1px 1px 1px #000;
     overflow:auto;
