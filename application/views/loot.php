@@ -88,7 +88,7 @@
                         foreach ($this->siblings as $sibling) { ?>
                             <a class="link-block" href="/loot/<?php echo $sibling->urlname; ?>">
                                 <div class="node node-item">
-                                    <img class="img-itemthumb" src="/img/lena32.png">
+                                    <img class="img-itemthumb" src="/img/stormshield32.png">
                                     <p><?php echo $sibling->name; ?></p>
                                     <p class="text-info"><?php echo $sibling->level . " " . $sibling->parent; ?></p>
                                 </div>
@@ -107,7 +107,7 @@
                         foreach($this->variants as $variant) { ?>
                             <a class="link-block" href="/loot/<?php echo $variant->urlname; ?>">
                                 <div class="node node-item">
-                                    <img class="img-itemthumb" src="/img/lena32.png">
+                                    <img class="img-itemthumb" src="/img/stormshield32.png">
                                     <p><?php echo $variant->name; ?></p>
                                     <p class="text-info"><?php echo $variant->level . " " . $variant->parent; ?></p>
                                 </div>
@@ -126,7 +126,7 @@
                         foreach($this->similar as $similar) { ?>
                             <a class="link-block" href="/loot/<?php echo $similar->urlname; ?>">
                                 <div class="node node-item">
-                                    <img class="img-itemthumb" src="/img/lena32.png">
+                                    <img class="img-itemthumb" src="/img/stormshield32.png">
                                     <p><?php echo $similar->name; ?></p>
                                     <p class="text-info"><?php echo $similar->level . " " . $similar->parent; ?></p>
                                 </div>
