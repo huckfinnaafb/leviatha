@@ -80,7 +80,7 @@
         <?php
         
             // Family Members
-            if (isset($this->siblings)) { ?>
+            if (isset($this->siblings) && ($this->siblings)) { ?>
                 <div class="mod mod-side style-shadow">
                     <h1 class="h-side h-box style-gradient"><?php echo $this->item->family; ?> Family</h1>
                     <?php
@@ -99,7 +99,7 @@
             <?php }
         
             // Variants
-            if (isset($this->variants)) { ?>
+            if (isset($this->variants) && ($this->variants)) { ?>
                 <div class="mod mod-side style-shadow">
                     <h1 class="h-side h-box style-gradient">Variants</h1>
                     
