@@ -44,10 +44,10 @@ class RootController {
             "text" => "World",
 			"title" => "The World of Sanctuary"
         ),
-        "/builds/" => array(
+        "/classes/" => array(
             "enabled" => true,
             "selected" => false,
-            "text" => "Builds",
+            "text" => "Classes",
 			"title" => "Class Builds and Skills"
         ),
         "/community/" => array(
