@@ -315,5 +315,5 @@ ul li{list-style-type:none}
 
 /* Forms */
 .form-search{margin-top:7px;text-align:right;margin-right:12px}
-.input-text{background-color:#fafafa;background-image:url("/img/searchicon.png");background-position:3px center;background-repeat:no-repeat;border:1px solid #111;font-size:16px;height:24px;padding-left:32px;padding-top:2px;width:240px}
+.input-text{background-color:#fafafa;background-image:url("/img/searchicon.png");background-position:3px center;background-repeat:no-repeat;border:1px solid #111;font-size:16px;height:24px;padding-left:32px;padding-top:2px;width:180px}
 .input-submit{height:30px;width:60px}
