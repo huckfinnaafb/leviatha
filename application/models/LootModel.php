@@ -43,7 +43,7 @@ class LootModel extends RootModel {
             ORDER BY rarity DESC, level DESC
         ",
             
-        "types" => "SELECT DISTINCT loot_types.type, loot_types.code, loot_types.kingdom FROM loot_types JOIN loot ON loot.type = loot_types.code"
+        "types" => "SELECT DISTINCT loot_types.type, loot_types.code, loot_types.kingdom FROM loot_types JOIN loot ON loot.type = loot_types.code ORDER BY type"
     );
     
     /**
