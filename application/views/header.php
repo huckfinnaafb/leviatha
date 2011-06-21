@@ -1,5 +1,5 @@
 <div class="mod">
-    <img width=348 height=50 src="/img/logosmall.png">
+    <a href="/"><img width=348 height=50 src="/img/logosmall.png"></a>
 </div>
 <nav class="mod mod-nav style-gradient style-shadow">
     <div style="float:left">
@@ -8,7 +8,11 @@
             // Home Navigation
             foreach($this->navigation as $k => $link) {
                 if ($link['enabled']) {
-                    echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav\">" . $link['text'] . "</a>\n\t";
+                    if ($link['selected']) {
+                        echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav link-nav-selected\">" . $link['text'] . "</a>\n\t";
+                    } else {
+                        echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav\">" . $link['text'] . "</a>\n\t";
+                    }
                 }
             }
         ?>

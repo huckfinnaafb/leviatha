@@ -50,6 +50,8 @@ class LootController extends RootController {
             }
         }
         
+        $this->navigation['/loot/']['selected'] = true;
+        
         if ($this->item) {
             if ($this->json) {
                 $this->title = $this->item['name'] . " - Diablo 2 Database";

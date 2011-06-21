@@ -65,6 +65,7 @@ class RootController {
     );
     
     public function get() {
+        $this->navigation['/']['selected'] = true;
         $this->render('home.php');
     }
     
