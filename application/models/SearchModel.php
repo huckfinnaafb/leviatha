@@ -7,8 +7,15 @@ class SearchModel extends RootModel {
     
     public $query = array(
         "items" => "
-            SELECT name, urlname, level, levelreq, rarity, COALESCE (class, division) AS relationship
+            SELECT 
+                loot.name, 
+                loot.urlname, 
+                loot.rarity, 
+                loot.level, 
+                loot.levelreq, 
+                loot_types.type AS relationship
             FROM loot
+                JOIN loot_types ON (loot_types.code = loot.type)
             WHERE urlname LIKE :term
         "
     );

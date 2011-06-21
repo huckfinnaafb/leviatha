@@ -1,2 +1,5 @@
-<?php
-    var_dump($this->item);
+<div class="mod">
+    <form method="POST" action="/sandbox">
+        <input type="submit">
+    </form>
+</div>

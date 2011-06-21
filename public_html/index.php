@@ -28,6 +28,7 @@ F3::route('GET /search', array(new SearchController, 'get'));
 if(!F3::get('RELEASE')) {
     F3::route('GET /admin', array(new AdminController, 'get'));
     F3::route('GET /sandbox', array(new SandboxController, 'get'));
+    F3::route('POST /sandbox', array(new SandboxController, 'post'));
 }
 
 // Let's Roll Out, Autobots!
