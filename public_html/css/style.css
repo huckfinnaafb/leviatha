@@ -261,10 +261,13 @@ a:hover{color:#bf4d4d;text-decoration:underline}
 }
 .link-nav:hover{color:#bf4d4d}
 .link-nav-selected{
-    color:#fff;
+    -webkit-box-shadow: inset 0px 0px 8px #222;
+    -moz-box-shadow: inset 0px 0px 8px #222;
+    box-shadow: inset 0px 0px 8px #222;
     background: #bf4d4d;
     background: -moz-linear-gradient(top, #bf4d4d 0%, #a62f2f 100%);
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bf4d4d), to(#a62f2f));
+    color:#fff;
 }
 .link-nav-selected:hover{color:#fff;}
 
