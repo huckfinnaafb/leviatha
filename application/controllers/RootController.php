@@ -60,7 +60,7 @@ class RootController {
     
     // Feature Kill Switch
     public $flag = array(
-        "exceptions" => true,
+        "notifications" => true,
         "search" => true
     );
     

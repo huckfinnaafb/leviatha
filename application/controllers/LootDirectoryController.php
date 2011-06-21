@@ -18,7 +18,7 @@ class LootDirectoryController extends RootController {
         // Fetch Division -> Kingdom Relationships
         $this->relations = $loot->relations();
         
-        F3::set('EXCEPTION.tip', "Items are sorted alphabetically by their parent, then by descending rarity and level.");
+        F3::set('NOTIFY.tip', "Items are sorted alphabetically by their parent, then by descending rarity and level.");
         $this->navigation['/loot/']['selected'] = true;
         $this->render('lootdirectory.php');
     }

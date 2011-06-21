@@ -1,7 +1,7 @@
 $(document).ready(function() { 
     
     // Fade In Notifications
-    $(".mod-notify").show(200);
+    $(".js-fadein").show(200);
     
     // Search Results Pagination
     if ($("#searchresults").length) {

@@ -1,4 +1,4 @@
-<div class="mod mod-directory">
+<div class="mod">
 <div class="line">
 <?php
 foreach($this->kingdoms as $kingdom) { ?>

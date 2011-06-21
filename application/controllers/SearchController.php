@@ -25,18 +25,17 @@ class SearchController extends RootController {
                     
                     $this->title = "Search: \"" . $query . "\" - Diablo 2 Database";
                     $this->heading = "Search: \"" . $query . "\"";
-                    F3::set('EXCEPTION.success', "Rejoice! " . count($this->results) . " results found!");
                     $this->render('search.php');
                 } else {
                     $this->heading = "Search: \"" . $query . "\"";
-                    F3::set('EXCEPTION.warning', "Nothing found in the database. Try the <a href=/loot/>Loot Directory</a>.");
+                    F3::set('NOTIFY.warning', "Nothing found in the database. Try the <a href=/loot/>Loot Directory</a>.");
                     $this->render('blank.php');
                 }
             } else {
                 F3::reroute('/');
             }
         } else {
-            F3::set('EXCEPTION.warning', "Search is temporarily disabled. Please try again later.");
+            F3::set('NOTIFY.warning', "Search is temporarily disabled. Please try again later.");
             $this->render('blank.php');
         }
     }

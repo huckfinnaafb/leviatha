@@ -21,41 +21,29 @@
                 echo "<link rel=\"stylesheet\" href=\"/css/{$style}.css\">\n\t";
             }
         ?>
-
     </head>
     <body>
         <div class="page">
-            
             <?php include (F3::get('GUI') . "header.php"); ?>
-            
             <?php if (isset($this->heading)) { ?>
                 <div class="mod">
                     <h1 class="h-page"><?php echo $this->heading; ?></h1>
                 </div>
             <?php } ?>
-            
             <?php
             
                 // Notifications
-                if ($this->flag['exceptions']) {
-                    if (F3::get('EXCEPTION.error')) {
-                        echo "<p class=\"mod mod-notify mod-error\">" . F3::get('EXCEPTION.error') . "</p>";
-                    } else if (F3::get('EXCEPTION.warning')) {
-                        echo "<p class=\"mod mod-notify mod-warning\">" . F3::get('EXCEPTION.warning') . "</p>";
-                    } else if (F3::get('EXCEPTION.tip')) {
-                        echo "<p class=\"mod mod-notify mod-tip\">" . F3::get('EXCEPTION.tip') . "</p>";
-                    } else if (F3::get('EXCEPTION.success')) {
-                        echo "<p class=\"mod mod-notify mod-success\">" . F3::get('EXCEPTION.success') . "</p>";
-                    }
+                if ($this->flag['notifications']) {
+                    if (F3::get('NOTIFY.error')) { echo "<p class=\"mod mod-notify mod-error js-fadein\">" . F3::get('NOTIFY.error') . "</p>"; }
+                    if (F3::get('NOTIFY.success')) { echo "<p class=\"mod mod-notify mod-success js-fadein\">" . F3::get('NOTIFY.success') . "</p>"; }
+                    if (F3::get('NOTIFY.tip')) { echo "<p class=\"mod mod-notify mod-tip js-fadein\">" . F3::get('NOTIFY.tip') . "</p>"; }
+                    if (F3::get('NOTIFY.warning')) { echo "<p class=\"mod mod-notify mod-warning js-fadein\">" . F3::get('NOTIFY.warning') . "</p>"; }
                 }
             ?>
-            
             <?php include (F3::get('GUI') . $file); ?>
-            
             <?php include (F3::get('GUI') . "footer.php"); ?>
         
         </div>
-        
         <?php
         
             // Dynamic Script Loading
@@ -63,7 +51,6 @@
                 echo "<script src=\"/jscript/{$script}.js\"></script>\n\t";
             }
         ?>
-        
         <?php if (F3::get('RELEASE')) { ?>
             <!-- Google Analytics -->
             <script type="text/javascript">

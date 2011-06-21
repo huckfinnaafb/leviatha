@@ -1,3 +1,6 @@
+<div class="mod mod-notify mod-success js-fadein">
+    <p>Rejoice! <?php echo count($this->results); ?> matches found!</p>
+</div>
 <div class="mod">
     <table id="searchresults" class="table-search">
         <colgroup>

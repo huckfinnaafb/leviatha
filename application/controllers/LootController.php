@@ -61,7 +61,7 @@ class LootController extends RootController {
                 $this->render('loot.php');
             }
         } else {
-            F3::set('EXCEPTION.error', "Doh! This item doesn't seem to be in our database.");
+            F3::set('NOTIFY.error', "Doh! This item doesn't seem to be in our database.");
             $this->render('blank.php');
         }
     }
