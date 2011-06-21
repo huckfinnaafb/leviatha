@@ -1,3 +1,6 @@
+<div class="mod">
+    <img width=348 height=50 src="/img/logosmall.png">
+</div>
 <nav class="mod mod-nav style-gradient style-shadow">
     <div style="float:left">
         <?php

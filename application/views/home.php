@@ -1,6 +1,3 @@
-<div class="mod" style="margin-top:30px">
-    <img width=668 height=96 src="/img/logo8.png">
-</div>
 <div class="mod">
     <h1 class="text-power">The most comprehensive Diablo 2 Database on the web!</h1>
     <p class="text-quote">Well, we think.</p>
