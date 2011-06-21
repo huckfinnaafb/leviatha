@@ -1,6 +1,6 @@
 $(document).ready(function() { 
     
-    // Fade In Notifications
+    // Fade In Stuff
     $(".js-fadein").show(200);
     
     // Search Results Pagination

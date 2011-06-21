@@ -119,6 +119,7 @@ body{color:#333;font-family:sans-serif;font-size:14px;line-height:1.5}
             border: 1px solid #2f72a6;
             border-bottom: 1px solid #2b5f99;
         }
+            .mod-tip a:link, .mod-tip a:visited { color: #fff }
         .mod-error{
             background: #bf4d4d;
             background: -moz-linear-gradient(top, #bf4d4d 0%, #a62f2f 100%);

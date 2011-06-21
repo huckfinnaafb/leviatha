@@ -21,10 +21,29 @@ class LootModel extends RootModel {
         "properties_family" => "SELECT * FROM loot_properties_family JOIN translate_loot_properties ON translate_loot_properties.property = loot_properties_family.property WHERE set_family = :family",
         "family"            => "SELECT * FROM relate_loot_set WHERE set_item = :item",
         "siblings"          => "SELECT loot.id, loot.urlname FROM relate_loot_set JOIN loot ON loot.name = relate_loot_set.set_item WHERE set_family = :family",
-        "all"               => "SELECT * FROM loot ORDER BY rarity DESC, level DESC",
         "similar"           => "SELECT loot.id, loot.urlname FROM loot WHERE (level >= :level) AND (division = :division) AND (rarity != 'normal') NOT IN (name = :item) ORDER BY level ASC LIMIT :limit",
         "variants"          => "SELECT loot.id, loot.urlname FROM loot WHERE (class = :item) AND (rarity != 'normal') ORDER BY level DESC",
-        "divisions"         => "SELECT * FROM relate_division"
+        
+        "all"               => "
+            SELECT 
+                loot.id, 
+                loot.name,
+                loot.urlname, 
+                loot.rarity, 
+                loot.grade, 
+                loot.level, 
+                loot.levelreq, 
+                loot.code,
+                loot.type,
+                loot.base,
+                loot_types.type AS parent,
+                loot_types.class
+            FROM loot 
+            JOIN loot_types ON loot.type = loot_types.code 
+            ORDER BY rarity DESC, level DESC
+        ",
+            
+        "types" => "SELECT DISTINCT loot_types.type, loot_types.code, loot_types.kingdom FROM loot_types JOIN loot ON loot.type = loot_types.code"
     );
     
     /**
@@ -155,7 +174,7 @@ class LootModel extends RootModel {
     }
     
     /**
-        Fetch all items and their shared properties
+        Fetch All Item and Basic Properties
             @public
     **/
     public function all() {
@@ -163,10 +182,10 @@ class LootModel extends RootModel {
     }
     
     /**
-        Fetch division -> kingdom relationships
+        Fetch Item Types That Have Relevant Items Attached to Them
             @public
     **/
-    public function relations() {
-        return F3::sqlBind($this->query['divisions']);
+    public function types() {
+        return F3::sqlBind($this->query['types']);
     }
 }
