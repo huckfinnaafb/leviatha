@@ -22,8 +22,10 @@ class SearchController extends RootController {
                     if (count($this->results) == 1 && $this->redirect) {
                         F3::reroute('/loot/' . $this->results[0]['urlname']);
                     }
-                    $this->heading = "Search: \"" . $query . "\"";
+                    
                     $this->title = "Search: \"" . $query . "\" - Diablo 2 Database";
+                    $this->heading = "Search: \"" . $query . "\"";
+                    F3::set('EXCEPTION.success', "Rejoice! " . count($this->results) . " results found!");
                     $this->render('search.php');
                 } else {
                     $this->heading = "Search: \"" . $query . "\"";

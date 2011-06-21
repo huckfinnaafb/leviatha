@@ -1,5 +1,8 @@
 $(document).ready(function() { 
     
+    // Fade In Notifications
+    $(".mod-notify").show(200);
+    
     // Search Results Pagination
     if ($("#searchresults").length) {
         $("#searchresults").tablesorter({
@@ -9,9 +12,6 @@ $(document).ready(function() {
             container: $("#pager")
         }); 
     }
-    
-    // Fade In Tips
-    $(".mod-notify").show(400);
     
     /* Search Auto-Suggest
     $.getJSON("/jscript/ajax/names.php", function(leviatha) {

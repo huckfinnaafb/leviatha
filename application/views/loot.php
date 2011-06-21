@@ -81,7 +81,7 @@
         
             // Family Members
             if ($this->siblings) { ?>
-                <div class="mod mod-side style-shadow">
+                <div class="mod mod-side">
                     <h1 class="h-side h-box style-gradient"><?php echo $this->item->family; ?> Family</h1>
                     <?php
                         
@@ -100,7 +100,7 @@
         
             // Variants
             if ($this->variants) { ?>
-                <div class="mod mod-side style-shadow">
+                <div class="mod mod-side">
                     <h1 class="h-side h-box style-gradient">Variants</h1>
                     
                     <?php
@@ -119,7 +119,7 @@
             
             // Similar
             if ($this->similar) { ?>
-                <div class="mod mod-side style-shadow">
+                <div class="mod mod-side">
                     <h1 class="h-side h-box style-gradient">Similar</h1>
                     
                     <?php
