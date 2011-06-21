@@ -58,10 +58,10 @@ class RootController {
         )
     );
     
-    // Feature Switch
+    // Feature Kill Switch
     public $flag = array(
         "exceptions" => true,
-        "search" => true
+        "search" => false
     );
     
     public function get() {

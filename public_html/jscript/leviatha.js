@@ -1,17 +1,19 @@
 $(document).ready(function() { 
     
     // Search Results Pagination
-    $("#searchresults").tablesorter({
-        sortList: [[4,1]],
-        widgets: ['zebra']
-    }).tablesorterPager({
-        container: $("#pager")
-    }); 
+    if ($("#searchresults").length) {
+        $("#searchresults").tablesorter({
+            sortList: [[4,1]],
+            widgets: ['zebra']
+        }).tablesorterPager({
+            container: $("#pager")
+        }); 
+    }
     
-    // Search Focus
-    $('#search').focus();
+    // Fade In Tips
+    $(".mod-notify").show(400);
     
-    // Search Auto-Suggest
+    /* Search Auto-Suggest
     $.getJSON("/jscript/ajax/names.php", function(leviatha) {
         var limit = 5;
         $('#search').keyup(function() {
@@ -40,5 +42,5 @@ $(document).ready(function() {
                 $('#autocomplete').append("<li class='js-autocomplete'><a class='link-autocomplete' href='/loot/" + urlname + "'>" + hints[i].slice(0, this.value.length) + "<b>" + hints[i].slice(this.value.length, hints[i].length) + "</b>" + "</a></li>");
             }
         });
-    });
+    });*/
 });
