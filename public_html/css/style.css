@@ -359,9 +359,9 @@ td{border-bottom:1px solid #ddd;font-size:12px;padding:6px;vertical-align:middle
 /* Lists */
 ul li{list-style-type:none}
 .list-autocomplete{position:relative;left:-32px;width:424px;margin:auto}
-.list-directory{padding-left:1em}
+.list-directory{background-color:#f9f9f9;margin-bottom:12px;margin-top:12px;padding:12px}
 .list-directory ul{padding-left:2em}
-.list-iteminfo li{font-size:12px;line-height:1.5;list-style-type:none}
+.list-iteminfo li{font-size:12px;line-height:1.5;list-style-type:none;}
 .list-stack{
     margin-top:12px;
     margin-bottom:12px;
