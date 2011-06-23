@@ -24,7 +24,39 @@
     </head>
     <body>
         <div class="page">
-            <?php include (F3::get('GUI') . "header.php"); ?>
+            <div class="line">
+                <div class="mod" style="float:left">
+                    <a href="/"><img width=348 height=50 src="/img/logosmall.png"></a>
+                </div>
+                <div class="mod mod-dropdown" style="float:right">
+                    <p>Greetings, stranger.</p>
+                </div>
+            </div>
+            <nav class="mod mod-nav style-gradient style-shadow">
+                <div style="float:left">
+                    <?php
+                    
+                        // Home Navigation
+                        foreach($this->navigation as $k => $link) {
+                            if ($link['enabled']) {
+                                if ($link['selected']) {
+                                    echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav link-nav-selected\">" . $link['text'] . "</a>\n\t";
+                                } else {
+                                    echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav\">" . $link['text'] . "</a>\n\t";
+                                }
+                            }
+                        }
+                    ?>
+                </div>
+                <div style="float:right">
+                    <form action="/search" method="get" class="form-search">
+                        <fieldset>
+                            <input type="text" class="input-text" name="q" x-webkit-speech/>
+                            <input type="submit" class="input-submit" value="Search"/>
+                        </fieldset>
+                    </form>
+                </div>
+            </nav>
             <?php if (isset($this->heading)) { ?>
                 <div class="mod">
                     <h1 class="h-page"><?php echo $this->heading; ?></h1>
@@ -41,7 +73,10 @@
                 }
             ?>
             <?php include (F3::get('GUI') . $file); ?>
-            <?php include (F3::get('GUI') . "footer.php"); ?>
+            <div class="mod mod-footer">
+                <p class="text-subtle" style="text-align:center;margin-bottom:20px">Leviatha.org | Diablo II Database | <a href="mailto:huckfinnaafb@gmail.com">Samuel Ferrell</a> | 2011 | <a href="https://github.com/huckfinnaafb/Leviatha">GitHub</a></p>
+                <img title="Software Used for Development of Leviatha" src="/img/software.png">
+            </div>
         
         </div>
         <?php

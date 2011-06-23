@@ -6,10 +6,10 @@
                 <?php foreach ($this->types as $type) { 
                     if ($type['kingdom'] == $k) { ?>
                         <ul class="list-directory">
-                            <li><h2><?php echo ucwords($type['type']); ?></h2></li>
+                            <h2><?php echo ucwords($type['type']); ?></h2>
                             <?php foreach($this->items as $item) { 
                                 if ($item['type'] == $type['code']) { ?>
-                                    <li><a href="/loot/<?php echo $item['urlname']; ?>"><?php echo $item['name']; ?></a></li>
+                                    <li class="<?php echo $item['rarity']; ?>"><a href="/loot/<?php echo $item['urlname']; ?>"><?php echo $item['name']; ?></a></li>
                                 <?php }
                             } ?>
                         </ul>
