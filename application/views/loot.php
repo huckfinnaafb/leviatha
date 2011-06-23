@@ -6,7 +6,7 @@
             <div class="mod mod-fit">
                 <div class="line">
                     <div class="unit size1of4">
-                        <div class="node node-button"><p class="text-data"><?php echo $this->item->parent; ?></p></div>
+                        <div class="node node-button"><p class="text-data"><?php echo ucwords($this->item->parent); ?></p></div>
                     </div>
                     <div class="unit size1of4">
                         <div class="node node-button"><p>Level: <span class="text-data"><?php echo $this->item->level; ?></span></p></div>

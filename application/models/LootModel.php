@@ -8,14 +8,30 @@ class LootModel extends RootModel {
     
     // Loot Options
     private $options = array(
-        "verbose" => true,
+        "verbose" => false,
         "spread" => 25,
         "count" => 6
     );
     
     // SQL Query Array
     private $query = array(
-        "item"              => "SELECT * FROM loot WHERE urlname = :item",
+        "item"              => 
+            "
+                SELECT 
+                    loot.id, 
+                    loot.name, 
+                    loot.urlname, 
+                    loot.level, 
+                    loot.levelreq, 
+                    loot.rarity, 
+                    loot.grade,
+                    loot_types.type AS parent,
+                    loot_types.class
+                FROM loot 
+                JOIN loot_types ON loot.type = loot_types.code 
+                WHERE urlname = :item
+            ",
+            
         "properties"        => "SELECT * FROM loot_properties JOIN translate_loot_properties ON translate_loot_properties.property = loot_properties.property WHERE name = :item AND req_equip = 0 AND display = 1",
         "properties_set"    => "SELECT * FROM loot_properties JOIN translate_loot_properties ON translate_loot_properties.property = loot_properties.property WHERE name = :item AND req_equip > 0",
         "properties_family" => "SELECT * FROM loot_properties_family JOIN translate_loot_properties ON translate_loot_properties.property = loot_properties_family.property WHERE set_family = :family",
@@ -91,9 +107,6 @@ class LootModel extends RootModel {
         foreach($shared as $key => $attribute) {
             $item->$key = $attribute;
         }
-        
-        // Determine Item Parent
-        $item->parent = (is_null($item->class)) ? $item->division : $item->class;
         
          // Fetch and translate item properties
         if ($this->options['verbose']) {
