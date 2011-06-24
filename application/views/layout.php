@@ -2,6 +2,7 @@
 <html lang="<?= $this->language ?>" dir="<?php echo $this->direction ?>">
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title><?php echo $this->title ?></title>
         <meta name="description" content="<?php echo $this->description; ?>">
         <meta name="keywords" content="<?php echo $this->keywords; ?>">
@@ -29,7 +30,7 @@
                     <a href="/"><img width=348 height=50 src="/img/logosmall.png"></a>
                 </div>
                 <div class="mod mod-dropdown" style="float:right">
-                    <p>Greetings, stranger.</p>
+                    <p>Stay a while, and listen.</p>
                 </div>
             </div>
             <nav class="mod mod-nav style-gradient style-shadow">
@@ -77,8 +78,8 @@
                 <p class="text-subtle" style="text-align:center;margin-bottom:20px">Leviatha.org | Diablo II Database | <a href="mailto:huckfinnaafb@gmail.com">Samuel Ferrell</a> | 2011 | <a href="https://github.com/huckfinnaafb/Leviatha">GitHub</a></p>
                 <img title="Software Used for Development of Leviatha" src="/img/software.png">
             </div>
-        
         </div>
+        
         <?php
         
             // Dynamic Script Loading

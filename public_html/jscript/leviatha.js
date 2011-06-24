@@ -1,4 +1,4 @@
-$(document).ready(function() { 
+$(document).ready(function() {
     
     // Fade In Stuff
     $(".js-fadein").show(200);
