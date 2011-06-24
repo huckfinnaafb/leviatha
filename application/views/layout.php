@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="<?= $this->language ?>" dir="<?php echo $this->direction ?>">
     <head>
         <meta charset="utf-8">
@@ -25,39 +25,41 @@
     </head>
     <body>
         <div class="page">
-            <div class="line">
-                <div class="mod" style="float:left">
-                    <a href="/"><img width=348 height=50 src="/img/logosmall.png"></a>
+            <header>
+                <div class="line">
+                    <div class="mod" style="float:left">
+                        <a href="/"><img width=348 height=50 src="/img/logosmall.png"></a>
+                    </div>
+                    <div class="mod mod-dropdown" style="float:right">
+                        <p>Stay a while, and listen.</p>
+                    </div>
                 </div>
-                <div class="mod mod-dropdown" style="float:right">
-                    <p>Stay a while, and listen.</p>
-                </div>
-            </div>
-            <nav class="mod mod-nav style-gradient style-shadow">
-                <div style="float:left">
-                    <?php
-                    
-                        // Home Navigation
-                        foreach($this->navigation as $k => $link) {
-                            if ($link['enabled']) {
-                                if ($link['selected']) {
-                                    echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav link-nav-selected\">" . $link['text'] . "</a>\n\t";
-                                } else {
-                                    echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav\">" . $link['text'] . "</a>\n\t";
+                <nav class="mod mod-nav style-gradient style-shadow">
+                    <div style="float:left">
+                        <?php
+                        
+                            // Home Navigation
+                            foreach($this->navigation as $k => $link) {
+                                if ($link['enabled']) {
+                                    if ($link['selected']) {
+                                        echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav link-nav-selected\">" . $link['text'] . "</a>\n\t";
+                                    } else {
+                                        echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav\">" . $link['text'] . "</a>\n\t";
+                                    }
                                 }
                             }
-                        }
-                    ?>
-                </div>
-                <div style="float:right">
-                    <form action="/search" method="get" class="form-search">
-                        <fieldset>
-                            <input type="text" class="input-text" name="q" x-webkit-speech/>
-                            <input type="submit" class="input-submit" value="Search"/>
-                        </fieldset>
-                    </form>
-                </div>
-            </nav>
+                        ?>
+                    </div>
+                    <div style="float:right">
+                        <form action="/search" method="get" class="form-search">
+                            <fieldset>
+                                <input type="text" class="input-text" name="q" x-webkit-speech/>
+                                <input type="submit" class="input-submit" value="Search"/>
+                            </fieldset>
+                        </form>
+                    </div>
+                </nav>
+            </header>
             <?php if (isset($this->heading)) { ?>
                 <div class="mod">
                     <h1 class="h-page"><?php echo $this->heading; ?></h1>
