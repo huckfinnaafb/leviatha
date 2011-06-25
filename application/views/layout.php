@@ -30,11 +30,11 @@
                     <div class="mod" style="float:left">
                         <a href="/"><img width=348 height=50 src="/img/logosmall.png"></a>
                     </div>
-                    <div class="mod mod-dropdown" style="float:right">
+                    <div class="mod mod-dropdown pattern-gradient2" style="float:right;margin-right:40px">
                         <p>Stay a while, and listen.</p>
                     </div>
                 </div>
-                <nav class="mod mod-nav style-gradient style-shadow">
+                <nav class="mod pattern-gradient pattern-shadow" style="margin:0 0 12px 0">
                     <div style="float:left">
                         <?php
                         
@@ -53,8 +53,8 @@
                     <div style="float:right">
                         <form action="/search" method="get" class="form-search">
                             <fieldset>
-                                <input type="text" class="input-text" name="q" x-webkit-speech/>
-                                <input type="submit" class="input-submit" value="Search"/>
+                                <input type="text" class="input-search" name="q" x-webkit-speech/>
+                                <input type="submit" class="submit-search" value="Search"/>
                             </fieldset>
                         </form>
                     </div>
@@ -69,15 +69,15 @@
             
                 // Notifications
                 if ($this->flag['notifications']) {
-                    if (F3::get('NOTIFY.error')) { echo "<p class=\"mod mod-notify mod-error js-fadein\">" . F3::get('NOTIFY.error') . "</p>"; }
-                    if (F3::get('NOTIFY.success')) { echo "<p class=\"mod mod-notify mod-success js-fadein\">" . F3::get('NOTIFY.success') . "</p>"; }
-                    if (F3::get('NOTIFY.tip')) { echo "<p class=\"mod mod-notify mod-tip js-fadein\">" . F3::get('NOTIFY.tip') . "</p>"; }
-                    if (F3::get('NOTIFY.warning')) { echo "<p class=\"mod mod-notify mod-warning js-fadein\">" . F3::get('NOTIFY.warning') . "</p>"; }
+                    if (F3::get('NOTIFY.error')) { echo "<p class=\"mod mod-button pattern-error js-fadein\">" . F3::get('NOTIFY.error') . "</p>"; }
+                    if (F3::get('NOTIFY.success')) { echo "<p class=\"mod mod-button pattern-success js-fadein\">" . F3::get('NOTIFY.success') . "</p>"; }
+                    if (F3::get('NOTIFY.tip')) { echo "<p class=\"mod mod-button pattern-tip js-fadein\">" . F3::get('NOTIFY.tip') . "</p>"; }
+                    if (F3::get('NOTIFY.warning')) { echo "<p class=\"mod mod-button pattern-warning js-fadein\">" . F3::get('NOTIFY.warning') . "</p>"; }
                 }
             ?>
             <?php include (F3::get('GUI') . $file); ?>
-            <div class="mod mod-footer">
-                <p class="text-subtle" style="text-align:center;margin-bottom:20px">Leviatha.org | Diablo II Database | <a href="mailto:huckfinnaafb@gmail.com">Samuel Ferrell</a> | 2011 | <a href="https://github.com/huckfinnaafb/Leviatha">GitHub</a></p>
+            <div class="mod" style="text-align:center;margin-top:40px;margin-bottom:40px">
+                <p class="text-subtle" style="margin-bottom:10px">Leviatha.org | Diablo II Database | <a href="mailto:huckfinnaafb@gmail.com">Samuel Ferrell</a> | 2011 | <a href="https://github.com/huckfinnaafb/Leviatha">GitHub</a></p>
                 <img title="Software Used for Development of Leviatha" src="/img/software.png">
             </div>
         </div>

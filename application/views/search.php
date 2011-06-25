@@ -1,8 +1,8 @@
-<div class="mod mod-notify mod-success js-fadein">
+<div class="mod mod-button pattern-success js-fadein">
     <p>Rejoice! <?php echo count($this->results); ?> matches found!</p>
 </div>
 <div class="mod">
-    <table id="searchresults" class="table-search">
+    <table id="searchresults">
         <colgroup>
             <col style="width: 300px">
             <col style="width: 200px">
@@ -10,16 +10,16 @@
             <col style="width: 100px">
             <col style="width: 100px">
         </colgroup>
-        <thead class="thead-search">
+        <thead>
             <tr>
-                <th class="theading-search">Name</th>
-                <th class="theading-search">Parent</th>
-                <th class="theading-search">Rarity</th>
-                <th class="theading-search">Level Req.</th>
-                <th class="theading-search">Item Level</th>
+                <th class="sortable">Name</th>
+                <th class="sortable">Parent</th>
+                <th class="sortable">Rarity</th>
+                <th class="sortable">Level Req.</th>
+                <th class="sortable">Item Level</th>
             </tr>
         </thead>
-        <tbody class="tbody-search">
+        <tbody>
             <?php
                 foreach ($this->results as $result) { ?>
                     <tr>
