@@ -6,7 +6,7 @@
                 <?php foreach ($this->types as $type) { 
                     if ($type['kingdom'] == $k) { ?>
                         <ul class="bullets list-column">
-                            <h2"><?php echo ucwords($type['type']); ?></h2>
+                            <h2 style="font-size:18px"><?php echo ucwords($type['type']); ?></h2>
                             <?php foreach($this->items as $item) { 
                                 if ($item['type'] == $type['code']) { ?>
                                     <li class="<?php echo $item['rarity']; ?>"><a href="/loot/<?php echo $item['urlname']; ?>"><?php echo $item['name']; ?></a></li>
