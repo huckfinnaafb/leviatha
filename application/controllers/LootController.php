@@ -5,6 +5,7 @@ class LootController extends RootController {
     
     // Item Objects
     public $item;
+    public $parent = null;
     public $similar = array();
     public $variants = array();
     public $siblings = array();
@@ -61,7 +62,7 @@ class LootController extends RootController {
                 $this->render('loot.php');
             }
         } else {
-            F3::set('NOTIFY.error', "Doh! This item doesn't seem to be in our database.");
+            F3::set('NOTIFY.error', "Mysterious... this item doesn't seem to be in our database.");
             $this->render('blank.php');
         }
     }

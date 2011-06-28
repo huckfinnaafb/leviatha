@@ -1,4 +1,9 @@
 <?php
+/**
+    2011 Samuel Ferrell
+    Leviatha.org
+    The Leviatha Project
+**/
 class RootController {
     
     // Meta Information
@@ -58,7 +63,6 @@ class RootController {
         )
     );
     
-    // Feature Kill Switch
     public $flag = array(
         "notifications" => true,
         "search" => true
@@ -69,9 +73,6 @@ class RootController {
         $this->render('home.php');
     }
     
-    /**
-        Global render method - all visible content goes through hurr
-    **/
     public function render($file, $layout = true) {
         if ($layout) {
             include (F3::get('GUI') . "layout.php");

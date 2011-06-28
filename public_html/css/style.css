@@ -63,13 +63,15 @@ body{
 }
 header{}
 nav{}
-.page{}
+.page{min-width:970px}
 
 /* Modules */
 .mod{
     margin:12px;
     overflow:auto;
 }
+    .mod-padding{padding:12px}
+    
     /* mod-button is extended by pattern-tip, pattern-error, etc */
     .mod-button{
         -webkit-border-radius: 3px;
@@ -87,8 +89,8 @@ nav{}
     }
     .mod-main{
         background-color:#111;
-        padding:12px;
         border:1px solid #000;
+        color:#f2f2f2;
     }
     .mod-side{
         
@@ -144,17 +146,15 @@ nav{}
     color:#f2f2f2;
 }
 .pattern-gradient2{
-    border:1px solid #ddd;
+    border:1px solid #bbb;
     padding:8px;
-    background-color:#eee;
+    background-color:#E3E3E3;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     -moz-box-shadow: inset 0 0 1px 1px #f6f6f6;
     -webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
     box-shadow: inset 0 0 1px 1px #f6f6f6;
-    font-weight:bold;
-    font-size:12px;
     text-shadow: 0 1px 0 #fff;
 }
 .pattern-shadow{
@@ -183,6 +183,13 @@ h4{font-size:0.9em}
     padding-left:8px;
     font-size:18px;
     line-height:1.8;
+    margin-bottom:8px;
+}
+.h-serious{
+    font-variant:small-caps;
+    letter-spacing:1px;
+    text-shadow:1px 1px 1px #000;
+    font-family:"Times New Roman";
 }
 
 /* Text */
@@ -210,7 +217,7 @@ p{}
 
 /* Links */
 a{color:royalBlue;text-decoration:none}
-a:hover{color:#bf4d4d;text-decoration:underline}
+a:hover{color:#bf4d4d;text-decoration:none}
 
 .link-nav{
     border-top:1px solid #111;
@@ -243,8 +250,8 @@ a:hover{color:#bf4d4d;text-decoration:underline}
 
 /* Lists */
 ol{}
-ul{margin-bottom:8px;margin-top:8px}
-li{}
+ul{margin-bottom:8px}
+li{list-style-type:none}
 ul.bullets {padding-left:2.5em}
 ul.bullets li {list-style-type:disc}
 .list-stack{
@@ -324,6 +331,14 @@ input[type="radio"]{}
 .form-search{
     margin-top:9px;
     margin-right:12px;
+}
+
+/* Media */
+img{}
+.img-left{
+    float:left;
+    margin-right:8px;
+    margin-bottom:8px;
 }
 
 /* Javascript */

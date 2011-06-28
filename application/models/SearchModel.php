@@ -1,6 +1,6 @@
 <?php
 /**
-    Author: Samuel Ferrell
+    Author: Samuel Ferrell (huckfinnaafb@gmail.com)
     Purpose: Search the Database and return results
 **/
 class SearchModel extends RootModel {
@@ -30,19 +30,13 @@ class SearchModel extends RootModel {
         if ($term == '')
             return false;
         
-        // URL Friendly Item Name
-        $term = F3::slug($term);
-        
-        // Strip illegal characters
-        $term = str_replace(array("'"), "", $term);
-        
-        // Replace spaces
-        $term = str_replace(" ", "-", $term);
-        
-        // Wildcards
-        $term = "%" . $term . "%";
+        $term = $this->clean($term);
         
         // Query
         return F3::sqlBind($this->query['items'], array('term' => $term)) ?: false;
+    }
+    
+    public function clean($string) {
+        return "%" . F3::slug(str_replace('\'', '', str_replace(' ', '-', $string))) . "%";
     }
 }
