@@ -2,7 +2,7 @@
     <div class="unit" style="width:40%">
         <div class="mod mod-padding mod-main pattern-shadow pattern-gradient">
             <h1 class="h-serious <?php echo $this->item->rarity; ?>"><?php echo $this->item->name; ?></h1>
-            <div class="line">
+            <div class="line" style="margin-bottom:12px">
                 <div class="unit size1of2">
                     <p class="text-data"><?php echo ucwords($this->item->parent); ?></p>
                     <p>Rarity: <span style="font-weight:bold" class="<?php echo $this->item->rarity; ?>"><?php echo ucwords($this->item->rarity); ?></span></p>
@@ -17,50 +17,40 @@
             
                 // Normal Properties
                 if ($this->item->properties->normal) { ?>
-                    <div>
-                        <h3>Normal Properties</h3>
-                        <ul>
+                    <ul>
                         <?php 
                             foreach($this->item->properties->normal as $key => $value) { ?>
                                 <li><?php echo $this->item->properties->normal[$key]->translation . ": " . "<span class=\"text-data\">" . $this->item->properties->normal[$key]->value . "</span>"; ?></li>
                             <?php } 
                         ?>
-                        </ul>
-                    </div>
+                    </ul>
                 <?php }
             
                 // Magic Properties
                 if ($this->item->properties->magic) { ?>
-                    <div>
-                        <h3>Magic Properties</h3>
-                        <ul class="magic">
-                            <?php 
-                                foreach($this->item->properties->magic as $key => $value) { ?>
-                                    <li><?php echo $this->item->properties->magic[$key]->translation; ?></li>
-                                <?php } 
-                            ?>
-                        </ul>
-                    </div>
+                    <ul class="magic">
+                        <?php 
+                            foreach($this->item->properties->magic as $key => $value) { ?>
+                                <li><?php echo $this->item->properties->magic[$key]->translation; ?></li>
+                            <?php } 
+                        ?>
+                    </ul>
                 <?php }
             
                 // Set Properties
                 if ($this->item->properties->set) { ?>
-                    <div>
-                        <h3>Set Properties</h3>
-                        <ul class="set">
-                            <?php 
-                                foreach($this->item->properties->set as $key => $value) { ?>
-                                    <li><?php echo $this->item->properties->set[$key]->translation; ?></li>
-                                <?php } 
-                            ?>
-                        </ul>
-                    </div>
+                    <ul class="set">
+                        <?php 
+                            foreach($this->item->properties->set as $key => $value) { ?>
+                                <li><?php echo $this->item->properties->set[$key]->translation; ?></li>
+                            <?php } 
+                        ?>
+                    </ul>
                 <?php }
                 
                 // Family Properties
                 if ($this->item->properties->family) { ?>
                     <div>
-                        <h3>Family Properties</h3>
                         <ul class="family">
                             <?php 
                                 foreach($this->item->properties->family as $key => $value) { ?>

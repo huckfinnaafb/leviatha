@@ -154,12 +154,10 @@ class LootModel extends RootModel {
                         break;
                     
                     case "unique" : 
-                        //$item->properties['normal'] = F3::sqlBind($this->query['properties'], array("item" => $item->base));
                         $item->properties['magic'] = F3::sqlBind($this->query['properties_magic'], array("item" => $item->name));
                         break;
                     
                     case "set" :
-                        //$item->properties['normal'] = F3::sqlBind($this->query['properties'], array("item" => $item->class));
                         $item->properties['magic'] = F3::sqlBind($this->query['properties_magic'], array("item" => $item->name));
                         //$item->properties['set'] = F3::sqlBind($this->query['properties_set'], array("item" => $item->name));
                         break;
@@ -199,11 +197,11 @@ class LootModel extends RootModel {
     }
     
     public function family($family) {
-        
+    
     }
     
     public function similar($urlname) {
-
+    
     }
     
     public function variants($urlname) {

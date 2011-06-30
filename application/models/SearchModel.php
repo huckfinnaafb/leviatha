@@ -20,11 +20,6 @@ class SearchModel extends RootModel {
         "
     );
     
-    /**
-        Loot Search - Leave pagination up to Javascript/JQuery
-            @return mysql resource
-            @param $query string
-    **/
     public function items($term) {
     
         if ($term == '')

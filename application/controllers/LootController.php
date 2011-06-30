@@ -27,7 +27,7 @@ class LootController extends RootController {
         // URL Item Token
         $urlname = F3::get('PARAMS.item');
     
-        // Fetch Item Data
+        // Fetch Item
         $this->item = ($this->json) ? $loot->item($urlname) : json_decode($loot->item($urlname));
         
         // Fetch Similar

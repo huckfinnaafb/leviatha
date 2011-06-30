@@ -102,8 +102,6 @@ nav{}
         text-align:center;
         line-height:28px;
     }
-        
-/* Leaves */
 
 /* Patterns */
 .pattern-success{
@@ -208,7 +206,6 @@ p{}
     font-style:italic;
     padding-left:12px;
 }
-
 .normal{color:#888}
 .magic{color:royalBlue}
 .set{color:#00E10B}
@@ -245,7 +242,6 @@ a:hover{color:#bf4d4d;text-decoration:none}
         color:#fff;
     }
     .link-nav-selected:hover{color:#fff;}
-    
 .link-block{display:block}
 
 /* Lists */
@@ -265,7 +261,6 @@ ul.bullets li {list-style-type:disc}
         padding:4px 8px;
         margin:4px;
     }
-    
 .list-column{
     background-color:#f9f9f9;
     padding:12px;
@@ -327,7 +322,6 @@ input[type="radio"]{}
 .submit-search{
     height:30px;
 }
-
 .form-search{
     margin-top:9px;
     margin-right:12px;
