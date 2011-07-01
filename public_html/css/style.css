@@ -95,13 +95,6 @@ nav{}
     .mod-side{
         
     }
-    div.mod-dropdown{
-        border-top:0;
-        margin-top:0;
-        min-width:300px;
-        text-align:center;
-        line-height:28px;
-    }
 
 /* Patterns */
 .pattern-success{
@@ -242,6 +235,8 @@ a:hover{color:#bf4d4d;text-decoration:none}
         color:#fff;
     }
     .link-nav-selected:hover{color:#fff;}
+    .link-nav-disabled{color:#444;cursor:default;text-shadow:0 0 0 #fff}
+    .link-nav-disabled:hover{color:#444}
 .link-block{display:block}
 
 /* Lists */

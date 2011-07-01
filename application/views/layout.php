@@ -30,9 +30,6 @@
                     <div class="mod" style="float:left">
                         <a href="/"><img width=348 height=50 src="/img/logosmall.png"></a>
                     </div>
-                    <div class="mod mod-dropdown pattern-gradient2" style="float:right;margin-right:40px">
-                        <p>Stay a while, and listen.</p>
-                    </div>
                 </div>
                 <nav class="mod pattern-gradient pattern-shadow" style="margin:0 0 12px 0">
                     <div style="float:left">
@@ -46,6 +43,8 @@
                                     } else {
                                         echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav\">" . $link['text'] . "</a>\n\t";
                                     }
+                                } else {
+                                    echo "<a title=\"Coming Soon\" class=\"link-nav link-nav-disabled\">" . $link['text'] . "</a>\n\t";
                                 }
                             }
                         ?>

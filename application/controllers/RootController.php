@@ -38,25 +38,25 @@ class RootController {
 			"title" => "Loot Directory"
         ),
         "/monsters/" => array(
-            "enabled" => true,
+            "enabled" => false,
             "selected" => false,
             "text" => "Monsters",
 			"title" => "Monsters, oh my!"
         ),
         "/world/" => array(
-            "enabled" => true,
+            "enabled" => false,
             "selected" => false,
             "text" => "World",
 			"title" => "The World of Sanctuary"
         ),
         "/classes/" => array(
-            "enabled" => true,
+            "enabled" => false,
             "selected" => false,
             "text" => "Classes",
 			"title" => "Class Builds and Skills"
         ),
         "/community/" => array(
-            "enabled" => true,
+            "enabled" => false,
             "selected" => false,
             "text" => "Community",
 			"title" => "Forums and Discussion"

@@ -64,8 +64,8 @@
         </div>
     </div>
     <div class="unit" style="width:30%">
-        <div class="mod mod-button pattern-tip">
-            <p>Hello, World</p>
+        <div class="mod">
+             
         </div>
     </div>
     <div class="unit lastUnit" style="width:30%">
