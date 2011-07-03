@@ -199,6 +199,10 @@ p{}
     font-style:italic;
     padding-left:12px;
 }
+.text-expansion{
+    font-weight:bold;
+    color:red;
+}
 .normal{color:#888}
 .magic{color:royalBlue}
 .set{color:#00E10B}

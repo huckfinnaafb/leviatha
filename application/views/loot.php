@@ -3,13 +3,33 @@
         <div class="mod mod-padding mod-main pattern-shadow pattern-gradient">
             <h1 class="h-serious <?php echo $this->item->rarity; ?>"><?php echo $this->item->name; ?></h1>
             <div class="line" style="margin-bottom:12px">
-                <div class="unit size1of2">
+                <div class="unit size1of3">
                     <p class="text-data"><?php echo ucwords($this->item->parent); ?></p>
                     <p>Rarity: <span style="font-weight:bold" class="<?php echo $this->item->rarity; ?>"><?php echo ucwords($this->item->rarity); ?></span></p>
                 </div>
-                <div class="unit size1of2 lastUnit">
+                <div class="unit size1of3 lastUnit">
                     <p>Level Required: <span class="text-data"><?php echo $this->item->levelreq; ?></span></p>
                     <p>Level: <span class="text-data"><?php echo $this->item->level; ?></span></p>
+                </div>
+                <div class="unit size1of3 lastUnit">
+                    <?php
+                        if (isset($this->item->flags->version)) {
+                            if ($this->item->flags->version == 100) { ?>
+                                <p class="text-expansion">Expansion Only</p>
+                            <?php }
+                        } else { ?>
+                            <p> </p>
+                        <?php }
+                    ?>
+                    <?php
+                        if (isset($this->item->flags->twohanded)) {
+                            if ($this->item->flags->twohanded == 1) { ?>
+                                <p class="text-data">Two Handed</p>
+                            <?php } else { ?>
+                                <p class="text-data">Dual Wield</p>
+                            <?php }
+                        }
+                    ?>
                 </div>
             </div>
             
@@ -40,10 +60,11 @@
                 // Set Properties
                 if ($this->item->properties->set) { ?>
                     <ul class="set">
-                        <?php 
+                        <?php
+                            $i = 2;
                             foreach($this->item->properties->set as $key => $value) { ?>
-                                <li><?php echo $this->item->properties->set[$key]->translation; ?></li>
-                            <?php } 
+                                <li><?php echo $this->item->properties->set[$key]->translation . " (" . $i . " equipped)";  ?></li>
+                            <?php $i++; }
                         ?>
                     </ul>
                 <?php }

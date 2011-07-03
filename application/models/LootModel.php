@@ -7,7 +7,8 @@
 class LootModel extends RootModel {
     
     private $options = array(
-        "verbose" => true,
+        "properties" => true,
+        "flags" => true,
         "spread" => 25,
         "count" => 6
     );
@@ -39,6 +40,12 @@ class LootModel extends RootModel {
                 FROM loot
                 WHERE code = :code
             ",
+        "flags" => 
+        "
+            SELECT flag, value
+            FROM loot_flags
+            WHERE name = :item
+        ",
         "properties" => 
             "
                 SELECT * 
@@ -51,6 +58,13 @@ class LootModel extends RootModel {
                 SELECT * 
                 FROM loot_magic 
                 JOIN translate_loot_properties ON translate_loot_properties.property = loot_magic.property 
+                WHERE name = :item
+            ",
+        "properties_set" =>
+            "
+                SELECT *
+                FROM loot_set_props
+                JOIN translate_loot_properties ON translate_loot_properties.property = loot_set_props.property
                 WHERE name = :item
             ",
         "family" => 
@@ -146,8 +160,16 @@ class LootModel extends RootModel {
                 $item->$key = $attribute;
             }
             
-            // Fetch and translate item properties
-            if ($this->options['verbose']) {
+            // Flag Collection
+            if ($this->options['flags']) {
+                $flags = F3::sqlBind($this->query['flags'], array("item" => $item->name));
+                foreach($flags as $flag) {
+                    $item->flags[$flag['flag']] = $flag['value'];
+                }
+            }
+            
+            // Property Collection
+            if ($this->options['properties']) {
                 switch ($item->rarity) {
                     case "normal" :
                         $item->properties['normal'] = F3::sqlBind($this->query['properties'], array("item" => $item->name));
@@ -159,8 +181,9 @@ class LootModel extends RootModel {
                     
                     case "set" :
                         $item->properties['magic'] = F3::sqlBind($this->query['properties_magic'], array("item" => $item->name));
-                        //$item->properties['set'] = F3::sqlBind($this->query['properties_set'], array("item" => $item->name));
+                        $item->properties['set'] = F3::sqlBind($this->query['properties_set'], array("item" => $item->name));
                         break;
+                        
                     default : 
                         throw new Exception("Unknown rarity.");
                 }
@@ -187,6 +210,7 @@ class LootModel extends RootModel {
                     }
                 }
             }
+            
         } catch (Excecption $e) {
             error_log($e->getMessage());
             return false;
