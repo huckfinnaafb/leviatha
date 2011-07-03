@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Powered by <?php echo  ($_VERSION=F3::get('VERSION')) ; ?></title>
+	<style type="text/css">
+		html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,
+		p,blockquote,pre,a,abbr,acronym,address,big,code,em,img,
+		small,strong,sub,sup,tt,b,u,i,center,
+		ol,ul,li,table,caption,tbody,tfoot,thead,tr,th,td {
+			margin:0;
+			padding:0;
+			border:0;
+			font-size:100%;
+			font:inherit;
+			vertical-align:baseline;
+		}
+		body { line-height:1; }
+		ol,ul { list-style:none; }
+		blockquote,q { quotes:none; }
+			blockquote:before,
+			blockquote:after,
+			q:before,q:after {
+				content:'';
+				content:none;
+			}
+		table {
+			border-collapse:collapse;
+			border-spacing:0;
+		}
+		@font-face {
+			font-family:qlassik;
+			src:url("fonts/qlassik.eot");
+		}
+		@font-face {
+			font-family:qlassik;
+			src:url("fonts/qlassik.otf") format("opentype");
+		}
+		@font-face {
+			font-family:monaco;
+			src:url("fonts/monaco.eot");
+		}
+		@font-face {
+			font-family:monaco;
+			src:url("fonts/monaco.ttf");
+		}
+		html {
+			font-family:verdana,helvetica,geneva,sans-serif;
+			font-size:15px;
+			background:#000;
+			overflow-y:scroll;
+		}
+		body {
+			background:#fff;
+			margin:20px auto;
+			width:980px;
+			border-radius:15px;
+			-moz-border-radius:15px;
+			-webkit-border-radius:15px;
+		}
+		h1,h2,h3,h4,h5 {
+			font-family:qlassik;
+			text-shadow:0 2px 5px #999;
+			clear:both;
+		}
+		h1 { font-size:64px; }
+		h2 { font-size:40px; }
+		h3 { font-size:36px; }
+		h4 { font-size:28px; }
+		h5 { font-size:21px; }
+		blockquote {
+			padding:10px;
+			border:1px solid #666;
+			margin:0 auto 15px auto;
+			width:610px;
+			border-radius:10px;
+			-moz-border-radius:10px;
+			-webkit-border-radius:10px;
+		}
+			blockquote:first-child {
+				margin-top:15px;
+			}
+		p,ul,ol {
+			line-height:18px;
+			margin-bottom:15px;
+		}
+			p:last-child { margin-bottom:0; }
+		ul,ol { margin:0 45px 15px 45px; }
+			li { list-style-type:disc; }
+		pre,code,tt {
+			font-family:monaco;
+			font-size:13px;
+			line-height:16px;
+		}
+		pre {
+			background:#ccc;
+			padding:15px;
+			margin-bottom:15px;
+		}
+			pre:last-child { margin-bottom:0; }
+		code,tt {
+			background:#ccc;
+			padding:2px 5px;
+		}
+		small { font-size:0.6em; }
+		a { text-decoration:none; }
+			a:link,a:visited { color:#069; }
+			a:hover { color:#09c; }
+		table {
+			margin-bottom:15px;
+			width:100%;
+		}
+			th,td {
+				font-size:15px;
+				line-height:15px;
+				padding:5px 15px 5px 5px;
+				vertical-align:top;
+			}
+			th {
+				font-size:11px;
+				font-variant:small-caps;
+				text-align:left;
+				vertical-align:top;
+			}
+			td:last-child {
+				padding-right:3px;
+			}
+			tr.odd { background:#ccc; }
+			div.header,div.content,div.footer { padding:30px; }
+				div.content h3,div.content h4 { margin-bottom:15px; }
+				div.content table {
+					border:1px solid #666;
+					margin:0 auto 15px auto;
+					width:640px;
+				}
+				div.content tr { border:1px solid #666; }
+				div.content th {
+					font-family:qlassik;
+					font-size:18px;
+					text-transform:uppercase;
+					color:#fff;
+					background:#666;
+				}
+				div.content th,div.content td { padding:8px; }
+				div.content td.pass { background:#cfc; }
+				div.content td.fail { background:#fcc; }
+			div.header {
+				background:#999;
+				border-radius:15px 15px 0 0;
+				-moz-border-radius:15px 15px 0 0;
+				-webkit-border-radius:15px 15px 0 0;
+			}
+				div.header h4 {
+					font-family:qlassik;
+					text-align:center;
+					color:#333;
+				}
+				div.header h1 {
+					color:#fff;
+					font-size:72px;
+					text-align:center;
+					text-shadow:0 2px 5px #000;
+				}
+			div.footer {
+				background:#333;
+			}
+				div.footer h5 {
+					color:#666;
+					text-align:center;
+					text-shadow:0 2px 5px #000;
+					margin:0;
+				}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h4>On this site will rise another Web masterpiece powered by</h4>
+		<h1><?php echo  $_VERSION ; ?></h1>
+	</div>
+	<div class="content">
+		<h3>Dynamic PHP Applications The Fast and Easy Way</h3>
+		<p>The first thing you might want to do is visualize your directory structures. Fat-Free gives you total control over your Web site. Organize your folders in any way that pleases you. Decide where you want to store the following:</p>
+		<ul>
+			<li>HTML templates</li>
+			<li>Graphics, Flash and media files</li>
+			<li>Javascript and CSS files</li>
+			<li>Fat-Free import files, code libraries, and PHP includes</li>
+			<li>OOP classes</li>
+			<li>Database (if you plan to use an embedded DB like SQLite)</li>
+			<li>Configuration files</li>
+			<li>Uploads/Downloads</li>
+			<li>Fonts (optional)</li>
+		</ul>
+		<p>For security reasons, consider relocating the <code>lib/</code> folder to a path that's not Web-accessible. If you decide to move this folder, just change the line in <code>index.php</code> containing <code>require __DIR__.'lib/base.php';</code> The <code>lib/</code> folder also contains framework plug-ins that extend F3's capabilities. You can change the default location of all plug-ins by moving the files to your desired subdirectory. Then, it's just a matter of pointing the <code>PLUGINS</code> global variable to the new location. You may delete the plug-ins that you don't need. You can always restore them later.</p>
+		<p>The <code>IMPORTS</code> global variable should point to the location of Fat-Free import files, code libraries, and PHP includes. On the other hand, F3 can autoload your OOP classes for you. Just add the path to the <code>AUTOLOAD</code> variable. The rest of the above-listed items do not require configuration of a framework global variable, so you may store them anywhere.</p>
+		<blockquote>
+			<h4>Important</h4>
+			<p>The distribution package contains a file named <code>htaccess</code>. It's saved that way in the archive because some ZIP extraction tools may not be configured to display hidden files like <code>.htaccess</code>. You should rename the file if you're using Apache.</p>
+		</blockquote>
+		<p>When you're ready to write your F3-enabled site, you can start editing the rest of the code contained in the <code>index.php</code> file that displayed this Web page. Developing PHP applications will never be the same!</p>
+		<h3>PHP Dependencies</h3>
+		<p>Some framework features will not be available if PHP is not configured with the modules needed by your application.</p>
+		<table>
+			<tr>
+				<th>PHP Module</th>
+				<th>Installed</th>
+				<th>Required by</th>
+			</tr>
+		<?php $_counter=0; foreach ((($_modules=F3::get('modules'))?:array()) as $_mod=>$_dep): $_counter++; ?>
+			<tr class="<?php echo  $_counter%2?'odd':'even' ; ?>">
+				<td><?php echo  $_mod ; ?></td>
+				<td class="<?php echo  extension_loaded($_mod)?'pass':'fail' ; ?>"><?php echo  extension_loaded($_mod)?'Yes':'No' ; ?></td>
+				<td><?php echo  $_dep ; ?></td>
+			</tr>
+		<?php endforeach; ?>
+		</table>
+		<h3>Need Help?</h3>
+		<p>Technical support is available at: <code><a href="http://sourceforge.net/projects/fatfree/support">http://sourceforge.net/projects/fatfree/support</a></code>. If you need live support, you can talk to the development team and the rest of the Fat-Free community via IRC. We're on the FreeNode <code>#fatfree</code> channel (<code>chat.freenode.net</code>).</p>
+		<p>The help file included in the distribution (<code>lib/f3.chm</code>) is at your disposal if you need to take a close look at the Fat-Free API. However, the online documentation at <code><a href="http://fatfree.sourceforge.net" onclick="window.open(this.href); return false;">http://fatfree.sourceforge.net</a></code> provides the latest and most comprehensive information about the framework.</p>
+		<h3>Fair Licensing</h3>
+		<p>If you intend to use this software for business or commercial gain: permissive and "closed-source" licensing terms are available. For academic and personal use, the PHP Fat-Free Framework and other files included in the distribution are subject to the terms of the GPL v3. You may not use the software, documentation, and samples except in compliance with the license.</p>
+		<h3>Support F3</h3>
+		<p>F3 is community-driven open-source software. Support the development of the Fat-Free Framework. Your contributions help keep this project alive.</p>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="WPFRKQY9HDMML">
+			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+		</form>
+	</div>
+	<div class="footer">
+		<h5>Fat-Free Framework is licensed under the terms of the GPL v3. Copyright &copy; 2009-2011 F3::Factory</h5>
+	</div>
+</body>
+</html>

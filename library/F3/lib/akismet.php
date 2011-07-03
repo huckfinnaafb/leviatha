@@ -4,31 +4,30 @@
 	Akismet plugin for the PHP Fat-Free Framework
 
 	The contents of this file are subject to the terms of the GNU General
-	Public License Version 3.0. You may not use this file except in
+	License Version 3.0. You may not use this file except in
 	compliance with the license. Any of the license terms and conditions
 	can be waived if you get permission from the copyright holder.
 
-	Copyright (c) 2009-2010 F3 Factory
+	Copyright (c) 2009-2011 F3::Factory
 	Bong Cosca <bong.cosca@yahoo.com>
 
 		@package Akismet
-		@version 1.4.2
+		@version 2.0.0
 **/
 
 //! Fat-Free Framework's Akismet API adaptor
-class Akismet extends Core {
+class Akismet extends Base {
 
-	//! Minimum framework version required to run
-	const F3_Minimum='1.4.2';
+	//@{ Locale-specific error/exception messages
+	const
+		TEXT_VerifyFail='Akismet verification failed';
+	//@}
 
-	//! Locale-specific error/exception messages
-	const TEXT_VerifyFail='Akismet verification failed';
-
-	//! Akismet key verification flag
-	public static $verified=FALSE;
-
-	//! Verification key (NULL if unverified/invalid)
-	public static $key=NULL;
+	static
+		//! Akismet key verification flag
+		$verified=FALSE,
+		//! Verification key (NULL if unverified/invalid)
+		$key=NULL;
 
 	/**
 		Akismet key verification
@@ -36,8 +35,8 @@ class Akismet extends Core {
 			@param $key string
 			@public
 	**/
-	public static function verify($key) {
-		$response=F3::http(
+	static function verify($key) {
+		$response=Web::http(
 			'GET http://rest.akismet.com/1.1/verify-key',
 			http_build_query(
 				array(
@@ -52,8 +51,6 @@ class Akismet extends Core {
 		}
 		else
 			self::$key=$key;
-		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': text/plain');
 		return self::$key;
 	}
 
@@ -66,8 +63,8 @@ class Akismet extends Core {
 			@param $url string
 			@public
 	**/
-	public static function check($text,$author,$email,$url) {
-		$response=F3::http(
+	static function check($text,$author,$email,$url) {
+		$response=Web::http(
 			'GET http://'.self::$key.'.rest.akismet.com/1.1/comment-check',
 			http_build_query(
 				array(
@@ -83,8 +80,6 @@ class Akismet extends Core {
 				)
 			)
 		);
-		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': text/plain');
 		return (boolean)$response;
 	}
 
@@ -97,8 +92,8 @@ class Akismet extends Core {
 			@param $url string
 			@public
 	**/
-	public static function spam($text,$author,$email,$url) {
-		$response=F3::http(
+	static function spam($text,$author,$email,$url) {
+		$response=Web::http(
 			'GET http://'.self::$key.'.rest.akismet.com/1.1/submit-spam',
 			http_build_query(
 				array(
@@ -114,8 +109,6 @@ class Akismet extends Core {
 				)
 			)
 		);
-		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': text/plain');
 		return (boolean)$response;
 	}
 
@@ -128,8 +121,8 @@ class Akismet extends Core {
 			@param $url string
 			@public
 	**/
-	public static function ham($text,$author,$email,$url) {
-		$response=F3::http(
+	static function ham($text,$author,$email,$url) {
+		$response=Web::http(
 			'GET http://'.self::$key.'.rest.akismet.com/1.1/submit-ham',
 			http_build_query(
 				array(
@@ -145,8 +138,6 @@ class Akismet extends Core {
 				)
 			)
 		);
-		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': text/plain');
 		return (boolean)$response;
 	}
 

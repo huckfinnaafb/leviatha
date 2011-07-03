@@ -28,10 +28,10 @@ class SearchModel extends RootModel {
         $term = $this->clean($term);
         
         // Query
-        return F3::sqlBind($this->query['items'], array('term' => $term)) ?: false;
+        return DB::sql($this->query['items'], array('term' => $term)) ?: false;
     }
     
     public function clean($string) {
-        return "%" . F3::slug(str_replace('\'', '', str_replace(' ', '-', $string))) . "%";
+        return "%" . Web::slug(str_replace('\'', '', str_replace(' ', '-', $string))) . "%";
     }
 }

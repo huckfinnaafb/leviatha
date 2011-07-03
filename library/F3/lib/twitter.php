@@ -8,18 +8,15 @@
 	compliance with the license. Any of the license terms and conditions
 	can be waived if you get permission from the copyright holder.
 
-	Copyright (c) 2009-2010 F3 Factory
+	Copyright (c) 2009-2011 F3::Factory
 	Bong Cosca <bong.cosca@yahoo.com>
 
 		@package Twitter
-		@version 1.4.0
+		@version 2.0.0
 **/
 
 //! Collection of Twitter API adaptors
-class Twitter extends Core {
-
-	//! Minimum framework version required to run
-	const F3_Minimum='1.4.0';
+class Twitter extends Base {
 
 	/**
 		Search via Twitter API
@@ -31,17 +28,12 @@ class Twitter extends Core {
 			@param $language string
 			@public
 	**/
-	public static function
-		search(
-			$query,
-			$page=1,
-			$since=NULL,
-			$type='mixed',
-			$language='en') {
+	static function search(
+		$query,$page=1,$since=NULL,$type='mixed',$language='en') {
 		if (is_null($since))
 			$since=gmdate('Y-m-d',time());
 		$response=json_decode(
-			F3::http(
+			Web::http(
 				'GET http://search.twitter.com/search.json',
 				http_build_query(
 					array(
@@ -60,8 +52,6 @@ class Twitter extends Core {
 			trigger_error($response['error']);
 			return FALSE;
 		}
-		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': text/plain');
 		return $response;
 	}
 
@@ -71,9 +61,9 @@ class Twitter extends Core {
 			@param $userid string
 			@public
 	**/
-	public static function show($userid) {
+	static function show($userid) {
 		$response=json_decode(
-			F3::http(
+			Web::http(
 				'GET http://api.twitter.com/1/users/show/'.
 					$userid.'.json'
 			),
@@ -83,8 +73,6 @@ class Twitter extends Core {
 			trigger_error($response['error']);
 			return FALSE;
 		}
-		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': text/plain');
 		return $response;
 	}
 
@@ -94,9 +82,9 @@ class Twitter extends Core {
 			@param $userid string
 			@public
 	**/
-	public static function friends($userid) {
+	static function friends($userid) {
 		$response=json_decode(
-			F3::http(
+			Web::http(
 				'GET http://api.twitter.com/1/statuses/friends/'.
 					$userid.'.json'
 			),
@@ -106,8 +94,6 @@ class Twitter extends Core {
 			trigger_error($response['error']);
 			return FALSE;
 		}
-		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': text/plain');
 		return $response;
 	}
 
@@ -117,9 +103,9 @@ class Twitter extends Core {
 			@param $userid string
 			@public
 	**/
-	public static function followers($userid) {
+	static function followers($userid) {
 		$response=json_decode(
-			F3::http(
+			Web::http(
 				'GET http://api.twitter.com/1/statuses/followers/'.
 					$userid.'.json'
 			),
@@ -129,8 +115,6 @@ class Twitter extends Core {
 			trigger_error($response['error']);
 			return FALSE;
 		}
-		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': text/plain');
 		return $response;
 	}
 

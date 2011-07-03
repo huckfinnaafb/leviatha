@@ -1,25 +1,22 @@
 <?php
 
 /**
-	Yahoo! plugin for the PHP Fat-Free Framework
+	Yahoo plugin for the PHP Fat-Free Framework
 
 	The contents of this file are subject to the terms of the GNU General
 	Public License Version 3.0. You may not use this file except in
 	compliance with the license. Any of the license terms and conditions
 	can be waived if you get permission from the copyright holder.
 
-	Copyright (c) 2009-2010 F3 Factory
+	Copyright (c) 2009-2011 F3::Factory
 	Bong Cosca <bong.cosca@yahoo.com>
 
 		@package Yahoo
-		@version 1.4.0
+		@version 2.0.0
 **/
 
 //! API wrapper for Yahoo! Web services
-class Yahoo extends Core {
-
-	//! Minimum framework version required to run
-	const F3_Minimum='1.4.0';
+class Yahoo extends Base {
 
 	/**
 		Notify Yahoo! of changes to Web page by submitting the sitemap
@@ -28,9 +25,9 @@ class Yahoo extends Core {
 			@param $url string
 			@public
 	**/
-	public static function ping($url) {
+	static function ping($url) {
 		$result=simplexml_load_string(
-			F3::http(
+			Web::http(
 				'GET http://search.yahooapis.com/'.
 					'SiteExplorerService/V1/ping',
 				http_build_query(array('sitemap'=>$url))
@@ -40,8 +37,6 @@ class Yahoo extends Core {
 			trigger_error($result['Message']);
 			return FALSE;
 		}
-		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': text/plain');
 		return TRUE;
 	}
 
@@ -50,20 +45,14 @@ class Yahoo extends Core {
 			@return mixed
 			@param $appid string
 			@param $path string
-			@param $count integer
-			@param $start integer
+			@param $count int
+			@param $start int
 			@param $omit string
 			@public
 	**/
-	public static function
-		inlinks(
-			$appid,
-			$path,
-			$count=100,
-			$start=1,
-			$omit='') {
+	static function inlinks($appid,$path,$count=100,$start=1,$omit='') {
 		$result=simplexml_load_string(
-			F3::http(
+			Web::http(
 				'GET http://search.yahooapis.com/'.
 					'SiteExplorerService/V1/inlinkData',
 				http_build_query(
@@ -92,8 +81,6 @@ class Yahoo extends Core {
 					'url'=>(string)$item->Url
 				);
 		}
-		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': text/plain');
 		return $out;
 	}
 
@@ -103,8 +90,8 @@ class Yahoo extends Core {
 			@param $id string
 			@public
 	**/
-	public static function online($id) {
-		$result=F3::http(
+	static function online($id) {
+		$result=Web::http(
 			'GET http://opi.yahoo.com/online',
 			http_build_query(
 				array(
@@ -114,8 +101,6 @@ class Yahoo extends Core {
 				)
 			)
 		);
-		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': text/plain');
 		return (boolean)(int)$result;
 	}
 

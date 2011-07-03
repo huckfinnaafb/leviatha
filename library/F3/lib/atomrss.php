@@ -4,22 +4,19 @@
 	Atom/RSS feed reader for the PHP Fat-Free Framework
 
 	The contents of this file are subject to the terms of the GNU General
-	Public License Version 3.0. You may not use this file except in
+	License Version 3.0. You may not use this file except in
 	compliance with the license. Any of the license terms and conditions
 	can be waived if you get permission from the copyright holder.
 
-	Copyright (c) 2009-2010 F3 Factory
+	Copyright (c) 2009-2011 F3::Factory
 	Bong Cosca <bong.cosca@yahoo.com>
 
 		@package AtomRSS
-		@version 1.4.2
+		@version 2.0.0
 **/
 
 //! Atom/RSS feed reader
-class AtomRSS extends Core {
-
-	//! Minimum framework version required to run
-	const F3_Minimum='1.4.2';
+class AtomRSS extends Base {
 
 	/**
 		Retrieve RSS/Atom feed and return as an array
@@ -29,8 +26,8 @@ class AtomRSS extends Core {
 			@param $tags string
 			@public
 	**/
-	public static function read($url,$count=10,$tags='b|i|u|a') {
-		$data=F3::http('GET '.$url);
+	static function read($url,$count=10,$tags='b;i;u;a') {
+		$data=Web::http('GET '.$url);
 		if (!$data)
 			return FALSE;
 		$xml=simplexml_load_string(
@@ -46,7 +43,7 @@ class AtomRSS extends Core {
 					'title'=>(string)$item->title,
 					'link'=>(string)$item->link,
 					'text'=>strip_tags($item->description,
-						'<'.implode('><',explode('|',$tags)).'>')
+						'<'.implode('><',self::split($tags)).'>')
 				);
 		}
 		elseif (isset($xml->entry)) {
@@ -56,7 +53,7 @@ class AtomRSS extends Core {
 					'title'=>(string)$item->title,
 					'link'=>(string)$item->link['href'],
 					'text'=>strip_tags($item->summary,
-						'<'.implode('><',explode('|',$tags)).'>')
+						'<'.implode('><',self::split($tags)).'>')
 				);
 		}
 		else

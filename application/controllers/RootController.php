@@ -74,11 +74,7 @@ class RootController {
     }
     
     public function render($file, $layout = true) {
-        if ($layout) {
-            include (F3::get('GUI') . "layout.php");
-        } else {
-            include (F3::get('GUI') . "nolayout.php");
-        }
+        include ($layout) ? F3::get('GUI') . "layout.php" : F3::get('GUI') . "nolayout.php";
     }
     
 }

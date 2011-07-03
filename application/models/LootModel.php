@@ -147,8 +147,8 @@ class LootModel extends RootModel {
             $item = new ItemModel;
             
             // Fetch Shared Item Data
-            F3::sqlBind($this->query['item'], array("item" => $identifier));
-            $shared = F3::get('DB.result.0');
+            DB::sql($this->query['item'], array("item" => $identifier));
+            $shared = F3::get('DB')->result[0];
             
             // Presumably, no item data found
             if (empty($shared)) {
@@ -162,7 +162,7 @@ class LootModel extends RootModel {
             
             // Flag Collection
             if ($this->options['flags']) {
-                $flags = F3::sqlBind($this->query['flags'], array("item" => $item->name));
+                $flags = DB::sql($this->query['flags'], array("item" => $item->name));
                 foreach($flags as $flag) {
                     $item->flags[$flag['flag']] = $flag['value'];
                 }
@@ -172,16 +172,16 @@ class LootModel extends RootModel {
             if ($this->options['properties']) {
                 switch ($item->rarity) {
                     case "normal" :
-                        $item->properties['normal'] = F3::sqlBind($this->query['properties'], array("item" => $item->name));
+                        $item->properties['normal'] = DB::sql($this->query['properties'], array("item" => $item->name));
                         break;
                     
                     case "unique" : 
-                        $item->properties['magic'] = F3::sqlBind($this->query['properties_magic'], array("item" => $item->name));
+                        $item->properties['magic'] = DB::sql($this->query['properties_magic'], array("item" => $item->name));
                         break;
                     
                     case "set" :
-                        $item->properties['magic'] = F3::sqlBind($this->query['properties_magic'], array("item" => $item->name));
-                        $item->properties['set'] = F3::sqlBind($this->query['properties_set'], array("item" => $item->name));
+                        $item->properties['magic'] = DB::sql($this->query['properties_magic'], array("item" => $item->name));
+                        $item->properties['set'] = DB::sql($this->query['properties_set'], array("item" => $item->name));
                         break;
                         
                     default : 
@@ -237,10 +237,10 @@ class LootModel extends RootModel {
     }
     
     public function all() {
-        return F3::sqlBind($this->query['all']);
+        return DB::sql($this->query['all']);
     }
     
     public function types() {
-        return F3::sqlBind($this->query['types']);
+        return DB::sql($this->query['types']);
     }
 }

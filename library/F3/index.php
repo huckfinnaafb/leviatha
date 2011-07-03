@@ -1,33 +1,45 @@
 <?php
 
-require __DIR__.'/F3/F3.php';
+require __DIR__.'/lib/base.php';
 
-$modules=array(
-	'apc'=>array(NULL,'Cache engine'),
-	'dom'=>array(NULL,'Template engine'),
-	'gd'=>array(NULL,'Graphics plugin'),
-	'hash'=>array(NULL,'Framework core'),
-	'intl'=>array(NULL,'I18n plugin'),
-	'json'=>array(NULL,'Various plugins'),
-	'libxml'=>array(NULL,'Template engine'),
-	'memcache'=>array(NULL,'Cache engine'),
-	'mongo'=>array(NULL,'M2 MongoDB mapper'),
-	'pcre'=>array(NULL,'Framework core'),
-	'pdo_mssql'=>array(NULL,'SQL handler, Axon ORM'),
-	'pdo_mysql'=>array(NULL,'SQL handler, Axon ORM'),
-	'pdo_pgsql'=>array(NULL,'SQL handler, Axon ORM'),
-	'pdo_sqlite'=>array(NULL,'SQL handler, Axon ORM'),
-	'session'=>array(NULL,'Framework core'),
-	'sockets'=>array(NULL,'Network plugin'),
-	'xcache'=>array(NULL,'Cache engine'),
-	'zlib'=>array(NULL,'Framework core')
+F3::route('GET /',
+	function() {
+		F3::set('modules',
+			array(
+				'apc'=>
+					'Cache engine',
+				'gd'=>
+					'Graphics plugin',
+				'hash'=>
+					'Framework core',
+				'json'=>
+					'Various plugins',
+				'memcache'=>
+					'Cache engine',
+				'mongo'=>
+					'M2 MongoDB mapper',
+				'pcre'=>
+					'Framework core',
+				'pdo_mssql'=>
+					'SQL handler/Axon ORM',
+				'pdo_mysql'=>
+					'SQL handler/Axon ORM',
+				'pdo_pgsql'=>
+					'SQL handler/Axon ORM',
+				'pdo_sqlite'=>
+					'SQL handler/Axon ORM',
+				'session'=>
+					'Framework core',
+				'sockets'=>
+					'Network plugin',
+				'xcache'=>
+					'Cache engine'
+			)
+		);
+		echo Template::serve('welcome.htm');
+	}
 );
 
-foreach ($modules as $key=>$mod)
-	$modules[$key][0]=extension_loaded($key)?'Yes':'No';
-
-F3::set('modules',$modules);
-
-echo F3::serve('F3/welcome.htm');
+F3::run();
 
 ?>

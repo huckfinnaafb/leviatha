@@ -8,46 +8,50 @@
 	compliance with the license. Any of the license terms and conditions
 	can be waived if you get permission from the copyright holder.
 
-	Copyright (c) 2009-2010 F3 Factory
+	Copyright (c) 2009-2011 F3::Factory
 	Bong Cosca <bong.cosca@yahoo.com>
 
 		@package Zip
-		@version 1.4.0
+		@version 2.0.0
 **/
 
 //! Utility class for ZIP archives
-class Zip extends Core {
+class Zip extends Base {
 
-	//! Minimum framework version required to run
-	const F3_Minimum='1.4.0';
-
-	//@{
-	//! Locale-specific error/exception messages
+	//@{ Locale-specific error/exception messages
 	const
 		TEXT_Required='A ZIP archive must be specified',
-		TEXT_NotValid='File {@CONTEXT} is not a valid ZIP archive',
+		TEXT_NotValid='File %s is not a valid ZIP archive',
 		TEXT_UnMethod='Unsupported compression method';
 	//@}
 
-	//@{
-	//! ZIP header signatures
+	//@{ ZIP header signatures
 	const
 		LFHDR_Sig='504B0304',
 		CDHDR_Sig='504B0102',
 		CDEND_Sig='504B0506';
 	//@}
 
-	//! Read-granularity of ZIP archive
-	const BLOCK_Size=4096;
+	const
+		//! Read-granularity of ZIP archive
+		BLOCK_Size=4096;
 
-	//! ZIP file name
-	private $FILE;
+	private
+		//! ZIP file name
+		$file,
+		//! Central directory container
+		$cdir,
+		//! Central directory relative offset
+		$cofs;
 
-	//! Central directory container
-	private $CDIR;
-
-	//! Central directory relative offset
-	private $COFS;
+	/**
+		Return central directory structure
+			@return array
+			@public
+	**/
+	function dir() {
+		return $this->cdir;
+	}
 
 	/**
 		Return content of specified file from ZIP archive; FALSE if
@@ -56,25 +60,30 @@ class Zip extends Core {
 			@param $path string
 			@public
 	**/
-	public function get($path) {
-		$chdr=$this->CDIR[$path];
+	function get($path) {
+		if (!$path || $path[strlen($path)-1]=='/')
+			return FALSE;
+		$chdr=$this->cdir[$path];
 		// Find local file header
-		$zip=fopen($this->FILE,'rb');
+		$zip=fopen($this->file,'rb');
 		fseek($zip,implode('',unpack('V',substr($chdr,42,4))));
 		// Read local file header
 		$fhdr=fread($zip,30+strlen($path));
-		if (Expansion::binhex(substr($fhdr,8,2))!='0800') {
+		$comp=self::binhex(substr($fhdr,8,2));
+		if ($comp!='0800' && $comp!='0000') {
 			trigger_error(self::TEXT_UnMethod);
 			return FALSE;
 		}
-		$len=implode(unpack('v',substr($fhdr,28,2)));
-		if ($len)
+		if ($len=implode(unpack('v',substr($fhdr,28,2))))
 			// Append extra field
 			$fhdr.=fread($zip,$len);
-		$data=fread($zip,implode('',unpack('V',substr($fhdr,22,4))));
+		$len=unpack('V',substr($fhdr,22,4));
+		$data='';
+		if ($len)
+			$data=fread($zip,implode('',$len));
 		fclose($zip);
-		return gzinflate($data);
-		
+		return hexdec($comp) && $data?gzinflate($data):$data;
+
 	}
 
 	/**
@@ -85,7 +94,7 @@ class Zip extends Core {
 			@param $time integer
 			@public
 	**/
-	public function set($path,$data=NULL,$time=0) {
+	function set($path,$data=NULL,$time=0) {
 		$this->parse('set',$path,$data,$time);
 	}
 
@@ -94,7 +103,7 @@ class Zip extends Core {
 			@param $path string
 			@public
 	**/
-	public function clear($path) {
+	function clear($path) {
 		$this->parse('clear',$path);
 	}
 
@@ -105,12 +114,15 @@ class Zip extends Core {
 			@public
 	**/
 	private function parse($action,$path,$data=NULL,$time=0) {
-		$tfn='zip-'.F3::hashCode($path);
+		if (!$time)
+			$time=time();
+		$tfn=self::$vars['TEMP'].$_SERVER['SERVER_NAME'].'.zip.'.
+			self::hash($path);
 		$tmp=fopen($tfn,'wb+');
-		if (is_file($this->FILE)) {
-			$zip=fopen($this->FILE,'rb');
+		if (is_file($this->file)) {
+			$zip=fopen($this->file,'rb');
 			// Copy data from ZIP archive to temporary file
-			foreach ($this->CDIR as $name=>$chdr)
+			foreach ($this->cdir as $name=>$chdr)
 				if ($name!=$path) {
 					// Find local file header
 					fseek($zip,implode('',
@@ -121,8 +133,8 @@ class Zip extends Core {
 						// Append extra field
 						$fhdr.=fread($zip,$len);
 					// Update relative offset
-					$this->CDIR[$name]=substr_replace(
-						$this->CDIR[$name],pack('V',ftell($tmp)),42,4);
+					$this->cdir[$name]=substr_replace(
+						$this->cdir[$name],pack('V',ftell($tmp)),42,4);
 					// Copy header and compressed content
 					$len=implode('',unpack('V',substr($fhdr,18,4)));
 					fwrite($tmp,$fhdr.($len?fread($zip,$len):''));
@@ -131,19 +143,19 @@ class Zip extends Core {
 		}
 		switch ($action) {
 			case 'set':
-				$path=F3::fixSlashes($path).
+				$path=self::fixslashes($path).
 					(is_null($data) && $path[strlen($path)]!='/'?'/':'');
-				$chdr=&$this->CDIR[$path];
+				$chdr=&$this->cdir[$path];
 				// Blank headers
 				$fhdr=str_repeat(chr(0),30).$path;
 				$chdr=str_repeat(chr(0),46).$path;
 				// Signatures
 				$fhdr=substr_replace(
-					$fhdr,Expansion::hexbin(self::LFHDR_Sig),0,4);
+					$fhdr,self::hexbin(self::LFHDR_Sig),0,4);
 				$chdr=substr_replace(
-					$chdr,Expansion::hexbin(self::CDHDR_Sig),0,4);
+					$chdr,self::hexbin(self::CDHDR_Sig),0,4);
 				// Version needed to extract
-				$ver=Expansion::hexbin(is_null($data)?'0A00':'1400');
+				$ver=self::hexbin(is_null($data)?'0A00':'1400');
 				$fhdr=substr_replace($fhdr,$ver,4,2);
 				$chdr=substr_replace($chdr,$ver,6,2);
 				// Last modification time
@@ -161,7 +173,7 @@ class Zip extends Core {
 					// Compress data/Fix CRC bug
 					$comp=gzdeflate($data);
 					// Compression method
-					$def=Expansion::hexbin('0800');
+					$def=self::hexbin('0800');
 					$fhdr=substr_replace($fhdr,$def,8,2);
 					$chdr=substr_replace($chdr,$def,10,2);
 					// CRC32
@@ -181,34 +193,34 @@ class Zip extends Core {
 				}
 				break;
 			case 'clear':
-				$path=F3::fixSlashes($path);
-				unset($this->CDIR[$path]);
+				$path=self::fixslashes($path);
+				unset($this->cdir[$path]);
 				break;
 		}
 		// Central directory relative offset
-		$this->COFS=ftell($tmp);
-		foreach ($this->CDIR as $raw)
+		$this->cofs=ftell($tmp);
+		foreach ($this->cdir as $raw)
 			// Copy central directory file headers
 			fwrite($tmp,$raw);
 		// Blank end of central directory record
 		$cend=str_repeat(chr(0),22);
 		// Signature
-		$cend=substr_replace($cend,Expansion::hexbin(self::CDEND_Sig),0,4);
+		$cend=substr_replace($cend,self::hexbin(self::CDEND_Sig),0,4);
 		// Total number of central directory records
-		$total=pack('v',count($this->CDIR));
+		$total=pack('v',count($this->cdir));
 		$cend=substr_replace($cend,$total,8,2);
 		$cend=substr_replace($cend,$total,10,2);
 		// Size of central directory
 		$cend=substr_replace(
-			$cend,pack('V',strlen(implode('',$this->CDIR))),12,4);
+			$cend,pack('V',strlen(implode('',$this->cdir))),12,4);
 		// Relative offset of central directory
-		$cend=substr_replace($cend,pack('V',$this->COFS),16,4);
+		$cend=substr_replace($cend,pack('V',$this->cofs),16,4);
 		fwrite($tmp,$cend);
 		fclose($tmp);
-		if (is_file($this->FILE))
+		if (is_file($this->file))
 			// Delete old ZIP archive
-			unlink($this->FILE);
-		rename($tfn,$this->FILE);
+			unlink($this->file);
+		rename($tfn,$this->file);
 	}
 
 	/**
@@ -217,7 +229,7 @@ class Zip extends Core {
 			@param $time integer
 			@public
 	**/
-	public static function dos2unixtime($time) {
+	static function dos2unixtime($time) {
 		$date=$time>>16;
 		return mktime(
 			($time & 0xF800)>>11,
@@ -235,11 +247,11 @@ class Zip extends Core {
 			@param $time integer
 			@public
 	**/
-	public static function unix2dostime($time=0) {
+	static function unix2dostime($time=0) {
 		$time=$time?getdate($time):getdate();
 		if ($time['year']<1980)
 			$time=array_combine(
-				explode('|','hours|minutes|seconds|mon|mday|year'),
+				array('hours','minutes','seconds','mon','mday','year'),
 				array(0,0,0,1,1,1980)
 			);
 		return
@@ -252,34 +264,20 @@ class Zip extends Core {
 	}
 
 	/**
-		Intercept calls to undefined object methods
-			@param $func string
-			@param $args array
-			@public
-	**/
-	public function __call($func,array $args) {
-		self::$global['CONTEXT']=$func;
-		trigger_error(self::TEXT_Method);
-	}
-
-	/**
 		Class constructor
 			@param $path string
 			@public
 	**/
-	public function __construct($path=NULL) {
+	function __construct($path=NULL) {
 		if (is_null($path)) {
 			trigger_error(self::TEXT_Required);
-			return FALSE;
+			return;
 		}
-		$this->FILE=$path;
-		$this->CDIR=array();
-		if (!is_file($path)) {
-			// Invalid ZIP archive
-			self::$global['CONTEXT']=$path;
-			trigger_error(self::TEXT_NotValid);
-			return FALSE;
-		}
+		$path=self::resolve($path);
+		$this->file=$path;
+		$this->cdir=array();
+		if (!is_file($path))
+			return;
 		// Parse file contents
 		$zip=fopen($path,'rb');
 		$found=FALSE;
@@ -287,11 +285,11 @@ class Zip extends Core {
 		while (!feof($zip)) {
 			$cdir.=fread($zip,self::BLOCK_Size);
 			if (is_bool($found)) {
-				$found=strstr($cdir,Expansion::hexbin(self::CDHDR_Sig));
+				$found=strstr($cdir,self::hexbin(self::CDHDR_Sig));
 				if (is_string($found)) {
 					// Start of central directory record
 					$cdir=$found;
-					$this->COFS=ftell($zip)-strlen($found);
+					$this->cofs=ftell($zip)-strlen($found);
 				}
 				elseif (strlen($cdir)>self::BLOCK_Size)
 					// Conserve memory
@@ -299,20 +297,19 @@ class Zip extends Core {
 			}
 		}
 		fclose($zip);
-		if (is_bool(strstr($cdir,Expansion::hexbin(self::CDEND_Sig)))) {
+		if (is_bool(strstr($cdir,self::hexbin(self::CDEND_Sig)))) {
 			// Invalid ZIP archive
-			self::$global['CONTEXT']=$path;
-			trigger_error(self::TEXT_NotValid);
-			return FALSE;
+			trigger_error(sprintf(self::TEXT_NotValid,$path));
+			return;
 		}
 		// Save central directory record
-		foreach (array_slice(explode(Expansion::hexbin(self::CDHDR_Sig),
-			strstr($cdir,Expansion::hexbin(self::CDEND_Sig),TRUE)),1)
+		foreach (array_slice(explode(self::hexbin(self::CDHDR_Sig),
+			strstr($cdir,self::hexbin(self::CDEND_Sig),TRUE)),1)
 			as $raw)
 				// Extract name and use as array key
-				$this->CDIR[substr(
+				$this->cdir[substr(
 					$raw,42,implode('',unpack('v',substr($raw,24,2)))
-				)]=Expansion::hexbin(self::CDHDR_Sig).$raw;
+				)]=self::hexbin(self::CDHDR_Sig).$raw;
 	}
 
 }

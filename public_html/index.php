@@ -4,32 +4,31 @@
 include "../config.php";
 
 // PHP Fat Free Framework (http://fatfree.sourceforge.net/)
-require_once (__SITE_PATH . "/library/F3/F3/F3.php");
+require_once (__SITE_PATH . "/library/F3/lib/base.php");
 
-// Framework Configuration
-F3::config(__SITE_PATH . "/f3config.cfg");
+// Framework Configuration and Database Info
+require_once (__SITE_PATH . "/F3Config.php");
 
 // Autoload Assets
 F3::set('AUTOLOAD',
     __SITE_PATH . "/application/controllers/|" .
     __SITE_PATH . "/application/models/|" .
-    __SITE_PATH . "/library/F3/autoload/"
+    __SITE_PATH . "/library/F3/lib/"
 );
 
 // Framework Variables
 F3::set('GUI', __SITE_PATH . "/application/views/");
 
 // Application Routes
-F3::route('GET /', array(new RootController, 'get'));
-F3::route('GET /loot', array(new LootDirectoryController, 'get'));
-F3::route('GET /loot/@item', array(new LootController, 'get'));
-F3::route('GET /search', array(new SearchController, 'get'));
-
-if(!F3::get('RELEASE')) {
-    F3::route('GET /admin', array(new AdminController, 'get'));
-    F3::route('GET /sandbox', array(new SandboxController, 'get'));
-    F3::route('POST /sandbox', array(new SandboxController, 'post'));
-}
+F3::route('GET /', "RootController->get",60);
+F3::route('GET /loot', "LootDirectoryController->get", 60);
+F3::route('GET /loot/@item', "LootController->get");
+F3::route('GET /search', "SearchController->get");
+F3::route('GET /sitemap',
+	function() {
+		Web::sitemap();
+	}
+);
 
 // Let's Roll Out, Autobots!
 F3::run();

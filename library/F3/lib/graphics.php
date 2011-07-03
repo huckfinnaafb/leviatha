@@ -8,21 +8,17 @@
 	compliance with the license. Any of the license terms and conditions
 	can be waived if you get permission from the copyright holder.
 
-	Copyright (c) 2009-2010 F3 Factory
+	Copyright (c) 2009-2011 F3::Factory
 	Bong Cosca <bong.cosca@yahoo.com>
 
 		@package Graphics
-		@version 1.4.0
+		@version 2.0.0
 **/
 
 //! Graphics plugin
-class Graphics extends Core {
+class Graphics extends Base {
 
-	//! Minimum framework version required to run
-	const F3_Minimum='1.4.0';
-
-	//@{
-	//! Locale-specific error/exception messages
+	//@{ Locale-specific error/exception messages
 	const
 		TEXT_Color='Invalid color specified';
 	//@}
@@ -45,7 +41,7 @@ class Graphics extends Core {
 			@param $int integer
 			@public
 	**/
-	public static function rgb($int) {
+	static function rgb($int) {
 		$hex=str_pad(dechex($int),$int<4096?3:6,'0',STR_PAD_LEFT);
 		$len=strlen($hex);
 		if ($len>6) {
@@ -64,30 +60,27 @@ class Graphics extends Core {
 			@param $dimy integer
 			@param $len integer
 			@param $ttfs string
+			@param $var string
 			@public
 	**/
-	public static function captcha($dimx,$dimy,$len,$ttfs='cube') {
-		$base=self::rgb(self::$global['BGCOLOR']);
-		$trans=self::$global['FGTRANS'];
+	static function
+		captcha($dimx=150,$dimy=50,$len=5,$ttfs='cube',$var='captcha') {
+		$base=self::rgb(self::$vars['BGCOLOR']);
+		$trans=self::$vars['FGTRANS'];
 		// Specify Captcha seed
-		if (!strlen(session_id()))
-			session_start();
-		$_SESSION['captcha']=substr(md5(uniqid()),0,$len);
-		self::$global['SESSION']=&$_SESSION;
+		$seed=substr(md5(uniqid()),0,$len);
+		F3::set('SESSION.'.$var,$seed);
 		// Font size
-		$size=min($dimx/$len,.6*$dimy);
-		// Load TrueType font file
-		$fonts=explode('|',$ttfs);
-		$file=self::$global['FONTS'].
-			F3::fixSlashes($fonts[mt_rand(0,count($fonts)-1)]).'.ttf';
-		if (!isset(self::$stats['FILES']))
-			self::$stats['FILES']=array('fonts'=>array());
-		self::$stats['FILES']['fonts'][basename($file)]=filesize($file);
-		$maxdeg=15;
-		// Compute bounding box metrics
-		$bbox=imagettfbbox($size,0,$file,$_SESSION['captcha']);
-		$wimage=.9*(max($bbox[2],$bbox[4])-max($bbox[0],$bbox[6]));
-		$himage=max($bbox[1],$bbox[3])-max($bbox[5],$bbox[7]);
+		$size=.9*min($dimx/$len,$dimy);
+		// Load TrueType fonts
+		$fonts=self::split($ttfs);
+		$file=self::$vars['FONTS'].
+			self::fixslashes($fonts[array_rand($fonts)]).'.ttf';
+		$stats=&self::ref('STATS');
+		if (!isset($stats['FILES']))
+			$stats['FILES']=array('fonts'=>array());
+		$stats['FILES']['fonts'][basename($file)]=filesize($file);
+		$maxdeg=12;
 		// Create blank image
 		$captcha=imagecreatetruecolor($dimx,$dimy);
 		list($r,$g,$b)=$base;
@@ -99,7 +92,7 @@ class Graphics extends Core {
 			// Random angle
 			$angle=$maxdeg-mt_rand(0,$maxdeg*2);
 			// Get CAPTCHA character from session cookie
-			$char=$_SESSION['captcha'][$i];
+			$char=$seed[$i];
 			$fg=imagecolorallocatealpha(
 				$captcha,
 				mt_rand(0,255-$trans),
@@ -107,19 +100,25 @@ class Graphics extends Core {
 				mt_rand(0,255-$trans),
 				$trans
 			);
+			// Compute bounding box metrics
+			$bbox=imagettfbbox($size,0,$file,$char);
+			$w=max($bbox[2],$bbox[4])-max($bbox[0],$bbox[6]);
+			$h=max($bbox[1],$bbox[3])-max($bbox[5],$bbox[7]);
+			$sin=sin(deg2rad($angle));
 			imagettftext(
 				$captcha,$size,$angle,
-				($dimx-$wimage)/2+$i*$wimage/$len,
-				($dimy-$himage)/2+.9*$himage,
+				.9*$width+abs($h*$sin),
+				$dimy-$h/2+abs($w*$sin),
 				$fg,$file,$char
 			);
+			$width+=$w+abs($h*$sin);
 			imagecolordeallocate($captcha,$fg);
 		}
 		// Make the background transparent
 		imagecolortransparent($captcha,$bg);
 		// Send output as PNG image
 		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': image/png');
+			header(self::HTTP_Content.': image/png');
 		imagepng($captcha,NULL,self::PNG_Compress,PNG_NO_FILTER);
 	}
 
@@ -128,14 +127,14 @@ class Graphics extends Core {
 			@param $file
 			@public
 	**/
-	public static function invert($file) {
+	static function invert($file) {
 		preg_match('/\.(gif|jp[e]*g|png)$/',$file,$ext);
 		$ext[1]=str_replace('jpg','jpeg',$ext[1]);
-		$file=self::$global['GUI'].$file;
+		$file=self::fixslashes(self::resolve($file));
 		$img=imagecreatefromstring(file_get_contents($file));
 		imagefilter($img,IMG_FILTER_NEGATE);
 		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': image/'.$ext[1]);
+			header(self::HTTP_Content.': image/'.$ext[1]);
 		// Send output in same graphics format as original
 		eval('image'.$ext[1].'($img);');
 	}
@@ -145,14 +144,14 @@ class Graphics extends Core {
 			@param $file
 			@public
 	**/
-	public static function grayscale($file) {
+	static function grayscale($file) {
 		preg_match('/\.(gif|jp[e]*g|png)$/',$file,$ext);
 		$ext[1]=str_replace('jpg','jpeg',$ext[1]);
-		$file=self::$global['GUI'].$file;
+		$file=self::fixslashes(self::resolve($file));
 		$img=imagecreatefromstring(file_get_contents($file));
 		imagefilter($img,IMG_FILTER_GRAYSCALE);
 		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': image/'.$ext[1]);
+			header(self::HTTP_Content.': image/'.$ext[1]);
 		// Send output in same graphics format as original
 		eval('image'.$ext[1].'($img);');
 	}
@@ -164,10 +163,10 @@ class Graphics extends Core {
 			@param $dimy integer
 			@public
 	**/
-	public static function thumb($file,$dimx,$dimy) {
+	static function thumb($file,$dimx,$dimy) {
 		preg_match('/\.(gif|jp[e]*g|png)$/',$file,$ext);
 		$ext[1]=str_replace('jpg','jpeg',$ext[1]);
-		$file=self::$global['GUI'].$file;
+		$file=self::fixslashes(self::resolve($file));
 		$img=imagecreatefromstring(file_get_contents($file));
 		// Get image dimensions
 		$oldx=imagesx($img);
@@ -187,7 +186,7 @@ class Graphics extends Core {
 		}
 		// Create blank image
 		$tmp=imagecreatetruecolor($dimx,$dimy);
-		list($r,$g,$b)=self::rgb(self::$global['BGCOLOR']);
+		list($r,$g,$b)=self::rgb(self::$vars['BGCOLOR']);
 		$bg=imagecolorallocate($tmp,$r,$g,$b);
 		imagefill($tmp,0,0,$bg);
 		// Resize
@@ -195,7 +194,7 @@ class Graphics extends Core {
 		// Make the background transparent
 		imagecolortransparent($tmp,$bg);
 		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': image/'.$ext[1]);
+			header(self::HTTP_Content.': image/'.$ext[1]);
 		// Send output in same graphics format as original
 		eval('image'.$ext[1].'($tmp);');
 	}
@@ -206,10 +205,11 @@ class Graphics extends Core {
 			@param $size integer
 			@public
 	**/
-	public static function identicon($hash,$size=NULL) {
-		$blox=self::$global['IBLOCKS'];
+	static function identicon($hash,$size=NULL) {
+		$hash=self::resolve($hash);
+		$blox=self::$vars['IBLOCKS'];
 		if (is_null($size))
-			$size=self::$global['IPIXELS'];
+			$size=self::$vars['IPIXELS'];
 		// Rotatable shapes
 		$dynamic=array(
 			array(.5,1,1,0,1,1),
@@ -244,8 +244,7 @@ class Graphics extends Core {
 				0,.67,.33,.67,.33,.33,0,.33)
 		);
 		// Parse MD5 hash
-		$hash=F3::resolve($hash);
-		list($bgR,$bgG,$bgB)=self::rgb(self::$global['BGCOLOR']);
+		list($bgR,$bgG,$bgB)=self::rgb(self::$vars['BGCOLOR']);
 		list($fgR,$fgG,$fgB)=self::rgb(hexdec(substr($hash,0,6)));
 		$shapeC=hexdec($hash[6]);
 		$angleC=hexdec($hash[7]%4);
@@ -321,7 +320,7 @@ class Graphics extends Core {
 		// Make the background transparent
 		imagecolortransparent($resized,$bg);
 		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': image/png');
+			header(self::HTTP_Content.': image/png');
 		imagepng($resized,NULL,self::PNG_Compress,PNG_NO_FILTER);
 	}
 
@@ -332,46 +331,35 @@ class Graphics extends Core {
 			@param $bg string
 			@public
 	**/
-	public static function fakeImage($dimx,$dimy,$bg=0xEEE) {
-		// GD extension required
-		if (!extension_loaded('gd')) {
-			self::$global['CONTEXT']='gd';
-			trigger_error(self::TEXT_PHPExt);
-			return;
-		}
+	static function fakeImage($dimx,$dimy,$bg=0xEEE) {
 		list($r,$g,$b)=self::rgb($bg);
 		$img=imagecreatetruecolor($dimx,$dimy);
 		$bg=imagecolorallocate($img,$r,$g,$b);
 		imagefill($img,0,0,$bg);
 		if (PHP_SAPI!='cli')
-			header(F3::HTTP_Content.': image/png');
+			header(self::HTTP_Content.': image/png');
 		imagepng($img,NULL,self::PNG_Compress,PNG_NO_FILTER);
 	}
 
 	/**
-		Bootstrap code
+		Class initializer
 			@public
 	**/
-	public static function onLoad() {
-		// GD extension required
+	static function onload() {
 		if (!extension_loaded('gd')) {
-			// Unable to continue
-			self::$global['CONTEXT']='gd';
-			trigger_error(self::TEXT_PHPExt);
-			return;
+			// GD extension required
+			trigger_error(sprintf(self::TEXT_PHPExt,'gd'));
 		}
-		self::$global['HEADERS']=array();
-		self::$global['SITEMAP']=array();
-		if (!isset(self::$global['FONTS']))
-			self::$global['FONTS']=self::$global['BASE'];
-		if (!isset(self::$global['BGCOLOR']))
-			self::$global['BGCOLOR']=self::GFX_BGColor;
-		if (!isset(self::$global['FGTRANS']))
-			self::$global['FGTRANS']=self::GFX_Transparency;
-		if (!isset(self::$global['IBLOCKS']))
-			self::$global['IBLOCKS']=self::GFX_IdBlocks;
-		if (!isset(self::$global['IPIXELS']))
-			self::$global['IPIXELS']=self::GFX_IdPixels;
+		if (!isset(self::$vars['FONTS']))
+			self::$vars['FONTS']=self::$vars['ROOT'];
+		if (!isset(self::$vars['BGCOLOR']))
+			self::$vars['BGCOLOR']=self::GFX_BGColor;
+		if (!isset(self::$vars['FGTRANS']))
+			self::$vars['FGTRANS']=self::GFX_Transparency;
+		if (!isset(self::$vars['IBLOCKS']))
+			self::$vars['IBLOCKS']=self::GFX_IdBlocks;
+		if (!isset(self::$vars['IPIXELS']))
+			self::$vars['IPIXELS']=self::GFX_IdPixels;
 	}
 
 }
