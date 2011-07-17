@@ -24,11 +24,6 @@ F3::route('GET /', "RootController->get",60);
 F3::route('GET /loot', "LootDirectoryController->get", 60);
 F3::route('GET /loot/@item', "LootController->get");
 F3::route('GET /search', "SearchController->get");
-F3::route('GET /sitemap',
-	function() {
-		Web::sitemap();
-	}
-);
 
 // Let's Roll Out, Autobots!
 F3::run();

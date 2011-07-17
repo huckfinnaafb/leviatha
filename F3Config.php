@@ -15,6 +15,6 @@ F3::set('DEBUG', 1);
 // Error
 F3::set('ONERROR',
     function() {
-        include F3::get('GUI') . "e404.html";
+        
     }
 );

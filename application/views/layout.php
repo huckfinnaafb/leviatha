@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="<?= $this->language ?>" dir="<?php echo $this->direction ?>">
     <head>
         <meta charset="utf-8">

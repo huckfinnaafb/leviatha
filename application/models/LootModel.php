@@ -40,12 +40,6 @@ class LootModel extends RootModel {
                 FROM loot
                 WHERE code = :code
             ",
-        "flags" => 
-        "
-            SELECT flag, value
-            FROM loot_flags
-            WHERE name = :item
-        ",
         "properties" => 
             "
                 SELECT * 
@@ -55,7 +49,11 @@ class LootModel extends RootModel {
             ",
         "properties_magic" => 
             "
-                SELECT * 
+                SELECT 
+                    loot_magic.property,
+                    loot_magic.parameter,
+                    loot_magic.minimum,
+                    loot_magic.maximum
                 FROM loot_magic 
                 JOIN translate_loot_properties ON translate_loot_properties.property = loot_magic.property 
                 WHERE name = :item
@@ -63,8 +61,8 @@ class LootModel extends RootModel {
         "properties_set" =>
             "
                 SELECT *
-                FROM loot_set_props
-                JOIN translate_loot_properties ON translate_loot_properties.property = loot_set_props.property
+                FROM loot_set
+                JOIN translate_loot_properties ON translate_loot_properties.property = loot_set.property
                 WHERE name = :item
             ",
         "family" => 
@@ -160,13 +158,10 @@ class LootModel extends RootModel {
                 $item->$key = $attribute;
             }
             
-            // Flag Collection
-            if ($this->options['flags']) {
-                $flags = DB::sql($this->query['flags'], array("item" => $item->name));
-                foreach($flags as $flag) {
-                    $item->flags[$flag['flag']] = $flag['value'];
-                }
-            }
+            // Fetch Parent
+            
+            
+            // Fetch Flags
             
             // Property Collection
             if ($this->options['properties']) {

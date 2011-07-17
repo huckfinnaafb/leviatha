@@ -8,12 +8,12 @@ class ItemModel extends LootModel {
     public $level;
     public $levelreq;
     public $rarity;
-    public $grade;
+    public $grade = null;
     public $parent;
-    public $family;
-    public $base;
+    public $family = null;
+    public $base = null;
     public $class = null;
-    public $type;
+    public $type = null;
     
     // Boolean Key=>Value pairs
     public $flags = array();
