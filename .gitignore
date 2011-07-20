@@ -1,4 +1,3 @@
 logs/
 tmp/
-f3config.cfg
-application/controllers/SandboxController.php
+F3Config.cfg
