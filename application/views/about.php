@@ -1,8 +1,4 @@
 <div class="mod">
-    <h1 class="text-power">The most comprehensive Diablo 2 Database on the web!</h1>
-    <p class="text-quote">Well, we think.</p>
-</div>
-<div class="mod">
     <h2>Leviatha is mostly a learning project.</h2>
     <p>Here's a quick run down of the tech stack...</p>
     <ul class="bullets list-stack">

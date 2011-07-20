@@ -73,10 +73,9 @@
                 }
             ?>
             <?php include (F3::get('GUI') . $file); ?>
-            <div class="mod" style="text-align:center;margin-top:40px;margin-bottom:40px">
-                <p class="text-subtle" style="margin-bottom:10px">Leviatha.org | Diablo II Database | <a href="mailto:huckfinnaafb@gmail.com">Samuel Ferrell</a> | 2011 | <a href="https://github.com/huckfinnaafb/Leviatha">GitHub</a></p>
-                <img title="Software Used for Development of Leviatha" src="/img/software.png">
-            </div>
+            <footer class="mod mod-padding" style="margin:0">
+                <p class="text-subtle" style="margin-bottom:10px">Leviatha.org | Diablo II Database | <a href="mailto:huckfinnaafb@gmail.com">Samuel Ferrell</a> | 2011 | <a href="https://github.com/huckfinnaafb/Leviatha">GitHub</a> | <a href="/about" title="About Leviatha">About</a></p>
+            </footer>
         </div>
         
         <?php

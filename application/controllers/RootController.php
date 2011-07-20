@@ -73,6 +73,11 @@ class RootController {
         $this->render('home.php');
     }
     
+    public function about() {
+        $this->navigation['/']['selected'] = true;
+        $this->render('about.php');
+    }
+    
     public function render($file, $layout = true) {
         include ($layout) ? F3::get('GUI') . "layout.php" : F3::get('GUI') . "nolayout.php";
     }

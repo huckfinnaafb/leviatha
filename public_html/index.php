@@ -21,6 +21,7 @@ F3::set('GUI', __SITE_PATH . "/application/views/");
 
 // Application Routes
 F3::route('GET /', "RootController->get");
+F3::route('GET /about', "RootController->about");
 F3::route('GET /loot', "LootDirectoryController->get");
 F3::route('GET /loot/@item', "LootController->get");
 F3::route('GET /search', "SearchController->get");
