@@ -53,7 +53,9 @@ class LootModel extends RootModel {
                     loot_magic.property,
                     loot_magic.parameter,
                     loot_magic.minimum,
-                    loot_magic.maximum
+                    loot_magic.maximum,
+                    translate_loot_properties.translation,
+                    translate_loot_properties.translation_varies
                 FROM loot_magic 
                 JOIN translate_loot_properties ON translate_loot_properties.property = loot_magic.property 
                 WHERE name = :item
