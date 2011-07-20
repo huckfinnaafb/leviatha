@@ -11,10 +11,3 @@ F3::set('DB',
 
 // Debug
 F3::set('DEBUG', 1);
-
-// Error
-F3::set('ONERROR',
-    function() {
-        
-    }
-);

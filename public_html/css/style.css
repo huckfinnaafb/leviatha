@@ -71,6 +71,11 @@ nav{}
     overflow:auto;
 }
     .mod-padding{padding:12px}
+    .mod-header{
+        background-color:#f5f5f5;
+        margin:0;
+        border-bottom:1px solid #e5e5e5;
+    }
     
     /* mod-button is extended by pattern-tip, pattern-error, etc */
     .mod-button{
@@ -223,7 +228,7 @@ a:hover{color:#bf4d4d;text-decoration:none}
     float:left;
     font-size:13px;
     font-weight:bold;
-    line-height:45px;
+    line-height:3;
     padding: 0 30px;
 }
     .link-nav:link,.link-nav:visited{
@@ -305,24 +310,33 @@ input[type="submit"]{}
 input[type="radio"]{}
 
 .input-search{
-    height:22px;
-    width:200px;
+    border:1px solid #ccc;
+    height:24px;
+    width:400px;
     padding-left:4px;
     font-size:16px;
     background-color:#fafafa;
-    background-image:url("/img/searchicon.png");
-    background-position:3px center;
-    background-repeat:no-repeat;
-    border:0;
     padding:3px;
-    padding-left:30px;
     line-height:22px;
+    margin-right:12px;
 }
 .submit-search{
+    cursor:pointer;
+    border-radius:2px;
     height:30px;
+    padding:0 28px;
+    border:1px solid #3079ED;
+    background-color:#4787ed;
+    background-image:url("/img/searchicon.png");
+    background-repeat:no-repeat;
+    background-position:center center;
+    width:76px;
 }
+    .submit-search:hover{
+        background-color:#4d90fe;
+    }
 .form-search{
-    margin-top:9px;
+    margin-top:5px;
     margin-right:12px;
 }
 

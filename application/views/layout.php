@@ -26,38 +26,36 @@
     <body>
         <div class="page">
             <header>
-                <div class="line">
-                    <div class="mod" style="float:left">
-                        <a href="/"><img width=348 height=50 src="/img/logosmall.png"></a>
-                    </div>
-                </div>
-                <nav class="mod pattern-gradient pattern-shadow" style="margin:0 0 12px 0">
-                    <div style="float:left">
-                        <?php
-                        
-                            // Home Navigation
-                            foreach($this->navigation as $k => $link) {
-                                if ($link['enabled']) {
-                                    if ($link['selected']) {
-                                        echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav link-nav-selected\">" . $link['text'] . "</a>\n\t";
-                                    } else {
-                                        echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav\">" . $link['text'] . "</a>\n\t";
-                                    }
+                <nav class="mod pattern-gradient" style="margin:0">
+                    <?php
+                    
+                        // Home Navigation
+                        foreach($this->navigation as $k => $link) {
+                            if ($link['enabled']) {
+                                if ($link['selected']) {
+                                    echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav link-nav-selected\">" . $link['text'] . "</a>\n\t";
                                 } else {
-                                    echo "<a title=\"Coming Soon\" class=\"link-nav link-nav-disabled\">" . $link['text'] . "</a>\n\t";
+                                    echo "<a title=\"{$link['title']}\" href=\"{$k}\" class=\"link-nav\">" . $link['text'] . "</a>\n\t";
                                 }
+                            } else {
+                                echo "<a title=\"Coming Soon\" class=\"link-nav link-nav-disabled\">" . $link['text'] . "</a>\n\t";
                             }
-                        ?>
+                        }
+                    ?>
+                </nav>
+                <div class="mod mod-padding mod-header">
+                    <div style="float:left;margin-right:24px">
+                        <a href="/"><img width=250 src="/img/logosmall.png"></a>
                     </div>
-                    <div style="float:right">
+                    <div style="float:left">
                         <form action="/search" method="get" class="form-search">
                             <fieldset>
                                 <input type="text" class="input-search" name="q" x-webkit-speech/>
-                                <input type="submit" class="submit-search" value="Search"/>
+                                <input type="submit" class="submit-search" value="" title="Totally ripped this button off the new Google design"/>
                             </fieldset>
                         </form>
                     </div>
-                </nav>
+                </div>
             </header>
             <?php if (isset($this->heading)) { ?>
                 <div class="mod">
