@@ -23,7 +23,7 @@ class LootDirectoryController extends RootController {
         // Fetch Types
         $this->types = $loot->types();
         
-        F3::set('NOTIFY.tip', "Items are sorted alphabetically by their parent, then by descending rarity and level.");
+        // F3::set('NOTIFY.tip', "Items are sorted alphabetically by their parent, then by descending rarity and level.");
         $this->navigation['/loot/']['selected'] = true;
         $this->render('lootdirectory.php');
     }

@@ -62,7 +62,7 @@ body{
     line-height:1.5;
 }
 header{}
-nav{}
+nav{background-color:#E5E5E5}
 .page{min-width:970px}
 
 /* Modules */
@@ -74,7 +74,6 @@ nav{}
     .mod-header{
         background-color:#f5f5f5;
         margin:0;
-        border-bottom:1px solid #e5e5e5;
     }
     
     /* mod-button is extended by pattern-tip, pattern-error, etc */
@@ -162,7 +161,7 @@ nav{}
 /* Headings */
 h1,h2,h3,h4,h5,h6{
     font-family:"Georgia";
-    letter-spacing:-1px;
+    letter-spacing:0;
 }
 h1{font-size:2.4em}
 h2{font-size:1.9em}
@@ -170,10 +169,10 @@ h3{font-size:1.4em}
 h4{font-size:0.9em}
 
 .h-page{
-    border-bottom:1px solid #555;
+    border-bottom:1px solid #ccc;
     padding-left:12px;
     font-variant:small-caps;
-    font-size:30px;
+    font-size:32px;
 }
 .h-column{
     padding-left:8px;
@@ -219,21 +218,14 @@ a{color:royalBlue;text-decoration:none}
 a:hover{color:#bf4d4d;text-decoration:none}
 
 .link-nav{
-    border-top:1px solid #111;
-    border-bottom:1px solid #111;
-    text-shadow: 0 -1px 0 #555;
-    border-left: 1px solid #000;
-    border-right:1px solid #333;
     display:block;
     float:left;
     font-size:13px;
-    font-weight:bold;
-    line-height:3;
+    line-height:2.6;
     padding: 0 30px;
 }
     .link-nav:link,.link-nav:visited{
-        text-shadow: 0 -1px 0 #111;
-        color:#f2f2f2;
+        color:#333;
         text-decoration:none
     }
     .link-nav:hover{color:#bf4d4d}
@@ -241,11 +233,11 @@ a:hover{color:#bf4d4d;text-decoration:none}
         background: #bf4d4d;
         background: -moz-linear-gradient(top, #bf4d4d 0%, #a62f2f 100%);
         background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bf4d4d), to(#a62f2f));
-        color:#fff;
     }
+    .link-nav-selected:link,.link-nav-selected:visited{color:#fff;}
     .link-nav-selected:hover{color:#fff;}
-    .link-nav-disabled{color:#444;cursor:default;text-shadow:0 0 0 #fff}
-    .link-nav-disabled:hover{color:#444}
+    .link-nav-disabled{color:#aaa;cursor:default;text-shadow:0 0 0 #fff}
+    .link-nav-disabled:hover{color:#aaa}
 .link-block{display:block}
 
 /* Lists */

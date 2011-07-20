@@ -26,7 +26,20 @@
     <body>
         <div class="page">
             <header>
-                <nav class="mod pattern-gradient" style="margin:0">
+                <div class="mod mod-padding mod-header">
+                    <div style="float:left;margin-right:24px">
+                        <a href="/"><img width=250 src="/img/logosmall.png"></a>
+                    </div>
+                    <div style="float:left">
+                        <form action="/search" method="get" class="form-search">
+                            <fieldset>
+                                <input type="text" class="input-search" name="q" x-webkit-speech/>
+                                <input type="submit" class="submit-search" value="" title="Totally ripped this button off the new Google design"/>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <nav class="mod" style="margin:0">
                     <?php
                     
                         // Home Navigation
@@ -43,19 +56,6 @@
                         }
                     ?>
                 </nav>
-                <div class="mod mod-padding mod-header">
-                    <div style="float:left;margin-right:24px">
-                        <a href="/"><img width=250 src="/img/logosmall.png"></a>
-                    </div>
-                    <div style="float:left">
-                        <form action="/search" method="get" class="form-search">
-                            <fieldset>
-                                <input type="text" class="input-search" name="q" x-webkit-speech/>
-                                <input type="submit" class="submit-search" value="" title="Totally ripped this button off the new Google design"/>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
             </header>
             <?php if (isset($this->heading)) { ?>
                 <div class="mod">
