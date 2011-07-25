@@ -1,6 +1,3 @@
-<div class="mod mod-button pattern-success js-fadein">
-    <p>Rejoice! <?php echo count($this->results); ?> matches found!</p>
-</div>
 <div class="mod">
     <table id="searchresults">
         <colgroup>

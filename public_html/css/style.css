@@ -67,6 +67,7 @@ footer{
     background-color:#E5E5E5;
     border-top:1px solid #ccc;
 }
+b{font-weight:bold}
 .page{min-width:970px}
 
 /* Modules */
@@ -347,3 +348,12 @@ img{}
 /* Javascript */
 #pager{position:static !important}
 .js-fadein{display:none}
+#autocomplete{
+    position:absolute;
+}
+.js-autocomplete{
+    background-color:#fff;
+    width:400px;
+    padding:2px 4px;
+}
+.js-autocomplete:hover{background-color:#f2f2f2}

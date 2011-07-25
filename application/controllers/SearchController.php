@@ -25,6 +25,7 @@ class SearchController extends RootController {
                     
                     $this->title = "Search: \"" . $query . "\" - Diablo 2 Database";
                     $this->heading = "Search: \"" . $query . "\"";
+                    F3::set('NOTIFY.success', "Rejoice! " . count($this->results) . " matches found!");
                     $this->render('search.php');
                 } else {
                     $this->heading = "Search: \"" . $query . "\"";

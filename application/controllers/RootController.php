@@ -14,6 +14,7 @@ class RootController {
     public $keywords    = "diablo 2 database, diablo 2, diablo 2 builds, diablo 2 classes, diablo 2 loot";
     public $language    = "en";
     public $title       = "Leviatha - Diablo 2 Database: Loot, Builds, News, Monsters, and more!";
+    
     public $heading     = null;
     
     // Page Assets
@@ -65,12 +66,12 @@ class RootController {
     
     public $flag = array(
         "notifications" => true,
-        "search" => true
+        "search" => true,
+        "headings" => true
     );
     
     public function get() {
-        $this->navigation['/']['selected'] = true;
-        $this->render('home.php');
+        F3::reroute('/loot');
     }
     
     public function about() {

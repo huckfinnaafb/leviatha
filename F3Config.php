@@ -10,4 +10,4 @@ F3::set('DB',
 );
 
 // Debug
-F3::set('DEBUG', 1);
+F3::set('DEBUG', 3);
